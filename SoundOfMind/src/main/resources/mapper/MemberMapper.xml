@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.MemberMapper">
+
+<insert id="join" parameterType="com.SoundOfMind.domain.Member">
+insert into MEMBER_INFO
+values(#{name},#{id},#{pw},1)
+</insert>
+
+<select id="login" parameterType="com.SoundOfMind.domain.Member" resultType="com.SoundOfMind.domain.Member">
+select * from MEMBER_INFO where id=#{id} and pw=#{pw}
+</select>
+
+<delete id="delete" parameterType="String">
+delete from MEMBER_INFO where id=#{id}
+</delete>
+
+
+</mapper>
