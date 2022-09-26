@@ -9,8 +9,9 @@
 <body>
 
 <h1>my page~~ </h1>
-<p>꾸미기는 나중에,,</p>
+<p>꾸미기는 나중에,,
+여기서 회원탈퇴만들기</p>
 
-<li><a href="delete.do?id=${id}" id="deletemember"><span class="label">회원탈퇴</span></a></li>
+
 </body>
 </html>

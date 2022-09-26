@@ -46,10 +46,13 @@ public class MemberController {
 		}
 	}
 	@RequestMapping("/delete.do")
-	public String delete(String id) {
+	public String delete(String id , HttpSession session) {
 		mapper.delete(id);
+		
 		return "index";
 	}
+	
+	
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
