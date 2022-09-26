@@ -18,18 +18,15 @@ public class StoregeController {
 
 	@Autowired
 	private StoregeMapper mapper;
-	
+
 	@GetMapping("/storege.do")
-	public String storege(HttpSession session,Model model) {
-		Member member = (Member)session.getAttribute("user");
-		if(member != null) {
+	public String storege(HttpSession session, Model model) {
+		Member member = (Member) session.getAttribute("user");
+		if (member != null) {
 			String id = member.getId();
 			List<Storege> storege = mapper.storege(id);
 			model.addAttribute("storege", storege);
-		}else {
-			
 		}
-			
 		return "storege";
 	}
 }
