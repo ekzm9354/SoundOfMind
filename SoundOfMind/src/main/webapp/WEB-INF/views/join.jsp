@@ -25,7 +25,7 @@ display: none;
 	NAME : <input type="text" name="name"> <br>
 	ID : <input type="text" name="id"> <br>
 	PW : <input type="password" name="pw"> <br>
-	GRADE : <input type="text" name="grade"> <br>
+	<input type="hidden" name="grade" value="1"> <br>
 	<!-- 동의 할거니?  -->
 	<button type="submit">회원가입하기</button>
 </form>

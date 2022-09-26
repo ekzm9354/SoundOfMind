@@ -21,14 +21,11 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 	
-
 	@PostMapping("/join.do")
 	public String join(Member member) {
 		mapper.join(member);
 		return "index";
 	}
-	
-
 	@GetMapping("/join.do")
 	public String join() {
 		return "join";
@@ -38,27 +35,21 @@ public class MemberController {
 	public String login() {
 		return "login";
 	}
-	
 	@PostMapping("/login.do")
 	public String login(Member member,HttpSession session) {
 		Member user = mapper.login(member);
 		if(user == null) {
 			return "login";}
 		else {
-			
 			session.setAttribute("user", user); //세션생성
-			
-			
 			return "index";
 		}
 	}
-	
 	@RequestMapping("/delete.do")
 	public String delete(String id) {
 		mapper.delete(id);
 		return "index";
 	}
-	
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		session.invalidate();
