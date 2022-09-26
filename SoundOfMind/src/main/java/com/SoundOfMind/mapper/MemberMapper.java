@@ -8,9 +8,7 @@ import com.SoundOfMind.domain.Member;
 public interface MemberMapper {
 
 	public int join(Member member);
-	
 	public Member login(Member member);
-	
 	public int delete(String id);
 	
 }
