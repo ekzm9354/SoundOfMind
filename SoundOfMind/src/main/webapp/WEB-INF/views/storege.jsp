@@ -15,12 +15,14 @@
 		<table border="1">
 			<tr>
 				<td>번호</td>
+				<td>날짜</td>
 				<td>내용</td>
 				<td>감정</td>
 			</tr>
 		<c:forEach var="storege" items="${storege}">	
 			<tr>
-				<td></td>
+				<td>${storege.rownum}</td>
+				<td>${storege.date}</td>
 				<td>${storege.text}</td>
 				<td>${storege.emotion}</td>
 			</tr>

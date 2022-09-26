@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Storege {
+	private int rownum;
 	private int s_index;
 	private Date date;
 	private String id;
