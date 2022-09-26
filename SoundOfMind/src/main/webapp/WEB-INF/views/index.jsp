@@ -28,7 +28,7 @@
 						<c:if test="${user != null }">
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						<li><a href="delete.do?id=${id}" id="deletemember"><span class="label">회원탈퇴</span></a></li>
+						<li><a href="" ><span class="label">My Page</span></a></li>
 						</c:if>
 					</ul>
 

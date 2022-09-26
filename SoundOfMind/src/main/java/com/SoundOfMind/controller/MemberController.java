@@ -45,10 +45,7 @@ public class MemberController {
 		if(user == null) {
 			return "login";}
 		else {
-			
 			session.setAttribute("user", user); //세션생성
-			
-			
 			return "index";
 		}
 	}
