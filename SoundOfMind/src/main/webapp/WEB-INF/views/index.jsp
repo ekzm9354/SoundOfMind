@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <!DOCTYPE HTML>
 
 <html>
@@ -16,14 +17,23 @@
 					<div id="main">
 						<div class="inner">
 							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Sound</strong> of Mind </a>
-									<ul class="icons">
-										<li><a href="#"><span class="label">Login</span></a></li>
-										<li><a href="#"><span class="label">Sign Up</span></a></li>
-									</ul>
-								</header>
-							<!-- Banner -->
+				<header id="header">
+					<a href="index.html" class="logo"><strong>Sound</strong> of
+						Mind </a>
+					<ul class="icons">
+						<c:if test="${user == null}">
+							<li><a href="login.do"><span class="label">로그인</span></a></li>
+							<li><a href="join.do"><span class="label">회원가입</span></a></li>
+						</c:if>
+						<c:if test="${user != null }">
+						${user.name}님 
+						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						<li><a href="delete.do?id=${id}" id="deletemember"><span class="label">회원탈퇴</span></a></li>
+						</c:if>
+					</ul>
+
+				</header>
+				<!-- Banner -->
 								<section id="banner">
 									<div class="content">
 										<header>
@@ -90,5 +100,6 @@
 			<script src="/resources/assets/js/breakpoints.min.js"></script>
 			<script src="/resources/assets/js/util.js"></script>
 			<script src="/resources/assets/js/main.js"></script>
+			
 	</body>
 </html>

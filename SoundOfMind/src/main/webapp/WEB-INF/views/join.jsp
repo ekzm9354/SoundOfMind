@@ -5,6 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+.id_ok{
+color:#008000;
+display: none;
+}
+
+.id_already{
+color:#6A82FB; 
+display: none;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>

@@ -4,6 +4,18 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+//회원탈퇴 js -예림
+document.getElementById("deletemember").onclick=function(){
+	//1. 회원 탈퇴를 진행하시겠습니까?
+	//2. 탈퇴를 하시게 되면, 데이터는 절대 복구 불가능합니다ㅣ.
+	
+	if(window.confirm("탈퇴를 진행하시겠습니까?") && window.confirm("탈퇴를 하시게 되면 데이터 복구는 불가능합니다.")){ 
+		return true;
+	}else{
+		return flase;
+	}
+};
+
 (function($) {
 
 	var	$window = $(window),
