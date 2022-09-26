@@ -3,6 +3,9 @@
 <mapper namespace="com.SoundOfMind.mapper.StoregeMapper">
 	<select id="storege" parameterType="String"
 		resultType="com.SoundOfMind.domain.Storege">
-		select * from STOREGE where #{id}=#{id}
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT * FROM
+		STOREGE WHERE ID=#{id} AND (@rownum :=0)=0 ORDER BY
+		DATE DESC) S
 	</select>
 </mapper>
