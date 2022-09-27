@@ -5,9 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 @MapperScan("com.SoundOfMind.mapper")
 @ComponentScan("com.SoundOfMind.controller")
+@RestController("com.SoundOfMind.controller")
 @SpringBootApplication
 public class SoundOfMindApplication {
 

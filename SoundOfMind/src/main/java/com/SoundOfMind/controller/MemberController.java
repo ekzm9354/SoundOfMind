@@ -1,5 +1,7 @@
 package com.SoundOfMind.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -30,18 +32,21 @@ public class MemberController {
 	public String join() {
 		return "join";
 	}
-	
 	@GetMapping("/login.do")
 	public String login() {
 		return "login";
 	}
 	@PostMapping("/login.do")
-	public String login(Member member,HttpSession session) {
+	public String login(Member member,HttpSession session,HttpServletRequest request) {
 		Member user = mapper.login(member);
 		if(user == null) {
 			return "login";}
 		else {
 			session.setAttribute("user", user); //세션생성
+			String ip = request.getRemoteAddr();
+			System.out.println(ip);
+			session.setAttribute("ip", ip);
+			
 			return "index";
 		}
 	}
