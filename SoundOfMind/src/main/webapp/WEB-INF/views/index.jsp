@@ -75,7 +75,7 @@
 
 			</div>
 		</div>
-		<!-- Sidebar -->
+		<!-- Sidebar. -->
 		<div id="sidebar">
 			<div class="inner">
 				<!-- Menu -->
