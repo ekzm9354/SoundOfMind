@@ -1,3 +1,9 @@
+<%@page import="java.util.Base64.Decoder"%>
+<%@page import="org.python.icu.impl.number.Parse"%>
+<%@page
+	import="org.eclipse.jdt.internal.compiler.parser.ParserBasicInformation"%>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="org.springframework.boot.web.servlet.server.Encoding"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -52,10 +58,9 @@
 							<div class='bar'></div>
 						</div>
 						<br>
-						<button>
-							<a href="stt.do">마이크</a>
-						</button>
+						<button onclick="speaker()">마이크</button>
 					</div>
+					
 					<div class="content" style="height: 554.3px;">
 
 						<input type="text" style="height: 200px; margin-bottom: 20px;">
@@ -66,10 +71,6 @@
 							<li><a href="#" class="button big">Sentiment Analysis</a></li>
 						</ul>
 					</div>
-
-					<!-- 									<span class="image object">
-										<img src="images/pic10.jpg" alt="" />
-									</span> -->
 				</section>
 
 			</div>
@@ -111,5 +112,20 @@
 	<script src="/resources/assets/js/breakpoints.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script type="text/javascript">
+		function speaker() {
+			console.log('e')
+			$.ajax({
+				url : "http://172.30.1.5:5000/",
+				data : {
+					ip : '127.0.0.1',
+					num : 1
+				},
+				succes : console.log('success'),
+				error : console.log('error')
+			})
+		}
+	</script>
+
 </body>
 </html>
