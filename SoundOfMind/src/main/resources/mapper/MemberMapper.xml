@@ -11,7 +11,7 @@ values(#{name},#{id},#{pw},1)
 select * from MEMBER_INFO where id=#{id} and pw=#{pw}
 </select>
 
-<delete id="delete" parameterType="String">
+<delete id="delete" parameterType="com.SoundOfMind.domain.Member">
 delete from MEMBER_INFO where id=#{id}
 </delete>
 
