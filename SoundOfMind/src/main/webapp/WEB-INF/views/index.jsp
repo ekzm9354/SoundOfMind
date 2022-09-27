@@ -10,6 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
+<link rel="stylesheet" href="/resources/assets/css/loading.css" />
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -36,39 +37,33 @@
 				</header>
 				<!-- Banner -->
 				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>
-								Hi, I’m Editorial<br /> by HTML5 UP
-							</h1>
-							<p>A free and fully responsive site template</p>
-						</header>
-						<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu.
-							Proin aliquam facilisis ante interdum congue. Integer mollis,
-							nisl amet convallis, porttitor magna ullamcorper, amet egestas
-							mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id
-							euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor
-							sit nullam.</p>
-						<ul class="actions">
-							<li><a href="#" class="button big">Learn More</a></li>
-						</ul>
-						<button><a href="stt.do">마이크</a></button>
+					<div class="content" style="height: 554.3px;">
+						<!-- loading animation -->
+						<div class='music' style="padding-top: 200px; padding-bottom: 200px;">
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+							<div class='bar'></div>
+						</div>
+						<br>
+						<button>
+							<a href="stt.do">마이크</a>
+						</button>
 					</div>
-					<div class="content">
-						<header>
-							<h1>
-								Hi, I’m Editorial<br /> by HTML5 UP
-							</h1>
-							<p>A free and fully responsive site template</p>
-						</header>
-						<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu.
-							Proin aliquam facilisis ante interdum congue. Integer mollis,
-							nisl amet convallis, porttitor magna ullamcorper, amet egestas
-							mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id
-							euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor
-							sit nullam.</p>
+					<div class="content" style="height: 554.3px;">
+
+						<input type="text" style="height: 200px; margin-bottom: 20px;">
+						<input type="text" style="height: 200px; margin-bottom: 20px;">
+							
 						<ul class="actions">
-							<li><a href="#" class="button big">Learn More</a></li>
+							<li><a href="#" class="button big">Revise</a></li>
+							<li><a href="#" class="button big">Sentiment Analysis</a></li>
 						</ul>
 					</div>
 

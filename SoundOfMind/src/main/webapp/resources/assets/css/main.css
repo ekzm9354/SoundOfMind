@@ -1867,7 +1867,7 @@ button,
     #main > .inner {
       padding: 0 5em 0.1em 5em ; }
       #main > .inner > section {
-        padding: 5em 0 3em 0 ; } }
+        padding: 2em 0 3em 0 ; } }
   @media screen and (max-width: 1280px) {
     #main > .inner {
       padding: 0 4em 0.1em 4em ; }
@@ -2130,6 +2130,7 @@ button,
     border-radius: 2%;
     padding: 3%;
     margin: 1%;
+    text-align: center;
      }
   #banner .image {
     -moz-flex-grow: 0;
