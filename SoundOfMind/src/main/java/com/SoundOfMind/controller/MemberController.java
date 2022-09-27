@@ -46,9 +46,11 @@ public class MemberController {
 		}
 	}
 	@RequestMapping("/delete.do")
-	public String delete(String id , HttpSession session) {
-		mapper.delete(id);
+	public String delete(Member member , HttpSession session) {
+		System.out.println(member.getId());
 		
+		mapper.delete(member);
+		session.invalidate();
 		return "index";
 	}
 	
@@ -59,5 +61,9 @@ public class MemberController {
 		return "index";
 	}
 	
+	@GetMapping("/mypage.do")
+	public String mypage() {
+		return "mypage";
+	}
 
 }
