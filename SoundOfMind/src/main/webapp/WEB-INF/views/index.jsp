@@ -58,7 +58,7 @@
 							<div class='bar'></div>
 						</div>
 						<br>
-						<button onclick="speaker()">마이크</button>
+						<button onclick="speaker()">Mic</button>
 					</div>
 					
 					<div class="content" style="height: 554.3px;">
@@ -66,10 +66,8 @@
 						<input type="text" style="height: 200px; margin-bottom: 20px;">
 						<input type="text" style="height: 200px; margin-bottom: 20px;">
 							
-						<ul class="actions">
-							<li><a href="#" class="button big">Revise</a></li>
-							<li><a href="#" class="button big">Sentiment Analysis</a></li>
-						</ul>
+							<button><a href="#">Revise</a></button>
+							<button><a href="#">Sentiment Analysis</a></button>
 					</div>
 				</section>
 
