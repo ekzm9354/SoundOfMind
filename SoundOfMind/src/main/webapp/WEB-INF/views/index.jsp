@@ -36,7 +36,7 @@
 						<c:if test="${user!=null }"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 					</ul>
 
@@ -45,7 +45,8 @@
 				<section id="banner">
 					<div class="content" style="height: 554.3px;">
 						<!-- loading animation -->
-						<div class='music' style="padding-top: 200px; padding-bottom: 200px;">
+						<div class='music'
+							style="padding-top: 200px; padding-bottom: 200px;">
 							<div class='bar'></div>
 							<div class='bar'></div>
 							<div class='bar'></div>
@@ -60,14 +61,19 @@
 						<br>
 						<button onclick="speaker()">Mic</button>
 					</div>
-					
+
 					<div class="content" style="height: 554.3px;">
 
-						<input type="text" style="height: 200px; margin-bottom: 20px;">
-						<input type="text" style="height: 200px; margin-bottom: 20px;">
-							
-							<button><a href="#">Revise</a></button>
-							<button><a href="#">Sentiment Analysis</a></button>
+						<input type="text" name="inputSTT"
+							style="height: 200px; margin-bottom: 20px;"> <input
+							type="text" style="height: 200px; margin-bottom: 20px;">
+
+						<button>
+							<a href="#">Revise</a>
+						</button>
+						<button>
+							<a href="#">Sentiment Analysis</a>
+						</button>
 					</div>
 				</section>
 
@@ -112,15 +118,18 @@
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
 		function speaker() {
-			console.log('e')
 			$.ajax({
-				url : "http://172.30.1.5:5000/",
+				url : "http://172.30.1.5:5000/stt",
 				data : {
-					ip : '127.0.0.1',
 					num : 1
 				},
-				succes : console.log('success'),
-				error : console.log('error')
+				success : function(text) {
+					console.log(text)
+					$('input[name=inputSTT]').attr('value', text)
+				},
+				error : function(e) {
+					console.log(e)
+				}
 			})
 		}
 	</script>
