@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.SoundOfMind.mapper.EmotionMapper">
+<mapper namespace="com.SoundOfMind.mapper.MypageMapper">
 	<select id="emotion" parameterType="String"
 		resultType="com.SoundOfMind.domain.Emotion">
 		SELECT @rownum:=@rownum+1 as rownum, E.*

@@ -26,7 +26,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.html" class="logo"><strong>Sound</strong> of
+					<a href="index.do" class="logo"><strong>Sound</strong> of
 						Mind </a>
 					<ul class="icons">
 						<c:if test="${user==null}">
@@ -94,8 +94,8 @@
 								<li><a href="#">INFORMATION</a></li>
 								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
-						<li><a href="emotion.do">MY PAGE</a></li>
-						<li><a href="mypage.do">SETTING</a></li>
+						<li><a href="mypage.do">MY PAGE</a></li>
+						<li><a href="#">SETTING</a></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>

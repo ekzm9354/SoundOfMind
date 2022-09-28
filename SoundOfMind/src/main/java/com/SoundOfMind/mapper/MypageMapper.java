@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 import com.SoundOfMind.domain.Emotion;
 
 @Mapper
-public interface EmotionMapper {
+public interface MypageMapper {
 	public List<Emotion> emotion(String id);
 }

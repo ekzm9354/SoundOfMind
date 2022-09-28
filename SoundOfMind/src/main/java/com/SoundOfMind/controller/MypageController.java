@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.SoundOfMind.domain.Emotion;
 import com.SoundOfMind.domain.Member;
-import com.SoundOfMind.mapper.EmotionMapper;
+import com.SoundOfMind.mapper.MypageMapper;
 
 @Controller
-public class EmotionController {
+public class MypageController {
 
 	@Autowired
-	private EmotionMapper mapper;
+	private MypageMapper mapper;
 
-	@GetMapping("/emotion.do")
+	@GetMapping("/mypage.do")
 	public String storege(HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("user");
 		if (member != null) {
@@ -27,6 +27,6 @@ public class EmotionController {
 			List<Emotion> emotion = mapper.emotion(id);
 			model.addAttribute("emotion", emotion);
 		}
-		return "storege";
+		return "mypage";
 	}
 }
