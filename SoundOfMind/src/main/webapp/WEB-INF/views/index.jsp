@@ -64,9 +64,8 @@
 
 					<div class="content" style="height: 554.3px;">
 
-						<input type="text" name="inputSTT"
-							style="height: 200px; margin-bottom: 20px;"> <input
-							type="text" style="height: 200px; margin-bottom: 20px;">
+						<input type="text" name="inputSTT" style="height: 200px; margin-bottom: 20px;"> 
+						<input type="text" style="height: 200px; margin-bottom: 20px;">
 
 						<button>
 							<a href="#">Revise</a>
