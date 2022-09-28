@@ -93,7 +93,7 @@
 					</ul>
 				</nav>
 
-				<!-- Footer -->
+				<!-- Footer. -->
 				<footer id="footer">
 					<p class="copyright">
 						&copy; Untitled. All rights reserved. Demo Images: <a
