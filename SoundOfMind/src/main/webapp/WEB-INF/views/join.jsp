@@ -27,7 +27,7 @@
 				</header>
 
 
-				<!-- <section id="banner">-->
+				
 					<div class="content"> 
 						<form action="join.do" method="post" class="login-form">
 							<h1>회원가입</h1>
@@ -52,7 +52,7 @@
 						</form>
 					</div>
 
-				<!-- </section> -->
+				
 
 			</div>
 		</div>
