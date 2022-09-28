@@ -19,8 +19,8 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of
-						Mind </a>
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
 					<ul class="icons">
 						<c:if test="${user==null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -29,6 +29,7 @@
 						<c:if test="${user!=null }"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>
 					</ul>
 				</header>
 
@@ -49,6 +50,22 @@
 								<th scope="row">Name</th>
 								<td>${user.name}</td>
 							</tr>
+						</table>
+						<table class="type03">
+							<tr>
+								<th scope="row">번호</th>
+								<td>날짜</td>
+								<td>내용</td>
+								<td>감정</td>
+							</tr>
+							<c:forEach var="emotion" items="${emotion}">
+								<tr>
+									<th scope="row">${emotion.rownum}</th>
+									<td>${emotion.date}</td>
+									<td>${emotion.text}</td>
+									<td>${emotion.emotions}</td>
+								</tr>
+							</c:forEach>
 						</table>
 						<button type="button" onclick="deletemem()">탈퇴하기</button>
 						<%-- <a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a> --%>
@@ -81,26 +98,26 @@
 					</ul>
 				</nav>
 
+			</div>
+		</div>
+		<!-- Scripts -->
+		<script src="/resources/assets/js/jquery.min.js"></script>
+		<script src="/resources/assets/js/browser.min.js"></script>
+		<script src="/resources/assets/js/breakpoints.min.js"></script>
+		<script src="/resources/assets/js/util.js"></script>
+		<script src="/resources/assets/js/mypage.js"></script>
 
-				<!-- Scripts -->
-				<script src="/resources/assets/js/jquery.min.js"></script>
-				<script src="/resources/assets/js/browser.min.js"></script>
-				<script src="/resources/assets/js/breakpoints.min.js"></script>
-				<script src="/resources/assets/js/util.js"></script>
-				<script src="/resources/assets/js/mypage.js"></script>
 
-
-				<script>
-					function deletemem() {
-						if (!confirm("정말로 탈퇴하시겠습니까?")) {
-							return "mypage.do";
-						} else {
-							alert("탈퇴 되었습니다.");
-							location.replace("delete.do?id=${user.id}")
-							return "delete.do";
-						}
-					}
-				</script>
-				</c:if>
+		<script>
+			function deletemem() {
+				if (!confirm("정말로 탈퇴하시겠습니까?")) {
+					return "mypage.do";
+				} else {
+					alert("탈퇴 되었습니다.");
+					location.replace("delete.do?id=${user.id}")
+					return "delete.do";
+				}
+			}
+		</script>
 </body>
 </html>
