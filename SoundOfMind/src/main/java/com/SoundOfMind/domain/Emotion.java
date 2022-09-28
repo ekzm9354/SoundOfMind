@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Storege {
+public class Emotion {
 	private int rownum;
-	private int s_index;
+	private int e_index;
 	private Date date;
-	private String title;
-	private String content;
 	private String id;
-	private int click;
-	
+	private String text;
+	private String emotions;
 }
