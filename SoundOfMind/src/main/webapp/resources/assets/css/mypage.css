@@ -2270,9 +2270,10 @@ button,
 /*예림 수정 -> join.jsp에 해당하는 css  */
 .login-form {
     width: calc(100% - 20px);
-/*     max-width: 500px; */
+    max-width: 500px;
     background-color: #fff;
-    padding: 50px 40px;
+    /* padding: 50px 40px; */
+    margin :0 auto;
 }
 .login-form h1 {
     text-align: center;
@@ -2286,7 +2287,7 @@ button,
 }
 
 .textb input {
- /*    width: 100%; */
+     width: 100%; 
     height: 70px;
     border: none;
     background-color: #ededed;
