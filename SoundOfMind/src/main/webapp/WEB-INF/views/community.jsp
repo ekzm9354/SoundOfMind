@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>hell, community.jsp</h1>
 </body>
 </html>

@@ -90,7 +90,7 @@
 					<ul>
 						<li><span class="opener">COMMUNITY</span>
 							<ul>
-								<li><a href="#">BOARD</a></li>
+								<li><a href="community.do">BOARD</a></li>
 								<li><a href="#">NEWS</a></li>
 								<li><a href="#">INFORMATION</a></li>
 								<li><a href="#">CAHTTING</a></li>
