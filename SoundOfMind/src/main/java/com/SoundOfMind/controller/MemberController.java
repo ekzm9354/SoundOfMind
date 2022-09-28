@@ -76,9 +76,4 @@ public class MemberController {
 		session.invalidate();
 		return "index";
 	}
-
-	@GetMapping("/mypage.do")
-	public String mypage() {
-		return "mypage";
-	}
 }

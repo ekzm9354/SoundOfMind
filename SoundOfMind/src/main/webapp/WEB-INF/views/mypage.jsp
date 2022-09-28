@@ -19,8 +19,8 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of
-						Mind </a>
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
 					<ul class="icons">
 						<c:if test="${user==null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -53,14 +53,19 @@
 						</table>
 						<table class="type03">
 							<tr>
-								<th scope="row"></th>
-								<td>번호</td>
+								<th scope="row">번호</th>
+								<td>날짜</td>
 								<td>내용</td>
 								<td>감정</td>
 							</tr>
-							<tr>
-
-							</tr>
+							<c:forEach var="emotion" items="${emotion}">
+								<tr>
+									<th scope="row">${emotion.rownum}</th>
+									<td>${emotion.date}</td>
+									<td>${emotion.text}</td>
+									<td>${emotion.emotions}</td>
+								</tr>
+							</c:forEach>
 						</table>
 						<button type="button" onclick="deletemem()">탈퇴하기</button>
 						<%-- <a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a> --%>
@@ -87,8 +92,6 @@
 								<li><a href="#">INFORMATION</a></li>
 								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
-						<li><a href="emotion.do">MY PAGE</a></li>
-						<li><a href="mypage.do">SETTING</a></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
 						<li><a href="#">SETTING</a></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
@@ -116,6 +119,5 @@
 				}
 			}
 		</script>
-		
 </body>
 </html>
