@@ -187,8 +187,8 @@
 								<li><a href="#">INFORMATION</a></li>
 								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
-						<li><a href="emotion.do">MY PAGE</a></li>
-						<li><a href="mypage.do">SETTING</a></li>
+						<li><a href="mypage.do">MY PAGE</a></li>
+						<li><a href="#">SETTING</a></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
