@@ -49,10 +49,6 @@
 								<th scope="row">Name</th>
 								<td>${user.name}</td>
 							</tr>
-							<tr>
-								<th scope="row">My Grade</th>
-								<td>${user.grade}</td>
-							</tr>
 						</table>
 						<button type="button" onclick="deletemem()">탈퇴하기</button>
 						<%-- <a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a> --%>
@@ -93,16 +89,16 @@
 
 
 				<script>
-    function deletemem() {
-    	if (!confirm("정말로 탈퇴하시겠습니까?")) {
-            return "mypage.do";
-        } else {
-            alert("탈퇴 되었습니다.");
-            location.replace("delete.do?id=${user.id}")          
-            return "delete.do";
-        }
-    }
-</script>
+					function deletemem() {
+						if (!confirm("정말로 탈퇴하시겠습니까?")) {
+							return "mypage.do";
+						} else {
+							alert("탈퇴 되었습니다.");
+							location.replace("delete.do?id=${user.id}")
+							return "delete.do";
+						}
+					}
+				</script>
 				</c:if>
 </body>
 </html>

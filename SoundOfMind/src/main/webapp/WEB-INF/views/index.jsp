@@ -93,7 +93,7 @@
 								<li><a href="#">Size</a></li>
 								<li><a href="#">Theme</a></li>
 							</ul></li>
-						<li><a href="storege.do">Storage</a></li>
+						<li><a href="emotion.do">Storage</a></li>
 						<li><a href="mypage.do">My Page</a></li>
 						<li><a href="elements.html">Send feedback</a></li>
 					</ul>
@@ -119,7 +119,7 @@
 	<script type="text/javascript">
 		function speaker() {
 			$.ajax({
-				url : "http://172.30.1.5:5000/stt",
+				url : "http://127.0.0.1:5000/stt",
 				data : {
 					num : 1
 				},

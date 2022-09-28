@@ -1,7 +1,5 @@
 package com.SoundOfMind.domain;
 
-import java.sql.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,13 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Storege {
-	private int rownum;
-	private int s_index;
-	private Date date;
-	private String title;
-	private String content;
+public class Coment {
+
+	private int c_index;
 	private String id;
-	private int click;
-	
+	private int storege_id;
+	private String coments;
 }

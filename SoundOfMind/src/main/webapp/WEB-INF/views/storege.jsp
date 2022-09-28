@@ -50,12 +50,12 @@
 									<td>내용</td>
 									<td>감정</td>
 								</tr>
-								<c:forEach var="storege" items="${storege}">
+								<c:forEach var="emotion" items="${emotion}">
 									<tr>
-										<td>${storege.rownum}</td>
-										<td>${storege.date}</td>
-										<td>${storege.text}</td>
-										<td>${storege.emotion}</td>
+										<td>${emotion.rownum}</td>
+										<td>${emotion.date}</td>
+										<td>${emotion.text}</td>
+										<td>${emotion.emotions}</td>
 									</tr>
 								</c:forEach>
 
@@ -85,7 +85,7 @@
 								<li><a href="#">Size</a></li>
 								<li><a href="#">Theme</a></li>
 							</ul></li>
-						<li><a href="storege.do">Storage</a></li>
+						<li><a href="emotion.do">Storage</a></li>
 						<li><a href="mypage.do">My Page</a></li>
 						<li><a href="elements.html">Send feedback</a></li>
 					</ul>
