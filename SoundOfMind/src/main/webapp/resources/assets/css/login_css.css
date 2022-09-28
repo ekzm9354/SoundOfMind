@@ -26,7 +26,7 @@ body {
     text-align: center;
     margin: 48px 0;
     font-size: 2.3rem;
-    color: #111;
+    color: #6495ED;
 }
 
 .textb {
@@ -79,7 +79,7 @@ body {
     width: 100px;
     height: 100px;
     margin: 40px auto;
-    background-color: #bc252a;
+    background-color: #6495ED;
     color: #fff;
     font-size: 2.5rem;
     border: none;
@@ -97,7 +97,7 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 1.1rem;
-    color: #555;
+    color: #6495ED;
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 8px;
@@ -113,5 +113,6 @@ body {
     color: #ddd;
     border: 2px solid;
 }
+
 
   

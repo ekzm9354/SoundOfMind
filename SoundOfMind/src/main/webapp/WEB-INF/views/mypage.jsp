@@ -19,7 +19,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.html" class="logo"><strong>Sound</strong> of
+					<a href="index.do" class="logo"><strong>Sound</strong> of
 						Mind </a>
 					<ul class="icons">
 						<c:if test="${user==null}">
