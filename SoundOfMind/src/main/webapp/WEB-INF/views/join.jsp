@@ -58,6 +58,6 @@
 		</div>
 
 
-		<script src="/resources/assets/js/login.js"></script>
+		<script src="/resources/assets/js/join.js"></script>
 </body>
 </html>

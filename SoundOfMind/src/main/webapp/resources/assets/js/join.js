@@ -1,6 +1,6 @@
 /**
  * 
- */
+ 
  
  function checkId(){
         var id = $('#id').val(); //id값이 "id"인 입력란의 값을 저장
@@ -23,4 +23,23 @@
                 alert("에러입니다");
             }
         });
-        };
+        };*/
+        
+        
+var fields = document.querySelectorAll('.textb input');
+var btn = document.querySelector('.btn');
+
+function check() {
+    if( (fields[0].value != '') && (fields[1].value != '') && (fields[2].value != '')) {
+        btn.disabled = false;
+    } else {
+        btn.disabled = true;
+    }
+}
+/* 아이디,비번, 이름 작성하면 회원가입 가능 (버튼 활성화/비활성화)*/
+fields[0].addEventListener('keyup', check);
+fields[1].addEventListener('keyup', check);
+fields[2].addEventListener('keyup', check);
+
+
+
