@@ -80,14 +80,16 @@
 						<h2>Menu</h2>
 					</header>
 					<ul>
-						<li><span class="opener">Text</span>
+						<li><span class="opener">COMMUNITY</span>
 							<ul>
-								<li><a href="#">Size</a></li>
-								<li><a href="#">Theme</a></li>
+								<li><a href="community.do">BOARD</a></li>
+								<li><a href="#">NEWS</a></li>
+								<li><a href="#">INFORMATION</a></li>
+								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
-						<li><a href="emotion.do">Storage</a></li>
-						<li><a href="mypage.do">My Page</a></li>
-						<li><a href="elements.html">Send feedback</a></li>
+						<li><a href="mypage.do">MY PAGE</a></li>
+						<li><a href="#">SETTING</a></li>
+						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
 
