@@ -30,12 +30,12 @@
 						Mind </a>
 					<ul class="icons">
 						<c:if test="${user==null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							<li><a href="login.do"><span class="label">Login</span></a></li>
+							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
 						<c:if test="${user!=null }"> 
 						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						<li><a href="logout.do"><span class="label">Logout</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 					</ul>
@@ -85,21 +85,23 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>Menu</h2>
+						<h2>MENU</h2>
 					</header>
 					<ul>
-						<li><span class="opener">Text</span>
+						<li><span class="opener">COMMUNITY</span>
 							<ul>
-								<li><a href="#">Size</a></li>
-								<li><a href="#">Theme</a></li>
+								<li><a href="community.do">BOARD</a></li>
+								<li><a href="#">NEWS</a></li>
+								<li><a href="#">INFORMATION</a></li>
+								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
-						<li><a href="emotion.do">Storage</a></li>
-						<li><a href="mypage.do">My Page</a></li>
-						<li><a href="elements.html">Send feedback</a></li>
+						<li><a href="emotion.do">MY PAGE</a></li>
+						<li><a href="mypage.do">SETTING</a></li>
+						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
 
-				<!-- Footer -->
+				<!-- Footer. -->
 				<footer id="footer">
 					<p class="copyright">
 						&copy; Untitled. All rights reserved. Demo Images: <a
