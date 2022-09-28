@@ -11,7 +11,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet"
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-<link rel="stylesheet" href="/resources/assets/css/mypage.css" />
+<link rel="stylesheet" href="/resources/assets/css/join.css" />
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -27,7 +27,7 @@
 				</header>
 
 
-				<!-- <section id="banner">-->
+				
 					<div class="content"> 
 						<form action="join.do" method="post" class="login-form">
 							<h1>회원가입</h1>
@@ -52,7 +52,7 @@
 						</form>
 					</div>
 
-				<!-- </section> -->
+				
 
 			</div>
 		</div>

@@ -17,6 +17,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -64,9 +65,8 @@
 
 					<div class="content" style="height: 554.3px;">
 
-						<input type="text" name="inputSTT"
-							style="height: 200px; margin-bottom: 20px;"> <input
-							type="text" style="height: 200px; margin-bottom: 20px;">
+						<input type="text" name="inputSTT" style="height: 200px; margin-bottom: 20px;"> 
+						<input type="text" style="height: 200px; margin-bottom: 20px;">
 
 						<button>
 							<a href="#">Revise</a>
