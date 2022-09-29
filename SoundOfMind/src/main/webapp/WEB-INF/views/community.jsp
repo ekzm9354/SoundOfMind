@@ -72,7 +72,6 @@
 														<ul class="navbar-nav mr-auto">
 															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">BOARD<span class="sr-only">(current)	</span>	</a></li>
 															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">NEWS<span class="sr-only">(current) </span>	</a></li>
-															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">INFORMATION<span class="sr-only">(current) </span>	</a></li>
 															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">CHATTING<span class="sr-only">(current) </span>	</a></li>
 														</ul>
 														<form class="form-inline my-2 my-md-0">
@@ -172,7 +171,6 @@
 							<ul>
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="#">NEWS</a></li>
-								<li><a href="#">INFORMATION</a></li>
 								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
