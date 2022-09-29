@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.ChattingMapper">
+	<select id="chat" parameterType="String"
+		resultType="com.SoundOfMind.domain.Chatting">
+		SELECT TO_ID, DATE_FORMAT(DATE,'%y-%m-%d %H:%i') AS DATE,
+		FROM_ID,CHAT
+		FROM CHATTING
+		WHERE FROM_ID = #{from_id} AND TO_ID =
+		#{to_id}
+		ORDER BY DATE ASC;
+	</select>
+	<select id="chatlist" parameterType="String"
+		resultType="com.SoundOfMind.domain.Chatting">
+		SELECT DISTINCT TO_ID
+		FROM CHATTING
+		WHERE FROM_ID = #{id};
+	</select>
+</mapper>

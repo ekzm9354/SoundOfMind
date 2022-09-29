@@ -40,6 +40,7 @@
                 <input type="password" name="pw" required>
                 <div class="placeholder">패스워드</div>
                 <div class="show-password fas fa-eye-slash"></div>
+                
             </div>
 
           
