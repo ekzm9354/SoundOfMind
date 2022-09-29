@@ -93,7 +93,7 @@
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="#">NEWS</a></li>
 								<li><a href="#">INFORMATION</a></li>
-								<li><a href="#">CAHTTING</a></li>
+								<li><a href="chatting.do">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
 						<li><a href="setting.do">SETTING</a></li>
