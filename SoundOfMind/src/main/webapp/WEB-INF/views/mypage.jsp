@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="/resources/assets/css/mypage.css" />
 </head>
 <body class="is-preload">
+<c:if test="${user==null}">
+		<jsp:forward page="login.jsp"></jsp:forward></c:if>
+	<c:if test="${user!=null}">
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
@@ -100,6 +103,7 @@
 
 			</div>
 		</div>
+		</c:if>
 		<!-- Scripts -->
 		<script src="/resources/assets/js/jquery.min.js"></script>
 		<script src="/resources/assets/js/browser.min.js"></script>
