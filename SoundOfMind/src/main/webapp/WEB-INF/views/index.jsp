@@ -65,7 +65,7 @@
 
 					<div class="content" style="height: 554.3px;">
 
-						<input type="text" name="inputSTT" style="height: 200px; margin-bottom: 20px;"> 
+						<input type="text" name="inputSTT" style="height: 200px; margin-bottom: 20px; " class="speech"  value="안녕^^"> 
 						<input type="text" style="height: 200px; margin-bottom: 20px;">
 
 						<button>
@@ -96,7 +96,12 @@
 								<li><a href="chatting.do">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
-						<li><a href="setting.do">SETTING</a></li>
+						<!--폰트 셋팅 부분-->
+						<li><span class="opener" id="switcher">FONT SIZE</span>
+							<ul>
+								<li><span id="switcher-large">크게</span></li>
+								<li><span id="switcher-small">작게</span></li>
+							</ul></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
@@ -116,9 +121,11 @@
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
+	
 		function speaker() {
 			$.ajax({
 				url : "http://127.0.0.1:5000/stt",

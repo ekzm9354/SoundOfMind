@@ -83,5 +83,10 @@ public class MemberController {
 		return "setting";
 	}
 	
+	//sound of mind 누르면 홈 페이지로 이동
+	@RequestMapping("/index.do")
+	public String main() {
+		return "index";
+	}
 	
 }
