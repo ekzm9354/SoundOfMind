@@ -93,11 +93,15 @@
 							<ul>
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="#">NEWS</a></li>
-								<li><a href="#">INFORMATION</a></li>
 								<li><a href="chatting.do">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
-						<li><a href="#">SETTING</a></li>
+						<!--폰트 셋팅 부분-->
+						<li><span class="opener" id="switcher">FONT SIZE</span>
+							<ul>
+								<li><span id="switcher-large">크게</span></li>
+								<li><span id="switcher-small">작게</span></li>
+							</ul></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
