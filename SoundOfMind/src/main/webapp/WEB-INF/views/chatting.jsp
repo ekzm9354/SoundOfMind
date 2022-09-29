@@ -1,41 +1,58 @@
+<%@page import="java.util.Base64.Decoder"%>
+<%@page import="org.python.icu.impl.number.Parse"%>
+<%@page
+	import="org.eclipse.jdt.internal.compiler.parser.ParserBasicInformation"%>
+<%@page import="java.net.URLDecoder"%>
+<%@page import="org.springframework.boot.web.servlet.server.Encoding"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML>
 
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>Sound of Mind</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/chatting.css" />
-<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="/resources/assets/css/loading.css" />
 
 </head>
-<body>
-	<h1>hi, chatting page</h1>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Header -->
+				<header id="header">
+					<a href="index.do" class="logo"><strong>Sound</strong> of
+						Mind </a>
+					<ul class="icons">
+						<c:if test="${user==null}">
+							<li><a href="login.do"><span class="label">Login</span></a></li>
+							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
+						</c:if>
+						<c:if test="${user!=null }"> 
+						${user.name}님 
+						<li><a href="logout.do"><span class="label">Logout</span></a></li>
+							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+						</c:if>
+					</ul>
+
+				</header>
 	<table>
-		<thead>대화목록
-		</thead>
+		
 		<c:forEach var="chatlist" items="${chatlist}">
 			<tr>
 				<td onclick="ShowChat(`${chatlist.to_id}`)">${chatlist.to_id}</td>
 			</tr>
 		</c:forEach>
 	</table>
-
 	<table class="test">
 		<tr class="rowMain">
-
 		</tr>
-
 	</table>
 	<div class="container">
 		<h3 class=" text-center">Messaging</h3>
@@ -44,14 +61,14 @@
 				<div class="inbox_people">
 					<div class="headind_srch">
 						<div class="recent_heading">
-							<h4>Recent</h4>
+							<h4>대화목록</h4>
 						</div>
 						<div class="srch_bar">
 							<div class="stylish-input-group">
-								<input type="text" class="search-bar" placeholder="Search">
+								<!-- <input type="text" class="search-bar" placeholder="Search">
 								<span class="input-group-addon">
 									<button type="button">검색</button>
-								</span>
+								</span> -->
 							</div>
 						</div>
 					</div>
@@ -224,16 +241,16 @@
 					</div>
 				</div>
 			</div>
-
-
 			<p class="text-center top_spac">
 				Design by <a target="_blank"
 					href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil
 					Rajput</a>
 			</p>
-
 		</div>
 	</div>
+	
+	
+	
 	<script type="text/javascript">
 		function ShowChat(to_id) {
 			$.ajax({
@@ -256,7 +273,6 @@
 										+ "</td><td>" + res[i].date
 										+ "</td></tr>")
 					}
-
 				},
 				error : function(e) {
 					console.log(e)
