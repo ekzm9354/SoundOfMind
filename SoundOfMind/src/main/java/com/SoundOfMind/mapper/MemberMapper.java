@@ -13,5 +13,6 @@ public interface MemberMapper {
 	public Member login(Member member);
 	//회원탈퇴
 	public int delete(Member member);
-	
+	//아이디 중복체크
+	public int idCheck(String id);
 }

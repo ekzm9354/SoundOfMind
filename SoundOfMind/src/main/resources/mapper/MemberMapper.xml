@@ -15,5 +15,9 @@ select * from MEMBER_INFO where id=#{id} and pw=#{pw}
 delete from MEMBER_INFO where id=#{id}
 </delete>
 
+<!--아이디 중복체크  -->
+<select id="idCheck" parameterType="String" resultType="int">
+select count(id) from MEMBER_INFO where id=#{id}
+</select>
 
 </mapper>

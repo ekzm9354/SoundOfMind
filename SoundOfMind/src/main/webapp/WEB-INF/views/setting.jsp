@@ -9,7 +9,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/resources/assets/css/mypage.css" />
+<link rel="stylesheet" href="/resources/assets/css/setting.css" />
 </head>
 <body class="is-preload">
 <c:if test="${user==null}">
@@ -40,40 +40,18 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h1>My Page</h1>
-
+							<h1>Setting</h1>
 						</header>
-						<input type="file" class="profile_up" accept="image/*" >
-						
-						<table class="type03">
-							<tr>
-								<th scope="row">ID</th>
-								<td>${user.id}</td>
-							</tr>
-							<tr>
-								<th scope="row">Name</th>
-								<td>${user.name}</td>
-							</tr>
-						</table>
-						<table class="type03">
-							<tr>
-								<th scope="row">번호</th>
-								<td>날짜</td>
-								<td>내용</td>
-								<td>감정</td>
-							</tr>
-							<c:forEach var="emotion" items="${emotion}">
-								<tr>
-									<th scope="row">${emotion.rownum}</th>
-									<td>${emotion.date}</td>
-									<td>${emotion.text}</td>
-									<td>${emotion.emotions}</td>
-								</tr>
-							</c:forEach>
-						</table>
-						<button type="button" onclick="deletemem()">탈퇴하기</button>
-						<%-- <a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a> --%>
+					<div id="fontSizeControllBox">
+					<ul id="fontControll">
+					<li><a href="#" id="larger" class='buttonadd'>글자 크게</a></li>
+					<li><a href="#" id="smaller" class='buttonsub'>글자 작게</a></li>
+					</ul>
 					</div>
+					<font class="article">
+						
+						
+						
 
 				</section>
 
@@ -97,7 +75,7 @@
 								<li><a href="#">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
-						<li><a href="#">SETTING</a></li>
+						<li><a href="setting.do">SETTING</a></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
@@ -110,19 +88,8 @@
 		<script src="/resources/assets/js/browser.min.js"></script>
 		<script src="/resources/assets/js/breakpoints.min.js"></script>
 		<script src="/resources/assets/js/util.js"></script>
-		<script src="/resources/assets/js/mypage.js"></script>
+		<script src="/resources/assets/js/setting.js"></script>
 
 
-		<script>
-			function deletemem() {
-				if (!confirm("정말로 탈퇴하시겠습니까?")) {
-					return "mypage.do";
-				} else {
-					alert("탈퇴 되었습니다.");
-					location.replace("delete.do?id=${user.id}")
-					return "delete.do";
-				}
-			}
-		</script>
 </body>
 </html>

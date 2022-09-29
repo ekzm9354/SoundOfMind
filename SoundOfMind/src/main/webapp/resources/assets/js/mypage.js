@@ -318,3 +318,8 @@
 				});
 
 })(jQuery);
+
+/*프로필 사진 파일 업로드 
+const profile_upload = document.querySelector('.profile_up');
+const uploadbtn = document.querySelector('uploadbtn');
+uploadbtn.addEventListener('click',()=>profile_upload.click());*/

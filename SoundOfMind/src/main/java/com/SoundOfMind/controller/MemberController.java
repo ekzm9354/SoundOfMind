@@ -76,4 +76,12 @@ public class MemberController {
 		session.invalidate();
 		return "index";
 	}
+	
+	
+	@GetMapping("/setting.do")
+	public String setting() {
+		return "setting";
+	}
+	
+	
 }

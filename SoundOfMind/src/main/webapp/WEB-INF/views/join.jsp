@@ -32,14 +32,15 @@
 						<form action="join.do" method="post" class="login-form">
 							<h1>회원가입</h1>
 							<div class="textb">
-								<input type="text" name="id" required>
+								<input type="text" id="id" name="id" oninput="checkId()" required>
 								<div class="placeholder">아이디</div>
+								<span class="id_ok">사용 가능한 아이디입니다.</span>
+								<span class="id_already">이미 사용중인 아이디입니다.</span>
 							</div>
 
 							<div class="textb">
 								<input type="password" name="pw" required>
 								<div class="placeholder">패스워드</div>
-								<div class="show-password fas fa-eye-slash"></div>
 							</div>
 							<div class="textb">
 								<input type="text" name="name" required>
@@ -59,5 +60,6 @@
 
 
 		<script src="/resources/assets/js/join.js"></script>
+		<script src="/resources/assets/js/jquery.min.js"></script>
 </body>
 </html>
