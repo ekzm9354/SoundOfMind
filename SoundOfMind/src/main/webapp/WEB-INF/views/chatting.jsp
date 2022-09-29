@@ -44,7 +44,7 @@
 							"<th scope='row' class='to_id'>" + to_id + "</th>")
 					for (var i = 0; i < res.length; i++) {
 						$('.to_id').last().append(
-								"<tr class='row'><td>" + res[i].chat
+								"<tr class='row'><td>"+res[i].to_id+"</td><td>" + res[i].chat
 										+ "</td><td>" + res[i].date
 										+ "</td></tr>")
 					}

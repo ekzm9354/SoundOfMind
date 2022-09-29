@@ -31,6 +31,11 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 
+	@RequestMapping("/index.do")
+	public String index() {
+		return "index";
+	}
+
 	@PostMapping("/join.do")
 	public String join(Member member) {
 		mapper.join(member);
@@ -76,12 +81,12 @@ public class MemberController {
 		session.invalidate();
 		return "index";
 	}
-	
-	
+
 	@GetMapping("/setting.do")
 	public String setting() {
 		return "setting";
 	}
+
 	
 	//sound of mind 누르면 홈 페이지로 이동
 	@RequestMapping("/index.do")
