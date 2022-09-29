@@ -17,25 +17,28 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <!-- bootstrap -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 
 <style type="text/css">
 #header {
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    border-bottom: #6495ED;
-    padding: 6em 0 1em 0;
-    position: relative;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	border-bottom: #6495ED;
+	padding: 6em 0 1em 0;
+	position: relative;
 }
+
 .bg-dark {
-    background-color: #6495ED!important;
+	background-color: #6495ED !important;
 }
+
 .nav-link {
-    display: initial;
-    padding: 0.5rem 1rem;
-    border-bottom: black;
+	display: initial;
+	padding: 0.5rem 1rem;
+	border-bottom: black;
 }
 </style>
 
@@ -48,8 +51,8 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of
-						Mind </a>
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
 					<ul class="icons">
 						<c:if test="${user==null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
@@ -63,99 +66,94 @@
 					</ul>
 
 				</header>
-				
-				
-											<!-- 상단 메뉴  & 검색 -->
-												<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 46px;">
-								
-													<div class="navbar-collapse collapse" id="navbarsExample05"	style="">
-														<ul class="navbar-nav mr-auto">
-															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">BOARD<span class="sr-only">(current)	</span>	</a></li>
-															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">NEWS<span class="sr-only">(current) </span>	</a></li>
-															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">INFORMATION<span class="sr-only">(current) </span>	</a></li>
-															<li class="nav-item active"><a class="nav-link" href="#" style="height: 32px;">CHATTING<span class="sr-only">(current) </span>	</a></li>
-														</ul>
-														<form class="form-inline my-2 my-md-0">
-															<input class="form-control" type="text" placeholder="Search" style="height: 32px;">
-														</form>
-													</div>
-												</nav>
 
 
-											<!-- Table -->
-													<h3>Table</h3>
+				<!-- 상단 메뉴  & 검색 -->
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
+					style="height: 46px;">
 
-													<h4>Default</h4>
-													<div class="table-wrapper">
-														<table>
-															<thead>
-																<tr>
-																	<th>Name</th>
-																	<th>Description</th>
-																	<th>Price</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td>Item1</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-																	<td>29.99</td>
-																</tr>
-																<tr>
-																	<td>Item2</td>
-																	<td>Vis ac commodo adipiscing arcu aliquet.</td>
-																	<td>19.99</td>
-																</tr>
-																<tr>
-																	<td>Item3</td>
-																	<td> Morbi faucibus arcu accumsan lorem.</td>
-																	<td>29.99</td>
-																</tr>
-																<tr>
-																	<td>Item4</td>
-																	<td>Vitae integer tempus condimentum.</td>
-																	<td>19.99</td>
-																</tr>
-																<tr>
-																	<td>Item5</td>
-																	<td>Ante turpis integer aliquet porttitor.</td>
-																	<td>29.99</td>
-																</tr>
-															</tbody>
-															<tfoot>
-																<tr>
-																	<td colspan="2"></td>
-																	<td>100.00</td>
-																</tr>
-															</tfoot>
-														</table>
-													</div>
-													
-													
-													<!-- Preformatted Code -->
-													<h3>BOARD TOP 10</h3>
-													<pre><code>
+					<div class="navbar-collapse collapse" id="navbarsExample05"
+						style="">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active"><a class="nav-link" href="#"
+								style="height: 32px;">BOARD<span class="sr-only">(current)
+								</span>
+							</a></li>
+							<li class="nav-item active"><a class="nav-link" href="#"
+								style="height: 32px;">NEWS<span class="sr-only">(current)
+								</span>
+							</a></li>
+							<li class="nav-item active"><a class="nav-link" href="#"
+								style="height: 32px;">INFORMATION<span class="sr-only">(current)
+								</span>
+							</a></li>
+							<li class="nav-item active"><a class="nav-link" href="#"
+								style="height: 32px;">CHATTING<span class="sr-only">(current)
+								</span>
+							</a></li>
+						</ul>
+						<form class="form-inline my-2 my-md-0">
+							<input class="form-control" type="text" placeholder="Search"
+								style="height: 32px;">
+						</form>
+					</div>
+				</nav>
+
+
+				<!-- Table -->
+				<h3>게시판</h3>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>작성일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="comushow" items="${comushow}">
+								<tr>
+									<td>${comushow.rownum}</td>
+									<td>${comushow.title}</td>
+									<td>${comushow.id}</td>
+									<td>${comushow.date}</td>
+									<td>${comushow.click}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+
+
+				<!-- Preformatted Code -->
+				<h3>BOARD TOP 10</h3>
+				<pre>
+					<code>
 														1.
 														2.
 														3.
 														4.
-													</code></pre>
-													
-													
-													
-												<!-- 페이지 넘김 -->
-												<ul class="pagination">
-													<li><span class="button disabled">Prev</span></li>
-													<li><a href="#" class="page active">1</a></li>
-													<li><a href="#" class="page">2</a></li>
-													<li><a href="#" class="page">3</a></li>
-													<li><span>&hellip;</span></li>
-													<li><a href="#" class="page">8</a></li>
-													<li><a href="#" class="page">9</a></li>
-													<li><a href="#" class="page">10</a></li>
-													<li><a href="#" class="button">Next</a></li>
-												</ul>	
-													
+													</code>
+				</pre>
+
+
+
+				<!-- 페이지 넘김 -->
+				<ul class="pagination">
+					<li><span class="button disabled">Prev</span></li>
+					<li><a href="#" class="page active">1</a></li>
+					<li><a href="#" class="page">2</a></li>
+					<li><a href="#" class="page">3</a></li>
+					<li><span>&hellip;</span></li>
+					<li><a href="#" class="page">8</a></li>
+					<li><a href="#" class="page">9</a></li>
+					<li><a href="#" class="page">10</a></li>
+					<li><a href="#" class="button">Next</a></li>
+				</ul>
+
 
 			</div>
 		</div>
@@ -215,11 +213,14 @@
 			})
 		}
 	</script>
-	
+
+
 	<!-- bootstrap js -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>
