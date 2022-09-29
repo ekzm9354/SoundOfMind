@@ -87,4 +87,7 @@ public class MemberController {
 		return "setting";
 	}
 
+	
+	
+	
 }
