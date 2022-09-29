@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @MapperScan("com.SoundOfMind.mapper")
 @ComponentScan("com.SoundOfMind.controller")
-@RestController("com.SoundOfMind.controller")
 @SpringBootApplication
 public class SoundOfMindApplication implements WebMvcConfigurer {
 	@Override
