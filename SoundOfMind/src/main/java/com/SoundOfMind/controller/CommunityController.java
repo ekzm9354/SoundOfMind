@@ -46,4 +46,10 @@ public class CommunityController {
 		return "chatting";
 	}
 
+// 게시판 내용
+	@GetMapping("/board.do")
+	public String board(int s_index) {
+		System.out.println(s_index);
+		return "boardcontent";
+	}
 }

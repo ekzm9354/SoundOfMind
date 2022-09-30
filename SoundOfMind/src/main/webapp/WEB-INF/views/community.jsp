@@ -34,7 +34,7 @@
 .bg-dark {
 	background-color: #6495ED !important;
 }
- 
+
 .nav-link {
 	display: initial;
 	padding: 0.5rem 1rem;
@@ -114,7 +114,7 @@
 							<c:forEach var="comushow" items="${comushow}">
 								<tr>
 									<td>${comushow.rownum}</td>
-									<td>${comushow.title}</td>
+									<td onclick="board(`${comushow.s_index}`)">${comushow.title}</td>
 									<td>${comushow.id}</td>
 									<td>${comushow.date}</td>
 									<td>${comushow.click}</td>
@@ -199,20 +199,8 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
-		function speaker() {
-			$.ajax({
-				url : "http://127.0.0.1:5000/stt",
-				data : {
-					num : 1
-				},
-				success : function(text) {
-					console.log(text)
-					$('input[name=inputSTT]').attr('value', text)
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
+		function board(s_index) {
+			location.href="board.do?s_index="+s_index
 		}
 	</script>
 
