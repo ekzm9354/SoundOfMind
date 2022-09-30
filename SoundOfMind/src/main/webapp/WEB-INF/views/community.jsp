@@ -41,6 +41,10 @@
 	border-bottom: black;
 	color: white !important;
 }
+.pagination {
+    display: block;
+    text-align: center;
+}
 </style>
 
 </head>
@@ -98,8 +102,7 @@
 
 
 				<!-- Table -->
-				<h3>게시판</h3>
-				<div class="table-wrapper">
+				<div class="table-wrapper" style="margin-right: 20px; margin-top: 25px;">
 					<table>
 						<thead>
 							<tr>
@@ -125,17 +128,14 @@
 				</div>
 
 
-				<!-- Preformatted Code -->
-				<h3>BOARD TOP 10</h3>
-				<pre>
-					<code>
-														1.
-														2.
-														3.
-														4.
-													</code>
-				</pre>
-
+				<!-- 조회수 높은 10개의 게시글 출력 -->
+				<div class="box"
+					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px;">
+					<h5>Best Board</h5>
+					1. 제목넣어줘! <br> 2. 제목넣어줘! <br> 3. 제목넣어줘! <br> 4.
+					제목넣어줘! <br> 5. 제목넣어줘! <br> 6. 제목넣어줘! <br> 7. 제목넣어줘!
+					<br> 8. 제목넣어줘! <br> 9. 제목넣어줘! <br> 10. 제목넣어줘! <br>
+				</div>
 
 
 				<!-- 페이지 넘김 -->

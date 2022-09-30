@@ -48,6 +48,7 @@
 .actions.small{
   float:right;
 }
+
 </style>
 
 </head>
