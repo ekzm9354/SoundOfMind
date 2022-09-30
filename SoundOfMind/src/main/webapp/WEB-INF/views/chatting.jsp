@@ -76,10 +76,10 @@
 												</div>
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
 													<h5 class="whoChat">${chatlist.to_id}</h5>
-												</div>
 												<div style="display: none" class="deleteDiv">
 													<h5 class="delete"
 														onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
+												</div>
 												</div>
 												<div class="toggle" onclick="toggle()">토글형태</div>
 											</div>
