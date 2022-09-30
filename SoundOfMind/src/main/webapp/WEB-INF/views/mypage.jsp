@@ -43,8 +43,10 @@
 							<h1>My Page</h1>
 
 						</header>
-						<input type="file" class="profile_up" accept="image/*" >
-						
+						<div class="uploadDiv">
+						<input type="file" name="uploadFile" multiple />
+						</div>
+						<button id="uploadBtn">Upload</button>
 						<table class="type03">
 							<tr>
 								<th scope="row">ID</th>
@@ -115,6 +117,7 @@
 		<script src="/resources/assets/js/breakpoints.min.js"></script>
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/mypage.js"></script>
+		
 
 
 		<script>
