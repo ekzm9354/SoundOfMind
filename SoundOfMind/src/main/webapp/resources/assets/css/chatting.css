@@ -37,7 +37,11 @@ img{ max-width:100%;}
 }
 .srch_bar .input-group-addon { margin: 0 0 0 -27px;}
 
-.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.togle{
+	float:right;
+}
+
+.chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0; float: left;}
 .chat_ib h5 span{ font-size:13px; float:right;}
 .chat_ib p{ font-size:14px; color:#989898; margin:auto}
 .chat_img {
@@ -2404,4 +2408,6 @@ button,
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");
 
 
-
+.togle{
+	text-align: right;
+}

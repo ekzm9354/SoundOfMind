@@ -77,6 +77,7 @@
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
 													<h5 class="whoChat">${chatlist.to_id}</h5>
 												</div>
+												<div class="togle">토글형태</div>
 											</div>
 										</div>
 									</c:forEach>
