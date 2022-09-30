@@ -75,9 +75,13 @@
 														alt="sunil">
 												</div>
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
-													<h5 class="whoChat">${chatlist.to_id}</h5> 
+													<h5 class="whoChat">${chatlist.to_id}</h5>
 												</div>
-												<div class="toggle">토글형태</div>
+												<div style="display: none" class="deleteDiv">
+													<h5 class="delete"
+														onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
+												</div>
+												<div class="toggle" onclick="toggle()">토글형태</div>
 											</div>
 										</div>
 									</c:forEach>
@@ -101,6 +105,32 @@
 							</p>
 						</div>
 					</div>
+					<script type="text/javascript">
+						function deleteChat(to_id) {
+							console.log(to_id)
+							$.ajax({
+								url : "deleteChat.do",
+								type : "GET",
+								data : {
+									to_id : to_id,
+								},
+								success : function(cnt) {
+									console.log(cnt)
+									if (cnt > 0) {
+										window.location.reload();
+									}
+								},
+								error : function(e) {
+									console.log(e)
+								}
+							})
+						}
+					</script>
+					<script type="text/javascript">
+						function toggle() {
+							$('.deleteDiv').slideToggle()
+						}
+					</script>
 					<script type="text/javascript">
 						$('.whoChat').click(function() {
 							var whochat = $(this).text()
