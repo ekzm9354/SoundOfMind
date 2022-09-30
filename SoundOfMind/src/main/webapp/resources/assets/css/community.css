@@ -31,7 +31,8 @@ body {
   line-height: 1; }
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+   }
 
 blockquote, q {
   quotes: none; }
@@ -1444,7 +1445,10 @@ ul.pagination {
 /* Table */
 .table-wrapper {
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto; }
+  overflow-x: auto; 
+  float: left;
+  width: 70%;
+  }
 
 table {
   margin: 0 0 2em 0;
