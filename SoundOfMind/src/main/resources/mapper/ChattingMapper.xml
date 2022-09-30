@@ -33,4 +33,8 @@
 		ORDER BY DATE DESC
 		LIMIT 1;
 	</select>
+	<delete id="deleteChat" parameterType="String">
+		DELETE FROM CHATTING WHERE
+		TO_ID=#{to_id} AND FROM_ID=#{from_id}
+	</delete>
 </mapper>

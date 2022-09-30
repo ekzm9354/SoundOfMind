@@ -51,10 +51,16 @@ public class ComunityRestController {
 	public @ResponseBody List<Chatting> ResentChat(String from_id, HttpSession session) {
 		Member member = (Member) session.getAttribute("user");
 		String to_id = member.getId();
-		System.out.println("to "+to_id);
-		System.out.println("from "+from_id);
 		List<Chatting> ResentChat = Cmapper.ResentChat(from_id, to_id);
 		System.out.println(ResentChat);
 		return ResentChat;
+	}
+
+	@GetMapping("/deleteChat.do")
+	public @ResponseBody int deleteChat(String to_id, HttpSession session) {
+		Member member = (Member) session.getAttribute("user");
+		String from_id = member.getId();
+		int cnt = Cmapper.deleteChat(to_id, from_id);
+		return cnt;
 	}
 }
