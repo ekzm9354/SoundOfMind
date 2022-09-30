@@ -17,9 +17,6 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/community.css" />
 <!-- bootstrap -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <style type="text/css">
 #header {
@@ -80,31 +77,6 @@
 
 
 				<!-- 상단 메뉴  & 검색 -->
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
-					style="height: 46px;">
-
-					<div class="navbar-collapse collapse" id="navbarsExample05"
-						style="">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">BOARD<span class="sr-only">(current)
-								</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">NEWS<span class="sr-only">(current)
-								</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">CHATTING<span class="sr-only">(current)
-								</span>
-							</a></li>
-						</ul>
-						<form class="form-inline my-2 my-md-0">
-							<input class="form-control" type="text" placeholder="Search"
-								style="height: 32px;">
-						</form>
-					</div>
-				</nav>
 
 
 
@@ -266,11 +238,6 @@
 
 
 	<!-- bootstrap js -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>
