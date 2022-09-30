@@ -17,6 +17,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/chatting.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 </head>
 <body class="is-preload">
@@ -27,8 +28,8 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of
-						Mind </a>
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
 					<ul class="icons">
 						<c:if test="${user==null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
@@ -42,243 +43,179 @@
 					</ul>
 
 				</header>
-	<table>
-		
-		<c:forEach var="chatlist" items="${chatlist}">
-			<tr>
-				<td onclick="ShowChat(`${chatlist.to_id}`)">${chatlist.to_id}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<table class="test">
-		<tr class="rowMain">
-		</tr>
-	</table>
-	<div class="container">
-		<h3 class=" text-center">Messaging</h3>
-		<div class="messaging">
-			<div class="inbox_msg">
-				<div class="inbox_people">
-					<div class="headind_srch">
-						<div class="recent_heading">
-							<h4>대화목록</h4>
-						</div>
-						<div class="srch_bar">
-							<div class="stylish-input-group">
-								<!-- <input type="text" class="search-bar" placeholder="Search">
+				<table class="test">
+					<tr class="rowMain">
+					</tr>
+				</table>
+				<!-- </div> 추가 금지 -->
+				<div class="container">
+					<h3 class=" text-center who">Messaging</h3>
+					<div class="messaging">
+						<div class="inbox_msg">
+							<div class="inbox_people">
+								<div class="headind_srch">
+									<div class="recent_heading">
+										<h4>대화목록</h4>
+									</div>
+									<div class="srch_bar">
+										<div class="stylish-input-group">
+											<!-- <input type="text" class="search-bar" placeholder="Search">
 								<span class="input-group-addon">
 									<button type="button">검색</button>
 								</span> -->
+										</div>
+									</div>
+								</div>
+								<div class="inbox_chat">
+									<c:forEach var="chatlist" items="${chatlist}">
+										<div class="chat_list">
+											<div class="chat_people">
+												<div class="chat_img">
+													<img src="https://ptetutorials.com/images/user-profile.png"
+														alt="sunil">
+												</div>
+												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
+													<h5 class="whoChat">${chatlist.to_id}</h5>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</div>
 							</div>
+							<div class="mesgs">
+								<div class="msg_history"></div>
+								<div class="type_msg">
+									<div class="input_msg_write">
+										<input type="text" class="write_msg"
+											placeholder="Type a message" />
+										<button class="msg_send_btn" type="button"
+											onclick="ChatSend()">보내기</button>
+									</div>
+								</div>
+							</div>
+							<p class="text-center top_spac">
+								Design by <a target="_blank"
+									href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil
+									Rajput</a>
+							</p>
 						</div>
 					</div>
-					<div class="inbox_chat">
-						<div class="chat_list active_chat">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-						<div class="chat_list">
-							<div class="chat_people">
-								<div class="chat_img">
-									<img src="https://ptetutorials.com/images/user-profile.png"
-										alt="sunil">
-								</div>
-								<div class="chat_ib">
-									<h5>
-										Sunil Rajput <span class="chat_date">Dec 25</span>
-									</h5>
-									<p>Test, which is a new approach to have all solutions
-										astrology under one roof.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="mesgs">
-					<div class="msg_history">
-						<div class="incoming_msg">
-							<div class="incoming_msg_img">
-								<img src="https://ptetutorials.com/images/user-profile.png"
-									alt="sunil">
-							</div>
-							<div class="received_msg">
-								<div class="received_withd_msg">
-									<p>Test which is a new approach to have all solutions</p>
-									<span class="time_date"> 11:01 AM | June 9</span>
-								</div>
-							</div>
-						</div>
-						<div class="outgoing_msg">
-							<div class="sent_msg">
-								<p>Test which is a new approach to have all solutions</p>
-								<span class="time_date"> 11:01 AM | June 9</span>
-							</div>
-						</div>
-						<div class="incoming_msg">
-							<div class="incoming_msg_img">
-								<img src="https://ptetutorials.com/images/user-profile.png"
-									alt="sunil">
-							</div>
-							<div class="received_msg">
-								<div class="received_withd_msg">
-									<p>Test, which is a new approach to have</p>
-									<span class="time_date"> 11:01 AM | Yesterday</span>
-								</div>
-							</div>
-						</div>
-						<div class="outgoing_msg">
-							<div class="sent_msg">
-								<p>Apollo University, Delhi, India Test</p>
-								<span class="time_date"> 11:01 AM | Today</span>
-							</div>
-						</div>
-						<div class="incoming_msg">
-							<div class="incoming_msg_img">
-								<img src="https://ptetutorials.com/images/user-profile.png"
-									alt="sunil">
-							</div>
-							<div class="received_msg">
-								<div class="received_withd_msg">
-									<p>We work directly with our designers and suppliers, and
-										sell direct to you, which means quality, exclusive products,
-										at a price anyone can afford.</p>
-									<span class="time_date"> 11:01 AM | Today</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="type_msg">
-						<div class="input_msg_write">
-							<input type="text" class="write_msg" placeholder="Type a message" />
-							<button class="msg_send_btn" type="button">보내기</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p class="text-center top_spac">
-				Design by <a target="_blank"
-					href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil
-					Rajput</a>
-			</p>
-		</div>
-	</div>
-	
-	
-	
-	<script type="text/javascript">
-		function ShowChat(to_id) {
-			$.ajax({
-				url : "ShowChat.do",
-				type : "GET",
-				dataType : "json",
-				data : {
-					to_id : to_id
-				},
-				success : function(res) {
-					console.log(res)
-					$('.to_id').remove()
-					$('.row').remove()
-					$('.rowMain').last().append(
-							"<th scope='row' class='to_id'>" + to_id + "</th>")
-					for (var i = 0; i < res.length; i++) {
-						$('.to_id').last().append(
-								"<tr class='row'><td>" + res[i].to_id
-										+ "</td><td>" + res[i].chat
-										+ "</td><td>" + res[i].date
-										+ "</td></tr>")
-					}
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
-		}
-	</script>
+					<script type="text/javascript">
+						$('.whoChat').click(function() {
+							var whochat = $(this).text()
+							$.ajax({
+								url : "whoChat.do",
+								data : {
+									whochat : whochat
+								},
+								success : function(who) {
+									console.log(who)
+									$('.who').html(who)
+								},
+								error : function(e) {
+									console.log(e)
+								}
+							})
+
+						})
+					</script>
+					<script type="text/javascript">
+						function ShowChat(to_id) {
+							$
+									.ajax({
+										url : "ShowChat.do",
+										type : "GET",
+										dataType : "json",
+										data : {
+											to_id : to_id
+										},
+										success : function(res) {
+											$('.incoming_msg').remove()
+											$('.outgoing_msg').remove()
+											for (var i = 0; i < res.length; i++) {
+												if (res[i].to_id == to_id) {
+													$('.msg_history')
+															.prepend(
+																	"<div class='incoming_msg'><div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
+																			+ res[i].chat
+																			+ "</p><span class='time_date'>"
+																			+ res[i].date
+																			+ "</span></div></div></div>")
+
+												} else {
+													$('.incoming_msg')
+															.last()
+															.append(
+																	"<div class='outgoing_msg'><div class='sent_msg'><p>"
+																			+ res[i].chat
+																			+ "</p><span class='time_date'>"
+																			+ res[i].date
+																			+ "</span></div></div>")
+												}
+											}
+
+										},
+										error : function(e) {
+											console.log(e)
+										}
+									})
+						}
+					</script>
+
+					<script type="text/javascript">
+						function ChatSend() {
+							var chat = $('.write_msg').val()
+							var to_id = `${user.id}`
+							var from_id = $('.who').text()
+							console.log('from_id', from_id)
+
+							$
+									.ajax({
+										url : "ChatSend.do",
+										type : "POST",
+										data : {
+											to_id : to_id,
+											from_id : from_id,
+											chat : chat
+										},
+										success : function(res) {
+											if (res > 0) {
+												console.log('성공하였습니다')
+												$
+														.ajax({
+															url : "ResentChat.do",
+															type : "GET",
+															data : {
+																from_id : from_id,
+															},
+															dataType : "json",
+															success : function(
+																	resent) {
+																console
+																		.log('1')
+																$(
+																		'.incoming_msg')
+																		.last()
+																		.append(
+																				"<div class='outgoing_msg'><div class='sent_msg'><p>"
+																						+ resent[0].chat
+																						+ "</p><span class='time_date'>"
+																						+ resent[0].date
+																						+ "</span></div></div>")
+
+															},
+															error : function(e) {
+																console.log(e)
+															}
+
+														})
+											}
+										},
+										error : function(e) {
+											console.log(e)
+										}
+									})
+						}
+					</script>
 </body>
 </html>

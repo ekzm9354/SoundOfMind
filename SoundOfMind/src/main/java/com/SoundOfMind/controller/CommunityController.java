@@ -25,6 +25,7 @@ public class CommunityController {
 	@Autowired
 	private StoregeMapper Smapper;
 
+// 게시판 보여주기
 	@GetMapping("/community.do")
 	public String community(Model model) {
 		List<Storege> comushow = Smapper.comushow();
@@ -32,12 +33,13 @@ public class CommunityController {
 		return "community";
 	}
 
+//	대화목록 불러오기
 	@GetMapping("/chatting.do")
 	public String chatting(HttpSession session) {
 		Member member = (Member) session.getAttribute("user");
 		if (member != null) {
 			String id = member.getId();
-//			채팅방목록
+
 			List<Chatting> chatlist = Cmapper.chatlist(id);
 			session.setAttribute("chatlist", chatlist);
 		}
