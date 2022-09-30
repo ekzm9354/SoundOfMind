@@ -97,12 +97,18 @@ VALUES (now(),'김수민','1','안녕하세요');
 INSERT INTO CHATTING(DATE,TO_ID,FROM_ID,CHAT)
 VALUES (now(),'김수지','김수민','안녕하세요');
 
-
+SELECT * FROM CHATTING 
 # 테스트
 SELECT TO_ID, DATE_FORMAT(DATE,'%y-%m-%d %H:%i') AS DATE, FROM_ID,CHAT
 FROM CHATTING
 WHERE FROM_ID ='김수지' AND TO_ID='김수민' OR FROM_ID='김수민' AND TO_ID='김수지'
 ORDER BY DATE ASC;
+
+SELECT TO_ID, DATE_FORMAT(DATE,'%y-%m-%d %H:%i') AS DATE, FROM_ID,CHAT
+FROM CHATTING
+WHERE FROM_ID ='김수민' AND TO_ID='김수지' OR FROM_ID='김수지' AND TO_ID='김수민'
+ORDER BY DATE DESC
+LIMIT 1;
 
 # TO_ID 중복제거
 SELECT DISTINCT TO_ID 
@@ -114,5 +120,9 @@ WHERE FROM_ID = '김수지'
 ## EMOTION 확인
 SELECT @rownum:=@rownum+1 as rownum, E.*
 FROM (SELECT * FROM STOREGE WHERE (@rownum :=0)=0 ORDER BY DATE DESC) E
+
+
+
+
 
 

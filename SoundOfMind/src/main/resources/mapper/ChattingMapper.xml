@@ -17,4 +17,20 @@
 		FROM CHATTING
 		WHERE FROM_ID = #{id};
 	</select>
+	<insert id="ChatSend" parameterType="String">
+		INSERT INTO
+		CHATTING(DATE,TO_ID,FROM_ID,CHAT)
+		VALUES
+		(now(),#{to_id},#{from_id},#{chat})
+	</insert>
+	<select id="ResentChat" parameterType="String"
+		resultType="com.SoundOfMind.domain.Chatting">
+		SELECT TO_ID, DATE_FORMAT(DATE,'%y-%m-%d %H:%i') AS DATE,
+		FROM_ID,CHAT
+		FROM CHATTING
+		WHERE FROM_ID =#{from_id} AND TO_ID=#{to_id}
+		OR FROM_ID= #{to_id} AND TO_ID=#{from_id}
+		ORDER BY DATE DESC
+		LIMIT 1;
+	</select>
 </mapper>

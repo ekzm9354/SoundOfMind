@@ -9,6 +9,7 @@ import com.SoundOfMind.domain.Chatting;
 @Mapper
 public interface ChattingMapper {
 	public List<Chatting> chat(String from_id, String to_id);
-
 	public List<Chatting> chatlist(String id);
+	public int ChatSend(String to_id, String from_id, String chat);
+	public List<Chatting> ResentChat(String from_id,String to_id);
 }

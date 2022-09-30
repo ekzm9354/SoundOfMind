@@ -15,7 +15,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/resources/assets/css/main.css" />
+<link rel="stylesheet" href="/resources/assets/css/community.css" />
 <!-- bootstrap -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -39,6 +39,7 @@
 	display: initial;
 	padding: 0.5rem 1rem;
 	border-bottom: black;
+	color: white !important;
 }
 </style>
 
@@ -84,10 +85,6 @@
 								</span>
 							</a></li>
 							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">INFORMATION<span class="sr-only">(current)
-								</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link" href="#"
 								style="height: 32px;">CHATTING<span class="sr-only">(current)
 								</span>
 							</a></li>
@@ -117,7 +114,7 @@
 							<c:forEach var="comushow" items="${comushow}">
 								<tr>
 									<td>${comushow.rownum}</td>
-									<td>${comushow.title}</td>
+									<td onclick="board(`${comushow.s_index}`)">${comushow.title}</td>
 									<td>${comushow.id}</td>
 									<td>${comushow.date}</td>
 									<td>${comushow.click}</td>
@@ -170,11 +167,15 @@
 							<ul>
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="#">NEWS</a></li>
-								<li><a href="#">INFORMATION</a></li>
-								<li><a href="#">CAHTTING</a></li>
+								<li><a href="chatting.do">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
-						<li><a href="#">SETTING</a></li>
+						<!--폰트 셋팅 부분-->
+						<li><span class="opener" id="switcher">FONT SIZE</span>
+							<ul>
+								<li><span id="switcher-large">크게</span></li>
+								<li><span id="switcher-small">작게</span></li>
+							</ul></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
 					</ul>
 				</nav>
@@ -194,23 +195,12 @@
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
-		function speaker() {
-			$.ajax({
-				url : "http://127.0.0.1:5000/stt",
-				data : {
-					num : 1
-				},
-				success : function(text) {
-					console.log(text)
-					$('input[name=inputSTT]').attr('value', text)
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
+		function board(s_index) {
+			location.href="board.do?s_index="+s_index
 		}
 	</script>
 
