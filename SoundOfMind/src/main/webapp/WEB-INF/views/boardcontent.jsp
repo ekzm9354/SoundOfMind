@@ -47,7 +47,6 @@
 .actions.small {
 	float: right;
 }
-
 </style>
 
 </head>
@@ -214,8 +213,6 @@
 			console.log(coments)
 			var id = `${user.id}`
 			console.log(id)
-			
-/* 
 			$.ajax({
 				url : "coment.do",
 				type : "POST",
@@ -232,7 +229,7 @@
 				error : function(e) {
 					console.log(e)
 				}
-			}) */
+			})
 		}
 	</script>
 

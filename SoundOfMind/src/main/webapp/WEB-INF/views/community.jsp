@@ -39,9 +39,10 @@
 	border-bottom: black;
 	color: white !important;
 }
+
 .pagination {
-    display: block;
-    text-align: center;
+	display: block;
+	text-align: center;
 }
 </style>
 
@@ -72,11 +73,12 @@
 
 
 				<!-- 상단 메뉴  & 검색 -->
-					
-				    
+
+
 
 				<!-- Table -->
-				<div class="table-wrapper" style="margin-right: 20px; margin-top: 25px;">
+				<div class="table-wrapper"
+					style="margin-right: 20px; margin-top: 25px;">
 					<table>
 						<thead>
 							<tr>
@@ -91,7 +93,7 @@
 							<c:forEach var="comushow" items="${comushow}">
 								<tr>
 									<td>${comushow.rownum}</td>
-									<td onclick="board(`${comushow.s_index}`)">${comushow.title}</td>
+									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
 									<td>${comushow.id}</td>
 									<td>${comushow.date}</td>
 									<td>${comushow.click}</td>
@@ -106,9 +108,9 @@
 				<div class="box"
 					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px;">
 					<h5>Best Board</h5>
-					1. 제목넣어줘! <br> 2. 제목넣어줘! <br> 3. 제목넣어줘! <br> 4.
-					제목넣어줘! <br> 5. 제목넣어줘! <br> 6. 제목넣어줘! <br> 7. 제목넣어줘!
-					<br> 8. 제목넣어줘! <br> 9. 제목넣어줘! <br> 10. 제목넣어줘! <br>
+					<c:forEach var="clickBest" items="${clickBest}">
+					${clickBest.rownum}. ${clickBest.title} <br>
+					</c:forEach>
 				</div>
 
 
@@ -173,14 +175,14 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
-		function board(s_index) {
-			location.href="board.do?s_index="+s_index
+		function board(s_index, click) {
+			location.href = "board.do?s_index=" + s_index + "&click=" + click
 		}
 	</script>
 
 
 	<!-- bootstrap js -->
-	
-	
+
+
 </body>
 </html>

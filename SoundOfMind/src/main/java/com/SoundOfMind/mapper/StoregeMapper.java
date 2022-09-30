@@ -15,5 +15,8 @@ public interface StoregeMapper {
 
 	public List<Coment> boardComent(int storege_id);
 
-	public int coment(int storege_id, String coments, String id);
+	public int click(int click, int s_index);
+	
+	public List<Storege> clickBest();
+
 }

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.SoundOfMind.domain.Chatting;
+import com.SoundOfMind.domain.Coment;
 import com.SoundOfMind.domain.Member;
 import com.SoundOfMind.mapper.ChattingMapper;
+import com.SoundOfMind.mapper.ComentMapper;
 import com.SoundOfMind.mapper.StoregeMapper;
 
 @Controller
@@ -22,7 +24,7 @@ public class ComunityRestController {
 	@Autowired
 	private ChattingMapper Cmapper;
 	@Autowired
-	private StoregeMapper Smapper;
+	private ComentMapper cmapper;
 
 //	 대화 불러오기
 	@GetMapping("/ShowChat.do")
@@ -64,6 +66,12 @@ public class ComunityRestController {
 		Member member = (Member) session.getAttribute("user");
 		String from_id = member.getId();
 		int cnt = Cmapper.deleteChat(to_id, from_id);
+		return cnt;
+	}
+
+	@PostMapping("/coment.do")
+	public @ResponseBody int coment(String id, int storege_id, String coments) {
+		int cnt = cmapper.coment(id, storege_id, coments);
 		return cnt;
 	}
 }

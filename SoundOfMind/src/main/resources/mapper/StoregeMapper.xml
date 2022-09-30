@@ -17,11 +17,16 @@
 		SELECT C.*
 		FROM STOREGE S,COMENT C
 		WHERE
-		S_INDEX=#{storege_id}
+		S.S_INDEX=C.STOREGE_ID AND S_INDEX=#{s_index}
 	</select>
-	<insert id="coment" parameterType="String">
-		INSERT INTO
-		COMENT(ID,STOREGE_ID,COMENTS)
-		VALUES (#{id},#{storege_id},#{coments})
-	</insert>
+	<update id="click" parameterType="int">
+		UPDATE STOREGE SET
+		CLICK=#{click} WHERE S_INDEX = #{s_index};
+	</update>
+
+	<select id="clickBest"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT * FROM STOREGE WHERE (@rownum :=0)=0 ORDER BY CLICK DESC ) S
+	</select>
 </mapper>
