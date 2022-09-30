@@ -18,6 +18,59 @@ $(document).ready(function() {
 
 });
 
+/*프로필 사진 올리기*/
+$(document).ready(function() {
+	var cloneObj = $(".uploadDiv").clone();
+	$("#uploadBtn").on("click", function(e) {
+		var formData = new FormData();
+		var inputFile = $("input[name='uploadFile']");
+		var files = inputFile[0].files;
+		console.log(files);
+		
+	
+		//add File Data to formData
+		for (var i = 0; i < files.length; i++) {
+			formData.append("uploadFile", files[i]);
+		}
+
+		$.ajax({
+			url: '/uploadAjaxAction',
+			processData: false,
+			contentType: false,
+			data: formData,
+			type: 'POST',
+			success: function(result) {
+				alert("uploaded");
+			}
+
+		});//$.ajax
+
+		/*<input type="file">의 초기화 */
+		$.ajax({
+			url: '/uploadAjaxAction',
+			processData: false,
+			contentType: false,
+			data: formData,
+			type: 'POST',
+			dataType: 'json',
+			success: function(result) {
+				console.log(result);
+				$(".uploadDiv").html(cloneObj.html());
+			}
+		}); //$.ajax
+	
+	
+		
+		
+
+
+	});
+	
+});
+    
+
+
+
 (function($) {
 
 	var	$window = $(window),
