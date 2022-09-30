@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.SoundOfMind.domain.Chatting;
 import com.SoundOfMind.domain.Member;
 import com.SoundOfMind.mapper.ChattingMapper;
+import com.SoundOfMind.mapper.StoregeMapper;
 
 @Controller
 public class ComunityRestController {
 
 	@Autowired
 	private ChattingMapper Cmapper;
+	@Autowired
+	private StoregeMapper Smapper;
 
 //	 대화 불러오기
 	@GetMapping("/ShowChat.do")
