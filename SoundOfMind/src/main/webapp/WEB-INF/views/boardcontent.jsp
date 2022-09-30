@@ -19,6 +19,7 @@
 <!-- bootstrap -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <style type="text/css">
 #header {
@@ -43,10 +44,11 @@
 }
 
 .box {
-    margin:0 auto;
+	margin: 0 auto;
 }
-.actions.small{
-  float:right;
+
+.actions.small {
+	float: right;
 }
 </style>
 
@@ -106,7 +108,7 @@
 
 
 
-			<!-- 제목, 아이디, 등록일시, 조회수 -->
+				<!-- 제목, 아이디, 등록일시, 조회수 -->
 
 
 				<hr class="major" style="margin-top: 30px; margin-bottom: 5px;" />
@@ -114,68 +116,69 @@
 				<!-- Content -->
 				<section style="padding-top: 0px;">
 					<header class="main" id="content">
-						<h5>제목</h5>
-						<p style="margin-bottom: 5px;">여기는 이름과 / 작성일시 / 조회수</p>
+						<h5>${storege.title}</h5>
+						<p style="margin-bottom: 5px;">${storege.id}${storege.date}
+							${storege.click}</p>
 					</header>
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
-					
+
 					<!-- Blockquote 내용 칸 -->
-					<blockquote style="margin-bottom: 50px;">Lorem ipsum
-						dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-						adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu
-						faucibus. Integer ac pellentesque praesent. Lorem ipsum dolor.
-						Lorem ipsum dolor vestibulum ante ipsum primis in faucibus
-						vestibulum. Blandit adipiscing eu felis iaculis volutpat ac
-						adipiscing accumsan eu faucibus.</blockquote>
+					<blockquote style="margin-bottom: 50px;">${storege.content}
+					</blockquote>
 
 
 					<!-- 전체 댓글 -->
-						<header class="main" id="content">
-							<h5 style="margin-bottom: 10px;">전체 댓글</h5>
-						</header>
+					<header class="main" id="content">
+						<h5 style="margin-bottom: 10px;">전체 댓글</h5>
+					</header>
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
-					
-					
+
+
 					<!-- Break 댓글 조회 -->
-					<div class="row">
-						<div class="4u 12u$(medium)">
-							<p >아이디</p>
+					<c:forEach var="boardComent" items="${boardComent}">
+						<div class="row">
+							<div class="4u 12u$(medium)">
+								<p>${boardComent.id}</p>
+							</div>
+							<div class="4u 12u$(medium)">
+								<p>${boardComent.coments}</p>
+							</div>
+							<div class="4u$ 12u$(medium)">
+								<p>
+									<!-- 날짜임 -->
+								</p>
+							</div>
 						</div>
-						<div class="4u 12u$(medium)">
-							<p>내용</p>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<p>입력일시</p>
-						</div>
-					</div>
-					
-					
-					
+					</c:forEach>
 
-					<hr class="major" style="margin-top: 35px;margin-bottom: 20px;"/>
 
-				<!-- 댓글작성하기 -->
+
+
+					<hr class="major" style="margin-top: 35px; margin-bottom: 20px;" />
+
+					<!-- 댓글작성하기 -->
 					<!-- Box -->
 					<h5>WRITE</h5>
 					<div class="row uniform">
 						<div class="box" style="width: 980px;">
-							<textarea name="demo-name" id="demo-name"
-								placeholder="내용을 입력하세요" style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;">
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
+								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;">
 							</textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
-								<li><a href="#" class="button small">Upload</a></li>
+								<li><button class="button small"
+										onclick="coment(`${storege.s_index}`)">Upload</button></li>
 							</ul>
 						</div>
 					</div>
 
-					
-					
+
+
 				</section>
-				
-				
-				
-				
+
+
+
+
 
 
 
@@ -229,6 +232,34 @@
 	<script type="text/javascript">
 		function board(s_index) {
 			location.href = "board.do?s_index=" + s_index
+		}
+	</script>
+	<script type="text/javascript">
+		function coment(s_index) {
+			console.log(s_index)
+			var coments = $('#demo-name').val()
+			console.log(coments)
+			var id = `${user.id}`
+			console.log(id)
+			
+/* 
+			$.ajax({
+				url : "coment.do",
+				type : "POST",
+				data : {
+					storege_id : s_index,
+					coments : coments,
+					id : id
+				},
+				success : function(res) {
+					console.log(res)
+					window.location.reload();
+
+				},
+				error : function(e) {
+					console.log(e)
+				}
+			}) */
 		}
 	</script>
 

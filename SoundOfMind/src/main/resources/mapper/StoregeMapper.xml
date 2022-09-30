@@ -4,7 +4,24 @@
 	<select id="comushow"
 		resultType="com.SoundOfMind.domain.Storege">
 		SELECT @rownum:=@rownum+1 as rownum, E.*
-		FROM (SELECT * FROM STOREGE WHERE (@rownum :=0)=0 ORDER BY DATE DESC) E
+		FROM (SELECT * FROM
+		STOREGE WHERE (@rownum :=0)=0 ORDER BY DATE DESC) E
+	</select>
+	<select id="board" parameterType="int"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT * FROM STOREGE WHERE S_INDEX=#{s_index}
 	</select>
 
+	<select id="boardComent" parameterType="int"
+		resultType="com.SoundOfMind.domain.Coment">
+		SELECT C.*
+		FROM STOREGE S,COMENT C
+		WHERE
+		S_INDEX=#{storege_id}
+	</select>
+	<insert id="coment" parameterType="String">
+		INSERT INTO
+		COMENT(ID,STOREGE_ID,COMENTS)
+		VALUES (#{id},#{storege_id},#{coments})
+	</insert>
 </mapper>
