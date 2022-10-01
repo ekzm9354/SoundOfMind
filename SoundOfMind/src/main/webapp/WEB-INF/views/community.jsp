@@ -179,7 +179,14 @@
 			location.href = "board.do?s_index=" + s_index + "&click=" + click
 		}
 	</script>
-
+	<script type="text/javascript">
+		if (window.performance.navigation.type == 2) {
+			location.reload();
+		}
+		if (window.performance.getEntriesByType("navigation")[0].type == "back_forward") {
+			location.reload();
+		}
+	</script>
 
 	<!-- bootstrap js -->
 
