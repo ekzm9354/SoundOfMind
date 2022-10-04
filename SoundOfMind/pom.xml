@@ -63,7 +63,6 @@
 			<artifactId>jython</artifactId>
 			<version>2.7.2</version>
 		</dependency>
-
 		<!--log4j :개발자가 로그문의 출력을 다양한 대상으로 할 수 있도록 도와주는 도구. -->
 		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
@@ -76,8 +75,22 @@
 		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
-			<version>0.4.8</version>
+			<version>0.4.14</version>
 		</dependency>
+	<!--JSON -->
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.12.4</version>
+	</dependency>
+	<!--XML -->
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+	<dependency>
+		<groupId>com.fasterxml.jackson.dataformat</groupId>
+		<artifactId>jackson-dataformat-xml</artifactId>
+		<version>2.12.4</version>
+	</dependency>
 		
 	</dependencies>
 	<build>

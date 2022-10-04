@@ -10,6 +10,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/mypage.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body class="is-preload">
 <c:if test="${user==null}">
@@ -44,9 +45,15 @@
 
 						</header>
 						<div class="uploadDiv">
-						<input type="file" name="uploadFile" multiple />
-						</div>
+							<input type="file" name="uploadFile" multiple>
+						</div>		
+						<div class="uploadResult">
+						<ul>
+						
+						</ul>
+						</div>				
 						<button id="uploadBtn">Upload</button>
+						
 						<table class="type03">
 							<tr>
 								<th scope="row">ID</th>
@@ -117,7 +124,72 @@
 		<script src="/resources/assets/js/breakpoints.min.js"></script>
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/mypage.js"></script>
-		
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			//파일 확장자제한, 파일 사이즈 제한
+			var regex=new RegExp("(.*?)\.(exe|sh|js|alz)$");
+			var maxSize = 5242880; //5MB
+			
+			function checkExtension(fileName,fileSize){
+				if(fileSize>=maxSize){
+					alert("파일 사이즈 초과");
+					return false;
+				}
+				if(regex.test(fileName)){
+					alert("허용되지 않는 확장자");
+					return false;
+				}
+				return true;
+			}
+			
+			
+			
+			var cloneOjb=$(".uploadDiv").clone();
+			//업로드버튼 클릭 했을 때 
+			$("#uploadBtn").on("click", function(e){
+				var formData = new FormData();
+				var inputFile = $("input[name='uploadFile']");
+				var files=inputFile[0].files;
+				console.log(files);
+				
+				//add fileData to formData
+				for(var i=0;i<files.length;i++){
+					//파일을 하나씩 추가하는 for문에서 각 파일을 검사
+					if(!checkExtension(files[i].name, files[i].size)){
+						return false;
+					}
+					formData.append("uploadFile", files[i]);
+				}
+				
+				//result처리
+				var uploadResult = $(".uploadResult ul");
+				function showUploadFile(uploadResultArr){
+					var str="";
+					$(uploadResultArr).each(function(i,obj){
+						//str+="<li>"+obj.fileName+"</li>";
+						var fileCellpath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
+						str+="<li><img src='/display?fileName="+fileCellPath+"'></li>";
+					});
+					uploadResult.append(str);
+				}
+				
+				$.ajax({
+					url:'/uploadAjaxAction',
+					processData:false,
+					contentType:false,
+					data : formData,
+					type:"POST",
+					dataType:'json',
+					success:function(result){
+						console.log(result);
+						$(".uploadDiv").html(cloneOjb.html());
+					showUploadFile(result);
+					}
+				})
+			})
+		})
+		</script>
 
 
 		<script>

@@ -38,49 +38,8 @@ public class MypageController {
 		return "mypage";
 	}
 	
-	//upload
-		@PostMapping("/uploadAjaxAction")
-		public void uploadAjaxPost(MultipartFile[] uploadFile) {
-			Log.info("update ajax post....");
-			String uploadFolder="C:\\upload";
-			for(MultipartFile multipartFile : uploadFile) {
-				Log.info("-------------------");
-				Log.info("upload File Name : " + multipartFile.getOriginalFilename());
-				Log.info("Upload File Size : " + multipartFile.getSize());
-				
-				String uploadFileName=multipartFile.getOriginalFilename();
-				
-				//IE has file path
-				uploadFileName=uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
-				Log.info("only file name:"+uploadFileName);
-				
-				File saveFile = new File(uploadFolder, uploadFileName);
-				
-				try {
-					multipartFile.transferTo(saveFile);
-				}catch (Exception e) {
-					Log.error(e.getMessage());
-				}//end catch
-			}//end for
-		}
-		
-	//프로필 보여주기
-//		@GetMapping("/display")
-//		@ResponseBody
-//		public ResponseEntity<byte[]> getFile(String fileName){
-//			Log.info("fileName:" + fileName);
-//			File file = new File ("c:\\upload\\"+fileName);
-//			Log.info("file: "+file);
-//			ResponseEntity<byte[]> result = null;
-//			
-//			try {
-//				HttpHeaders header = new HttpHeaders();
-//				
-//				header.add
-//			}catch(IOException e) {
-//				e.printStackTrace();
-//			}
-//			return result;
-//		}
-//		
+	
+	
+
+	
 }
