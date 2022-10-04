@@ -31,7 +31,8 @@ body {
   line-height: 1; }
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+   }
 
 blockquote, q {
   quotes: none; }
@@ -1444,7 +1445,10 @@ ul.pagination {
 /* Table */
 .table-wrapper {
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto; }
+  overflow-x: auto; 
+  float: left;
+  width: 70%;
+  }
 
 table {
   margin: 0 0 2em 0;
@@ -1462,7 +1466,7 @@ table {
     font-size: 0.9em;
     font-weight: 600;
     padding: 0 0.75em 0.75em 0.75em;
-    text-align: left; }
+    text-align: center; }
   table thead {
     border-bottom: solid 2px rgba(210, 215, 217, 0.75); }
   table tfoot {
@@ -2285,6 +2289,3 @@ button,
     padding-top: 0; }
 
     
-/*html5up-verti*/
-@import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");

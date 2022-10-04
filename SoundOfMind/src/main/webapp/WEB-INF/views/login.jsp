@@ -27,35 +27,35 @@
 				</header>
 
 
-		
-					<div class="content"> 
-						<form action="login.do" method="post" class="login-form">
-            <h1>로그인</h1>
-            <div class="textb">
-                <input type="text" name="id" required>
-                <div class="placeholder">아이디</div>
-            </div>
 
-            <div class="textb">
-                <input type="password" name="pw" required>
-                <div class="placeholder">패스워드</div>
-                <div class="show-password fas fa-eye-slash"></div>
-                
-            </div>
+				<div class="content">
+					<form action="login.do" method="post" class="login-form">
+						<h1>로그인</h1>
+						<div class="textb">
+							<input type="text" name="id" required>
+							<div class="placeholder">아이디</div>
+						</div>
 
-          
-            <button type="submit" class="btn fas fa-arrow-right" disabled></button>
-            <a href="join.do">회원가입</a>
-        </form>
+						<div class="textb">
+							<input type="password" name="pw" required>
+							<div class="placeholder">패스워드</div>
+							<div class="show-password fas fa-eye-slash"></div>
 
-					</div>
+						</div>
 
-				
+						<button type="submit" class="btn fas fa-arrow-right" disabled></button>
+						 <a href="join.do">회원가입</a>
+					</form>
+
+				</div>
+
+
 
 			</div>
 		</div>
 
 
 		<script src="/resources/assets/js/login.js"></script>
+		
 </body>
 </html>

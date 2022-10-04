@@ -17,8 +17,6 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/community.css" />
 <!-- bootstrap -->
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
 
 <style type="text/css">
 #header {
@@ -40,6 +38,11 @@
 	padding: 0.5rem 1rem;
 	border-bottom: black;
 	color: white !important;
+}
+
+.pagination {
+	display: block;
+	text-align: center;
 }
 </style>
 
@@ -70,36 +73,12 @@
 
 
 				<!-- 상단 메뉴  & 검색 -->
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
-					style="height: 46px;">
 
-					<div class="navbar-collapse collapse" id="navbarsExample05"
-						style="">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">BOARD<span class="sr-only">(current)
-								</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">NEWS<span class="sr-only">(current)
-								</span>
-							</a></li>
-							<li class="nav-item active"><a class="nav-link" href="#"
-								style="height: 32px;">CHATTING<span class="sr-only">(current)
-								</span>
-							</a></li>
-						</ul>
-						<form class="form-inline my-2 my-md-0">
-							<input class="form-control" type="text" placeholder="Search"
-								style="height: 32px;">
-						</form>
-					</div>
-				</nav>
 
 
 				<!-- Table -->
-				<h3>게시판</h3>
-				<div class="table-wrapper">
+				<div class="table-wrapper"
+					style="margin-right: 20px; margin-top: 25px;">
 					<table>
 						<thead>
 							<tr>
@@ -111,11 +90,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="comushow" items="${comushow}">
+							<c:forEach var="comushow" items="${comushow}" begin="0" end="10">
 								<tr>
 									<td>${comushow.rownum}</td>
-									<td onclick="board(`${comushow.s_index}`)">${comushow.title}</td>
-									<td>${comushow.id}</td>
+									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
+									<td class="userid">${comushow.id}</td>
 									<td>${comushow.date}</td>
 									<td>${comushow.click}</td>
 								</tr>
@@ -125,20 +104,38 @@
 				</div>
 
 
-				<!-- Preformatted Code -->
-				<h3>BOARD TOP 10</h3>
-				<pre>
-					<code>
-														1.
-														2.
-														3.
-														4.
-													</code>
-				</pre>
+				<!-- 조회수 높은 10개의 게시글 출력 -->
+				<div class="box"
+					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
+					<h5>Best Board</h5>
+					<c:forEach var="clickBest" items="${clickBest}">
+					${clickBest.rownum}. ${clickBest.title} <br>
+					</c:forEach>
+				</div>
+				<div class="box"
+					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
+					<h5>Message Board</h5>
+					<h6>받는 이</h6>
+					<p>
+						<input type="text" name="messegeId" id="messegeId">
+					</p>
+					<div class="row uniform">
+						<h6 style="padding-left: 22px;">메세지</h6>
+						<div class="box" style="width: 980px; margin-left: 22px;">
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
+								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none; ">
+							</textarea>
+							<!-- 업로드버튼 -->
+							<ul class="actions small">
+								<li><button class="button small" onclick="ToMessage(`${user.id}`)">보내기</button></li>
+							</ul>
+						</div>
+					</div>
 
+				</div>
 
-
-				<!-- 페이지 넘김 -->
+				<!-- 
+				<!-- 페이지 넘김
 				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
 					<li><a href="#" class="page active">1</a></li>
@@ -150,9 +147,10 @@
 					<li><a href="#" class="page">10</a></li>
 					<li><a href="#" class="button">Next</a></li>
 				</ul>
-
+ -->
 
 			</div>
+
 		</div>
 		<!-- Sidebar. -->
 		<div id="sidebar">
@@ -199,18 +197,53 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
-		function board(s_index) {
-			location.href="board.do?s_index="+s_index
+		function board(s_index, click) {
+			location.href = "board.do?s_index=" + s_index + "&click=" + click
 		}
 	</script>
-
+	<script type="text/javascript">
+		if (window.performance.navigation.type == 2) {
+			location.reload();
+		}
+		if (window.performance.getEntriesByType("navigation")[0].type == "back_forward") {
+			location.reload();
+		}
+	</script>
+<script type="text/javascript">
+ $('.userid').click(function(){
+	 var userid = $(this).text()
+	 $('input[name=messegeId]').attr('value',userid)
+ })
+</script>
+<script type="text/javascript">
+ 	function ToMessage(to_id){
+ 		var from_id = $('#messegeId').val()
+ 		console.log(from_id)
+ 		var chat = $('#demo-name').val()
+ 		console.log(chat)
+ 		console.log(to_id)
+ 		$.ajax({
+ 			url:'ToMessage.do',
+ 			data:{
+ 				to_id:to_id,
+ 				from_id:from_id,
+ 				chat:chat
+ 			},
+ 			type:"GET",
+ 			success:function(){
+ 				console.log('success')
+ 				$('#demo-name').val('')
+ 				$('#messegeId').val('')
+ 			},
+ 			error:function(){
+ 				console.log('fail')
+ 			}
+ 		})
+ 	}
+</script>
 
 	<!-- bootstrap js -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
