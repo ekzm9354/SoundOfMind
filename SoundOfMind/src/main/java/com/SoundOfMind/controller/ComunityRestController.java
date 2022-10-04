@@ -74,4 +74,11 @@ public class ComunityRestController {
 		int cnt = cmapper.coment(id, storege_id, coments);
 		return cnt;
 	}
+	@RequestMapping("/ToMessage.do")
+	public @ResponseBody void toMessage(String to_id,String from_id,String chat) {
+		System.out.println(to_id);
+		System.out.println(from_id);
+		System.out.println(chat);
+		Cmapper.ToMessage(to_id, from_id, chat);
+	}
 }

@@ -37,6 +37,7 @@ public class MemberController {
 
 	@RequestMapping("/index.do")
 	public String index() {
+		
 		return "index";
 	}
 

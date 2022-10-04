@@ -37,4 +37,9 @@
 		DELETE FROM CHATTING WHERE
 		TO_ID=#{to_id} AND FROM_ID=#{from_id}
 	</delete>
+	<insert id="ToMessage" parameterType="String">
+		INSERT INTO
+		CHATTING(DATE,TO_ID,FROM_ID,CHAT)
+		VALUES (now(),#{to_id},#{from_id},#{chat});
+	</insert>
 </mapper>

@@ -90,11 +90,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="comushow" items="${comushow}">
+							<c:forEach var="comushow" items="${comushow}" begin="0" end="10">
 								<tr>
 									<td>${comushow.rownum}</td>
 									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
-									<td>${comushow.id}</td>
+									<td class="userid">${comushow.id}</td>
 									<td>${comushow.date}</td>
 									<td>${comushow.click}</td>
 								</tr>
@@ -106,15 +106,36 @@
 
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
-					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px;">
+					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
 					<h5>Best Board</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
 					${clickBest.rownum}. ${clickBest.title} <br>
 					</c:forEach>
 				</div>
+				<div class="box"
+					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
+					<h5>Message Board</h5>
+					<h6>받는 이</h6>
+					<p>
+						<input type="text" name="messegeId" id="messegeId">
+					</p>
+					<div class="row uniform">
+						<h6 style="padding-left: 22px;">메세지</h6>
+						<div class="box" style="width: 980px; margin-left: 22px;">
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
+								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none; ">
+							</textarea>
+							<!-- 업로드버튼 -->
+							<ul class="actions small">
+								<li><button class="button small" onclick="ToMessage(`${user.id}`)">보내기</button></li>
+							</ul>
+						</div>
+					</div>
 
+				</div>
 
-				<!-- 페이지 넘김 -->
+				<!-- 
+				<!-- 페이지 넘김
 				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
 					<li><a href="#" class="page active">1</a></li>
@@ -126,9 +147,10 @@
 					<li><a href="#" class="page">10</a></li>
 					<li><a href="#" class="button">Next</a></li>
 				</ul>
-
+ -->
 
 			</div>
+
 		</div>
 		<!-- Sidebar. -->
 		<div id="sidebar">
@@ -187,6 +209,38 @@
 			location.reload();
 		}
 	</script>
+<script type="text/javascript">
+ $('.userid').click(function(){
+	 var userid = $(this).text()
+	 $('input[name=messegeId]').attr('value',userid)
+ })
+</script>
+<script type="text/javascript">
+ 	function ToMessage(to_id){
+ 		var from_id = $('#messegeId').val()
+ 		console.log(from_id)
+ 		var chat = $('#demo-name').val()
+ 		console.log(chat)
+ 		console.log(to_id)
+ 		$.ajax({
+ 			url:'ToMessage.do',
+ 			data:{
+ 				to_id:to_id,
+ 				from_id:from_id,
+ 				chat:chat
+ 			},
+ 			type:"GET",
+ 			success:function(){
+ 				console.log('success')
+ 				$('#demo-name').val('')
+ 				$('#messegeId').val('')
+ 			},
+ 			error:function(){
+ 				console.log('fail')
+ 			}
+ 		})
+ 	}
+</script>
 
 	<!-- bootstrap js -->
 

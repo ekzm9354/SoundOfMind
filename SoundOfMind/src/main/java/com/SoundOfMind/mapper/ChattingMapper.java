@@ -17,4 +17,6 @@ public interface ChattingMapper {
 	public List<Chatting> ResentChat(String from_id, String to_id);
 
 	public int deleteChat(String to_id, String from_id);
+	
+	public int ToMessage(String to_id,String from_id,String chat);
 }

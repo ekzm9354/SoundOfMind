@@ -17,7 +17,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
-
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -27,8 +27,8 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of
-						Mind </a>
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
 					<ul class="icons">
 						<c:if test="${user==null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
@@ -65,8 +65,10 @@
 
 					<div class="content" style="height: 554.3px;">
 
-						<input type="text" name="inputSTT" style="height: 200px; margin-bottom: 20px; " class="speech"  value="안녕^^"> 
-						<input type="text" style="height: 200px; margin-bottom: 20px;">
+						<input type="text" name="inputSTT"
+							style="height: 200px; margin-bottom: 20px;" class="speech"
+							value="안녕^^"> <input type="text"
+							style="height: 200px; margin-bottom: 20px;">
 
 						<button>
 							<a href="#">Revise</a>
@@ -124,7 +126,6 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
-	
 		function speaker() {
 			$.ajax({
 				url : "http://127.0.0.1:5000/stt",
@@ -141,6 +142,15 @@
 			})
 		}
 	</script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
+		integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL"
+		crossorigin="anonymous"></script>
+	<script>
+		Kakao.init('0e90ffc2b83bed9cbdd0b545402d1987'); // 사용하려는 앱의 JavaScript 키 입력
+		console.log(Kakao.isInitialized);
+	</script>
+
+
 
 </body>
 </html>
