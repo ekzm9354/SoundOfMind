@@ -104,6 +104,7 @@
 								<li><span id="switcher-small">작게</span></li>
 							</ul></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
+						<li><a href="socket">Web Socket</a></li>
 					</ul>
 				</nav>
 
@@ -142,15 +143,6 @@
 			})
 		}
 	</script>
-	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
-		integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL"
-		crossorigin="anonymous"></script>
-	<script>
-		Kakao.init('0e90ffc2b83bed9cbdd0b545402d1987'); // 사용하려는 앱의 JavaScript 키 입력
-		console.log(Kakao.isInitialized);
-	</script>
-
-
 
 </body>
 </html>

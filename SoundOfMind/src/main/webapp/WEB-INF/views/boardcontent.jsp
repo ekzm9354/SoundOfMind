@@ -180,6 +180,7 @@
 								<li><span id="switcher-small">작게</span></li>
 							</ul></li>
 						<li><a href="elements.html">SEND FEEDBACK</a></li>
+						<li><a href="socket">Web Socket</a></li>
 					</ul>
 				</nav>
 

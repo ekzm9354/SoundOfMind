@@ -199,9 +199,8 @@ img {
 }
 
 .msg_send_btn {
-	background: #6495ED none repeat scroll 0 0;
+	
 	border: medium none;
-	color: #fff;
 	cursor: pointer;
 	font-size: 13px;
 	height: 33px;
