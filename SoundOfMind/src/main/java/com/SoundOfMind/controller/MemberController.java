@@ -94,9 +94,11 @@ public class MemberController {
 		return "index";
 	}
 
-	@GetMapping("/setting.do")
-	public String setting() {
-		return "setting";
+	@RequestMapping("/news.do")
+	public String news() {
+		return "news";
 	}
+	
+	
 
 }
