@@ -170,7 +170,7 @@ public ResponseEntity<String> deleteFile(String fileName){
 		file.delete();
 		
 		/* 원본 파일 삭제 */
-		String originFileName = file.getAbsolutePath().replace("s_", "");
+		String originFileName = file.getAbsolutePath().replaceFirst("s_", "");
 		
 		Log.info("originFileName : " + originFileName);
 		
