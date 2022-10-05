@@ -1,11 +1,15 @@
 package com.SoundOfMind.controller;
 
 import org.springframework.stereotype.Controller;
+
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -13,14 +17,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.SoundOfMind.domain.Kakao;
+import com.SoundOfMind.mapper.MemberMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class SocialLoginController {
 
+	@Autowired
+	private MemberMapper mapper;
+
 	@GetMapping("/KakoLogin")
-	public String kakalogin(String code, Model model) {
+	public String kakalogin(String code, HttpSession session) {
 //		로그인시 받아오는 코드 확인
 		System.out.println("KakoCode:" + code);
 //		받아온 코드를 통해 RestAPI 요청 access_token 받기 요청
@@ -48,14 +56,46 @@ public class SocialLoginController {
 		try {
 			oauthToken = objectMapper.readValue(response.getBody(), Kakao.class);
 			System.out.println("AccessToken:" + oauthToken.getAccess_token());
-			model.addAttribute("AccessToken", oauthToken.getAccess_token());
-			model.addAttribute("Socail","kakao");
+			session.setAttribute("AccessToken", oauthToken.getAccess_token());
+			session.setAttribute("Social", "kakao");
 //			AucessToken 종료
 //			사용자 정보 요청하기
 
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+		return "socialCheck";
+	}
+
+	@GetMapping("/kakao.do")
+	public String kakao(String id, String Social, Model model) {
+		model.addAttribute("id", id);
+		model.addAttribute("Kakao", Social);
+		String num = mapper.SocialJoinCheck(id);
+		System.out.println(num);
+		if (num == null) {
+			mapper.SocialJoin(Social, id);
+		}
+		return "index";
+	}
+
+	@GetMapping("/NaverLogin.do")
+	public String naverLogin(String id, String Social, HttpSession session) {
+		System.out.println("NaverEmail:" + id);
+		System.out.println("Social:" + Social);
+		session.setAttribute("Naveremail", id);
+		session.setAttribute("Naver", Social);
+		String num = mapper.SocialJoinCheck(id);
+		System.out.println(num);
+		if (num == null) {
+			mapper.SocialJoin(Social, id);
+		}
+		return "index";
+	}
+
+	@GetMapping("/NaverLogin")
+	public String naverLogin(Model model) {
+		model.addAttribute("Social", "naver");
 		return "socialCheck";
 	}
 }
