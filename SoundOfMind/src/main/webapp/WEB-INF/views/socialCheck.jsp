@@ -39,23 +39,16 @@ content="width=device-width, initial-scale=1, user-scalable=no" />
 			</div>
 				<!-- 버튼 -->
 
-
-	<div class="container">
-		<div id="cursor">
-			<div class="cursor__inner"></div>
-		</div>
-		<a href="#" class="button" cursor-class="overlay"> <span
-			class="button-text">Login Continue</span> <span
-			class="button-text foreground-text" onclick="searchUser(`${AccessToken}`,`${Socail}`)" >Click</span>
-		</a>
-	</div>
-
-	<div style="text-align: center; margin-top: 150px;"> Login Continue
-		
-				<button class="searchUser_btn"
-					onclick="searchUser(`${AccessToken}`,`${Socail}`)">계속</button>
+					<div class="container">
+						<div id="cursor">
+							<div class="cursor__inner"></div>
+						</div>
+						<a href="#" class="button" cursor-class="overlay"> <span
+							class="button-text">Login Continue</span> <span
+							class="button-text foreground-text" onclick="searchUser(`${AccessToken}`,`${Socail}`)" >Click</span>
+						</a>
+					</div>
 					
-			</div>
 				<!-- 버튼 끝 -->
 
 
