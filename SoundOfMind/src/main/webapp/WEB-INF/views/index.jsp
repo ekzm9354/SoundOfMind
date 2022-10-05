@@ -37,7 +37,7 @@
 							<li><a href="login.do"><span class="label">Login</span></a></li>
 							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
-						<c:if test="${user!=null && Socail == null}"> 
+						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">Logout</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>

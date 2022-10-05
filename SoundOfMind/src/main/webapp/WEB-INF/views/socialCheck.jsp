@@ -23,7 +23,7 @@
 
 <!-- main -->
 <meta name="viewport"
-content="width=device-width, initial-scale=1, user-scalable=no" />
+	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -33,37 +33,44 @@ content="width=device-width, initial-scale=1, user-scalable=no" />
 </head>
 <body class="is-preload">
 
-<!-- Wrapper -->
-		<!-- Main -->
-			<div class="inner">
-				<!-- Header -->
-				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
-					</a>
-				</header>
+	<!-- Wrapper -->
+	<!-- Main -->
+	<div class="inner">
+		<!-- Header -->
+		<header id="header">
+			<a href="index.do" class="logo"><strong>Sound</strong> of Mind </a>
+		</header>
 
 
-			</div>
-				<!-- 버튼 -->
-
-
-	<div class="container">
-		<div id="cursor">
-			<div class="cursor__inner"></div>
-		</div>
-		<a href="#" class="button" cursor-class="overlay"> <span
-			class="button-text">Login Continue</span> <span
-			class="button-text foreground-text" onclick="searchUser(`${AccessToken}`,`${Socail}`)" >Click</span>
-		</a>
 	</div>
+	<!-- 버튼 -->
 
-	<div style="text-align: center; margin-top: 150px;"> Login Continue
-		
-				<button class="searchUser_btn"
-					onclick="searchUser(`${AccessToken}`,`${Socail}`)">계속</button>
-					
+	<c:if test="${Social=='kakao'}">
+		<div class="container">
+			<div id="cursor">
+				<div class="cursor__inner"></div>
 			</div>
-				<!-- 버튼 끝 -->
+			<a href="#" class="button" cursor-class="overlay"> <span
+				class="button-text">Login Continue</span> <span
+				class="button-text foreground-text"
+				onclick="searchUser(`${AccessToken}`,`${Social}`)">Click</span>
+			</a>
+		</div>
+	</c:if>
+	<c:if test="${Social=='naver'}">
+		<div class="container">
+			<div id="cursor">
+				<div class="cursor__inner"></div>
+			</div>
+			<a href="#" class="button" cursor-class="overlay"> <span
+				class="button-text">Login Continue</span> <span
+				class="button-text foreground-text">Click</span>
+			</a>
+
+		</div>
+	</c:if>
+
+	<!-- 버튼 끝 -->
 
 
 
@@ -73,9 +80,9 @@ content="width=device-width, initial-scale=1, user-scalable=no" />
 
 
 	<script type="text/javascript">
-function searchUser(AccessToken,Socail){
+function searchUser(AccessToken,Social){
 	console.log('AccessToken:'+AccessToken)
-	console.log('Socail:'+`${Socail}`)
+	console.log('Social:'+`${Social}`)
 	Kakao.Auth.setAccessToken(AccessToken);
 	Kakao.API.request({
 		  url: '/v2/user/me',
@@ -83,7 +90,7 @@ function searchUser(AccessToken,Socail){
 		  .then(function(response) {
 		    console.log(response);
 		    var id = response.id
-		    location.href = "http://localhost:8085/kakao.do?id="+id+"&Socail="+Socail
+		    location.href = "http://localhost:8085/kakao.do?id="+id+"&Social="+Social
 		  })
 		  .catch(function(error) {
 		    console.log(error);
@@ -96,17 +103,16 @@ function searchUser(AccessToken,Socail){
 	console.log(naver_id_login.oauthParams.access_token);
 	naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	function naverSignInCallback() {
-	    var email = naver_id_login.getProfileData('email')
-	    var Socail = 'naver'
-	    console.log(Social)
-	    console.log(email)
-	    location.href="http://localhost:8085/NaverLogin?email="+email+"&Social="+Social
-	  }
+		 var id = naver_id_login.getProfileData('email');
+		 console.log('email변수: '+id)
+		 location.href="http://localhost:8085/NaverLogin.do?id="+id+"&Social=naver"
+	}
+	
 </script>
 
 
-<!-- 버튼 js -->
-<script type="text/javascript">
+	<!-- 버튼 js -->
+	<script type="text/javascript">
 const cursor = document.querySelector("#cursor")
 
 let mouse = { x: -100, y: -100 }
