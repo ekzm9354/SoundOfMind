@@ -133,6 +133,8 @@
 					</div>
 
 				</div>
+				
+				<ion-icon name="pencil-outline"></ion-icon>
 
 				<!-- 
 				<!-- 페이지 넘김
@@ -245,6 +247,8 @@
 
 	<!-- bootstrap js -->
 
+<!-- icon -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
 </body>
 </html>
