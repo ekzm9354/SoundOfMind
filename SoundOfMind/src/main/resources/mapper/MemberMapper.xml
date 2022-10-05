@@ -20,4 +20,13 @@ delete from MEMBER_INFO where id=#{id}
 select count(id) from MEMBER_INFO where id=#{id}
 </select>
 
+<!-- Social Join -->
+<insert id="SocialJoin" parameterType="String">
+INSERT INTO MEMBER_INFO(ROOT,NAME,ID,PW) VALUES (#{root},#{id},#{id},#{id})
+</insert>
+
+<!-- Social Join Check -->
+<select id="SocialJoinCheck" parameterType="String" resultType="String">
+SELECT IFNULL(ID,0) FROM MEMBER_INFO WHERE ID = #{id};
+</select>
 </mapper>
