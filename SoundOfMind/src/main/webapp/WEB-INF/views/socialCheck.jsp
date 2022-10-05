@@ -20,11 +20,58 @@
 	charset="utf-8"></script>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- main -->
+<meta name="viewport"
+content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="/resources/assets/css/main.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<!-- 버튼 -->
+<link rel="stylesheet" href="/resources/assets/css/social.css" />
+
 </head>
-<body>
-	<h5>로그인을 계속 진행하시려면 확인 버튼을 눌러주세요</h5>
-	<button class="searchUser_btn"
-		onclick="searchUser(`${AccessToken}`,`${Socail}`)">확인</button>
+<body class="is-preload">
+
+<!-- Wrapper -->
+		<!-- Main -->
+			<div class="inner">
+				<!-- Header -->
+				<header id="header">
+					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					</a>
+				</header>
+
+
+			</div>
+				<!-- 버튼 -->
+
+
+	<div class="container">
+		<div id="cursor">
+			<div class="cursor__inner"></div>
+		</div>
+		<a href="#" class="button" cursor-class="overlay"> <span
+			class="button-text">Login Continue</span> <span
+			class="button-text foreground-text" onclick="searchUser(`${AccessToken}`,`${Socail}`)" >Click</span>
+		</a>
+	</div>
+
+	<div style="text-align: center; margin-top: 150px;"> Login Continue
+		
+				<button class="searchUser_btn"
+					onclick="searchUser(`${AccessToken}`,`${Socail}`)">계속</button>
+					
+			</div>
+				<!-- 버튼 끝 -->
+
+
+
+
+
+
+
+
 	<script type="text/javascript">
 function searchUser(AccessToken,Socail){
 	console.log('AccessToken:'+AccessToken)
@@ -56,5 +103,55 @@ function searchUser(AccessToken,Socail){
 	    location.href="http://localhost:8085/NaverLogin?email="+email+"&Social="+Social
 	  }
 </script>
+
+
+<!-- 버튼 js -->
+<script type="text/javascript">
+const cursor = document.querySelector("#cursor")
+
+let mouse = { x: -100, y: -100 }
+let pos = { x: 0, y: 0 }
+const speed = 0.1
+
+const updateCoordinates = (e) => {
+  mouse.x = e.clientX
+  mouse.y = e.clientY
+}
+
+window.addEventListener("mousemove", updateCoordinates)
+
+const updatePosition = () => {
+  pos.x += (mouse.x - pos.x) * speed
+  pos.y += (mouse.y - pos.y) * speed
+  cursor.style.transform =
+    "translate3d(" + pos.x + "px ," + pos.y + "px, 0)"
+}
+
+const loop = () => {
+  updatePosition()
+  requestAnimationFrame(loop)
+}
+
+requestAnimationFrame(loop)
+
+const cursorModifiers = document.querySelectorAll("[cursor-class]")
+
+cursorModifiers.forEach((cursorModifier) => {
+  cursorModifier.addEventListener("mouseenter", function () {
+    let attribute = this.getAttribute("cursor-class")
+    cursor.classList.add(attribute)
+  })
+  
+  cursorModifier.addEventListener("mouseleave", function () {
+    let attribute = this.getAttribute("cursor-class")
+    cursor.classList.remove(attribute)
+  })
+})
+</script>
+
+
+
+
+
 </body>
 </html>

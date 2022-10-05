@@ -18,6 +18,9 @@
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
