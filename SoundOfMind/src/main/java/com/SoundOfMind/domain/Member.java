@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Member {
-	
+	private String root;
 	private String name;
 	private String id;
 	private String pw;
+	private String profile;
 }
