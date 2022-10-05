@@ -35,9 +35,13 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 
+	@GetMapping("/test.do")
+	public String test() {
+		return "test";
+	}
+	
 	@RequestMapping("/index.do")
 	public String index() {
-		
 		return "index";
 	}
 
@@ -93,4 +97,5 @@ public class MemberController {
 	}
 	
 	
+
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 @MapperScan("com.SoundOfMind.mapper")
 @ComponentScan("com.SoundOfMind.controller")
@@ -19,6 +20,10 @@ public class SoundOfMindApplication implements WebMvcConfigurer {
 		registry.addMapping("/**").allowedOrigins("*");
 	}
 	
+	@Bean
+	public ServerEndpointExporter serverEndpointExporter() {
+		return new ServerEndpointExporter();
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(SoundOfMindApplication.class, args);
 	}

@@ -21,6 +21,10 @@
 
 </head>
 <body class="is-preload">
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
@@ -76,10 +80,10 @@
 												</div>
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
 													<h5 class="whoChat">${chatlist.to_id}</h5>
-												<div style="display: none" class="deleteDiv">
-													<h5 class="delete"
-														onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
-												</div>
+													<div style="display: none" class="deleteDiv">
+														<h5 class="delete"
+															onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
+													</div>
 												</div>
 												<div class="toggle" onclick="toggle()">토글형태</div>
 											</div>
@@ -93,8 +97,7 @@
 									<div class="input_msg_write">
 										<input type="text" class="write_msg"
 											placeholder="Type a message" />
-										<button class="msg_send_btn" type="button"
-											onclick="ChatSend()">보내기</button>
+										<ion-icon name="chatbox-ellipses-outline" size="large" class="msg_send_btn" onclick="ChatSend()"></ion-icon>
 									</div>
 								</div>
 							</div>
