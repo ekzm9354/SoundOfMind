@@ -19,6 +19,12 @@
 <script>
 	Kakao.init('0e90ffc2b83bed9cbdd0b545402d1987'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
+<!-- 네이버 javascriptSDK -->
+<script type="text/javascript"
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -51,17 +57,15 @@
 						</div>
 
 						<button type="submit" class="btn fas fa-arrow-right" disabled></button>
-						<!-- 카카오 로그인버튼 -->
-						<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
-							src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-							width="222" alt="카카오 로그인 버튼" />
-						</a> <a href="join.do">회원가입</a>
+						<a href="join.do">회원가입</a>
 					</form>
 
 				</div>
-
-
-
+				<!-- 카카오 로그인버튼 -->
+				<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
+					src="/resources/assets/img/kakao.png" width="40" height="40"
+					alt="카카오 로그인 버튼" /></a>
+				<div id="naver_id_login"></div>
 			</div>
 		</div>
 
@@ -69,11 +73,15 @@
 		<script src="/resources/assets/js/login.js"></script>
 		<script type="text/javascript">
 			function loginWithKakao() {
-				Kakao.Auth
-						.authorize({
-							redirectUri : 'http://localhost:8085/KakoLogin',
-						});
+				Kakao.Auth.authorize({
+					redirectUri : 'http://localhost:8085/KakoLogin',
+				});
 			}
+		</script>
+		<script type="text/javascript">
+			var naver_id_login = new window.naver_id_login(
+					"hWpTeIKVxZ06AslRia4v", "http://localhost:8085/NaverLogin")
+			naver_id_login.init_naver_id_login();
 		</script>
 </body>
 </html>

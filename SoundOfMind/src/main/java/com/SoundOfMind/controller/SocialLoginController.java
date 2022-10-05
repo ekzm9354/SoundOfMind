@@ -1,6 +1,12 @@
 package com.SoundOfMind.controller;
 
 import org.springframework.stereotype.Controller;
+
+import java.net.http.HttpRequest;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -13,11 +19,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
 import com.SoundOfMind.domain.Kakao;
+import com.SoundOfMind.mapper.MemberMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class SocialLoginController {
+
+	@Autowired
+	private MemberMapper mapper;
 
 	@GetMapping("/KakoLogin")
 	public String kakalogin(String code, Model model) {
@@ -49,13 +59,39 @@ public class SocialLoginController {
 			oauthToken = objectMapper.readValue(response.getBody(), Kakao.class);
 			System.out.println("AccessToken:" + oauthToken.getAccess_token());
 			model.addAttribute("AccessToken", oauthToken.getAccess_token());
-			model.addAttribute("Socail","kakao");
+			model.addAttribute("Socail", "kakao");
 //			AucessToken 종료
 //			사용자 정보 요청하기
 
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+		return "socialCheck";
+	}
+
+	@GetMapping("/kakao.do")
+	public String kakao(String id, String Socail, Model model) {
+		model.addAttribute("id", id);
+		model.addAttribute("Kakao", Socail);
+		String num = mapper.SocialJoinCheck(id);
+		System.out.println(num);
+		if (num == null) {
+			mapper.SocialJoin(Socail, id);
+		}
+		return "index";
+	}
+
+	@GetMapping("/NaverLogin")
+	public String naverLogin(String email, String Social, Model model) {
+		System.out.println("NaverEmail:" + email);
+		System.out.println("Social:" + Social);
+		model.addAttribute("Naveremail", email);
+		model.addAttribute("Naver", Social);
+		
+		return "index";
+	}
+	@GetMapping("/NaverLogin")
+	public String naverLogin() {
 		return "socialCheck";
 	}
 }

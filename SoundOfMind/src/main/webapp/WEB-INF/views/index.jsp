@@ -30,7 +30,7 @@
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
 							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
@@ -41,6 +41,10 @@
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
+							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
 							<li><a href="logout.do"><span class="label">Logout</span></a></li>
 						</c:if>
 					</ul>
