@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UploadFile {
-    private String fileName;
     private String uploadPath;
     private String uuid;
+    private String fileName;
     private boolean image;
 }

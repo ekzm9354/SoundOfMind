@@ -1,60 +1,12 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
-
-	table.type03 {
-  border-collapse: collapse;
-  text-align: center;
-  line-height: 1.5;
-  border-top: 1px solid #ccc;
-  border-left: 3px solid #6495ED;
-  margin : 20px 10px;
-  width: 100%;
-}
-table.type03 th {
-  width: 400px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  color: #6495ED;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-
-}
-table.type03 td {
-  width: 400px;
-  padding: 10px;
-  vertical-align: top;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-#result_card img{
-	max-width: 100%;
-    height: auto;
-    display: block;
-    padding: 5px;
-    margin-top: 10px;
-    margin: auto;	
-}
-#result_card {
-	position: relative;
-}
-.imgDeleteBtn{
-    position: absolute;
-    top: 0;
-    right: 5%;
-    background-color: #ef7d7d;
-    color: wheat;
-    font-weight: 900;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    line-height: 26px;
-    text-align: center;
-    border: none;
-    display: block;
-    cursor: pointer;	
-}
+ .box {margin:20px auto;}
+    .content {
+        width:800px;
+        padding:10px;
+        border:1px solid #ddd;
+    }
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -1875,7 +1827,7 @@ button,
     #main > .inner {
       padding: 0 5em 0.1em 5em ; }
       #main > .inner > section {
-        padding: 5em 0 3em 0 ; } }
+        padding: 0.5em 0 3em 0 ; } }
   @media screen and (max-width: 1280px) {
     #main > .inner {
       padding: 0 4em 0.1em 4em ; }
@@ -2134,9 +2086,8 @@ button,
     -ms-flex-shrink: 1;
     flex-shrink: 1;
     width: 50%;
-    border: 1px solid;
     border-radius: 2%;
-    padding: 3%;
+    padding: 2%;
     margin: 1%;
      }
   #banner .image {

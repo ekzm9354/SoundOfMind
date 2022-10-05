@@ -1,8 +1,12 @@
 package com.SoundOfMind.controller;
 
+import java.awt.Graphics2D;
+import java.awt.PageAttributes.MediaType;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.net.http.HttpHeaders;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+
+import javax.imageio.ImageIO;
 
 import org.python.jline.internal.Log;
 import org.springframework.http.HttpStatus;
@@ -37,89 +43,152 @@ public void uploadForm() {
 	Log.info("mypage : upload form");
 }
 
-@PostMapping("/uploadAjaxAction")
+//첨부 파일 업로드
+@PostMapping(value="/uploadAjaxAction",produces=org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE)
 @ResponseBody
 public ResponseEntity<List<UploadFile>> uploadAjaxPost(MultipartFile[] uploadFile) {
-	List<UploadFile> list = new ArrayList<UploadFile>();
-	//파일 저장 경로
-	String uploadFolder="C:/upload/profile_test/";
-	String uploadFolderPath=getFolder();
-	//폴더 만들기
-	File uploadPath = new File(uploadFolder, getFolder());
-	Log.info("upload path : "+uploadPath);
-	
-	if(uploadPath.exists()==false) {
-		uploadPath.mkdirs();
-	}//make yyyy/MM/dd 폴더
-	
-	//파일 업로드 후 파일 이름, 사이즈 확인용
-	for(MultipartFile multipartFile : uploadFile) {
-//		Log.info("------------------");
-//		Log.info("Upload File Name : "+multipartFile.getOriginalFilename());
-//		Log.info("Upload File Size : "+multipartFile.getSize());
+	/* 이미지 파일 체크 */
+	for(MultipartFile multipartFile: uploadFile) {
 		
-		UploadFile uploadfile = new UploadFile();
-		String uploadFileName=multipartFile.getOriginalFilename();
-		//IE has file path
-		uploadFileName=uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
-		Log.info("only file name : "+uploadFileName);
-		uploadfile.setFileName(uploadFileName);
-		//고유한 파일명을 갖는 파일 생성 방법
-		UUID uuid=UUID.randomUUID();
-		uploadFileName=uuid.toString()+"_"+uploadFileName;
+		File checkfile = new File(multipartFile.getOriginalFilename());
+		String type = null;
 		
-		//파일 저장
 		try {
-			//File savefile=new File(uploadFolder, multipartFile.getOriginalFilename());
-			File saveFile=new File(uploadPath,uploadFileName);
-			multipartFile.transferTo(saveFile);
-			uploadfile.setUuid(uuid.toString());
-			uploadfile.setUploadPath(uploadFolderPath);
-			//이미지 타입 파일인지 확인
-			if(checkImageType(saveFile)) {
-				uploadfile.setImage(true);
-				FileOutputStream thumbnail=new FileOutputStream(new File(uploadPath,"s_"+uploadFileName));
-				Thumbnailator.createThumbnail(multipartFile.getInputStream(),thumbnail,100,100);
-			}
-			// 리스트 추가
-			list.add(uploadfile);
-		}catch(Exception e) {
-			Log.error(e.getMessage());
-		}//end catch
-	}//end for
-	return new ResponseEntity<List<UploadFile>>(list,HttpStatus.OK);
-}
-//오늘 날짜의 경로를 문자열로 생성, 생성된 경로는 폴더 경로로 수정 된 뒤 반환
-private String getFolder() {
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			type = Files.probeContentType(checkfile.toPath());
+			Log.info("MIME TYPE : " + type);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		if(!type.startsWith("image")) {
+			
+			List<UploadFile> list = null;
+			return new ResponseEntity<>(list,HttpStatus.BAD_REQUEST);
+			
+		}
+		
+	}// for 끝
+	
+	String uploadFolder="C:\\upload\\";
+	//날짜 폴더 경로
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	Date date = new Date();
-	String str = sdf.format(date);
-	return str.replace("-",File.separator);
-}
-private boolean checkImageType(File file) {
-	try {
-		String contentType = Files.probeContentType(file.toPath());
-		return contentType.startsWith("image");
-	}catch(IOException e) {
-		e.printStackTrace();
+	String str=sdf.format(date);
+	String datePath = str.replace("-", File.separator);
+	/* 폴더 생성 */
+	File uploadPath = new File(uploadFolder, datePath);
+	
+	if(uploadPath.exists() == false) {
+		uploadPath.mkdirs();
 	}
-	return false;
+	//이미지 정보를 담는 객체
+	List<UploadFile> list = new ArrayList();
+	//for문
+	for(MultipartFile multipartFile : uploadFile) {
+		/* 이미지 정보 객체 */
+		UploadFile uploadfile = new UploadFile();
+		
+		/* 파일 이름 */
+		String uploadFileName = multipartFile.getOriginalFilename();			
+		uploadfile.setFileName(uploadFileName);
+		uploadfile.setUploadPath(datePath);
+		
+		/* uuid 적용 파일 이름 */
+		String uuid = UUID.randomUUID().toString();
+		uploadfile.setUuid(uuid);
+		
+		uploadFileName = uuid + "_" + uploadFileName;
+		
+		/* 파일 위치, 파일 이름을 합친 File 객체 */
+		File saveFile = new File(uploadPath, uploadFileName);
+		
+		/* 파일 저장 */
+		try {
+			multipartFile.transferTo(saveFile);
+			
+			//썸네일 생성(ImageIO)
+			File thumbnailFile = new File(uploadPath,"s_"+uploadFileName);
+			BufferedImage bo_image = ImageIO.read(saveFile);
+			//비율
+			double ratio=3;
+			//넓이 , 높이
+			int width=(int)(bo_image.getWidth()/ratio);
+			int height=(int)(bo_image.getHeight()/ratio);
+			
+			BufferedImage bt_image = new BufferedImage(width,height,BufferedImage.TYPE_3BYTE_BGR);
+			Graphics2D graphic = bt_image.createGraphics();
+			graphic.drawImage(bo_image, 0, 0,width,height,null);
+			ImageIO.write(bt_image, "jpg", thumbnailFile);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		list.add(uploadfile);
+	}//for 끝부분
+	
+	ResponseEntity<List<UploadFile>> result = new ResponseEntity<List<UploadFile>>(list,HttpStatus.OK);
+	return result;
 }
+	
+
+	
+		
+
 
 //썸네일 이미지 보여주기
 @GetMapping("/display")
 @ResponseBody
-public ResponseEntity<byte[]> getFile(String fileName){
-	Log.info("fileName:"+fileName);
-	File file=new File("C:\\upload\\profile_test\\"+fileName);
-	Log.info("file:"+file);
-	ResponseEntity<byte[]> result=null;
+public ResponseEntity<byte[]> getImage(String fileName){
+	Log.info("getImage()---------"+fileName);
+	File file=new File("C:\\upload\\"+fileName);
+	ResponseEntity<byte[]> result = null;
+	
 	try {
-		org.springframework.http.HttpHeaders headers = new org.springframework.http.HttpHeaders();
-	headers.add("Content-Type", Files.probeContentType(file.toPath()));
-	result=new ResponseEntity<byte[]>(FileCopyUtils.copyToByteArray(file),headers,HttpStatus.OK);
-	}catch(IOException e) {
+		
+		org.springframework.http.HttpHeaders header = new org.springframework.http.HttpHeaders();
+		
+		header.add("Content-type", Files.probeContentType(file.toPath()));
+		
+		result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+		
+	}catch (IOException e) {
 		e.printStackTrace();
-	}return result;
+	}
+	
+	return result;
 }
+
+@PostMapping("deleteFile")
+@ResponseBody
+public ResponseEntity<String> deleteFile(String fileName){
+	Log.info("deleteFile--------"+fileName);
+	File file = null;
+	try {
+		/* 썸네일 파일 삭제 */
+		file = new File("c:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+		
+		file.delete();
+		
+		/* 원본 파일 삭제 */
+		String originFileName = file.getAbsolutePath().replace("s_", "");
+		
+		Log.info("originFileName : " + originFileName);
+		
+		file = new File(originFileName);
+		
+		file.delete();
+		
+		
+	} catch(Exception e) {
+		
+		e.printStackTrace();
+		
+		return new ResponseEntity<String>("fail", HttpStatus.NOT_IMPLEMENTED);
+		
+	}//catch
+	return new ResponseEntity<String>("success", HttpStatus.OK);
 }
+
+
+}
+

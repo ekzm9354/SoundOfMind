@@ -48,9 +48,10 @@
 							<input type="file" name="uploadFile" multiple>
 						</div>		
 						<div class="uploadResult">
-						<ul>
-						
-						</ul>
+							<!--  <div  id="result_card">
+								<div class="imgDeleteBtn">X</div>
+								<img src="/display?fileName=test.png">
+							</div> -->
 						</div>				
 						<button id="uploadBtn">Upload</button>
 						
@@ -101,7 +102,7 @@
 						<li><span class="opener">COMMUNITY</span>
 							<ul>
 								<li><a href="community.do">BOARD</a></li>
-								<li><a href="#">NEWS</a></li>
+								<li><a href="news.do">NEWS</a></li>
 								<li><a href="chatting.do">CAHTTING</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
@@ -126,53 +127,26 @@
 		<script src="/resources/assets/js/mypage.js"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script>
-		$(document).ready(function(){
-			//파일 확장자제한, 파일 사이즈 제한
-			var regex=new RegExp("(.*?)\.(exe|sh|js|alz)$");
-			var maxSize = 5242880; //5MB
-			
-			function checkExtension(fileName,fileSize){
-				if(fileSize>=maxSize){
-					alert("파일 사이즈 초과");
-					return false;
-				}
-				if(regex.test(fileName)){
-					alert("허용되지 않는 확장자");
-					return false;
-				}
-				return true;
-			}
-			
-			
-			
-			var cloneOjb=$(".uploadDiv").clone();
-			//업로드버튼 클릭 했을 때 
+		
+			//var cloneOjb=$(".uploadDiv").clone();
+			//이미지 업로드
 			$("#uploadBtn").on("click", function(e){
+				
+				/* 이미지 존재시 삭제 */
+				if($(".imgDeleteBtn").length > 0){
+					deleteFile();
+				}
+				
 				var formData = new FormData();
 				var inputFile = $("input[name='uploadFile']");
-				var files=inputFile[0].files;
-				console.log(files);
+				var fileList=inputFile[0].files;
+				var fileObj=fileList[0];
+
 				
-				//add fileData to formData
-				for(var i=0;i<files.length;i++){
-					//파일을 하나씩 추가하는 for문에서 각 파일을 검사
-					if(!checkExtension(files[i].name, files[i].size)){
-						return false;
-					}
-					formData.append("uploadFile", files[i]);
-				}
-				
-				//result처리
-				var uploadResult = $(".uploadResult ul");
-				function showUploadFile(uploadResultArr){
-					var str="";
-					$(uploadResultArr).each(function(i,obj){
-						//str+="<li>"+obj.fileName+"</li>";
-						var fileCellpath=encodeURIComponent(obj.uploadPath+"/s_"+obj.uuid+"_"+obj.fileName);
-						str+="<li><img src='/display?fileName="+fileCellPath+"'></li>";
-					});
-					uploadResult.append(str);
-				}
+				/* if(!fileCheck(fileObj.name, fileObj.size)){
+					return false;
+				} */
+				formData.append("uploadFile",fileObj);
 				
 				$.ajax({
 					url:'/uploadAjaxAction',
@@ -182,17 +156,94 @@
 					type:"POST",
 					dataType:'json',
 					success:function(result){
-						console.log(result);
-						$(".uploadDiv").html(cloneOjb.html());
-					showUploadFile(result);
+						console.log('ajax'+result);
+						showUploadImage(result);
+						//input 부분 초기화
+						//$(".uploadDiv").html(cloneOjb.html());
+					},
+					error:function(result){
+						alert("이미지 파일이 아닙니다.")
 					}
-				})
-			})
-		})
+			});//ajax 끝부분
+				
+		});//onclick 끝부분 
+			
+			//파일 확장자제한, 파일 사이즈 제한
+			var regex=new RegExp("(.*?)\.(jpg|png)$");
+			var maxSize = 5242880; //5MB
+			
+			function fileCheck(fileName,fileSize){
+				if(fileSize>=maxSize){
+					alert("파일 사이즈 초과");
+					return false;
+				}
+				if(!regex.test(fileName)){
+					alert("허용되지 않는 확장자");
+					return false;
+				}
+				return true;
+			}
+			
+		</script>
+		
+		<script>
+		/* 이미지 출력 */
+		function showUploadImage(uploadResultArr){
+			console.log("showUploadImage");
+			/* 전달받은 데이터 검증 */
+			if(!uploadResultArr || uploadResultArr.length == 0){return}
+			
+			let uploadResult = $("#uploadResult");
+			
+			let obj = uploadResultArr[0];
+			
+			
+			let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName;
+		
+			$('.uploadResult').append("<div id='result_card'><div class='imgDeleteBtn' data-file='"+fileCallPath+"'>X</div></div>")
+			$('.imgDeleteBtn').last().append("<img src='/display?fileName="+fileCallPath+"'>")
+			
+			
+	        
+		}	
+		/* 이미지 삭제 버튼 동작 */
+		$(".imgDeleteBtn").on("click", function(e){
+			
+			deleteFile();
+			
+		});
+		
+		/* 파일 삭제 메서드 */
+		function deleteFile(){
+			
+			let targetFile = $(".imgDeleteBtn").data("file");
+			
+			let targetDiv = $("#result_card");
+			
+			$.ajax({
+				url: '/deleteFile',
+				data : {fileName : targetFile},
+				dataType : 'text',
+				type : 'POST',
+				success : function(result){
+					console.log(result);
+					
+					targetDiv.remove();
+					$("input[type='file']").val("");
+					
+				},
+				error : function(result){
+					console.log(result);
+					
+					alert("파일을 삭제하지 못하였습니다.")
+				}
+			});
+		}
 		</script>
 
 
 		<script>
+		/* 회원탈퇴  */
 			function deletemem() {
 				if (!confirm("정말로 탈퇴하시겠습니까?")) {
 					return "mypage.do";
@@ -203,5 +254,6 @@
 				}
 			}
 		</script>
+		
 </body>
 </html>
