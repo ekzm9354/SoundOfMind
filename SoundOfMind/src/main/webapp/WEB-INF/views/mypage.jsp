@@ -55,7 +55,7 @@
 								<img src="/display?fileName=test.png">
 							</div> -->
 							</div>
-							<div class="oImg"></div>
+							
 							<button id="uploadBtn">Upload</button>
 
 							<table class="type03">
