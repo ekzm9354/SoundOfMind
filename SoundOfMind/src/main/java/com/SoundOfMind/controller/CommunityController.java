@@ -65,4 +65,9 @@ public class CommunityController {
 		model.addAttribute("boardComent", boardComent);
 		return "boardcontent";
 	}
+//	글쓰기
+	@GetMapping("/boardWrite.do")
+	public String boardwrite() {
+		return "boardwrite";
+	}
 }

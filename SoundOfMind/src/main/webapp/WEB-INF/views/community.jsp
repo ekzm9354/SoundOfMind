@@ -123,16 +123,19 @@
 						<h6 style="padding-left: 22px;">메세지</h6>
 						<div class="box" style="width: 980px; margin-left: 22px;">
 							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
-								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none; ">
+								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;">
 							</textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
-								<li><button class="button small" onclick="ToMessage(`${user.id}`)">보내기</button></li>
+								<li><button class="button small"
+										onclick="ToMessage(`${user.id}`)">보내기</button></li>
 							</ul>
 						</div>
 					</div>
 
 				</div>
+
+				<ion-icon name="pencil-outline" onclick="boardWrite()"></ion-icon>
 
 				<!-- 
 				<!-- 페이지 넘김
@@ -210,41 +213,48 @@
 			location.reload();
 		}
 	</script>
-<script type="text/javascript">
- $('.userid').click(function(){
-	 var userid = $(this).text()
-	 $('input[name=messegeId]').attr('value',userid)
- })
-</script>
-<script type="text/javascript">
- 	function ToMessage(to_id){
- 		var from_id = $('#messegeId').val()
- 		console.log(from_id)
- 		var chat = $('#demo-name').val()
- 		console.log(chat)
- 		console.log(to_id)
- 		$.ajax({
- 			url:'ToMessage.do',
- 			data:{
- 				to_id:to_id,
- 				from_id:from_id,
- 				chat:chat
- 			},
- 			type:"GET",
- 			success:function(){
- 				console.log('success')
- 				$('#demo-name').val('')
- 				$('#messegeId').val('')
- 			},
- 			error:function(){
- 				console.log('fail')
- 			}
- 		})
- 	}
-</script>
-
+	<script type="text/javascript">
+		$('.userid').click(function() {
+			var userid = $(this).text()
+			$('input[name=messegeId]').attr('value', userid)
+		})
+	</script>
+	<script type="text/javascript">
+		function ToMessage(to_id) {
+			var from_id = $('#messegeId').val()
+			console.log(from_id)
+			var chat = $('#demo-name').val()
+			console.log(chat)
+			console.log(to_id)
+			$.ajax({
+				url : 'ToMessage.do',
+				data : {
+					to_id : to_id,
+					from_id : from_id,
+					chat : chat
+				},
+				type : "GET",
+				success : function() {
+					console.log('success')
+					$('#demo-name').val('')
+					$('#messegeId').val('')
+				},
+				error : function() {
+					console.log('fail')
+				}
+			})
+		}
+	</script>
+	<script type="text/javascript">
+		function boardWrite() {
+			location.href = "http://localhost:8085/boardWrite.do"
+		}
+	</script>
 	<!-- bootstrap js -->
 
+	<!-- icon -->
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
 </body>
 </html>
