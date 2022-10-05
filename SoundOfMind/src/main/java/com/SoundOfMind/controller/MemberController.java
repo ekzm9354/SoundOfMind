@@ -35,9 +35,12 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 
-	@GetMapping("/test.do")
-	public String test() {
-		return "test";
+	@GetMapping("/kakao.do")
+	public String kakao(String id,String Socail,Model model) {
+		model.addAttribute("id", id);
+		model.addAttribute("Kakao", Socail);
+		
+		return "index";
 	}
 	
 	@RequestMapping("/index.do")
