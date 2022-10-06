@@ -7,4 +7,16 @@
 		FROM (SELECT * FROM EMOTION WHERE ID=#{id} AND (@rownum :=0)=0 ORDER BY DATE
 		DESC) E
 	</select>
+	
+	<update id="profile_update"  parameterType="String" >
+		update MEMBER_INFO set PROFILE = #{profile} where id=#{id}
+	</update>
+	
+	<select id="profile_save" parameterType="String" resultType="String">
+	select PROFILE from MEMBER_INFO where id=#{id}
+	</select>
+	
+	
+	
+	
 </mapper>

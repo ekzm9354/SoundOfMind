@@ -15,11 +15,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import com.SoundOfMind.domain.Emotion;
 import com.SoundOfMind.domain.Member;
 import com.SoundOfMind.mapper.MypageMapper;
+
+import ch.qos.logback.core.util.FileUtil;
 
 @Controller
 public class MypageController {
@@ -34,11 +40,11 @@ public class MypageController {
 			String id = member.getId();
 			List<Emotion> emotion = mapper.emotion(id);
 			model.addAttribute("emotion", emotion);
+			String profile_s = mapper.profile_save(id);
+			session.setAttribute("profile_s",profile_s);
 		}
 		return "mypage";
 	}
-	
-	
 	
 
 	

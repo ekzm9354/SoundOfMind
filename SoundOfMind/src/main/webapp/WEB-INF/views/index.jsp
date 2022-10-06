@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </head>
-<body class="is-preload">
+<body class="is-preload" >
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
@@ -31,23 +31,35 @@
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null}">
-							<li><a href="login.do"><span class="label">Login</span></a></li>
-							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
+							<li><a href="login.do"><span class="label">로그인</span></a></li>
+							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
 						<c:if test="${user!=null && Socail == null}"> 
 						${user.name}님 
-						<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
-							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 						</c:if>
 					</ul>
 
 				</header>
 				<!-- Banner -->
 				<section id="banner">
+				<!--글자 사이즈-->
+					<div class="fontSize"> 
+					<p>가</p>
+					<ul class="sub">
+						<li> 
+						<span onclick="fontsizedown()" style="font-size:0.5em;">가</span>
+						<span onclick="fontsizeup1()" style="font-size:1em;">가</span>
+						<span onclick="fontsizeup2()" style="font-size:1.5em;">가</span>
+						<span onclick="fontsizeup3()" style="font-size:2em;">가</span>
+						</li>
+					</ul>
+					</div>
 					<div class="content" style="height: 554.3px;">
 						<!-- loading animation -->
 						<div class='music'
@@ -64,21 +76,23 @@
 							<div class='bar'></div>
 						</div>
 						<br>
-						<button onclick="speaker()">Mic</button>
+						<button onclick="speaker()">마이크</button>
 					</div>
 
+					
 					<div class="content" style="height: 554.3px;">
-
+						
 						<input type="text" name="inputSTT"
-							style="height: 200px; margin-bottom: 20px;" class="speech"
-							value="안녕^^"> <input type="text"
-							style="height: 200px; margin-bottom: 20px;">
+							style="height: 200px; margin-bottom: 20px;" id="speech"
+							placeholder="여기에 상대방이 한 말이 보여지는 부분"> 
+						<input type="text"
+							style="height: 200px; margin-bottom: 20px;" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분">
 
 						<button>
-							<a href="#">Revise</a>
+							<a href="#">수정하기</a>
 						</button>
 						<button>
-							<a href="#">Sentiment Analysis</a>
+							<a href="#">감정분석하기</a>
 						</button>
 					</div>
 				</section>
@@ -91,35 +105,22 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>MENU</h2>
+						<h2>메뉴</h2>
 					</header>
 					<ul>
-						<li><span class="opener">COMMUNITY</span>
+						<li><span class="opener">커뮤니티</span>
 							<ul>
-								<li><a href="community.do">BOARD</a></li>
-								<li><a href="news.do">NEWS</a></li>
-								<li><a href="chatting.do">CAHTTING</a></li>
+								<li><a href="community.do">게시판</a></li>
+								<li><a href="news.do">뉴스</a></li>
+								<li><a href="chatting.do">채팅</a></li>
 							</ul></li>
-						<li><a href="mypage.do">MY PAGE</a></li>
-						<!--폰트 셋팅 부분-->
-						<li><span class="opener" id="switcher">FONT SIZE</span>
-							<ul>
-								<li><span id="switcher-large">크게</span></li>
-								<li><span id="switcher-small">작게</span></li>
-							</ul></li>
-						<li><a href="elements.html">SEND FEEDBACK</a></li>
+						<li><a href="mypage.do">프로필</a></li>
+						<li><a href="elements.html">의견 보내기</a></li>
 						<li><a href="socket">Web Socket</a></li>
 					</ul>
 				</nav>
 
-				<!-- Footer. -->
-				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
-				</footer>
+				
 			</div>
 		</div>
 	</div>
@@ -147,6 +148,35 @@
 			})
 		}
 	</script>
+	<!-- 글자 크기 줄이기 -->
+	<script>
+	function fontsizedown(){
+		document.getElementById("speech").style.fontSize="0.5em";
+	}
+	function fontsizeup1(){
+		document.getElementById("speech").style.fontSize="1em";
+	}
+	function fontsizeup2(){
+		document.getElementById("speech").style.fontSize="1.5em";
+	}
+	function fontsizeup3(){
+		document.getElementById("speech").style.fontSize="2em";
+	}
+	</script>
+	
+	<script>
+	let subToggle=true;
+	$(".fontSize").click(()=>{
+	  if(subToggle){
+	    $(".sub").slideDown(500);
+	  }else{
+	    $(".sub").slideUp(500);
+	  }
+	  subToggle=!subToggle;
+	});
+	</script>
+	
+
 
 </body>
 </html>

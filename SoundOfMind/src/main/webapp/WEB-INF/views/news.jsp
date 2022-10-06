@@ -28,7 +28,7 @@
 							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
 						<c:if test="${user!=null }"> 
-						${user.name}님 
+						${user.id}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 						</c:if>
 					</ul>
@@ -38,35 +38,76 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h1>NEWS</h1>
+							<h1>뉴스</h1>
 
 						</header>
-	
-						<div class="box">
-							<div class="content">
-								<!--꾸미기는 나중에 할거임!!!!   -->
-								<span>date : 2022.10.05  </span><br>
-								<span>여기는 기사 제목입니당당당 </span>
-								<div class="contentStr">
-									여기는 본문 내용입니다 내용내용내용내용내욘이ㅏㅁ니아ㅓ리마ㅓㄴㅇ리ㅏㅓ
-									ㅁㄴ이ㅏ러미ㅏㄴ어림ㄴ미낭러미ㅏ넝리마넝리ㅏㅓㅁ닝럼넝리먼ㅇㄹㅁㄴ아러밍너리ㅏㅁ넝리ㅓㅁ니아러머낭ㄹ
-									ㅁㄴ아ㅣ러만어리먼ㅇ리ㅏㅓㅁ닝럼넝리ㅏㅁ너이러ㅣㅏㅁㄴㅇ
-									ㄹ미ㅏ넝리ㅏㅓㅁ재댜러ㅣㅏㅁ넝리마넝리ㅏㅓㄴ이러ㅣ나ㅓㅁ리ㅓ닐
-									ㅁ나어리마넝리ㅓ민ㅇ러ㅣㅁㅇ너림넝리ㅏㅓㅁ니아러 쏘랴랴랴랴랴랴
-									
-								</div>
-							</div>
-						</div>
+	<!-- 여기부터 뉴스 나오는 칸 꾸미기는 나중에 하겠슴당~ 일단 틀만,,  -->
+ <h2>긍정뉴스</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">날짜</th>
+        <th scope="col">제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2022.10.06</td>
+        <td>긍정 뉴스 제목임당</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>2022.10.06</td>
+        <td>긍정 뉴스 제목임당2</td>
+      </tr>
+    </tbody>
+  </table>
+  
+   <h2>부정뉴스</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">날짜</th>
+        <th scope="col">제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2022.10.06</td>
+        <td>부정 뉴스 제목임당</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>2022.10.06</td>
+        <td>부정 뉴스 제목임당2</td>
+       </tr>
+    </tbody>
+  </table>
+
+ <h2>중립 뉴스</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">날짜</th>
+        <th scope="col">제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2022.10.06</td>
+        <td>중립 뉴스 제목임당</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-						<div class="box">
-							<div class="content">
-								<span>date : 2022.10.05 </span>
-								<div class="contentStr"></div>
-							</div>
-						</div>
-
-
+	<!-- 여기부터 뉴스 나오는 칸  -->
 					</div>
 
 				</section>
@@ -80,23 +121,17 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>Menu</h2>
+						<h2>메뉴</h2>
 					</header>
 					<ul>
-						<li><span class="opener">COMMUNITY</span>
+						<li><span class="opener">커뮤니티</span>
 							<ul>
-								<li><a href="community.do">BOARD</a></li>
-								<li><a href="news.do">NEWS</a></li>
-								<li><a href="chatting.do">CAHTTING</a></li>
+								<li><a href="community.do">게시판</a></li>
+								<li><a href="news.do">뉴스</a></li>
+								<li><a href="chatting.do">채팅</a></li>
 							</ul></li>
-						<li><a href="mypage.do">MY PAGE</a></li>
-						<!--폰트 셋팅 부분-->
-						<li><span class="opener" id="switcher">FONT SIZE</span>
-							<ul>
-								<li><span id="switcher-large">크게</span></li>
-								<li><span id="switcher-small">작게</span></li>
-							</ul></li>
-						<li><a href="elements.html">SEND FEEDBACK</a></li>
+						<li><a href="mypage.do">프로필</a></li>
+						<li><a href="elements.html">의견 보내기</a></li>
 					</ul>
 				</nav>
 
@@ -110,44 +145,6 @@
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/news.js"></script>
 		<script text="javascript/text">
-    $(document).ready(function(){
- 
-        $('.box').each(function(){
-            //var content = $(this).children('.content');
-            var content = $(this).find('.contentStr');
- 
-            var content_txt = content.text();
-            var content_html = content.html();
-            var content_txt_short = content_txt.substring(0,100)+"...";
-            var btn_more = $('<a href="javascript:void(0)" class="more">더보기</a>');
- 
-            
-            $(this).append(btn_more);
-            
-            if(content_txt.length >= 100){
-                content.html(content_txt_short)
-                
-            }else{
-                btn_more.hide()
-            }
-            
-            btn_more.click(toggle_content);
-            function toggle_content(){
-                if($(this).hasClass('short')){
-                    // 접기 상태
-                    $(this).html('더보기');
-                    content.html(content_txt_short)
-                    $(this).removeClass('short');
-                }else{
-                    // 더보기 상태
-                    $(this).html('접기');
-                    content.html(content_html);
-                    $(this).addClass('short');
- 
-                }
-            }
-        });
-    });
-  </script>
+   
 </body>
 </html>

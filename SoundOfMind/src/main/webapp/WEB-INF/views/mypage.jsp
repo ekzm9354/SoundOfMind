@@ -32,7 +32,7 @@
 								<li><a href="join.do"><span class="label">회원가입</span></a></li>
 							</c:if>
 							<c:if test="${user!=null }"> 
-						${user.name}님 
+						${user.id}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 							</c:if>
 						</ul>
@@ -42,21 +42,17 @@
 					<section id="banner">
 						<div class="content">
 							<header>
-								<h1>My Page</h1>
+								<h1>프로필</h1>
 
 							</header>
 							<div class="uploadDiv">
 								<input type="file" name="uploadFile" multiple>
+								<button id="uploadBtn">프로필 등록</button>
 							</div>
 							<div class="uploadResult">
-								<!--  여기 자리에 프로필사진 , 삭제버튼 등 생김
-							<div  id="result_card">
-								<div class="imgDeleteBtn">X</div>
-								<img src="/display?fileName=test.png">
-							</div> -->
+								<img src='/display?fileName=${profile_s}' class='profileImg'>
+								<p class="userId">${user.id}</p>							
 							</div>
-							
-							<button id="uploadBtn">Upload</button>
 
 							<table class="type03">
 								<tr>
@@ -99,23 +95,17 @@
 					<!-- Menu -->
 					<nav id="menu">
 						<header class="major">
-							<h2>Menu</h2>
+							<h2>메뉴</h2>
 						</header>
 						<ul>
-							<li><span class="opener">COMMUNITY</span>
+							<li><span class="opener">커뮤니티</span>
 								<ul>
-									<li><a href="community.do">BOARD</a></li>
-									<li><a href="news.do">NEWS</a></li>
-									<li><a href="chatting.do">CAHTTING</a></li>
+									<li><a href="community.do">게시판</a></li>
+									<li><a href="news.do">뉴스</a></li>
+									<li><a href="chatting.do">채팅</a></li>
 								</ul></li>
-							<li><a href="mypage.do">MY PAGE</a></li>
-							<!--폰트 셋팅 부분-->
-							<li><span class="opener" id="switcher">FONT SIZE</span>
-								<ul>
-									<li><span id="switcher-large">크게</span></li>
-									<li><span id="switcher-small">작게</span></li>
-								</ul></li>
-							<li><a href="elements.html">SEND FEEDBACK</a></li>
+							<li><a href="mypage.do">프로필</a></li>
+							<li><a href="elements.html">의견 보내기</a></li>
 							<li><a href="socket">Web Socket</a></li>
 						</ul>
 					</nav>
@@ -196,20 +186,38 @@
 				return
 			}
 
-			let uploadResult = $("#uploadResult");
+			/* var uploadResult = $("#uploadResult"); */
 
-			let obj = uploadResultArr[0];
+			var obj = uploadResultArr[0];
 
-			let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_"
+			var fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_"
 					+ obj.uuid + "_" + obj.fileName;
-
-			$('.uploadResult').append("<div id='result_card'></div>")
-			$('.uploadResult').last().append(
-					"<img src='/display?fileName=" + fileCallPath
-							+ "'class='profileImg'>")
-
+			$.ajax({
+				url:"profilePath",
+				type:"post",
+				data:{profile:fileCallPath,
+					id:`${user.id}`,
+					},
+				success:function(res){
+					console.log("주소보내기"+res);
+					$('.profileImg').remove()
+		 	 	    $('.uploadResult').append("<div id='result_card'></div>")
+					$('.uploadResult').last().append(
+							"<img src='/display?fileName=" + res
+									+ "'class='profileImg'>")
+				},
+				error:function(e){
+					console.log(e);
+				}
+				
+			});
+			
+			
+			
+ 
 		}
 	</script>
+
 
 	<script>
 		/* 회원탈퇴  */
