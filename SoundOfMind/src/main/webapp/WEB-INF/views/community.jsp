@@ -9,14 +9,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 
-<html>
+<html lang="en">
 <head>
 <title>Sound of Mind</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/community.css" />
-<!-- bootstrap -->
+<!-- animated -->
+<link rel="stylesheet" href="/resources/assets/css/community2.css" />
+
+<!-- bootsnipp -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
 
 <style type="text/css">
 #header {
@@ -24,7 +34,7 @@
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	border-bottom: #6495ED;
+	border-bottom: solid 5px #6495ED;
 	padding: 6em 0 1em 0;
 	position: relative;
 }
@@ -37,7 +47,7 @@
 	display: initial;
 	padding: 0.5rem 1rem;
 	border-bottom: black;
-	color: white !important;
+	color: black !important;
 }
 
 .pagination {
@@ -46,34 +56,94 @@
 }
 </style>
 
+<!-- animated -->
+<style type="text/css">
+#lia {
+      position: relative;
+      padding: 0.6em 2em;
+      font-size: 18px;
+      border: none;
+      outline:none;
+      color: #333;
+      display: inline-block;
+      text-decoration: none;
+      z-index: 3;
+}
+</style>
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
-		<div id="main">
-			<div class="inner">
+		<div id="main" style="background-color: white;">
+			<div class="inner" style="background-color: white;">
 				<!-- Header -->
 				<header id="header">
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
 							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
-						<c:if test="${user!=null }"> 
+						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">Logout</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+						</c:if>
+						<c:if test="${user==null && Kakao != kakao}">
+							${id}님
+							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
+							<li><a href="logout.do"><span class="label">Logout</span></a></li>
 						</c:if>
 					</ul>
 
 				</header>
 
-
 				<!-- 상단 메뉴  & 검색 -->
-
+				<nav class="navbar navbar-expand navbar-light bg-white"
+					style="height: 81px;">
+					<div class="container">
+						<div class="collapse navbar-collapse">
+							<ul class="navbar-nav">
+								<li class="nav-item active"><a href="community.do" class="nav-link">
+										<img src="/resources/assets/img/board.png" width="27px"
+										height="27px">
+										자유게시판
+								</a></li>
+								<li class="nav-item"><a href="news.do" class="nav-link"> <img
+										src="/resources/assets/img/news3.png" width="27px"
+										height="27px">
+										뉴스
+								</a></li>
+								<li class="nav-item"><a href="chatting.do" class="nav-link"> <img
+										src="/resources/assets/img/chat3.png" width="27px"
+										height="27px">
+										채팅
+								</a></li>
+							</ul>
+							<!-- 검색 -->
+							<section id="search" class="alt"
+								style="width: 50%; margin-left: 20px; margin-right: 20px;">
+								<form action="#">
+									<input type="text" name="query" id="query" placeholder="검색"
+										style="margin-top: 30px;" />
+								</form>
+							</section>
+							<ul class="navbar-nav d-none d-md-block">
+								<li class="nav-item"><a class="nav-link"> <img
+										src="/resources/assets/img/write2.png" width="32px"
+										height="32px" onclick="boardWrite()">
+										글쓰기
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
 
 
 				<!-- Table -->
@@ -122,9 +192,7 @@
 					<div class="row uniform">
 						<h6 style="padding-left: 22px;">메세지</h6>
 						<div class="box" style="width: 980px; margin-left: 22px;">
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
-								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;">
-							</textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"
@@ -135,7 +203,6 @@
 
 				</div>
 
-				<ion-icon name="pencil-outline" onclick="boardWrite()"></ion-icon>
 
 				<!-- 
 				<!-- 페이지 넘김
@@ -250,8 +317,20 @@
 			location.href = "http://localhost:8085/boardWrite.do"
 		}
 	</script>
-	<!-- bootstrap js -->
-
+	
+	
+	<!-- bootsnipp -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	 $(document).ready(function() {
+         $("li.nav-item").click(function (e) {
+             e.preventDefault();
+             $(".nav-item").removeClass("active");
+             $(this).addClass("active");   
+         });
+     });
+	</script>
+	
 	<!-- icon -->
 	<script type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

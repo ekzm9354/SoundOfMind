@@ -26,9 +26,9 @@ section, summary, time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
-
+/* 
 body {
-  line-height: 1; }
+  line-height: 1; } */
 
 ol, ul {
   list-style: none;
@@ -107,9 +107,7 @@ body, input, select, textarea {
     body, input, select, textarea {
       font-size: 9pt; } }
       
-a.nav-link:hover{
-	color:yellow !important;
-}
+
 a {
   -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
@@ -1272,8 +1270,8 @@ ol {
 
 ul {
   list-style: disc;
-  margin: 0 0 2em 0;
-  padding-left: 1em; }
+/*   margin: 0 0 2em 0;
+ */  padding-left: 1em; }
   ul li {
     padding-left: 0.5em; }
   ul.alt {
@@ -2288,4 +2286,3 @@ button,
     margin-top: 0;
     padding-top: 0; }
 
-    
