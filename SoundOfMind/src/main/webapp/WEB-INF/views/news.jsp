@@ -41,73 +41,70 @@
 							<h1>뉴스</h1>
 
 						</header>
-	<!-- 여기부터 뉴스 나오는 칸 꾸미기는 나중에 하겠슴당~ 일단 틀만,,  -->
- <h2>긍정뉴스</h2>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">번호</th>
-        <th scope="col">날짜</th>
-        <th scope="col">제목</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>2022.10.06</td>
-        <td>긍정 뉴스 제목임당</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>2022.10.06</td>
-        <td>긍정 뉴스 제목임당2</td>
-      </tr>
-    </tbody>
-  </table>
-  
-   <h2>부정뉴스</h2>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">번호</th>
-        <th scope="col">날짜</th>
-        <th scope="col">제목</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>2022.10.06</td>
-        <td>부정 뉴스 제목임당</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>2022.10.06</td>
-        <td>부정 뉴스 제목임당2</td>
-       </tr>
-    </tbody>
-  </table>
+						<!-- 여기부터 뉴스 나오는 칸 꾸미기는 나중에 하겠슴당~ 일단 틀만,,  -->
+						<h2>긍정뉴스</h2>
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">번호</th>
+									<th scope="col">날짜</th>
+									<th scope="col">제목</th>
+								</tr>
 
- <h2>중립 뉴스</h2>
-  <table>
-    <thead>
-      <tr>
-        <th scope="col">번호</th>
-        <th scope="col">날짜</th>
-        <th scope="col">제목</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>2022.10.06</td>
-        <td>중립 뉴스 제목임당</td>
-      </tr>
-    </tbody>
-  </table>
+							</thead>
+							<tbody>
+								<c:forEach var="news1" items="${news1}">
+									<tr>
+										<td>${news1.rownum}</td>
+										<td>${news1.date}</td>
+										<td><a href="${news1.url}">${news1.title}</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+
+						<h2>부정뉴스</h2>
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">번호</th>
+									<th scope="col">날짜</th>
+									<th scope="col">제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="news2" items="${news2}">
+									<tr>
+										<td>${news2.rownum}</td>
+										<td>${news2.date}</td>
+										<td><a href="${news2.url}">${news2.title}</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+
+						<h2>중립 뉴스</h2>
+						<table>
+							<thead>
+								<tr>
+									<th scope="col">번호</th>
+									<th scope="col">날짜</th>
+									<th scope="col">제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="news3" items="${news3}">
+									<tr>
+										<td>${news3.rownum}</td>
+										<td>${news3.date}</td>
+										<td><a href="${news3.url}">${news3.title}</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 
 
-	<!-- 여기부터 뉴스 나오는 칸  -->
+						<!-- 여기부터 뉴스 나오는 칸  -->
 					</div>
 
 				</section>
@@ -145,6 +142,6 @@
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/news.js"></script>
 		<script text="javascript/text">
-   
-</body>
-</html>
+			</body>
+			</html>
+		

@@ -90,7 +90,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="comushow" items="${comushow}" begin="0" end="10">
+							<c:forEach var="comushow" items="${comushow}">
 								<tr>
 									<td>${comushow.rownum}</td>
 									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
