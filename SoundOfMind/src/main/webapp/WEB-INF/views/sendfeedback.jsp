@@ -33,11 +33,11 @@
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
 							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
-						<c:if test="${user!=null && Socail == null}"> 
+						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">Logout</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
@@ -46,50 +46,17 @@
 							${id}님
 							<li><a href="logout.do"><span class="label">Logout</span></a></li>
 						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
+							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						</c:if>
 					</ul>
 
 				</header>
+				
 				<!-- sendfeedback -->
-				<div class="back"></div>
-				<div class="registration-form">
-					<header>
-						<h1>Sign Up</h1>
-						<p>Fill in all informations</p>
-					</header>
-					<form>
-						<div class="input-section email-section">
-							<input class="email" type="email"
-								placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off" />
-							<div class="animated-button">
-								<span class="icon-paper-plane"><i
-									class="fa fa-envelope-o"></i></span><span class="next-button email"><i
-									class="fa fa-arrow-up"></i></span>
-							</div>
-						</div>
-						<div class="input-section password-section folded">
-							<input class="password" type="password"
-								placeholder="ENTER YOUR PASSWORD HERE" />
-							<div class="animated-button">
-								<span class="icon-lock"><i class="fa fa-lock"></i></span><span
-									class="next-button password"><i class="fa fa-arrow-up"></i></span>
-							</div>
-						</div>
-						<div class="input-section repeat-password-section folded">
-							<input class="repeat-password" type="password"
-								placeholder="REPEAT YOUR PASSWORD HERE" />
-							<div class="animated-button">
-								<span class="icon-repeat-lock"><i class="fa fa-lock"></i></span><span
-									class="next-button repeat-password"><i
-									class="fa fa-paper-plane"></i></span>
-							</div>
-						</div>
-						<div class="success">
-							<p>ACCOUNT CREATED</p>
-						</div>
-					</form>
-				</div>
-			<!-- sendfeedback -->
-
+				
+				<!-- sendfeedback -->
 
 
 
@@ -161,73 +128,7 @@
 	
 	
 	<!-- sendfeedback js -->
-	<script type="text/javascript">
-	$('.email').on("change keyup paste",
-			  function(){
-			    if($(this).val()){
-			      $('.icon-paper-plane').addClass("next");
-			    } else {
-			      $('.icon-paper-plane').removeClass("next");
-			    }
-			  }
-			);
-
-			$('.next-button').hover(
-			  function(){
-			    $(this).css('cursor', 'pointer');
-			  }
-			);
-
-			$('.next-button.email').click(
-			  function(){
-			    console.log("Something");
-			    $('.email-section').addClass("fold-up");
-			    $('.password-section').removeClass("folded");
-			  }
-			);
-
-			$('.password').on("change keyup paste",
-			  function(){
-			    if($(this).val()){
-			      $('.icon-lock').addClass("next");
-			    } else {
-			      $('.icon-lock').removeClass("next");
-			    }
-			  }
-			);
-
-			$('.next-button').hover(
-			  function(){
-			    $(this).css('cursor', 'pointer');
-			  }
-			);
-
-			$('.next-button.password').click(
-			  function(){
-			    console.log("Something");
-			    $('.password-section').addClass("fold-up");
-			    $('.repeat-password-section').removeClass("folded");
-			  }
-			);
-
-			$('.repeat-password').on("change keyup paste",
-			  function(){
-			    if($(this).val()){
-			      $('.icon-repeat-lock').addClass("next");
-			    } else {
-			      $('.icon-repeat-lock').removeClass("next");
-			    }
-			  }
-			);
-
-			$('.next-button.repeat-password').click(
-			  function(){
-			    console.log("Something");
-			    $('.repeat-password-section').addClass("fold-up");
-			    $('.success').css("marginTop", 0);
-			  }
-			);
-	</script>
+	
 
 </body>
 </html>
