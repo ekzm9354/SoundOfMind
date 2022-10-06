@@ -1,6 +1,34 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+/* 더보기 css  */
+.js-load {
+    display: none;
+}
+.js-load.active {
+    display: block;
+}
+.is_comp.js-load:after {
+    display: none;
+}
+.btn-wrap, .lists, .main {
+    display: block;
+}
+.main {
+    max-width: 640px;
+    margin: 0 auto;
+}
+.lists {
+    margin-bottom: 4rem;
+}
+.lists__item {
+    padding: 20px;
+    background: #EEE;
+}
 
+.btn-wrap {
+    text-align: center;
+}
+/* 더보기 css */
 
 
 html, body, div, span, applet, object,
