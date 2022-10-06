@@ -132,10 +132,8 @@
 					<!-- Box -->
 					<h5>WRITE</h5>
 					<div class="row uniform">
-						<div class="box" style="width: 980px;">
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
-								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;">
-							</textarea>
+						<div class="box" style="width: 100%;padding-top: 20px;padding-right: 20px;padding-left: 20px;padding-bottom: 15px;">
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" style="width: 100%; height: 122px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"

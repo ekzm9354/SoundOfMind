@@ -15,7 +15,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/resources/assets/css/main.css" />
+<link rel="stylesheet" href="/resources/assets/css/main2.css" />
 <link rel="stylesheet" href="/resources/assets/css/boardwrite.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -36,17 +36,21 @@
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">Login</span></a></li>
 							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
 						</c:if>
-						<c:if test="${user!=null && Socail == null}"> 
+						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">Logout</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
+							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
 							<li><a href="logout.do"><span class="label">Logout</span></a></li>
 						</c:if>
 					</ul>
@@ -56,8 +60,18 @@
 
 
 				<!-- write -->
-
-			<!-- write 끝 -->
+					<div style="margin-top: 40px;">	
+						<div class="box" style="width: 100%; margin: 0 auto; height: 442px;">
+							<textarea name="demo-name" id="demo-name" placeholder="이메일을 입력하세요" autofocus style="width: 60%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" autofocus style="width: 60%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" autofocus style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
+							<!-- 업로드버튼 -->
+							<ul class="actions small">
+								<li><button class="button small">Upload</button></li>
+							</ul>
+						</div>
+					</div>
+				<!-- write 끝 -->
 
 
 
