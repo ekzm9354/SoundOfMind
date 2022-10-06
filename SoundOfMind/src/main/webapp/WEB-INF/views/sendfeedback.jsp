@@ -15,16 +15,13 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/resources/assets/css/main2.css" />
-<link rel="stylesheet" href="/resources/assets/css/boardwrite.css" />
+<link rel="stylesheet" href="/resources/assets/css/main.css" />
+<link rel="stylesheet" href="/resources/assets/css/sendfeedback.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-<!-- 글쓰기 -->
-<!-- 글쓰기 끝 -->
+
 
 </head>
-
-
 <body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -56,24 +53,10 @@
 					</ul>
 
 				</header>
-
-
-
-				<!-- write -->
-					<div style="margin-top: 40px;">	
-						<div class="box" style="width: 100%; margin: 0 auto; height: 442px;">
-							<textarea name="demo-name" id="demo-name" placeholder="이메일을 입력하세요" autofocus style="width: 60%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" autofocus style="width: 60%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" autofocus style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
-							<!-- 업로드버튼 -->
-							<ul class="actions small">
-								<li><button class="button small">Upload</button></li>
-							</ul>
-						</div>
-					</div>
-				<!-- write 끝 -->
-
-
+				
+				<!-- sendfeedback -->
+				
+				<!-- sendfeedback -->
 
 
 
@@ -142,7 +125,9 @@
 		}
 	</script>
 	
-	<!-- 글쓰기 -->
+	
+	
+	<!-- sendfeedback js -->
 	
 
 </body>

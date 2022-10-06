@@ -18,6 +18,9 @@
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+
 </head>
 <body class="is-preload" >
 	<!-- Wrapper -->
@@ -30,17 +33,21 @@
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
 							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
-						<c:if test="${user!=null && Socail == null}"> 
+						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
 							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 						</c:if>
 					</ul>
@@ -115,7 +122,7 @@
 								<li><a href="chatting.do">채팅</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
-						<li><a href="elements.html">의견 보내기</a></li>
+						<li><a href="sendFeedback.do">의견 보내기</a></li>
 						<li><a href="socket">Web Socket</a></li>
 					</ul>
 				</nav>

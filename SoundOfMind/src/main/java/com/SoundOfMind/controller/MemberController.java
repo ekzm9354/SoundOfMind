@@ -35,18 +35,6 @@ public class MemberController {
 	@Autowired
 	private MemberMapper mapper;
 
-	@GetMapping("/kakao.do")
-	public String kakao(String id, String Socail, Model model) {
-		model.addAttribute("id", id);
-		model.addAttribute("Kakao", Socail);
-		String num = mapper.SocialJoinCheck(id);
-		System.out.println(num);
-		if (num == null) {
-			mapper.SocialJoin(Socail, id);
-		}
-		return "index";
-	}
-
 	@RequestMapping("/index.do")
 	public String index() {
 		return "index";
