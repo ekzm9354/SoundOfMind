@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.SoundOfMind.domain.Chatting;
 import com.SoundOfMind.domain.Coment;
 import com.SoundOfMind.domain.Member;
+import com.SoundOfMind.domain.News;
 import com.SoundOfMind.domain.Storege;
 import com.SoundOfMind.mapper.ChattingMapper;
+import com.SoundOfMind.mapper.NewsMapper;
 import com.SoundOfMind.mapper.StoregeMapper;
 
 @Controller
@@ -27,12 +29,15 @@ public class CommunityController {
 	@Autowired
 	private StoregeMapper Smapper;
 
+	@Autowired
+	private NewsMapper nmapper;
+
 // 게시판 보여주기
 	@GetMapping("/community.do")
 	public String community(Model model) {
 		List<Storege> comushow = Smapper.comushow();
 		model.addAttribute("comushow", comushow);
-		
+
 		List<Storege> clickBest = Smapper.clickBest();
 		model.addAttribute("clickBest", clickBest);
 		return "community";
@@ -65,9 +70,30 @@ public class CommunityController {
 		model.addAttribute("boardComent", boardComent);
 		return "boardcontent";
 	}
+
 //	글쓰기
 	@GetMapping("/boardWrite.do")
 	public String boardwrite() {
 		return "boardwrite";
+	}
+
+//	뉴스
+	@RequestMapping("/news.do")
+	public String news(HttpSession session) {
+//		긍정
+		List<News> news1 = nmapper.news1();
+		session.setAttribute("news1", news1);
+//		부정
+		List<News> news2 = nmapper.news2();
+		session.setAttribute("news2", news2);
+//		중립
+		List<News> news3 = nmapper.news3();
+		session.setAttribute("news3", news3);
+		return "news";
+	}
+
+	@GetMapping("/map.do")
+	public String Map() {
+		return "map";
 	}
 }

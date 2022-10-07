@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.NewsMapper">
+	<!-- 긍정 -->
+	<select id="news1" resultType="com.SoundOfMind.domain.News">SELECT @rownum:=@rownum+1 as
+		rownum, N.*
+		FROM (SELECT DATE_FORMAT(DATE,'%Y-%m-%d') AS DATE,TITLE,URL
+		FROM NEWS
+		WHERE (@rownum :=0)=0 AND EMOTIONS = '긍정' ORDER BY DATE DESC
+		) N
+	</select>
+	<!-- 부정 -->
+	<select id="news2" resultType="com.SoundOfMind.domain.News">SELECT @rownum:=@rownum+1 as
+		rownum, N.*
+		FROM (SELECT DATE_FORMAT(DATE,'%Y-%m-%d') AS DATE,TITLE,URL
+		FROM NEWS
+		WHERE (@rownum :=0)=0 AND EMOTIONS = '부정' ORDER BY DATE DESC
+		) N
+	</select>
+
+	<!-- 중립 -->
+	<select id="news3" resultType="com.SoundOfMind.domain.News">SELECT @rownum:=@rownum+1 as
+		rownum, N.*
+		FROM (SELECT DATE_FORMAT(DATE,'%Y-%m-%d') AS DATE,TITLE,URL
+		FROM NEWS
+		WHERE (@rownum :=0)=0 AND EMOTIONS = '중립' ORDER BY DATE DESC
+		) N
+	</select>
+
+
+
+</mapper>

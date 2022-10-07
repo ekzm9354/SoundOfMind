@@ -86,9 +86,6 @@ public class MemberController {
 		return "index";
 	}
 
-	@RequestMapping("/news.do")
-	public String news() {
-		return "news";
-	}
+	
 
 }

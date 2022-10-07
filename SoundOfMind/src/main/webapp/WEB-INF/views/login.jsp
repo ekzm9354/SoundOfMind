@@ -61,13 +61,23 @@
 					</form>
 
 				</div>
-				<!-- 카카오 로그인버튼 -->
-				<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
-					src="/resources/assets/img/kakao.png" width="40" height="40"
-					alt="카카오 로그인 버튼" /></a>
-				<div id="naver_id_login"></div>
+				
+				
+						<div style="margin: 0 auto; display: table;">
+							<!-- 카카오 로그인버튼 -->
+							<a id="kakao-login-btn" href="javascript:loginWithKakao()"
+								style="display: inline-block;"> <img
+								src="/resources/assets/img/kakao.png" width="40" height="40"
+								alt="카카오 로그인 버튼" style="margin-right: 10px;" /></a>
+							<div id="naver_id_login" style="display: inline-block;"></div>
+						</div>
+				
+				
+				
 			</div>
 		</div>
+	</div>	
+	
 
 
 		<script src="/resources/assets/js/login.js"></script>

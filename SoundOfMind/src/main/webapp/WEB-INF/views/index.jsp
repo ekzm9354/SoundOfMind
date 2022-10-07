@@ -17,6 +17,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
+<link rel="stylesheet" href="/resources/assets/css/mouth.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 
@@ -55,21 +56,40 @@
 				</header>
 				<!-- Banner -->
 				<section id="banner">
-				<!--글자 사이즈-->
-					<div class="fontSize"> 
-					<p>가</p>
-					<ul class="sub">
-						<li> 
-						<span onclick="fontsizedown()" style="font-size:0.5em;">가</span>
-						<span onclick="fontsizeup1()" style="font-size:1em;">가</span>
-						<span onclick="fontsizeup2()" style="font-size:1.5em;">가</span>
-						<span onclick="fontsizeup3()" style="font-size:2em;">가</span>
-						</li>
-					</ul>
+					<!--글자 사이즈-->
+					<div class="fontSize">
+						<p>가</p>
+						<ul class="sub">
+							<li><span onclick="fontsizedown()" style="font-size: 0.5em;">가</span>
+								<span onclick="fontsizeup1()" style="font-size: 1em;">가</span> <span
+								onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> <span
+								onclick="fontsizeup3()" style="font-size: 2em;">가</span></li>
+						</ul>
 					</div>
-					<div class="content" style="height: 554.3px;">
+					<div class="content" style="height: 450PX;">
 						<!-- loading animation -->
-						<div class='music'
+						<!-- partial:index.partial.html -->
+						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
+							<div class="monster">
+								<div class="monster__face">
+									<div class="monster__eyes">
+										<div class="monster__eye"></div>
+										<div class="monster__eye"></div>
+									</div>
+									<div class="monster__mouth">
+										<div class="monster__top"></div>
+										<div class="monster__bottom"></div>
+									</div>
+								</div>
+							</div>
+							
+								<!-- mic -->
+							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
+								style="position: absolute; width: 80%; top: 200px;">
+
+						</div>
+						
+						<!-- <div class='music'
 							style="padding-top: 200px; padding-bottom: 200px;">
 							<div class='bar'></div>
 							<div class='bar'></div>
@@ -81,19 +101,18 @@
 							<div class='bar'></div>
 							<div class='bar'></div>
 							<div class='bar'></div>
-						</div>
-						<br>
-						<button onclick="speaker()">마이크</button>
+						</div> -->
+						<!-- <button onclick="speaker()">마이크</button> -->
 					</div>
 
-					
-					<div class="content" style="height: 554.3px;">
-						
+
+					<div class="content" style="height: 450px;">
+
 						<input type="text" name="inputSTT"
-							style="height: 200px; margin-bottom: 20px;" id="speech"
-							placeholder="여기에 상대방이 한 말이 보여지는 부분"> 
-						<input type="text"
-							style="height: 200px; margin-bottom: 20px;" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분">
+							style="height: 150px; margin-bottom: 20px;" id="speech"
+							placeholder="여기에 상대방이 한 말이 보여지는 부분"> <input type="text"
+							style="height: 150px; margin-bottom: 20px;"
+							placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분">
 
 						<button>
 							<a href="#">수정하기</a>
@@ -120,6 +139,7 @@
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
 								<li><a href="chatting.do">채팅</a></li>
+								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
 						<li><a href="sendFeedback.do">의견 보내기</a></li>

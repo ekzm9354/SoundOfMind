@@ -15,7 +15,7 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet" href="/resources/assets/css/main.css" />
+<link rel="stylesheet" href="/resources/assets/css/main2.css" />
 <link rel="stylesheet" href="/resources/assets/css/sendfeedback.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -55,7 +55,17 @@
 				</header>
 				
 				<!-- sendfeedback -->
-				
+					<div style="margin-top: 40px;">	
+						<div class="box" style="width: 100%; margin: 0 auto; height: 582px;">
+							<textarea name="demo-name" id="demo-name" placeholder="이메일을 입력하세요" autofocus style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
+							<!-- 업로드버튼 -->
+							<ul class="actions small">
+								<li><button class="button small">Upload</button></li>
+							</ul>
+						</div>
+					</div>
 				<!-- sendfeedback -->
 
 
@@ -76,6 +86,7 @@
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="news.do">NEWS</a></li>
 								<li><a href="chatting.do">CAHTTING</a></li>
+								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
 						<!--폰트 셋팅 부분-->
