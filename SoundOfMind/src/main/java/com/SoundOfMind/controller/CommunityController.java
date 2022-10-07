@@ -28,7 +28,7 @@ public class CommunityController {
 
 	@Autowired
 	private StoregeMapper Smapper;
-	
+
 	@Autowired
 	private NewsMapper nmapper;
 
@@ -37,7 +37,7 @@ public class CommunityController {
 	public String community(Model model) {
 		List<Storege> comushow = Smapper.comushow();
 		model.addAttribute("comushow", comushow);
-		
+
 		List<Storege> clickBest = Smapper.clickBest();
 		model.addAttribute("clickBest", clickBest);
 		return "community";
@@ -70,12 +70,13 @@ public class CommunityController {
 		model.addAttribute("boardComent", boardComent);
 		return "boardcontent";
 	}
+
 //	글쓰기
 	@GetMapping("/boardWrite.do")
 	public String boardwrite() {
 		return "boardwrite";
 	}
-	
+
 //	뉴스
 	@RequestMapping("/news.do")
 	public String news(HttpSession session) {
@@ -89,5 +90,10 @@ public class CommunityController {
 		List<News> news3 = nmapper.news3();
 		session.setAttribute("news3", news3);
 		return "news";
+	}
+
+	@GetMapping("/map.do")
+	public String Map() {
+		return "map";
 	}
 }
