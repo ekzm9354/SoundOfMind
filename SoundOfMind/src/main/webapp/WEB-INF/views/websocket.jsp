@@ -62,7 +62,8 @@
 										<h4 class="card-title">
 											<strong> 그룹 채팅 </strong>
 										</h4>
-										<a class="btn btn-xs btn-secondary" href="#" data-abc="true">연결</a>
+										<a class="btn btn-xs btn-secondary" href="#" data-abc="true"
+											style="background-color: white; border-radius: 3px;">연결</a>
 									</div>
 
 
