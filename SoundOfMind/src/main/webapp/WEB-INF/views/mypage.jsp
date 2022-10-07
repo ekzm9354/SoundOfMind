@@ -42,17 +42,25 @@
 					<section id="banner">
 						<div class="content">
 							<header>
-								<h1>프로필</h1>
+								<h1 style="text-align:center;">프로필</h1>
 
 							</header>
-							<div class="uploadDiv">
-								<input type="file" name="uploadFile" multiple>
-								<button id="uploadBtn">프로필 등록</button>
-							</div>
 							<div class="uploadResult">
 								<img src='/display?fileName=${profile_s}' class='profileImg'>
-								<p class="userId">${user.id}</p>							
 							</div>
+						<!-- 	<div class="uploadDiv">
+								<input class="upload-name" value="첨부파일" placeholder="첨부파일">
+								<label for="file">파일찾기</label>
+								<input type="file" name="uploadFile" multiple id="file">
+								<label id="uploadBtn">프로필 등록</label>
+							</div> -->
+							
+							<label class="uploadDiv">
+								프로필 변경
+								<input type="file" name="uploadBtn" multiple style="display:none;">
+
+							</label>
+								<p class="userId">${user.id}님 </p>							
 
 							<table class="type03">
 								<tr>
@@ -124,20 +132,17 @@
 		
 			//var cloneOjb=$(".uploadDiv").clone();
 			//이미지 업로드
-			$("#uploadBtn").on("click", function(e){
-				
+			
+			$("input[type='file']").on("change", function(e){
 				
 					
 				var formData = new FormData();
-				var inputFile = $("input[name='uploadFile']");
+				var inputFile = $("input[name='uploadBtn']");
 				var fileList=inputFile[0].files;
 				var fileObj=fileList[0];
 
-				
-				/* if(!fileCheck(fileObj.name, fileObj.size)){
-					return false;
-				} */
-				formData.append("uploadFile",fileObj);
+			
+				 formData.append("uploadFile",fileObj); 
 				
 				$.ajax({
 					url:'/uploadAjaxAction',
@@ -149,15 +154,14 @@
 					success:function(result){
 						console.log('ajax'+result);
 						showUploadImage(result);
-						//input 부분 초기화
-						//$(".uploadDiv").html(cloneOjb.html());
+						
 					},
 					error:function(result){
 						alert("이미지 파일이 아닙니다.")
 					}
 			});//ajax 끝부분
 				
-		});//onclick 끝부분 
+		});//on.change 끝부분 
 			
 			//파일 확장자제한, 파일 사이즈 제한
 			var regex=new RegExp("(.*?)\.(jpg|png)$");
