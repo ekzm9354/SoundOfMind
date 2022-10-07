@@ -120,6 +120,7 @@
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
 								<li><a href="chatting.do">채팅</a></li>
+								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
 						<li><a href="sendFeedback.do">의견 보내기</a></li>

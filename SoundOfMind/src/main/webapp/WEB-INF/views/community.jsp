@@ -236,6 +236,7 @@
 								<li><a href="community.do">BOARD</a></li>
 								<li><a href="news.do">NEWS</a></li>
 								<li><a href="chatting.do">CAHTTING</a></li>
+								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">MY PAGE</a></li>
 						<!--폰트 셋팅 부분-->
