@@ -69,7 +69,7 @@
 					<div class="content" style="height: 450PX;">
 						<!-- loading animation -->
 						<!-- partial:index.partial.html -->
-						<div class="main"  style="margin: 0 auto; display: inline-block;">
+						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
 							<div class="monster">
 								<div class="monster__face">
 									<div class="monster__eyes">
@@ -82,7 +82,13 @@
 									</div>
 								</div>
 							</div>
+							
+								<!-- mic -->
+							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
+								style="position: absolute; width: 80%; top: 200px;">
+
 						</div>
+						
 						<!-- <div class='music'
 							style="padding-top: 200px; padding-bottom: 200px;">
 							<div class='bar'></div>
@@ -96,8 +102,7 @@
 							<div class='bar'></div>
 							<div class='bar'></div>
 						</div> -->
-						<br>
-						<button onclick="speaker()">마이크</button>
+						<!-- <button onclick="speaker()">마이크</button> -->
 					</div>
 
 
