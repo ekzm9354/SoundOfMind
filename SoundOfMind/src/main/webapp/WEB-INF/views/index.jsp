@@ -143,7 +143,7 @@
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
 						<li><a href="sendFeedback.do">의견 보내기</a></li>
-						<li><a href="socket">Web Socket</a></li>
+						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
 

@@ -37,21 +37,21 @@
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">Login</span></a></li>
-							<li><a href="join.do"><span class="label">Sign Up</span></a></li>
+							<li><a href="login.do"><span class="label">로그인</span></a></li>
+							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
 						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
-						<li><a href="logout.do"><span class="label">Logout</span></a></li>
+						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
-							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 						</c:if>
 						<c:if test="${user==null && Naver != naver}">
 							${Naveremail}님
-							<li><a href="logout.do"><span class="label">Logout</span></a></li>
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 						</c:if>
 					</ul>
 
@@ -85,25 +85,19 @@
 				<!-- Menu -->
 				<nav id="menu">
 					<header class="major">
-						<h2>MENU</h2>
+						<h2>메뉴</h2>
 					</header>
 					<ul>
-						<li><span class="opener">COMMUNITY</span>
+						<li><span class="opener">커뮤니티</span>
 							<ul>
-								<li><a href="community.do">BOARD</a></li>
-								<li><a href="news.do">NEWS</a></li>
-								<li><a href="chatting.do">CAHTTING</a></li>
+								<li><a href="community.do">게시판</a></li>
+								<li><a href="news.do">뉴스</a></li>
+								<li><a href="chatting.do">채팅</a></li>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
-						<li><a href="mypage.do">MY PAGE</a></li>
-						<!--폰트 셋팅 부분-->
-						<li><span class="opener" id="switcher">FONT SIZE</span>
-							<ul>
-								<li><span id="switcher-large">크게</span></li>
-								<li><span id="switcher-small">작게</span></li>
-							</ul></li>
-						<li><a href="elements.html">SEND FEEDBACK</a></li>
-						<li><a href="socket">Web Socket</a></li>
+						<li><a href="mypage.do">프로필</a></li>
+						<li><a href="sendFeedback.do">의견 보내기</a></li>
+						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
 
