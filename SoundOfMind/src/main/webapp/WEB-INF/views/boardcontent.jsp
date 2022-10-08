@@ -11,6 +11,9 @@
 
 <html>
 <head>
+<!-- 폰트 -->
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet">
+
 <title>Sound of Mind</title>
 <meta charset="utf-8" />
 <meta name="viewport"

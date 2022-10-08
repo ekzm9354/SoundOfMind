@@ -108,7 +108,7 @@
 								<li class="nav-item active"><a href="community.do" class="nav-link">
 										<img src="/resources/assets/img/board.png" width="27px"
 										height="27px">
-										자유게시판
+										게시판
 								</a></li>
 								<li class="nav-item"><a href="news.do" class="nav-link"> <img
 										src="/resources/assets/img/news3.png" width="27px"
