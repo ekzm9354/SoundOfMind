@@ -54,19 +54,16 @@
 					</ul>
 
 				</header>
+				
+				<div class=fontSize>
+							<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span>
+							<span onclick="fontsizeup1()" style="font-size: 1em;">가</span> 
+							<span onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> 
+							<span onclick="fontsizeup3()" style="font-size: 2em;">가</span>
+				</div>
 				<!-- Banner -->
 				<section id="banner">
-					<!--글자 사이즈-->
-					<div class="fontSize">
-						<p>가</p>
-						<ul class="sub">
-							<li><span onclick="fontsizedown()" style="font-size: 0.5em;">가</span>
-								<span onclick="fontsizeup1()" style="font-size: 1em;">가</span> <span
-								onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> <span
-								onclick="fontsizeup3()" style="font-size: 2em;">가</span></li>
-						</ul>
-					</div>
-					<div class="content" style="height: 450PX;">
+					<div class="content" >
 						<!-- loading animation -->
 						<!-- partial:index.partial.html -->
 						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
@@ -106,13 +103,13 @@
 					</div>
 
 
-					<div class="content" style="height: 450px;">
+						
+					<div class="content" >
 
-						<input type="text" name="inputSTT"
-							style="height: 150px; margin-bottom: 20px;" id="speech"
-							placeholder="여기에 상대방이 한 말이 보여지는 부분"> <input type="text"
-							style="height: 150px; margin-bottom: 20px;"
-							placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분">
+						<textarea name="inputSTT" style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none;" 
+						id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분" ></textarea>
+						<textarea style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none; "
+						placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" ></textarea>
 
 						<button>
 							<a href="#">수정하기</a>
@@ -121,6 +118,7 @@
 							<a href="#">감정분석하기</a>
 						</button>
 					</div>
+					
 				</section>
 
 			</div>
@@ -167,7 +165,7 @@
 				},
 				success : function(text) {
 					console.log(text)
-					$('input[name=inputSTT]').attr('value', text)
+					$('textarea[name=inputSTT]').attr('value', text)
 				},
 				error : function(e) {
 					console.log(e)
