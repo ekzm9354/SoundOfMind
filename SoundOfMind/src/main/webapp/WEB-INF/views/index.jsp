@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="/resources/assets/css/mouth.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<!-- 폰트 -->
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet">
+
 
 
 </head>
@@ -112,10 +115,10 @@
 						placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" ></textarea>
 
 						<button>
-							<a href="#">수정하기</a>
+							<a href="#" style="font-size: 115%;">수정하기</a>
 						</button>
 						<button>
-							<a href="#">감정분석하기</a>
+							<a href="#" style="font-size: 115%;">감정분석하기</a>
 						</button>
 					</div>
 					
@@ -141,7 +144,7 @@
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
 						<li><a href="sendFeedback.do">의견 보내기</a></li>
-						<li><a href="socket">Web Socket</a></li>
+						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
 

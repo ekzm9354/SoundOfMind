@@ -1,5 +1,5 @@
 @import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
 /*
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
@@ -61,7 +61,9 @@ section, summary, time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  font-family: 'NanumSquare'!important;
+   }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -132,7 +134,7 @@ body {
 /* Type */
 body, input, select, textarea {
   color: #7f888f;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'NanumSquare'!important;
   font-size: 13pt;
   font-weight: 400;
   line-height: 1.65; }
@@ -151,7 +153,6 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
   color: #6495ED;
   text-decoration: none; }
   a:hover {
@@ -172,7 +173,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0; }
@@ -236,14 +237,14 @@ code {
   background: rgba(230, 235, 237, 0.25);
   border-radius: 0.375em;
   border: solid 1px rgba(210, 215, 217, 0.75);
-  font-family: "Courier New", monospace;
+  font-family: 'NanumSquare'!important;
   font-size: 0.9em;
   margin: 0 0.25em;
   padding: 0.25em 0.65em; }
 
 pre {
   -webkit-overflow-scrolling: touch;
-  font-family: "Courier New", monospace;
+  font-family: 'NanumSquare'!important;
   font-size: 0.9em;
   margin: 0 0 2em 0; }
   pre code {
@@ -1030,7 +1031,7 @@ section.special, article.special {
   text-align: center; }
 
 header p {
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.075em;
@@ -1160,7 +1161,7 @@ input[type="radio"] {
       text-rendering: auto;
       line-height: 1;
       text-transform: none !important;
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'NanumSquare'!important;
       font-weight: 900; }
     input[type="checkbox"] + label:before,
     input[type="radio"] + label:before {
@@ -1239,7 +1240,7 @@ input[type="radio"] + label:before {
     text-rendering: auto;
     line-height: 1;
     text-transform: none !important;
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'NanumSquare'!important;
     font-weight: 400; }
   .icon > .label {
     display: none; }
@@ -1248,7 +1249,7 @@ input[type="radio"] + label:before {
   .icon.solid:before {
     font-weight: 900; }
   .icon.brands:before {
-    font-family: 'Font Awesome 5 Brands'; }
+    font-family: 'NanumSquare'!important; }
 
 /* Image */
 .image {
@@ -1314,6 +1315,47 @@ ul.icons {
       ul.icons li .icon:before {
         font-size: 1.25em; }
 
+
+/* Contact */
+ul.contact {
+  list-style: none;
+  padding: 0; }
+  ul.contact li {
+    text-decoration: none;
+    border-top: solid 1px rgba(210, 215, 217, 0.75);
+    margin: 1.5em 0 0 0;
+    padding: 1.5em 0 0 3em;
+    position: relative; }
+    ul.contact li:before {
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      text-transform: none !important;
+      font-family: 'NanumSquare'!important;
+      font-weight: 400; }
+    ul.contact li:before {
+      color: #6495ED;
+      display: inline-block;
+      font-size: 1.5em;
+      height: 1.125em;
+      left: 0;
+      line-height: 1.125em;
+      position: absolute;
+      text-align: center;
+      top: 1em;
+      width: 1.5em; }
+    ul.contact li:first-child {
+      border-top: 0;
+      margin-top: 0;
+      padding-top: 0; }
+      ul.contact li:first-child:before {
+        top: 0; }
+    ul.contact li a {
+      color: inherit; }
 
 /* Pagination */
 ul.pagination {
@@ -1419,7 +1461,7 @@ button,
   color: #6495ED !important;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-size: 0.8em;
   font-weight: 700;
   height: 3.5em;
@@ -1812,7 +1854,7 @@ button,
     text-rendering: auto;
     line-height: 1;
     text-transform: none !important;
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'NanumSquare'!important;
     font-weight: 900; }
   #search form:before {
     -moz-transform: scaleX(-1);
@@ -2007,7 +2049,7 @@ button,
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    font-family: 'NanumSquare'!important;
     font-size: 1.125em; }
   #header .icons {
     text-align: right; }
@@ -2128,7 +2170,7 @@ button,
   -ms-user-select: none;
   user-select: none;
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-weight: 400;
   letter-spacing: 0.075em;
   list-style: none;
@@ -2140,7 +2182,7 @@ button,
     color: inherit;
     cursor: pointer;
     display: block;
-    font-size: 0.9em;
+    font-size: 1.1em;
     padding: 0.625em 0; }
     #menu ul a:hover, #menu ul span:hover {
       color: #6495ED; }
@@ -2151,7 +2193,9 @@ button,
       transition: color 0.2s ease-in-out;
       text-decoration: none;
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-      position: relative; }
+      position: relative; 
+      font-family: 'NanumSquare'!important;
+      }
       #menu ul a.opener:before, #menu ul span.opener:before {
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
@@ -2192,7 +2236,7 @@ button,
     margin: 0.5em 0 1.5em 0;
     padding-left: 1em; }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
-      font-size: 0.8em; }
+      font-size: 1em; }
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0; }
