@@ -1,4 +1,9 @@
 @charset "UTF-8";
+
+strong{
+	color:red;
+}
+
 .card-bordered {
     border: 1px solid #ebebeb;
 }
