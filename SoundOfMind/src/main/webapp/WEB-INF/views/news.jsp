@@ -12,14 +12,6 @@
 <link rel="stylesheet" href="/resources/assets/css/news.css" />
 <link rel="stylesheet" href="/resources/assets/css/community2.css" />
 
-<!-- bootsnipp -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-
 
 </head>
 <body class="is-preload">
@@ -56,28 +48,7 @@
 				
 				
 					<!-- 상단 메뉴  & 검색 -->
-				<nav class="navbar navbar-expand navbar-light bg-white"
-					style="height: 81px;">
-					<div class="container">
-						<div class="collapse navbar-collapse">
-							<ul class="navbar-nav">
-								<li class="nav-item active"><a href="community.do" class="nav-link">
-										<img src="/resources/assets/img/board.png" width="27px"
-										height="27px">
-										게시판
-								</a></li>
-								<li class="nav-item"><a href="news.do" class="nav-link"> <img
-										src="/resources/assets/img/news3.png" width="27px"
-										height="27px">
-										뉴스
-								</a></li>
-								<li class="nav-item"><a href="chatting.do" class="nav-link"> <img
-										src="/resources/assets/img/chat3.png" width="27px"
-										height="27px">
-										채팅
-								</a></li>
-							</ul>
-							<!-- 검색 -->
+					<!-- 검색 -->
 							<section id="search" class="alt"
 								style="width: 50%; margin-left: 20px; margin-right: 20px;">
 								<form action="#">
@@ -85,16 +56,6 @@
 										style="margin-top: 30px;" />
 								</form>
 							</section>
-							<ul class="navbar-nav d-none d-md-block">
-								<li class="nav-item"><a class="nav-link"> <img
-										src="/resources/assets/img/write2.png" width="32px"
-										height="32px" onclick="boardWrite()">
-										글쓰기
-								</a></li>
-							</ul>
-						</div>
-					</div>
-				</nav>
 				
 
 
@@ -207,17 +168,7 @@
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/news.js"></script>
 	
-  <!-- bootsnipp -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("li.nav-item").click(function(e) {
-				e.preventDefault();
-				$(".nav-item").removeClass("active");
-				$(this).addClass("active");
-			});
-		});
-	</script>
+
 
 
 </body>
