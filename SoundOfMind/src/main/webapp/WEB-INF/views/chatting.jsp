@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -32,7 +32,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
@@ -63,7 +63,7 @@
 				</table>
 				<!-- </div> 추가 금지 -->
 				<div class="container">
-					<h3 class=" text-center who">Messaging</h3>
+					<h3 class=" text-center who">메세지</h3>
 					<div class="messaging">
 						<div class="inbox_msg">
 							<div class="inbox_people">
@@ -106,16 +106,12 @@
 								<div class="type_msg">
 									<div class="input_msg_write">
 										<input type="text" class="write_msg"
-											placeholder="Type a message" />
+											placeholder="메세지를 입력하세요" />
 										<ion-icon name="chatbox-ellipses-outline" size="large" class="msg_send_btn" onclick="ChatSend()"></ion-icon>
 									</div>
 								</div>
 							</div>
-							<p class="text-center top_spac">
-								Design by <a target="_blank"
-									href="https://www.linkedin.com/in/sunil-rajput-nattho-singh/">Sunil
-									Rajput</a>
-							</p>
+							
 						</div>
 					</div>
 				</div>	

@@ -11,7 +11,7 @@
 
 <html lang="en">
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -80,7 +80,7 @@
 			<div class="inner" style="background-color: white;">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
@@ -177,14 +177,14 @@
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
 					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
-					<h5>Best Board</h5>
+					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
 					${clickBest.rownum}. ${clickBest.title} <br>
 					</c:forEach>
 				</div>
 				<div class="box"
 					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
-					<h5>Message Board</h5>
+					<h5>간편 메세지</h5>
 					<h6>받는 이</h6>
 					<p>
 						<input type="text" name="messegeId" id="messegeId">

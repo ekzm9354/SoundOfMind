@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -20,49 +20,6 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 
-<style type="text/css">
-#header {
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-	border-bottom: solid 5px #6495ED;
-	padding: 6em 0 1em 0;
-	position: relative;
-}
-
-.bg-dark {
-	background-color: #6495ED !important;
-}
-
-.nav-link {
-	display: initial;
-	padding: 0.5rem 1rem;
-	border-bottom: black;
-	color: black !important;
-}
-
-.pagination {
-	display: block;
-	text-align: center;
-}
-</style>
-
-<!-- animated -->
-<style type="text/css">
-#lia {
-      position: relative;
-      padding: 0.6em 2em;
-      font-size: 18px;
-      border: none;
-      outline:none;
-      color: #333;
-      display: inline-block;
-      text-decoration: none;
-      z-index: 3;
-}
-</style>
-
 
 </head>
 <body class="is-preload">
@@ -74,7 +31,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
@@ -84,7 +41,6 @@
 						<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
 						<c:if test="${user==null && Kakao != kakao}">
 							${id}님
@@ -162,9 +118,9 @@
 							<tbody>
 								<c:forEach var="news1" items="${news1}">
 									<tr>
-										<td>${news1.rownum}</td>
-										<td>${news1.date}</td>
-										<td><a href="${news1.url}">${news1.title}</a></td>
+										<th>${news1.rownum}</th>
+										<th>${news1.date}</th>
+										<th><a style="text-decoration-line:none; color: inherit;" href="${news1.url}">${news1.title}</a></th>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -182,9 +138,9 @@
 							<tbody>
 								<c:forEach var="news2" items="${news2}">
 									<tr>
-										<td>${news2.rownum}</td>
-										<td>${news2.date}</td>
-										<td><a href="${news2.url}">${news2.title}</a></td>
+										<th>${news2.rownum}</th>
+										<th>${news2.date}</th>
+										<th><a style="text-decoration-line:none; color: inherit;" href="${news2.url}">${news2.title}</a></th>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -202,9 +158,9 @@
 							<tbody>
 								<c:forEach var="news3" items="${news3}">
 									<tr>
-										<td>${news3.rownum}</td>
-										<td>${news3.date}</td>
-										<td><a href="${news3.url}">${news3.title}</a></td>
+										<th>${news3.rownum}</th>
+										<th>${news3.date}</th>
+										<th><a style="text-decoration-line:none; color: inherit;" href="${news3.url}">${news3.title}</a></th>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -250,59 +206,19 @@
 		<script src="/resources/assets/js/breakpoints.min.js"></script>
 		<script src="/resources/assets/js/util.js"></script>
 		<script src="/resources/assets/js/news.js"></script>
-		<script text="javascript/text">
-    $(document).ready(function(){
- 
-        $('.box').each(function(){
-            //var content = $(this).children('.content');
-            var content = $(this).find('.contentStr');
- 
-            var content_txt = content.text();
-            var content_html = content.html();
-            var content_txt_short = content_txt.substring(0,100)+"...";
-            var btn_more = $('<a href="javascript:void(0)" class="more">더보기</a>');
- 
-            
-            $(this).append(btn_more);
-            
-            if(content_txt.length >= 100){
-                content.html(content_txt_short)
-                
-            }else{
-                btn_more.hide()
-            }
-            
-            btn_more.click(toggle_content);
-            function toggle_content(){
-                if($(this).hasClass('short')){
-                    // 접기 상태
-                    $(this).html('더보기');
-                    content.html(content_txt_short)
-                    $(this).removeClass('short');
-                }else{
-                    // 더보기 상태
-                    $(this).html('접기');
-                    content.html(content_html);
-                    $(this).addClass('short');
- 
-                }
-            }
-        });
-    });
-  </script>
-  
+	
   <!-- bootsnipp -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript">
-	 $(document).ready(function() {
-         $("li.nav-item").click(function (e) {
-             e.preventDefault();
-             $(".nav-item").removeClass("active");
-             $(this).addClass("active");   
-         });
-     });
+		$(document).ready(function() {
+			$("li.nav-item").click(function(e) {
+				e.preventDefault();
+				$(".nav-item").removeClass("active");
+				$(this).addClass("active");
+			});
+		});
 	</script>
-  
-  
+
+
 </body>
 </html>

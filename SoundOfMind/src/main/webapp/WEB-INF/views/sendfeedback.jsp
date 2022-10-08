@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -30,7 +30,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
@@ -62,7 +62,7 @@
 							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
-								<li><button class="button small">Upload</button></li>
+								<li><button class="button small">의견 보내기</button></li>
 							</ul>
 						</div>
 					</div>

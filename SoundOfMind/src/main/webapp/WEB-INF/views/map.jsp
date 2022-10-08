@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마음의 소리</title>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-	<h1 class="Map">MAP</h1>
+	<h1 class="Map">지도</h1>
 	<div id="map" style="width: 500px; height: 400px;"></div>
 	<!-- 사용자 위치 받아오기 -->
 	<script type="text/javascript">
