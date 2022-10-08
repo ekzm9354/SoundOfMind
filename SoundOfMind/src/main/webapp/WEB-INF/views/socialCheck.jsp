@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sound Of Mind</title>
+<title>마음의 소리</title>
 <!-- kakao -->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.0.0/kakao.min.js"
@@ -38,7 +38,7 @@
 	<div class="inner">
 		<!-- Header -->
 		<header id="header">
-			<a href="index.do" class="logo"><strong>Sound</strong> of Mind </a>
+			<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 		</header>
 
 

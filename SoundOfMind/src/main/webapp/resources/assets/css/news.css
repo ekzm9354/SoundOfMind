@@ -1,36 +1,45 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
-/* 더보기 css  */
-.js-load {
-    display: none;
-}
-.js-load.active {
-    display: block;
-}
-.is_comp.js-load:after {
-    display: none;
-}
-.btn-wrap, .lists, .main {
-    display: block;
-}
-.main {
-    max-width: 640px;
-    margin: 0 auto;
-}
-.lists {
-    margin-bottom: 4rem;
-}
-.lists__item {
-    padding: 20px;
-    background: #EEE;
+/* 수지가 추가한 코드  */
+#header {
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	border-bottom: solid 5px #6495ED;
+	padding: 6em 0 1em 0;
+	position: relative;
 }
 
-.btn-wrap {
-    text-align: center;
+.bg-dark {
+	background-color: #6495ED !important;
 }
-/* 더보기 css */
 
+.nav-link {
+	display: initial;
+	padding: 0.5rem 1rem;
+	border-bottom: black;
+	color: black !important;
+}
 
+.pagination {
+	display: block;
+	text-align: center;
+}
+
+/* 애니메이트 */
+#lia {
+      position: relative;
+      padding: 0.6em 2em;
+      font-size: 18px;
+      border: none;
+      outline:none;
+      color: #333;
+      display: inline-block;
+      text-decoration: none;
+      z-index: 3;
+}
+/*여기까지 수지가 추가한 코드  */
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -47,7 +56,8 @@ section, summary, time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline; 
+  }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -133,7 +143,7 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
+ /*  border-bottom: dotted 1px; */
   color: #6495ED;
   text-decoration: none; }
   a:hover {

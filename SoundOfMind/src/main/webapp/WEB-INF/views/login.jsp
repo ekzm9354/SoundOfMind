@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -34,7 +34,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 
 				</header>
@@ -51,7 +51,7 @@
 
 						<div class="textb">
 							<input type="password" name="pw" required>
-							<div class="placeholder">패스워드</div>
+							<div class="placeholder">비밀번호</div>
 							<div class="show-password fas fa-eye-slash"></div>
 
 						</div>

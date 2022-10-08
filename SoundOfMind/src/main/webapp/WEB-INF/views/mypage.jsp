@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -24,7 +24,7 @@
 				<div class="inner">
 					<!-- Header -->
 					<header id="header">
-						<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+						<a href="index.do" class="logo"><strong>마음의</strong> 소리
 						</a>
 						<ul class="icons">
 							<c:if test="${user==null}">
@@ -64,11 +64,11 @@
 
 							<table class="type03">
 								<tr>
-									<th scope="row">ID</th>
+									<th scope="row">아이디</th>
 									<td>${user.id}</td>
 								</tr>
 								<tr>
-									<th scope="row">Name</th>
+									<th scope="row">이름</th>
 									<td>${user.name}</td>
 								</tr>
 							</table>
@@ -114,7 +114,7 @@
 									<li><a href="map.do">가까운 복지관 찾기</a></li>
 								</ul></li>
 							<li><a href="mypage.do">프로필</a></li>
-							<li><a href="elements.html">의견 보내기</a></li>
+							<li><a href="sendFeedback.do">의견 보내기</a></li>
 							<li><a href="socket">Web Socket</a></li>
 						</ul>
 					</nav>

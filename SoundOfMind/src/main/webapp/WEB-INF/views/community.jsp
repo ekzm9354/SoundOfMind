@@ -11,21 +11,13 @@
 
 <html lang="en">
 <head>
-<title>Sound of Mind</title>
+<title>마음의 소리</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/resources/assets/css/community.css" />
 <!-- animated -->
 <link rel="stylesheet" href="/resources/assets/css/community2.css" />
-
-<!-- bootsnipp -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 
 
 <style type="text/css">
@@ -80,7 +72,7 @@
 			<div class="inner" style="background-color: white;">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
@@ -105,28 +97,7 @@
 				</header>
 
 				<!-- 상단 메뉴  & 검색 -->
-				<nav class="navbar navbar-expand navbar-light bg-white"
-					style="height: 81px;">
-					<div class="container">
-						<div class="collapse navbar-collapse">
-							<ul class="navbar-nav">
-								<li class="nav-item active"><a href="community.do" class="nav-link">
-										<img src="/resources/assets/img/board.png" width="27px"
-										height="27px">
-										게시판
-								</a></li>
-								<li class="nav-item"><a href="news.do" class="nav-link"> <img
-										src="/resources/assets/img/news3.png" width="27px"
-										height="27px">
-										뉴스
-								</a></li>
-								<li class="nav-item"><a href="chatting.do" class="nav-link"> <img
-										src="/resources/assets/img/chat3.png" width="27px"
-										height="27px">
-										채팅
-								</a></li>
-							</ul>
-							<!-- 검색 -->
+				<!-- 검색 -->
 							<section id="search" class="alt"
 								style="width: 50%; margin-left: 20px; margin-right: 20px;">
 								<form action="#">
@@ -134,16 +105,6 @@
 										style="margin-top: 30px;" />
 								</form>
 							</section>
-							<ul class="navbar-nav d-none d-md-block">
-								<li class="nav-item"><a class="nav-link"> <img
-										src="/resources/assets/img/write2.png" width="32px"
-										height="32px" onclick="boardWrite()">
-										글쓰기
-								</a></li>
-							</ul>
-						</div>
-					</div>
-				</nav>
 
 
 				<!-- Table -->
@@ -177,14 +138,14 @@
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
 					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
-					<h5>Best Board</h5>
+					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
 					${clickBest.rownum}. ${clickBest.title} <br>
 					</c:forEach>
 				</div>
 				<div class="box"
 					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
-					<h5>Message Board</h5>
+					<h5>간편 메세지</h5>
 					<h6>받는 이</h6>
 					<p>
 						<input type="text" name="messegeId" id="messegeId">
@@ -314,17 +275,6 @@
 	</script>
 	
 	
-	<!-- bootsnipp -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript">
-	 $(document).ready(function() {
-         $("li.nav-item").click(function (e) {
-             e.preventDefault();
-             $(".nav-item").removeClass("active");
-             $(this).addClass("active");   
-         });
-     });
-	</script>
 	
 	<!-- icon -->
 	<script type="module"

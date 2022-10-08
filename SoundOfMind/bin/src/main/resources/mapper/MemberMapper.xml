@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.MemberMapper">
+
+<insert id="join" parameterType="com.SoundOfMind.domain.Member">
+insert into MEMBER_INFO
+values(#{name},#{id},#{pw})
+</insert>
+
+<select id="login" parameterType="com.SoundOfMind.domain.Member" resultType="com.SoundOfMind.domain.Member">
+select * from MEMBER_INFO where id=#{id} and pw=#{pw}
+</select>
+
+<delete id="delete" parameterType="com.SoundOfMind.domain.Member">
+delete from MEMBER_INFO where id=#{id}
+</delete>
+
+<!--아이디 중복체크  -->
+<select id="idCheck" parameterType="String" resultType="int">
+select count(id) from MEMBER_INFO where id=#{id}
+</select>
+
+<!-- Social Join -->
+<insert id="SocialJoin" parameterType="String">
+INSERT INTO MEMBER_INFO(ROOT,NAME,ID,PW) VALUES (#{root},#{id},#{id},#{id})
+</insert>
+
+<!-- Social Join Check -->
+<select id="SocialJoinCheck" parameterType="String" resultType="String">
+SELECT IFNULL(ID,0) FROM MEMBER_INFO WHERE ID = #{id};
+</select>
+</mapper>
