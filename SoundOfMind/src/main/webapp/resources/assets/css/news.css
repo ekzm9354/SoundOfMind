@@ -2272,6 +2272,10 @@ button,
     padding-top: 0; }
 
     
+hr{
+	border-top:1px dotted #bbb;
+}
+    
 /*html5up-verti*/
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800");

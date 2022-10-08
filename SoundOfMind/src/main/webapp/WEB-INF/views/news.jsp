@@ -79,14 +79,14 @@
 							<tbody>
 								<c:forEach var="news1" items="${news1}">
 									<tr>
-										<th>${news1.rownum}</th>
-										<th>${news1.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news1.url}">${news1.title}</a></th>
+										<td>${news1.rownum}</td>
+										<td>${news1.date}</td>
+										<td><a style="text-decoration-line:none; color: inherit;" href="${news1.url}">${news1.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-
+						<hr> <!-- 실선 태그  -->
 						<h2>부정뉴스</h2>
 						<table>
 							<thead>
@@ -99,14 +99,14 @@
 							<tbody>
 								<c:forEach var="news2" items="${news2}">
 									<tr>
-										<th>${news2.rownum}</th>
-										<th>${news2.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news2.url}">${news2.title}</a></th>
+										<td>${news2.rownum}</td>
+										<td>${news2.date}</td>
+										<td><a style="text-decoration-line:none; color: inherit;" href="${news2.url}">${news2.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-
+						<hr> <!-- 실선 태그  -->
 						<h2>중립 뉴스</h2>
 						<table>
 							<thead>
@@ -119,16 +119,17 @@
 							<tbody>
 								<c:forEach var="news3" items="${news3}">
 									<tr>
-										<th>${news3.rownum}</th>
-										<th>${news3.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news3.url}">${news3.title}</a></th>
+										<td>${news3.rownum}</td>
+										<td>${news3.date}</td>
+										<td><a style="text-decoration-line:none; color: inherit;" href="${news3.url}">${news3.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						
 
 
-						<!-- 여기부터 뉴스 나오는 칸  -->
+						<!-- 여기까지 뉴스 나오는 칸  -->
 					</div>
 
 				</section>
