@@ -62,6 +62,7 @@
 										<h4 class="card-title">
 											<strong> 百聞不如一見 </strong>
 										</h4>
+										<!-- connection 버튼 -->
 										<a class="btn btn-xs btn-secondary" href="#" data-abc="true"
 											style="background-color: white; border-radius: 3px;">연결</a>
 									</div>
@@ -70,25 +71,19 @@
 									<div class="ps-container ps-theme-default ps-active-y"
 										id="chat-content"
 										style="overflow-y: scroll !important; height: 400px !important; border: solid 1px;">
+										
+										
+									<!-- 상대가 보낸것 -->	
 										<div class="media media-chat">
-											<img class="avatar avatar-xs" src="/resources/assets/img/girl3.png"><!-- 사진 -->
 											<div class="media-body">
 												<p style="background-color: #fdeca6; color:black;">안녕나는 수디야</p>
-												<!-- 날짜
-												<p class="meta">
-													<time datetime="2018">23:58</time>
-												</p> -->
 											</div>
 										</div>
-
-										<!-- <div class="media media-meta-day">Today</div> -->
-
+									
+									<!-- 내가 보낸것 -->
 										<div class="media media-chat media-chat-reverse">
 											<div class="media-body">
 												<p>안녕나는 수망이야~~~~~~~~~~~~~~</p>
-												<!-- <p class="meta">
-													<time datetime="2018">00:06</time>
-												</p> -->
 											</div>
 										</div>
 
@@ -106,20 +101,16 @@
 
 									<div class="publisher bt-1 border-light"
 										style="background-color: #6495ED; border-radius: 3px;">
-										<img class="avatar avatar-xs"
-											src="/resources/assets/img/man1.png"> <input
-											class="publisher-input" type="text" placeholder="메세지를 입력하세요.">
-										<!-- <span class="publisher-btn file-group" style="width: 15px; height: 26px;">
-												<i	class="fa fa-paperclip file-browser"></i> 
-												<input type="file">
-											</span>  -->
-										<a class="publisher-btn" href="#" data-abc="true"> <img
-											src="/resources/assets/img/trash7.png"
-											style="width: 100%; height: 40px;"> <!-- <i class="fa fa-smile"></i> -->
-										</a> <a class="publisher-btn text-info" href="#" data-abc="true">
+										<!-- 메세지 입력하는 곳 -->
+										<input class="publisher-input" type="text" placeholder="메세지를 입력하세요.">
+											
+										<!-- 전송버튼 -->	
+										 <a class="publisher-btn text-info" href="#" data-abc="true">
 											<img src="/resources/assets/img/send7.png"
-											style="width: 100%; height: 40px;"> <!-- <i class="fa fa-paper-plane"></i> -->
+											style="width: 100%; height: 40px;">
 										</a>
+										<!-- 전송버튼 end -->	
+										
 									</div>
 
 								</div>
