@@ -80,7 +80,7 @@
 	<script type="text/javascript">
  		var wsURL = null;
  		window.onload = function(){
- 			wsURL = new WebSocket("ws://localhost:8085/websocket")
+ 			wsURL = new WebSocket("ws://211.63.240.54:8085/websocket")
  		
 		<!-- 접속-->
 		 wsURL.onopen = function(message){
