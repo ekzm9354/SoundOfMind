@@ -30,8 +30,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -53,19 +52,27 @@
 					</ul>
 
 				</header>
-				
+
 				<!-- sendfeedback -->
-					<div style="margin-top: 40px;">	
-						<div class="box" style="width: 100%; margin: 0 auto; height: 582px;">
-							<textarea name="demo-name" id="demo-name" placeholder="이메일을 입력하세요" autofocus style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
-							<!-- 업로드버튼 -->
-							<ul class="actions small">
-								<li><button class="button small">의견 보내기</button></li>
-							</ul>
-						</div>
+				<div style="margin-top: 40px;">
+					<div class="box"
+						style="width: 100%; margin: 0 auto; height: 582px;">
+						<textarea name="demo-name" id="demo-name" class="email"
+							placeholder="이메일을 입력하세요" autofocus
+							style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+						<textarea name="demo-name" id="demo-name" class="title"
+							placeholder="제목을 입력하세요" autofocus
+							style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+						<textarea name="demo-name" id="demo-name" class="text"
+							placeholder="내용을 입력하세요" autofocus
+							style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
+						<!-- 업로드버튼 -->
+						<ul class="actions small">
+							<li><button class="button small" onclick="SendFeedback()">의견
+									보내기</button></li>
+						</ul>
 					</div>
+				</div>
 				<!-- sendfeedback -->
 
 
@@ -129,11 +136,37 @@
 			})
 		}
 	</script>
-	
-	
-	
+	<script type="text/javascript">
+		function SendFeedback() {
+			var email = $('.email').val()
+			var title = $('.title').val()
+			var text = $('.text').val()
+
+			$.ajax({
+				url : "feedback.do",
+				data : {
+					email : email,
+					title : title,
+					text : text
+				},
+				type : "POST",
+				success : function() {
+					alert('전송되었습니다')
+					$('.email').val('')
+					$('.title').val('')
+					$('.text').val('')
+				},
+				error : function(e) {
+					console.log(e)
+				}
+			})
+		}
+	</script>
+
+
+
 	<!-- sendfeedback js -->
-	
+
 
 </body>
 </html>

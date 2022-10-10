@@ -64,7 +64,7 @@
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
+					<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
 							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>

@@ -10,7 +10,7 @@ public class SocketController {
 
 	@GetMapping("/socket")
 	public String socket(Locale locale, Model model) {
-		return "test";
+		return "websocket";
 	}
 
 }

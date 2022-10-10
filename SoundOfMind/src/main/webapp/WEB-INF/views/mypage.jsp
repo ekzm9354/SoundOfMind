@@ -27,14 +27,23 @@
 						<a href="index.do" class="logo"><strong>마음의</strong> 소리
 						</a>
 						<ul class="icons">
-							<c:if test="${user==null}">
-								<li><a href="login.do"><span class="label">로그인</span></a></li>
-								<li><a href="join.do"><span class="label">회원가입</span></a></li>
-							</c:if>
-							<c:if test="${user!=null }"> 
-						${user.id}님 
+							<c:if test="${user==null && Kakao == null && Naver == null}">
+							<li><a href="login.do"><span class="label">로그인</span></a></li>
+							<li><a href="join.do"><span class="label">회원가입</span></a></li>
+						</c:if>
+						<c:if test="${user!=null && Social == null}"> 
+						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							</c:if>
+							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+						</c:if>
+						<c:if test="${user==null && Kakao != kakao}">
+							${id}님
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>FF
 						</ul>
 					</header>
 
