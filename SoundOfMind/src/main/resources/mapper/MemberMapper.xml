@@ -4,7 +4,7 @@
 
 <insert id="join" parameterType="com.SoundOfMind.domain.Member">
 insert into MEMBER_INFO
-values(#{name},#{id},#{pw})
+values(#{name},#{id},#{pw},#{root},#{profile})
 </insert>
 
 <select id="login" parameterType="com.SoundOfMind.domain.Member" resultType="com.SoundOfMind.domain.Member">
