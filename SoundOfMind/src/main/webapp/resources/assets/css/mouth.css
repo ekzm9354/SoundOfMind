@@ -33,8 +33,10 @@
   position: relative;
   width: 259px;
   height: 353px;
-  border-top-left-radius: 200px;
-  border-top-right-radius: 200px;
+  border-top-left-radius: 40vh;
+  border-top-right-radius: 40vh;
+  border-bottom-left-radius:20vh;
+  border-bottom-right-radius:20vh;
   background-color: #6495ED;
   /* box-shadow: 80px 80px 0 #07129C; */
 }

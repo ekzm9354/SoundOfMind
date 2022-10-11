@@ -62,12 +62,40 @@
 				<section id="banner">
 					<div class="content">
 						<header>
+
+							<ul class="board-list-title">
+								<li class="txt-14">번호</li>
+								<li class="txt-14">날짜</li>
+								<li class="board-title-con txt-14">제목</li>
+							</ul>
+
+							<ul class="board-list">
+									<c:forEach var="news1" items="${news1}">
+								<li>
+									<ul class="board-list-inner">
+										<li class="board-num"><span class="tag-square red">${news1.rownum}</span>
+										</li>
+										<li> <span class="tag">${news1.date}</span></li>
+										<li class="board-title-con txt-l">
+									 		<a style="text-decoration-line:none; color: inherit; " 
+										href="${news1.url}">
+                    <span class="title-row2 txt-16"><span class="icon-lock"></span>${news1.title}</span>
+                </a> 
+										</li>
+									</ul>
+									
+								</li>
+									</c:forEach>
+							
+							</ul>
+
+
 							<h1>뉴스</h1>
 
 						</header>
 						<!-- 여기부터 뉴스 나오는 칸 꾸미기는 나중에 하겠슴당~ 일단 틀만,,  -->
-						<h2>긍정뉴스</h2>
 						<table>
+						<caption>긍정 뉴스</caption>
 							<thead>
 								<tr>
 									<th scope="col">번호</th>
@@ -81,11 +109,13 @@
 									<tr>
 										<td>${news1.rownum}</td>
 										<td>${news1.date}</td>
-										<td><a style="text-decoration-line:none; color: inherit;" href="${news1.url}">${news1.title}</a></td>
+										<td style="text-align:left;"><a style="text-decoration-line:none; color: inherit;" 
+										href="${news1.url}">${news1.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+						<a href="#" id="load">더 보기</a>
 						<hr> <!-- 실선 태그  -->
 						<h2>부정뉴스</h2>
 						<table>
@@ -101,7 +131,8 @@
 									<tr>
 										<td>${news2.rownum}</td>
 										<td>${news2.date}</td>
-										<td><a style="text-decoration-line:none; color: inherit;" href="${news2.url}">${news2.title}</a></td>
+										<td style="text-align:left;"><a style="text-decoration-line:none; color: inherit;" 
+										href="${news2.url}">${news2.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -121,7 +152,8 @@
 									<tr>
 										<td>${news3.rownum}</td>
 										<td>${news3.date}</td>
-										<td><a style="text-decoration-line:none; color: inherit;" href="${news3.url}">${news3.title}</a></td>
+										<td style="text-align:left;"><a style="text-decoration-line:none; color: inherit;" 
+										href="${news3.url}">${news3.title}</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
