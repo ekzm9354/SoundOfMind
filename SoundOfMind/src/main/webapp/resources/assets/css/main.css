@@ -1,5 +1,11 @@
 @import url(fontawesome-all.min.css);
 @import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
+
+*{
+	font-family: 'NanumSquare';
+}
+
+
 /*
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
