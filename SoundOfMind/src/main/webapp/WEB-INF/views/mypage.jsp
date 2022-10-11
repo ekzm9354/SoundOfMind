@@ -43,7 +43,7 @@
 						<c:if test="${user==null && Naver != naver}">
 							${Naveremail}님
 							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>FF
+						</c:if>
 						</ul>
 					</header>
 
