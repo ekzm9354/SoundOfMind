@@ -66,7 +66,7 @@
 				</div>
 				<!-- Banner -->
 				<section id="banner">
-					<div class="content" >
+					<div class="content">
 						<!-- loading animation -->
 						<!-- partial:index.partial.html -->
 						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
@@ -107,7 +107,7 @@
 
 
 						
-					<div class="content" >
+					<div class="content">
 
 						<textarea name="inputSTT" style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none;" 
 						id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분" ></textarea>
@@ -147,6 +147,22 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
+				
+				<!-- Section -->
+				<!-- 	<section>
+						<header class="major">
+							<h2> 百聞不如一見 </h2>
+						</header>
+						<p>소개글</p>
+						<ul class="contact">
+							<li class="fa-envelope-o">smhrd@smhrd.or.kr</li>
+							<li class="fa-phone">(062) 655-3506</li>
+							<li class="fa-home">광주 동구 예술길 31-15 4층</li>
+						</ul>
+					</section>
+				 -->
+				
+				
 				<!-- Footer. -->
 			<!-- 	<footer id="footer">
 					<p class="copyright">
@@ -158,6 +174,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<!-- Scripts -->
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
