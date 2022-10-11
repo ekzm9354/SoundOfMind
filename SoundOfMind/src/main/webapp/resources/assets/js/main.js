@@ -1,4 +1,16 @@
-
+/* 글자 크기 줄이기 */
+	function fontsizedown(){
+		document.getElementById("speech").style.fontSize="0.5em";
+	}
+	function fontsizeup1(){
+		document.getElementById("speech").style.fontSize="1em";
+	}
+	function fontsizeup2(){
+		document.getElementById("speech").style.fontSize="1.5em";
+	}
+	function fontsizeup3(){
+		document.getElementById("speech").style.fontSize="2em";
+	}
 
 (function($) {
 

@@ -60,17 +60,23 @@
 						<textarea name="demo-name" id="demo-name" class="email"
 							placeholder="이메일을 입력하세요" autofocus
 							style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-						<textarea name="demo-name" id="demo-name" class="title"
+						<textarea name="demo-name" id="demo-name" class="title" maxlength="50"
 							placeholder="제목을 입력하세요" autofocus
 							style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-						<textarea name="demo-name" id="demo-name" class="text"
+						<textarea name="demo-name" id="demo-name" class="text" maxlength="1000"
 							placeholder="내용을 입력하세요" autofocus
 							style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
-						<!-- 업로드버튼 -->
-						<ul class="actions small">
-							<li><button class="button small" onclick="SendFeedback()">의견
-									보내기</button></li>
-						</ul>
+						
+						<!-- 동의버튼 -->
+						<div class="6u 12u$(small)">
+							<input type="checkbox" id="demo-copy" name="demo-copy">
+							<label for="demo-copy">개인정보 수집 동의</label>
+								<!-- 업로드버튼 -->
+								<ul class="actions small">
+									<li><button class="button small" onclick="SendFeedback()">의견
+											보내기</button></li>
+								</ul>
+						</div>
 					</div>
 				</div>
 				<!-- sendfeedback -->

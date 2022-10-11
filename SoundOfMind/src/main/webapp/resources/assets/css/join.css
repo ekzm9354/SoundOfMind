@@ -1,7 +1,9 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
-
+*{
+	font-family: 'NanumSquare';
+}
 
 .id_ok{
 	display: none;
@@ -80,7 +82,7 @@ body {
 /* Type */
 body, input, select, textarea {
   color: #7f888f;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'NanumSquare';
   font-size: 13pt;
   font-weight: 400;
   line-height: 1.65; }
@@ -122,7 +124,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare';
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0; }
@@ -1298,7 +1300,7 @@ dl {
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    font-family: 'NanumSquare';
     font-size: 1.125em; }
   #header .icons {
     text-align: right; }
@@ -1489,6 +1491,7 @@ dl {
 }
 
 .login-form a {
+	font-family: 'NanumSquare';
     display: block;
     text-align: center;
     text-decoration: none;

@@ -16,6 +16,7 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
+	font-family: 'NanumSquare'!important;
   margin: 0;
   padding: 0;
   border: 0;
@@ -111,7 +112,6 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
   color: #6495ED;
   text-decoration: none; }
   a:hover {
@@ -1547,6 +1547,7 @@ button,
   input[type="button"].large,
   button.large,
   .button.large {
+  font-family: 'NanumSquare';
     font-size: 1em;
     height: 3.65em;
     line-height: 3.65em; }
@@ -2089,7 +2090,7 @@ button,
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    font-family: 'NanumSquare';
     font-size: 1.125em; }
   #header .icons {
     text-align: right; }
@@ -2221,7 +2222,7 @@ button,
     color: inherit;
     cursor: pointer;
     display: block;
-    font-size: 0.9em;
+    font-size: 1.1em;
     padding: 0.625em 0; }
     #menu ul a:hover, #menu ul span:hover {
       color: #6495ED; }
@@ -2273,7 +2274,7 @@ button,
     margin: 0.5em 0 1.5em 0;
     padding-left: 1em; }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
-      font-size: 0.8em; }
+      font-size: 1em; }
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0; }

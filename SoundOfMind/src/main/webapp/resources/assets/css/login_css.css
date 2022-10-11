@@ -4,7 +4,6 @@
 
 
 
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -117,7 +116,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare';
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0; }
@@ -1293,7 +1292,7 @@ dl {
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    font-family: 'NanumSquare';
     font-size: 1.125em; }
   #header .icons {
     text-align: right; }
@@ -1485,6 +1484,7 @@ dl {
 }
 
 .login-form a {
+	font-family: 'NanumSquare';
     display: block;
     text-align: center;
     text-decoration: none;

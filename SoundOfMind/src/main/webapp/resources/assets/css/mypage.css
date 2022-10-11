@@ -22,8 +22,8 @@
     max-width: 120px;
     text-align: center;
     display: block;
-    background-color:#a3a1a1;
-    color: #e3dede;
+    background-color:#B2CCFF;
+    color: white;
     box-shadow:  0 2px 6px rgba(146, 146, 146, 0.8);
     cursor: pointer;
 }
@@ -34,7 +34,9 @@
 	color:black;
 }
 
-
+.deletebtn{
+	float:right;
+}
 
 
 	table.type03 {
@@ -107,7 +109,9 @@ section, summary, time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline; 
+  font-family: 'NanumSquare'!important;
+  }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -174,7 +178,7 @@ body {
 /* Type */
 body, input, select, textarea {
   color: #7f888f;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'NanumSquare'!important;
   font-size: 13pt;
   font-weight: 400;
   line-height: 1.65; }
@@ -214,7 +218,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0; }
@@ -1072,7 +1076,7 @@ section.special, article.special {
   text-align: center; }
 
 header p {
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 0.075em;
@@ -1202,7 +1206,7 @@ input[type="radio"] {
       text-rendering: auto;
       line-height: 1;
       text-transform: none !important;
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'NanumSquare'!important;
       font-weight: 900; }
     input[type="checkbox"] + label:before,
     input[type="radio"] + label:before {
@@ -1463,7 +1467,7 @@ button,
   color: #6495ED /* !important */;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare'!important;
   font-size: 0.8em;
   font-weight: 700;
   height: 3.5em;
@@ -2182,7 +2186,7 @@ button,
     color: inherit;
     cursor: pointer;
     display: block;
-    font-size: 0.9em;
+    font-size: 1.1em;
     padding: 0.625em 0; }
     #menu ul a:hover, #menu ul span:hover {
       color: #6495ED; }
@@ -2234,7 +2238,7 @@ button,
     margin: 0.5em 0 1.5em 0;
     padding-left: 1em; }
     #menu > ul > li > ul a, #menu > ul > li > ul span {
-      font-size: 0.8em; }
+      font-size: 1em; }
     #menu > ul > li > ul > li {
       margin: 0.125em 0 0 0;
       padding: 0.125em 0 0 0; }
