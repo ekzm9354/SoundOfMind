@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="/resources/assets/css/mypage.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+<!-- 폰트 -->
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
+	
 </head>
 <body class="is-preload">
 	<c:if test="${user==null}">
