@@ -86,7 +86,7 @@
 
 							<!-- mic -->
 							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
-								style="position: absolute; width: 80%; top: 200px;">
+								id="Mic" style="position: absolute; width: 80%; top: 200px;">
 
 						</div>
 
@@ -115,8 +115,8 @@
 							id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분"></textarea>
 						<textarea
 							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
-							placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분"></textarea>
-
+							id="emotion" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" readonly="readonly"></textarea>
+ 
 						<button>
 							<a href="#" style="font-size: 115%;">수정하기</a>
 						</button>
@@ -153,13 +153,13 @@
 
 
 				<!-- Footer. -->
-			<!-- 	<footer id="footer">
+				<!-- 	<footer id="footer">
 					<p class="copyright">
 						청각장애인을 위한 커뮤니티 with <a href="index.do">백문불여일견</a>
 					</p>
 				</footer>
  -->
-				
+
 			</div>
 		</div>
 	</div>
@@ -177,9 +177,36 @@
 				data : {
 					num : 1
 				},
-				success : function(text) {
-					console.log(text)
-					$('#speech').append(text)
+				success : function(res) {
+					<!-- Flaks에서 딕셔너리 형태로 리턴 -->
+					$('#speech').append(res.text)
+					$('#emotion').append(res.emotion)
+					<!-- emotion 값을 확인-->
+					var emotion = $('#emotion').val()
+					<!-- emotion이 중립인 경우-->
+					if(emotion==='중립'){
+					<!-- Mic 삭제 후 -->
+						$('#Mic').remove()
+					<!-- Mic 삭제 후 div monster </div> 태그 다음 마이크 재생성 -->
+						$('.main').append('<img src=/resources/assets/img/emotion/micsoso.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}else if(emotion==='분노'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micangry.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='슬픔'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micsad.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='불안'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micscared.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='상처'){
+						$('.main').append('<img src=/resources/assets/img/emotion/miching.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='기쁨'){
+						$('.main').append('<img src=/resources/assets/img/emotion/michappy.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='당황'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micdisgusting.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
 				},
 				error : function(e) {
 					console.log(e)
@@ -220,7 +247,7 @@
 
 
 
-	
+
 
 
 </body>
