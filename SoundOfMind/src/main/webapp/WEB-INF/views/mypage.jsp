@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="/resources/assets/css/mypage.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+<!-- 폰트 -->
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
+	
 </head>
 <body class="is-preload">
 	<c:if test="${user==null}">
@@ -43,7 +48,7 @@
 						<c:if test="${user==null && Naver != naver}">
 							${Naveremail}님
 							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>FF
+						</c:if>
 						</ul>
 					</header>
 

@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="/resources/assets/css/news.css" />
 <link rel="stylesheet" href="/resources/assets/css/community2.css" />
 
+<!-- 폰트 -->
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
 
 </head>
 <body class="is-preload">
@@ -19,12 +22,11 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
-		<div id="main"  style="background-color: white;">
+		<div id="main" style="background-color: white;">
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -45,90 +47,115 @@
 					</ul>
 
 				</header>
-				
-				
-					<!-- 상단 메뉴  & 검색 -->
-					<!-- 검색 -->
-							<section id="search" class="alt"
-								style="width: 50%; margin-left: 20px; margin-right: 20px;">
-								<form action="#">
-									<input type="text" name="query" id="query" placeholder="검색"
-										style="margin-top: 30px;" />
-								</form>
-							</section>
-				
+
+
+				<!-- 상단 메뉴  & 검색 -->
+				<!-- 검색 -->
+				<div id="search" class="alt">
+					<form action="#">
+						<input type="text" name="query" id="query" placeholder="검색"
+							style="margin-top: 15px;" />
+					</form>
+				</div>
+
 
 
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h1>뉴스</h1>
+							<h2>긍정뉴스</h2>
 
-						</header>
-						<!-- 여기부터 뉴스 나오는 칸 꾸미기는 나중에 하겠슴당~ 일단 틀만,,  -->
-						<h2>긍정뉴스</h2>
-						<table>
-							<thead>
-								<tr>
-									<th scope="col">번호</th>
-									<th scope="col">날짜</th>
-									<th scope="col">제목</th>
-								</tr>
+							<ul class="board-list-title">
+								<li class="txt-14">번호</li>
+								<li class="txt-14">날짜</li>
+								<li class="board-title-con txt-14">제목</li>
+							</ul>
 
-							</thead>
-							<tbody>
+							<ul class="board-list">
 								<c:forEach var="news1" items="${news1}">
-									<tr>
-										<th>${news1.rownum}</th>
-										<th>${news1.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news1.url}">${news1.title}</a></th>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+									<li class="newsdata">
+										<ul class="board-list-inner">
+											<li class="board-num"><span class="tag-square red">${news1.rownum}</span>
+											</li>
+											<li><span class="tag">${news1.date}</span></li>
+											<li class="board-title-con txt-l"><a
+												style="text-decoration-line: none; color: inherit;"
+												href="${news1.url}"> <span class="title-row2 txt-16"><span
+														class="icon-lock"></span>${news1.title}</span>
+											</a></li>
+										</ul>
 
-						<h2>부정뉴스</h2>
-						<table>
-							<thead>
-								<tr>
-									<th scope="col">번호</th>
-									<th scope="col">날짜</th>
-									<th scope="col">제목</th>
-								</tr>
-							</thead>
-							<tbody>
+									</li>
+								</c:forEach>
+							</ul>
+							<div style="text-align: center;">
+								<a href="#" class="readmore">뉴스 더보기</a>
+							</div>
+
+
+
+
+							<hr>
+
+							<h2>부정뉴스</h2>
+							<ul class="board-list-title">
+								<li class="txt-14">번호</li>
+								<li class="txt-14">날짜</li>
+								<li class="board-title-con txt-14">제목</li>
+							</ul>
+
+							<ul class="board-list">
 								<c:forEach var="news2" items="${news2}">
-									<tr>
-										<th>${news2.rownum}</th>
-										<th>${news2.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news2.url}">${news2.title}</a></th>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+									<li class="newsdata2">
+										<ul class="board-list-inner">
+											<li class="board-num"><span class="tag-square red">${news2.rownum}</span>
+											</li>
+											<li><span class="tag">${news2.date}</span></li>
+											<li class="board-title-con txt-l"><a
+												style="text-decoration-line: none; color: inherit;"
+												href="${news2.url}"> <span class="title-row2 txt-16"><span
+														class="icon-lock"></span>${news2.title}</span>
+											</a></li>
+										</ul>
 
-						<h2>중립 뉴스</h2>
-						<table>
-							<thead>
-								<tr>
-									<th scope="col">번호</th>
-									<th scope="col">날짜</th>
-									<th scope="col">제목</th>
-								</tr>
-							</thead>
-							<tbody>
+									</li>
+								</c:forEach>
+
+							</ul>
+							<div style="text-align: center;">
+								<a href="#" class="readmore2">뉴스 더보기</a>
+							</div>
+
+							<hr>
+
+							<h2>중립 뉴스</h2>
+							<ul class="board-list-title">
+								<li class="txt-14">번호</li>
+								<li class="txt-14">날짜</li>
+								<li class="board-title-con txt-14">제목</li>
+							</ul>
+
+							<ul class="board-list">
 								<c:forEach var="news3" items="${news3}">
-									<tr>
-										<th>${news3.rownum}</th>
-										<th>${news3.date}</th>
-										<th><a style="text-decoration-line:none; color: inherit;" href="${news3.url}">${news3.title}</a></th>
-									</tr>
+									<li class="newsdata3">
+										<ul class="board-list-inner">
+											<li class="board-num"><span class="tag-square red">${news3.rownum}</span>
+											</li>
+											<li><span class="tag">${news3.date}</span></li>
+											<li class="board-title-con txt-l"><a
+												style="text-decoration-line: none; color: inherit;"
+												href="${news3.url}"> <span class="title-row2 txt-16"><span
+														class="icon-lock"></span>${news3.title}</span>
+											</a></li>
+										</ul>
+
+									</li>
 								</c:forEach>
-							</tbody>
-						</table>
 
-
-						<!-- 여기부터 뉴스 나오는 칸  -->
+							</ul>
+							<div style="text-align: center;">
+								<a href="#" class="readmore3">뉴스 더보기</a>
+							</div>
 					</div>
 
 				</section>
@@ -160,14 +187,14 @@
 
 			</div>
 		</div>
-</div>
-		<!-- Scripts -->
-		<script src="/resources/assets/js/jquery.min.js"></script>
-		<script src="/resources/assets/js/browser.min.js"></script>
-		<script src="/resources/assets/js/breakpoints.min.js"></script>
-		<script src="/resources/assets/js/util.js"></script>
-		<script src="/resources/assets/js/news.js"></script>
-	
+	</div>
+	<!-- Scripts -->
+	<script src="/resources/assets/js/jquery.min.js"></script>
+	<script src="/resources/assets/js/browser.min.js"></script>
+	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/util.js"></script>
+	<script src="/resources/assets/js/news.js"></script>
+
 
 
 

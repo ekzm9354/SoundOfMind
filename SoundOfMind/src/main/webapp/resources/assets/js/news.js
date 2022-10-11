@@ -1,23 +1,37 @@
 /* 더보기 js */
-$(window).on('load', function () {
-    load('#js-load', '4');
-    $("#js-btn-wrap .button").on("click", function () {
-        load('#js-load', '4', '#js-btn-wrap');
-    })
+/*긍정뉴스 부분 더보기 */
+$('.newsdata').hide();
+$('.newsdata').slice(0,5).show();
+
+$(".readmore").click(function(e){//클릭 이벤트e
+	e.preventDefault(); 
+	$(".newsdata:hidden").slice(0,5).show();//숨김 설정된 다음 n개 표시
+	if($(".newsdata:hidden").length==0){//숨겨진 div가 있는지 체크해서 없으면 more버튼 숨기기}
+			$('.readmore').hide();
+			}
 });
- 
-function load(id, cnt, btn) {
-    var girls_list = id + " .js-load:not(.active)";
-    var girls_length = $(girls_list).length;
-    var girls_total_cnt;
-    if (cnt < girls_length) {
-        girls_total_cnt = cnt;
-    } else {
-        girls_total_cnt = girls_length;
-        $('.button').hide()
-    }
-    $(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
-}
+/*부정뉴스 부분 더보기*/ 
+$('.newsdata2').hide();
+$('.newsdata2').slice(0,5).show();
+
+$(".readmore2").click(function(e){//클릭 이벤트e
+	e.preventDefault(); 
+	$(".newsdata2:hidden").slice(0,5).show();//숨김 설정된 다음 n개 표시
+	if($(".newsdata2:hidden").length==0){//숨겨진 div가 있는지 체크해서 없으면 more버튼 숨기기}
+			$('.readmore2').hide();
+			}
+});
+/*중립뉴스 부분 더보기 */
+$('.newsdata3').hide();
+$('.newsdata3').slice(0,5).show();
+
+$(".readmore3").click(function(e){//클릭 이벤트e
+	e.preventDefault(); 
+	$(".newsdata3:hidden").slice(0,5).show();//숨김 설정된 다음 n개 표시
+	if($(".newsdata3:hidden").length==0){//숨겨진 div가 있는지 체크해서 없으면 more버튼 숨기기}
+			$('.readmore3').hide();
+			}
+});
 /* 더보기 js */
 
 
