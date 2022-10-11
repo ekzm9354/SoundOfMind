@@ -102,7 +102,7 @@
 									</tr>
 								</c:forEach>
 							</table>
-							<button type="button" onclick="deletemem()">탈퇴하기</button>
+							<button class="deletebtn" type="button" onclick="deletemem()">탈퇴하기</button>
 							<%-- <a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a> --%>
 						</div>
 
