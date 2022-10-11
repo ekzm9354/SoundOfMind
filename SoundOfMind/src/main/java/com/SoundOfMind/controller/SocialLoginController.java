@@ -2,7 +2,6 @@ package com.SoundOfMind.controller;
 
 import org.springframework.stereotype.Controller;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +66,7 @@ public class SocialLoginController {
 		return "socialCheck";
 	}
 
+//	카카오 사용자 정보 받아오기
 	@GetMapping("/kakao.do")
 	public String kakao(String id, String Social, Model model) {
 		model.addAttribute("id", id);
@@ -79,6 +79,7 @@ public class SocialLoginController {
 		return "index";
 	}
 
+//	 네이버 로그인
 	@GetMapping("/NaverLogin.do")
 	public String naverLogin(String id, String Social, HttpSession session) {
 		System.out.println("NaverEmail:" + id);
@@ -93,9 +94,17 @@ public class SocialLoginController {
 		return "index";
 	}
 
+//	네이버 로그인 체크
 	@GetMapping("/NaverLogin")
 	public String naverLogin(Model model) {
 		model.addAttribute("Social", "naver");
+		return "socialCheck";
+	}
+
+//	구글 로그인
+	@GetMapping("/GoogleLogin.do")
+	public String googleLogin(String id_token) {
+		System.out.println(id_token);
 		return "socialCheck";
 	}
 }

@@ -21,12 +21,13 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <!-- 폰트 -->
-<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet">
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
 
 
 
 </head>
-<body class="is-preload" >
+<body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
@@ -34,8 +35,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -57,19 +57,20 @@
 					</ul>
 
 				</header>
-				
+
 				<div class=fontSize>
-							<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span>
-							<span onclick="fontsizeup1()" style="font-size: 1em;">가</span> 
-							<span onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> 
-							<span onclick="fontsizeup3()" style="font-size: 2em;">가</span>
+					<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span> <span
+						onclick="fontsizeup1()" style="font-size: 1em;">가</span> <span
+						onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> <span
+						onclick="fontsizeup3()" style="font-size: 2em;">가</span>
 				</div>
 				<!-- Banner -->
 				<section id="banner">
-					<div class="content" >
+					<div class="content">
 						<!-- loading animation -->
 						<!-- partial:index.partial.html -->
-						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
+						<div class="main"
+							style="margin: 0 auto; display: inline-block; position: relative;">
 							<div class="monster">
 								<div class="monster__face">
 									<div class="monster__eyes">
@@ -82,13 +83,13 @@
 									</div>
 								</div>
 							</div>
-							
-								<!-- mic -->
+
+							<!-- mic -->
 							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
 								style="position: absolute; width: 80%; top: 200px;">
 
 						</div>
-						
+
 						<!-- <div class='music'
 							style="padding-top: 200px; padding-bottom: 200px;">
 							<div class='bar'></div>
@@ -106,13 +107,15 @@
 					</div>
 
 
-						
-					<div class="content" >
 
-						<textarea name="inputSTT" style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none;" 
-						id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분" ></textarea>
-						<textarea style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none; "
-						placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" ></textarea>
+					<div class="content">
+
+						<textarea name="inputSTT"
+							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
+							id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분"></textarea>
+						<textarea
+							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
+							placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분"></textarea>
 
 						<button>
 							<a href="#" style="font-size: 115%;">수정하기</a>
@@ -121,7 +124,7 @@
 							<a href="#" style="font-size: 115%;">감정분석하기</a>
 						</button>
 					</div>
-					
+
 				</section>
 
 			</div>
@@ -148,7 +151,7 @@
 					</ul>
 				</nav>
 
-				
+
 			</div>
 		</div>
 	</div>
@@ -168,7 +171,7 @@
 				},
 				success : function(text) {
 					console.log(text)
-					$('textarea[name=inputSTT]').attr('value', text)
+					$('#speech').append(text)
 				},
 				error : function(e) {
 					console.log(e)
@@ -191,7 +194,7 @@
 		document.getElementById("speech").style.fontSize="2em";
 	}
 	</script>
-	
+
 	<script>
 	let subToggle=true;
 	$(".fontSize").click(()=>{
@@ -203,7 +206,10 @@
 	  subToggle=!subToggle;
 	});
 	</script>
-	
+
+
+
+
 
 
 </body>
