@@ -46,6 +46,7 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
+	font-family: 'NanumSquare'!important;
   margin: 0;
   padding: 0;
   border: 0;
@@ -1918,7 +1919,7 @@ button,
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
+    font-family: 'NanumSquare';
     font-size: 1.125em; }
   #header .icons {
     text-align: right; }
