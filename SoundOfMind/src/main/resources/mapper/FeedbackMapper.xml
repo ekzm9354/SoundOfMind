@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SoundOfMind.mapper.FeedbackMapper">
+
+	<insert id="Feedback" parameterType="String">
+		insert into FEEDBACK(DATE,EMAIL,TITLE,TEXT)
+		VALUES(now(),#{email},#{title},#{text})
+	</insert>
+
+</mapper>

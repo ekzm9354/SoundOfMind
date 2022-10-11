@@ -140,7 +140,7 @@
 					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
-					${clickBest.rownum}. ${clickBest.title} <br>
+					<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}. ${clickBest.title}</span><br/>
 					</c:forEach>
 				</div>
 				<div class="box"
@@ -245,10 +245,7 @@
 	<script type="text/javascript">
 		function ToMessage(to_id) {
 			var from_id = $('#messegeId').val()
-			console.log(from_id)
 			var chat = $('#demo-name').val()
-			console.log(chat)
-			console.log(to_id)
 			$.ajax({
 				url : 'ToMessage.do',
 				data : {
