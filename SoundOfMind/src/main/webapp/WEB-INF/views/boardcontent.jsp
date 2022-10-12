@@ -131,9 +131,8 @@ pageContext.setAttribute("replaceChar", "\n");
 						varStatus="status">
 						<div class="row">
 							<span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
-								class="4u 12u$(medium) ${status.index}">
-								${boardComent.coments} </span> <span class="4u$ 12u$(medium)">
-								${boardComent.date} </span>
+								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
+							<span class="4u$ 12u$(medium)"> ${boardComent.date} </span>
 							<!-- 드롭다운-->
 							<!-- <img src="/resources/assets/img/down-arrow1.png"
 										style="width: 25px;"> -->
@@ -255,27 +254,10 @@ pageContext.setAttribute("replaceChar", "\n");
 		console.log(index)
 		var coment = $('.'+index).text()
 		console.log(coment)
-		$.ajax({
-			url:"http://127.0.0.1:5000/coment",
-			data:{
-				coment:coment
-			},
-			data:"GET",
-			success:function(res){
-				console.log(res)
-			},
-			error:function(e){
-				console.log(e)
-			}
-		})
 	}
 	</script>
 
-	<!-- textarea -->
-	<!-- <script type="text/javascript">
-	var contents = document.querySelector('textarea');
-	contents = contents.value.replace(/(\n|\r\n)/g, '<br>');
-	</script> -->
+
 
 </body>
 </html>
