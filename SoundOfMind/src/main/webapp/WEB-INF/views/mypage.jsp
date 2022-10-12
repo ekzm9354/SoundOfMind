@@ -143,9 +143,117 @@
 	<script src="/resources/assets/js/mypage.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-	
+	<script>
 
+	/* 이미지 출력 */
+	function showUploadImage(uploadResultArr) {
+		console.log("showUploadImage");
+		/* 전달받은 데이터 검증 */
+		if (!uploadResultArr || uploadResultArr.length == 0) {
+			return
+		}
+
+		/* var uploadResult = $("#uploadResult"); */
+
+		var obj = uploadResultArr[0];
+
+		var fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_"
+			+ obj.uuid + "_" + obj.fileName;
+		$.ajax({
+			url: "profilePath",
+			type: "post",
+			data: {
+				profile: fileCallPath,
+				id: `${user.id}`,
+			},
+			success: function(res) {
+				console.log("주소보내기" + res);
+				$('.profileImg').remove()
+				$('.uploadResult').append("<div id='result_card'></div>")
+				$('.uploadResult').last().append(
+					"<img src='/display?fileName=" + res
+					+ "'class='profileImg'>")
+			},
+			error: function(e) {
+				console.log(e);
+			}
+
+		});
+
+
+
+
+	}
+
+</script>
+<script>
+	/*var cloneOjb=$(".uploadDiv").clone();
+	이미지 업로드*/
+
+	$("input[type='file']").on("change", function(e) {
+
+
+		var formData = new FormData();
+		var inputFile = $("input[name='uploadBtn']");
+		var fileList = inputFile[0].files;
+		var fileObj = fileList[0];
+
+
+		formData.append("uploadFile", fileObj);
+
+		$.ajax({
+			url: '/uploadAjaxAction',
+			processData: false,
+			contentType: false,
+			data: formData,
+			type: "POST",
+			dataType: 'json',
+			success: function(result) {
+				console.log('ajax' + result);
+				showUploadImage(result);
+
+			},
+			error: function(result) {
+				alert("이미지 파일이 아닙니다.")
+			}
+		});/*ajax 끝부분*/
+
+	});/*on.change 끝부분 */
+
+	/*파일 확장자제한, 파일 사이즈 제한*/
+	var regex = new RegExp("(.*?)\.(jpg|png)$");
+	var maxSize = 5242880; /*5MB*/
+
+	function fileCheck(fileName, fileSize) {
+		if (fileSize >= maxSize) {
+			alert("파일 사이즈 초과");
+			return false;
+		}
+		if (!regex.test(fileName)) {
+			alert("허용되지 않는 확장자");
+			return false;
+		}
+		return true;
+	}
+
+
+
+	</script>
+	
+<script>
+/* 회원탈퇴  */
+
+function deletemem() {
+
+	if (!confirm("정말로 탈퇴하시겠습니까?")) {
+		return "mypage.do";
+	} else {
+		alert("탈퇴 되었습니다.");
+		location.replace("delete.do?id=${user.id}")
+		return "delete.do";
+	}
+}
+</script>
 	
 
 
