@@ -260,6 +260,20 @@ pageContext.setAttribute("replaceChar", "\n");
 		console.log(index)
 		var coment = $('.'+index).text()
 		console.log(coment)
+		$.ajax({
+			url:"http://6228-35-227-116-237.ngrok.io/",
+			data:{
+				coment:coment
+			},
+			type:"GET",
+			success:function(res){
+				console.log(res)
+				
+			},
+			error:function(e){
+				console.log(e)
+			}
+		})
 	}
 	</script>
 
