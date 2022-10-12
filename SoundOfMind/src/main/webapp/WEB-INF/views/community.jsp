@@ -61,6 +61,12 @@
       text-decoration: none;
       z-index: 3;
 }
+
+#search {
+    width: 35vh;
+    position: absolute;
+    right: 5%;
+}
 </style>
 
 </head>
@@ -97,17 +103,17 @@
 				</header>
 				<!-- 상단 메뉴  & 검색 -->
 				<!-- 검색 -->
-							<section id="search" class="alt"
-								style="width: 50%;margin-left: 20px;margin-right: 20px;padding-top: 0px;padding-bottom: 0px;">
-								<form action="#">
-									<input type="text" name="query" id="query" placeholder="검색"
-										style="margin-top: 30px;" />
-								</form>
-							</section>
+				<div id="search" class="alt">
+					<form action="#">
+						<input type="text" name="query" id="query" placeholder="검색"
+							style="margin-top: 15px;" />
+					</form>
+				</div>
+
 
 					<!-- Table -->
 					<div class="table-wrapper"
-						style="margin-right: 20px; margin-top: 25px;">
+						style="margin-right: 20px;margin-top: 80px;">
 						<table>
 							<thead>
 								<tr>
@@ -136,7 +142,7 @@
 
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
-					style="margin-top: 25px; width: 25%; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
+					style="margin-top: 80px;width: 25%;float: right;margin-right: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
 					<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}. ${clickBest.title}</span><br/>
@@ -145,7 +151,7 @@
 				
 			
 				<div class="box"
-					style="margin-top: 10px; width: 25%; margin-right: 10px;">
+					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
 					<h5>간편 메세지</h5>
 					<h6>받는 이</h6>
 					<p>
