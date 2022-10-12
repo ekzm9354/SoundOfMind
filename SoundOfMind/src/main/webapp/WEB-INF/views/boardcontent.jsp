@@ -130,9 +130,15 @@ pageContext.setAttribute("replaceChar", "\n");
 					<c:forEach var="boardComent" items="${boardComent}"
 						varStatus="status">
 						<div class="row">
-							<span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
+							<ul class="4u 12u$(medium)">
+								<li style="list-style:none"><span>${boardComent.id}</span><span
+									class="${status.index}">${boardComent.coments}</span> <span>${boardComent.date}</span>
+								</li>
+							</ul>
+							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
-							<span class="4u$ 12u$(medium)"> ${boardComent.date} </span>
+							<span class="4u$ 12u$(medium)"> ${boardComent.date} </span> --%>
+							
 							<!-- 드롭다운-->
 							<!-- <img src="/resources/assets/img/down-arrow1.png"
 										style="width: 25px;"> -->
