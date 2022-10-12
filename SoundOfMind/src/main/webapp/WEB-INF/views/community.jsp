@@ -51,21 +51,21 @@
 <!-- animated -->
 <style type="text/css">
 #lia {
-      position: relative;
-      padding: 0.6em 2em;
-      font-size: 18px;
-      border: none;
-      outline:none;
-      color: #333;
-      display: inline-block;
-      text-decoration: none;
-      z-index: 3;
+	position: relative;
+	padding: 0.6em 2em;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	color: #333;
+	display: inline-block;
+	text-decoration: none;
+	z-index: 3;
 }
 
 #search {
-    width: 35vh;
-    position: absolute;
-    right: 5%;
+	width: 35vh;
+	position: absolute;
+	right: 5%;
 }
 </style>
 
@@ -78,8 +78,7 @@
 			<div class="inner" style="background-color: white;">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -109,49 +108,52 @@
 							style="margin-top: 15px;" />
 					</form>
 				</div>
-				
-				<img src="/resources/assets/img/write2.png" onclick="boardWrite()" style="width: 40px;lef: 30%;display: block; margin-top: 10px;margin-left: 720px;">
+
+				<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
+					style="width: 40px; lef: 30%; display: block; margin-top: 10px; margin-left: 720px;">
 
 
-					<!-- Table -->
-					<div class="table-wrapper"
-						style="margin-right: 20px;margin-top: 80px;">
-						<table>
-							<thead>
+				<!-- Table -->
+				<div class="table-wrapper"
+					style="margin-right: 20px; margin-top: 80px;">
+					<table>
+						<thead>
+							<tr>
+								<th>번호</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>작성일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="comushow" items="${comushow}">
 								<tr>
-									<th>번호</th>
-									<th>제목</th>
-									<th>글쓴이</th>
-									<th>작성일</th>
-									<th>조회수</th>
+									<td>${comushow.rownum}</td>
+									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
+									<td class="userid">${comushow.id}</td>
+									<td>${comushow.date}</td>
+									<td>${comushow.click}</td>
 								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="comushow" items="${comushow}">
-									<tr>
-										<td>${comushow.rownum}</td>
-										<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
-										<td class="userid">${comushow.id}</td>
-										<td>${comushow.date}</td>
-										<td>${comushow.click}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 
-				
+
 
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
-					style="margin-top: 80px;width: 25%;float: right;margin-right: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 10px;">
+					style="margin-top: 80px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
-					<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}. ${clickBest.title}</span><br/>
+						<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}.
+							${clickBest.title}</span>
+						<br />
 					</c:forEach>
 				</div>
-				
-			
+
+
 				<div class="box"
 					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
 					<h5>간편 메세지</h5>
@@ -162,7 +164,8 @@
 					<div class="row uniform">
 						<h6 style="padding-left: 22px;">메세지</h6>
 						<div class="box" style="width: 980px; margin-left: 22px;">
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
+								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"
@@ -172,9 +175,9 @@
 					</div>
 
 				</div>
-			
 
-				
+
+
 				<!-- 페이지 넘김 -->
 				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
@@ -234,6 +237,11 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script type="text/javascript">
+	var size = ${size}
+	console.log(size)
+	
+	</script>
+	<script type="text/javascript">
 		function board(s_index, click) {
 			location.href = "board.do?s_index=" + s_index + "&click=" + click
 		}
@@ -280,9 +288,9 @@
 			location.href = "http://localhost:8085/boardWrite.do"
 		}
 	</script>
-	
-	
-	
+
+
+
 	<!-- icon -->
 	<script type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

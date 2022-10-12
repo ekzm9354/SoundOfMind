@@ -36,7 +36,9 @@ public class CommunityController {
 	@GetMapping("/community.do")
 	public String community(Model model) {
 		List<Storege> comushow = Smapper.comushow();
+		int size = comushow.size();
 		model.addAttribute("comushow", comushow);
+		model.addAttribute("size", size);
 
 		List<Storege> clickBest = Smapper.clickBest();
 		model.addAttribute("clickBest", clickBest);
