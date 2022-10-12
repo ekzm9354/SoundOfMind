@@ -46,8 +46,10 @@
 						<div class="textb">
 							<input type="text" name="name" required>
 							<div class="placeholder">이름</div>
+						<input type="hidden" name="root">
+						<input type="hidden" name="profile">
 						</div>
-
+						
 
 						<button type="submit" class="btn fas fa-arrow-right" disabled></button>
 						<a href="login.do">로그인 하러가기</a>

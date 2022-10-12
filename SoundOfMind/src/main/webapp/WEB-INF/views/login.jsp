@@ -25,6 +25,9 @@
 	charset="utf-8"></script>
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!--  구글 -->
+
+	
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -34,8 +37,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 
 				</header>
 
@@ -61,37 +63,42 @@
 					</form>
 
 				</div>
-				
-				
-						<div style="margin: 0 auto; display: table;">
-							<!-- 카카오 로그인버튼 -->
-							<a id="kakao-login-btn" href="javascript:loginWithKakao()"
-								style="display: inline-block;"> <img
-								src="/resources/assets/img/kakao.png" width="40" height="40"
-								alt="카카오 로그인 버튼" style="margin-right: 10px;" /></a>
-							<div id="naver_id_login" style="display: inline-block;"></div>
-						</div>
-				
-				
-				
+
+
+				<div style="margin: 0 auto; display: table;">
+					<!-- 카카오 로그인버튼 -->
+					<a id="kakao-login-btn" href="javascript:loginWithKakao()"
+						style="display: inline-block;"> <img
+						src="/resources/assets/img/kakao.png" width="40" height="40"
+						alt="카카오 로그인 버튼" style="margin-right: 10px;" /></a>
+					<!-- 네이버 로그인버튼 -->
+					<div id="naver_id_login" style="display: inline-block;"></div>
+					
+				</div>
+
+
+
 			</div>
 		</div>
-	</div>	
+	</div>
+
+
+
+	<script src="/resources/assets/js/login.js"></script>
+	<!-- 카카오  -->
+	<script type="text/javascript">
+		function loginWithKakao() {
+			Kakao.Auth.authorize({
+				redirectUri : 'http://localhost:8085/KakoLogin',
+			});
+		}
+	</script>
+	<!-- 네이버  -->
+	<script type="text/javascript">
+		var naver_id_login = new window.naver_id_login("hWpTeIKVxZ06AslRia4v",
+				"http://localhost:8085/NaverLogin")
+		naver_id_login.init_naver_id_login();
+	</script>
 	
-
-
-		<script src="/resources/assets/js/login.js"></script>
-		<script type="text/javascript">
-			function loginWithKakao() {
-				Kakao.Auth.authorize({
-					redirectUri : 'http://localhost:8085/KakoLogin',
-				});
-			}
-		</script>
-		<script type="text/javascript">
-			var naver_id_login = new window.naver_id_login(
-					"hWpTeIKVxZ06AslRia4v", "http://localhost:8085/NaverLogin")
-			naver_id_login.init_naver_id_login();
-		</script>
 </body>
 </html>

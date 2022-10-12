@@ -21,12 +21,13 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 <!-- 폰트 -->
-<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet">
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
 
 
 
 </head>
-<body class="is-preload" >
+<body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
@@ -34,8 +35,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -57,19 +57,20 @@
 					</ul>
 
 				</header>
-				
+
 				<div class=fontSize>
-							<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span>
-							<span onclick="fontsizeup1()" style="font-size: 1em;">가</span> 
-							<span onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> 
-							<span onclick="fontsizeup3()" style="font-size: 2em;">가</span>
+					<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span> <span
+						onclick="fontsizeup1()" style="font-size: 1em;">가</span> <span
+						onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> <span
+						onclick="fontsizeup3()" style="font-size: 2em;">가</span>
 				</div>
 				<!-- Banner -->
 				<section id="banner">
 					<div class="content">
 						<!-- loading animation -->
 						<!-- partial:index.partial.html -->
-						<div class="main"  style="margin: 0 auto;display: inline-block;position: relative;">
+						<div class="main"
+							style="margin: 0 auto; display: inline-block; position: relative;">
 							<div class="monster">
 								<div class="monster__face">
 									<div class="monster__eyes">
@@ -82,13 +83,13 @@
 									</div>
 								</div>
 							</div>
-							
-								<!-- mic -->
+
+							<!-- mic -->
 							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
-								style="position: absolute; width: 80%; top: 200px;">
+								id="Mic" style="position: absolute; width: 80%; top: 200px;">
 
 						</div>
-						
+
 						<!-- <div class='music'
 							style="padding-top: 200px; padding-bottom: 200px;">
 							<div class='bar'></div>
@@ -106,14 +107,15 @@
 					</div>
 
 
-						
 					<div class="content">
 
-						<textarea name="inputSTT" style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none;" 
-						id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분" ></textarea>
-						<textarea style="text-align:center; padding:60px 0; height: 150px; margin-bottom: 20px; resize: none; "
-						placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" ></textarea>
-
+						<textarea name="inputSTT"
+							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
+							id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분"></textarea>
+						<textarea
+							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
+							id="emotion" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" readonly="readonly"></textarea>
+ 
 						<button>
 							<a href="#" style="font-size: 115%;">수정하기</a>
 						</button>
@@ -121,7 +123,7 @@
 							<a href="#" style="font-size: 115%;">감정분석하기</a>
 						</button>
 					</div>
-					
+
 				</section>
 
 			</div>
@@ -147,30 +149,14 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-				
-				<!-- Section -->
-				<!-- 	<section>
-						<header class="major">
-							<h2> 百聞不如一見 </h2>
-						</header>
-						<p>소개글</p>
-						<ul class="contact">
-							<li class="fa-envelope-o">smhrd@smhrd.or.kr</li>
-							<li class="fa-phone">(062) 655-3506</li>
-							<li class="fa-home">광주 동구 예술길 31-15 4층</li>
-						</ul>
-					</section>
-				 -->
-				
-				
 				<!-- Footer. -->
-			<!-- 	<footer id="footer">
+				<!-- 	<footer id="footer">
 					<p class="copyright">
 						청각장애인을 위한 커뮤니티 with <a href="index.do">백문불여일견</a>
 					</p>
 				</footer>
  -->
-				
+
 			</div>
 		</div>
 	</div>
@@ -190,9 +176,36 @@
 				data : {
 					num : 1
 				},
-				success : function(text) {
-					console.log(text)
-					$('textarea[name=inputSTT]').attr('value', text)
+				success : function(res) {
+					<!-- Flaks에서 딕셔너리 형태로 리턴 -->
+					$('#speech').append(res.text)
+					$('#emotion').append(res.emotion)
+					<!-- emotion 값을 확인-->
+					var emotion = $('#emotion').val()
+					<!-- emotion이 중립인 경우-->
+					if(emotion==='중립'){
+					<!-- Mic 삭제 후 -->
+						$('#Mic').remove()
+					<!-- Mic 삭제 후 div monster </div> 태그 다음 마이크 재생성 -->
+						$('.main').append('<img src=/resources/assets/img/emotion/micsoso.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}else if(emotion==='분노'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micangry.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='슬픔'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micsad.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='불안'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micscared.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='상처'){
+						$('.main').append('<img src=/resources/assets/img/emotion/miching.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='기쁨'){
+						$('.main').append('<img src=/resources/assets/img/emotion/michappy.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
+					else if(emotion==='당황'){
+						$('.main').append('<img src=/resources/assets/img/emotion/micdisgusting.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+					}
 				},
 				error : function(e) {
 					console.log(e)
@@ -200,9 +213,40 @@
 			})
 		}
 	</script>
+	<!-- 글자 크기 줄이기 -->
+	<script>
+	function fontsizedown(){
+		document.getElementById("speech").style.fontSize="0.5em";
+	}
+	function fontsizeup1(){
+		document.getElementById("speech").style.fontSize="1em";
+	}
+	function fontsizeup2(){
+		document.getElementById("speech").style.fontSize="1.5em";
+	}
+	function fontsizeup3(){
+		document.getElementById("speech").style.fontSize="2em";
+	}
+	</script>
+
+	<script>
+	let subToggle=true;
+	$(".fontSize").click(()=>{
+	  if(subToggle){
+	    $(".sub").slideDown(500);
+	  }else{
+	    $(".sub").slideUp(500);
+	  }
+	  subToggle=!subToggle;
+	});
+	</script>
 
 
-	
+
+
+
+
+
 
 
 </body>

@@ -1,6 +1,10 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
+.imgsize{
+	width:3vh;
+	height: 3vh;
+}
 /*더보기 버튼 css  */
 .readmore,.readmore2, .readmore3{
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
@@ -18,11 +22,11 @@
 	text-shadow:0px 1px 0px #528ecc;
 	margin:10px;
 }
-.readmore,.readmore2, .readmore3:hover {
+.readmore:hover,.readmore2:hover, .readmore3:hover {
 	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
 	color:white;
 }
-.readmore,.readmore2, .readmore3:active {
+.readmore:active,.readmore2:active, .readmore3:active {
 	position:relative;
 	top:1px;
 }

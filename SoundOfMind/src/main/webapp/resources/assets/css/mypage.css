@@ -22,8 +22,8 @@
     max-width: 120px;
     text-align: center;
     display: block;
-    background-color:#a3a1a1;
-    color: #e3dede;
+    background-color:#B2CCFF;
+    color: white;
     box-shadow:  0 2px 6px rgba(146, 146, 146, 0.8);
     cursor: pointer;
 }
@@ -34,7 +34,9 @@
 	color:black;
 }
 
-
+.deletebtn{
+	float:right;
+}
 
 
 	table.type03 {
