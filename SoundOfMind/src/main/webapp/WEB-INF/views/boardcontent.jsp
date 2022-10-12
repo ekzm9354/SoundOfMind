@@ -131,14 +131,14 @@ pageContext.setAttribute("replaceChar", "\n");
 						varStatus="status">
 						<div class="row">
 							<ul class="4u 12u$(medium)">
-								<li style="list-style:none"><span>${boardComent.id}</span><span
-									class="${status.index}">${boardComent.coments}</span> <span>${boardComent.date}</span>
-								</li>
+								<li style="list-style: none; width:1160px;"><p style="width:150px; text-align: left; display:inline-block;">${boardComent.id}</p>
+									<p class="${status.index}" style="width:760px; text-align:left; display:inline-block;">${boardComent.coments}</p>
+									<p style="width:150px; text-align:right; display:inline-block; font-size: 13px;">${boardComent.date}</p></li>
 							</ul>
 							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
 							<span class="4u$ 12u$(medium)"> ${boardComent.date} </span> --%>
-							
+
 							<!-- 드롭다운-->
 							<!-- <img src="/resources/assets/img/down-arrow1.png"
 										style="width: 25px;"> -->
