@@ -107,7 +107,6 @@
 					</div>
 
 
-
 					<div class="content">
 
 						<textarea name="inputSTT"
@@ -150,8 +149,6 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-
-
 				<!-- Footer. -->
 				<!-- 	<footer id="footer">
 					<p class="copyright">
@@ -163,6 +160,8 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<!-- Scripts -->
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>

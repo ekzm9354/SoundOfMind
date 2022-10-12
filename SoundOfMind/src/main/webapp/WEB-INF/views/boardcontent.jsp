@@ -12,7 +12,8 @@
 <html>
 <head>
 <!-- 폰트 -->
-<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css" rel="stylesheet">
+<link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
+	rel="stylesheet">
 
 <title>마음의 소리</title>
 <meta charset="utf-8" />
@@ -61,10 +62,9 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-					<c:if test="${user==null && Kakao == null && Naver == null}">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
 							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
@@ -127,9 +127,7 @@
 								<p>${boardComent.coments}</p>
 							</div>
 							<div class="4u$ 12u$(medium)">
-								<p>
-									<!-- 날짜임 -->
-								</p>
+								<p>${boardComent.date}</p>
 							</div>
 						</div>
 					</c:forEach>
@@ -143,8 +141,10 @@
 					<!-- Box -->
 					<h5>WRITE</h5>
 					<div class="row uniform">
-						<div class="box" style="width: 100%;padding-top: 20px;padding-right: 20px;padding-left: 20px;padding-bottom: 15px;">
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" style="width: 100%; height: 122px; margin-bottom: 20px; resize: none;"></textarea>
+						<div class="box"
+							style="width: 100%; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 15px;">
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
+								style="width: 100%; height: 122px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"

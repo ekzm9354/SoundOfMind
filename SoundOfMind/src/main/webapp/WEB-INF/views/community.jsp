@@ -61,6 +61,12 @@
       text-decoration: none;
       z-index: 3;
 }
+
+#search {
+    width: 35vh;
+    position: absolute;
+    right: 5%;
+}
 </style>
 
 </head>
@@ -95,54 +101,57 @@
 					</ul>
 
 				</header>
-
 				<!-- 상단 메뉴  & 검색 -->
 				<!-- 검색 -->
-							<section id="search" class="alt"
-								style="width: 50%; margin-left: 20px; margin-right: 20px;">
-								<form action="#">
-									<input type="text" name="query" id="query" placeholder="검색"
-										style="margin-top: 30px;" />
-								</form>
-							</section>
-
-
-				<!-- Table -->
-				<div class="table-wrapper"
-					style="margin-right: 20px; margin-top: 25px;">
-					<table>
-						<thead>
-							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>글쓴이</th>
-								<th>작성일</th>
-								<th>조회수</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="comushow" items="${comushow}">
-								<tr>
-									<td>${comushow.rownum}</td>
-									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
-									<td class="userid">${comushow.id}</td>
-									<td>${comushow.date}</td>
-									<td>${comushow.click}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+				<div id="search" class="alt">
+					<form action="#">
+						<input type="text" name="query" id="query" placeholder="검색"
+							style="margin-top: 15px;" />
+					</form>
 				</div>
+				
+				<img src="/resources/assets/img/write2.png" onclick="boardWrite()" style="width: 40px;lef: 30%;display: block; margin-top: 10px;margin-left: 720px;">
 
+
+					<!-- Table -->
+					<div class="table-wrapper"
+						style="margin-right: 20px;margin-top: 80px;">
+						<table>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>글쓴이</th>
+									<th>작성일</th>
+									<th>조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="comushow" items="${comushow}">
+									<tr>
+										<td>${comushow.rownum}</td>
+										<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
+										<td class="userid">${comushow.id}</td>
+										<td>${comushow.date}</td>
+										<td>${comushow.click}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+
+				
 
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
-					style="margin-top: 25px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
+					style="margin-top: 80px;width: 25%;float: right;margin-right: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}">
 					<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}. ${clickBest.title}</span><br/>
 					</c:forEach>
 				</div>
+				
+			
 				<div class="box"
 					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
 					<h5>간편 메세지</h5>
@@ -163,10 +172,10 @@
 					</div>
 
 				</div>
+			
 
-
-				<!-- 
-				<!-- 페이지 넘김
+				
+				<!-- 페이지 넘김 -->
 				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
 					<li><a href="#" class="page active">1</a></li>
@@ -178,7 +187,8 @@
 					<li><a href="#" class="page">10</a></li>
 					<li><a href="#" class="button">Next</a></li>
 				</ul>
- -->
+
+
 
 			</div>
 
