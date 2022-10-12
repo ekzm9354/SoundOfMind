@@ -127,7 +127,7 @@
 						<div class="row">
 							<span class="4u 12u$(medium)" style="width: 75px;">
 								${boardComent.id} 
-							</span> <span class="4u 12u$(medium)" style="white-space: pre-line;width: 700px;">
+							</span> <span class="4u 12u$(medium)" style="width: 700px;">
 								${boardComent.coments}
 							</span> 
 							<span class="4u$ 12u$(medium)">
