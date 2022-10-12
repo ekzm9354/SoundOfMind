@@ -78,22 +78,13 @@ public class ComunityRestController {
 		int cnt = cmapper.coment(id, storege_id, coments);
 		return cnt;
 	}
-	
+
 	@RequestMapping("/ToMessage.do")
-	public @ResponseBody void toMessage(String to_id,String from_id,String chat) {
+	public @ResponseBody void toMessage(String to_id, String from_id, String chat) {
 		System.out.println(to_id);
 		System.out.println(from_id);
 		System.out.println(chat);
 		Cmapper.ToMessage(to_id, from_id, chat);
 	}
-//	댓글 감정 분석
-	@GetMapping("/ComentEmotion.do")
-	public @ResponseBody void ComentEmotion(String coment ,HttpServletResponse response){
-		System.out.println("전달받은 댓글:"+coment);
-		try {
-			response.sendRedirect("http://127.0.0.1:5000/coment?coment="+coment);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+
 }

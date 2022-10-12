@@ -75,13 +75,6 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-				<!-- Footer. -->
-			<!-- 	<footer id="footer">
-					<p class="copyright">
-						청각장애인을 위한 커뮤니티 with <a href="index.do">백문불여일견</a>
-					</p>
-				</footer>
- -->
 				
 			</div>
 		</div>
