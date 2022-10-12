@@ -109,6 +109,8 @@
 							style="margin-top: 15px;" />
 					</form>
 				</div>
+				
+				<img src="/resources/assets/img/write2.png" onclick="boardWrite()" style="width: 40px;lef: 30%;display: block; margin-top: 10px;margin-left: 720px;">
 
 
 					<!-- Table -->
@@ -172,8 +174,8 @@
 				</div>
 			
 
-				<!-- 
-				<!-- 페이지 넘김
+				
+				<!-- 페이지 넘김 -->
 				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
 					<li><a href="#" class="page active">1</a></li>
@@ -185,7 +187,8 @@
 					<li><a href="#" class="page">10</a></li>
 					<li><a href="#" class="button">Next</a></li>
 				</ul>
- -->
+
+
 
 			</div>
 
