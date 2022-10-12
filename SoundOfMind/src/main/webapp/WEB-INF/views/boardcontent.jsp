@@ -7,6 +7,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("replaceChar", "\n"); %>
 <!DOCTYPE HTML>
 
 <html>
@@ -94,7 +96,7 @@
 				<!-- 제목, 아이디, 등록일시, 조회수 -->
 
 
-				<hr class="major" style="margin-top: 30px; margin-bottom: 5px;" />
+				<hr class="major" style="margin-top: 30px;margin-bottom: 5px; border-bottom: solid 2px;" />
 
 				<!-- Content -->
 				<section style="padding-top: 0px;">
@@ -114,32 +116,43 @@
 					<header class="main" id="content">
 						<h5 style="margin-bottom: 10px;">전체 댓글</h5>
 					</header>
-					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
+					<hr class="major" style="margin-top: 5px; margin-bottom: 30px; border-bottom: solid 2px;" />
 
 
 					<!-- Break 댓글 조회 -->
 					<c:forEach var="boardComent" items="${boardComent}">
 						<div class="row">
-							<div class="4u 12u$(medium)">
-								<p>${boardComent.id}</p>
-							</div>
-							<div class="4u 12u$(medium)">
-								<p>${boardComent.coments}</p>
-							</div>
-							<div class="4u$ 12u$(medium)">
-								<p>${boardComent.date}</p>
-							</div>
+							<span class="4u 12u$(medium)" style="width: 75px;">
+								${boardComent.id} 
+							</span> <span class="4u 12u$(medium)" style="white-space: pre-line;width: 700px;">
+								${boardComent.coments}
+							</span> 
+							<span class="4u$ 12u$(medium)">
+								${boardComent.date}
+							</span>
+								  <!-- 드롭다운-->
+									<!-- <img src="/resources/assets/img/down-arrow1.png"
+										style="width: 25px;"> -->
+									<span class="dropdown">
+								    <button class="dropbtn"><img src="/resources/assets/img/down-arrow1.png"
+										style="width: 25px;"></button>
+								    <div class="dropdown-content">
+								      <a href="#">삭제하기</a>
+								      <a href="#">신고하기</a>
+								    </div>
+								  </span>
 						</div>
+						<hr class="major" style="margin-top: 15px;margin-bottom: 15px;" />
 					</c:forEach>
 
 
 
 
-					<hr class="major" style="margin-top: 35px; margin-bottom: 20px;" />
+					<hr class="major" style="margin-top: 35px; margin-bottom: 20px; border-bottom: solid 2px;" />
 
 					<!-- 댓글작성하기 -->
 					<!-- Box -->
-					<h5>WRITE</h5>
+					<h5>댓글 쓰기</h5>
 					<div class="row uniform">
 						<div class="box"
 							style="width: 100%; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 15px;">
@@ -239,7 +252,11 @@
 	</script>
 
 
-	<!-- bootstrap js -->
+	<!-- textarea -->
+	<script type="text/javascript">
+	var contents = document.querySelector('textarea');
+	contents = contents.value.replace(/(\n|\r\n)/g, '<br>');
+	</script>
 
 </body>
 </html>
