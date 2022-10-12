@@ -144,7 +144,7 @@
 				<div class="box"
 					style="margin-top: 80px;width: 25%;float: right;margin-right: 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
-					<c:forEach var="clickBest" items="${clickBest}">
+					<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
 					<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}. ${clickBest.title}</span><br/>
 					</c:forEach>
 				</div>
