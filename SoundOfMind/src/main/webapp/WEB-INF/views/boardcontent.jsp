@@ -101,9 +101,12 @@
 				<!-- Content -->
 				<section style="padding-top: 0px;">
 					<header class="main" id="content">
-						<h5>${storege.title}</h5>
-						<p style="margin-bottom: 5px;">${storege.id}${storege.date}
-							${storege.click}</p>
+						<h3>${storege.title}</h3>
+						<p style="margin-bottom: 5px;">
+							<span style="margin-right: 15px;"> ${storege.id} </span> 
+							<span> ${storege.date} </span> 
+							<span style="float: right;"> ${storege.click} </span>
+						</p>
 					</header>
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
 
@@ -203,11 +206,6 @@
 
 				<!-- Footer. -->
 				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
 				</footer>
 			</div>
 		</div>
