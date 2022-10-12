@@ -236,11 +236,7 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
-	<script type="text/javascript">
-	var size = ${size}
-	console.log(size)
-	
-	</script>
+
 	<script type="text/javascript">
 		function board(s_index, click) {
 			location.href = "board.do?s_index=" + s_index + "&click=" + click

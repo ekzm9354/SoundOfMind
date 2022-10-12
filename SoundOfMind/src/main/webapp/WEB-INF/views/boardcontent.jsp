@@ -7,8 +7,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<% pageContext.setAttribute("replaceChar", "\n"); %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+pageContext.setAttribute("replaceChar", "\n");
+%>
 <!DOCTYPE HTML>
 
 <html>
@@ -96,16 +98,17 @@
 				<!-- 제목, 아이디, 등록일시, 조회수 -->
 
 
-				<hr class="major" style="margin-top: 30px;margin-bottom: 5px; border-bottom: solid 2px;" />
+				<hr class="major"
+					style="margin-top: 30px; margin-bottom: 5px; border-bottom: solid 2px;" />
 
 				<!-- Content -->
 				<section style="padding-top: 0px;">
 					<header class="main" id="content">
 						<h3>${storege.title}</h3>
 						<p style="margin-bottom: 5px;">
-							<span style="margin-right: 15px;"> ${storege.id} </span> 
-							<span> ${storege.date} </span> 
-							<span style="float: right;"> ${storege.click} </span>
+							<span style="margin-right: 15px;"> ${storege.id} </span> <span>
+								${storege.date} </span> <span style="float: right;">
+								${storege.click} </span>
 						</p>
 					</header>
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
@@ -119,40 +122,45 @@
 					<header class="main" id="content">
 						<h5 style="margin-bottom: 10px;">전체 댓글</h5>
 					</header>
-					<hr class="major" style="margin-top: 5px; margin-bottom: 30px; border-bottom: solid 2px;" />
+					<hr class="major"
+						style="margin-top: 5px; margin-bottom: 30px; border-bottom: solid 2px;" />
 
 
 					<!-- Break 댓글 조회 -->
-					<c:forEach var="boardComent" items="${boardComent}">
+					<c:forEach var="boardComent" items="${boardComent}"
+						varStatus="status">
 						<div class="row">
-							<span class="4u 12u$(medium)" style="width: 75px;">
-								${boardComent.id} 
-							</span> <span class="4u 12u$(medium)" style="white-space: pre-line;width: 700px;">
-								${boardComent.coments}
-							</span> 
+							<span class="4u 12u$(medium)">
+								${boardComent.id} </span> 
+							<span class="4u 12u$(medium) ${status.index}"
+								style="white-space: pre-line; /* width: 700px; */">
+								${boardComent.coments} </span> 
 							<span class="4u$ 12u$(medium)">
-								${boardComent.date}
+								${boardComent.date} 
 							</span>
-								  <!-- 드롭다운-->
-									<!-- <img src="/resources/assets/img/down-arrow1.png"
+							<!-- 드롭다운-->
+							<!-- <img src="/resources/assets/img/down-arrow1.png"
 										style="width: 25px;"> -->
-									<span class="dropdown">
-								    <button class="dropbtn"><img src="/resources/assets/img/down-arrow1.png"
-										style="width: 25px;"></button>
-								    <div class="dropdown-content">
-								      <a href="#">분석하기</a>
-								      <a href="#">삭제하기</a>
-								      <!-- <a href="#">신고하기</a> -->
-								    </div>
-								  </span>
+							<span class="dropdown">
+								<button class="dropbtn">
+									<img src="/resources/assets/img/down-arrow1.png"
+										style="width: 25px;">
+								</button>
+								<div class="dropdown-content">
+									<span onclick="comentEmotion(`${status.index}`)">분석하기</span><br>
+									<span>삭제하기</span>
+									<!-- <a href="#">신고하기</a> -->
+								</div>
+							</span>
 						</div>
-						<hr class="major" style="margin-top: 15px;margin-bottom: 15px;" />
+						<hr class="major" style="margin-top: 15px; margin-bottom: 15px;" />
 					</c:forEach>
 
 
 
 
-					<hr class="major" style="margin-top: 35px; margin-bottom: 20px; border-bottom: solid 2px;" />
+					<hr class="major"
+						style="margin-top: 35px; margin-bottom: 20px; border-bottom: solid 2px;" />
 
 					<!-- 댓글작성하기 -->
 					<!-- Box -->
@@ -165,7 +173,7 @@
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"
-										onclick="coment(`${storege.s_index}`)">Upload</button></li>
+										onclick="coment(${storege.s_index})">Upload</button></li>
 							</ul>
 						</div>
 					</div>
@@ -204,7 +212,7 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-				
+
 			</div>
 		</div>
 	</div>
@@ -246,7 +254,14 @@
 			})
 		}
 	</script>
-
+	<script type="text/javascript">
+	function comentEmotion(index){
+		console.log(index)
+		var coment = $('.'+index).text()
+		console.log(coment)
+		location.href="http://127.0.0.1:5000/coment?coment="+coment;
+	}
+	</script>
 
 	<!-- textarea -->
 	<script type="text/javascript">
