@@ -102,6 +102,24 @@
 									</tr>
 								</c:forEach>
 							</table>
+							<table class="type03">
+							<tr>
+								<th scope="row">번호</th>
+								<td>제목</td>
+								<td>날짜</td>
+								<td>조회수</td>
+								<td>아이디</td>
+							</tr>
+							<c:forEach var="storege" items="${storege}">
+								<tr>
+									<th scope="row">${storege.rownum}</th>
+									<td>${storege.title}</td>
+									<td>${storege.date}</td>
+									<td>${storege.click}</td>
+									<td>${storege.id}</td>
+								</tr>
+							</c:forEach>
+							</table>
 							<button class="deletebtn" type="button" onclick="deletemem()">탈퇴하기</button>
 						</div>
 

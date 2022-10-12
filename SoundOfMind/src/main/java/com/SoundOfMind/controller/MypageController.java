@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.SoundOfMind.domain.Emotion;
 import com.SoundOfMind.domain.Member;
+import com.SoundOfMind.domain.Storege;
 import com.SoundOfMind.mapper.MypageMapper;
 
 import ch.qos.logback.core.util.FileUtil;
@@ -42,6 +43,8 @@ public class MypageController {
 			model.addAttribute("emotion", emotion);
 			String profile_s = mapper.profile_save(id);
 			session.setAttribute("profile_s",profile_s);
+			List<Storege> storege = mapper.mycomushow(id);
+			model.addAttribute("storege",storege);
 		}
 		return "mypage";
 	}
