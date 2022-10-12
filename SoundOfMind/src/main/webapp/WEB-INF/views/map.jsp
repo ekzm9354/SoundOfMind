@@ -1,15 +1,103 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>마음의 소리</title>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- main -->
+<link rel="stylesheet" href="/resources/assets/css/main.css" />
+
 </head>
-<body>
-	<h1 class="Map">지도</h1>
-	<div id="map" style="width: 500px; height: 400px;"></div>
+<body class="is-preload" >
+
+
+<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Header -->
+				<header id="header">
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리
+					</a>
+					<ul class="icons">
+						<c:if test="${user==null && Kakao == null && Naver == null}">
+							<li><a href="login.do"><span class="label">로그인</span></a></li>
+							<li><a href="join.do"><span class="label">회원가입</span></a></li>
+						</c:if>
+						<c:if test="${user!=null && Social == null}"> 
+						${user.name}님 
+						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+						</c:if>
+						<c:if test="${user==null && Kakao != kakao}">
+							${id}님
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>
+						<c:if test="${user==null && Naver != naver}">
+							${Naveremail}님
+							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+						</c:if>
+					</ul>
+
+				</header>
+				
+				
+				<!-- 지도 -->
+					<!-- <h1 class="Map">지도</h1> -->
+						<div id="map" style="margin-top: 50px; width: 500px; height: 400px; display: block;margin-left: auto;margin-right: auto;"></div>
+				
+
+			</div>
+		</div>
+		<!-- Sidebar. -->
+		<div id="sidebar">
+			<div class="inner">
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>메뉴</h2>
+					</header>
+					<ul>
+						<li><span class="opener">커뮤니티</span>
+							<ul>
+								<li><a href="community.do">게시판</a></li>
+								<li><a href="news.do">뉴스</a></li>
+								<li><a href="chatting.do">채팅</a></li>
+								<li><a href="map.do">가까운 복지관 찾기</a></li>
+							</ul></li>
+						<li><a href="mypage.do">프로필</a></li>
+						<li><a href="sendFeedback.do">의견 보내기</a></li>
+						<li><a href="socket">그룹 채팅</a></li>
+					</ul>
+				</nav>
+				<!-- Footer. -->
+			<!-- 	<footer id="footer">
+					<p class="copyright">
+						청각장애인을 위한 커뮤니티 with <a href="index.do">백문불여일견</a>
+					</p>
+				</footer>
+ -->
+				
+			</div>
+		</div>
+	</div>
+
+	
+<!-- main Scripts -->
+	<script src="/resources/assets/js/jquery.min.js"></script>
+	<script src="/resources/assets/js/browser.min.js"></script>
+	<script src="/resources/assets/js/breakpoints.min.js"></script>
+	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
+	<script src="/resources/assets/js/util.js"></script>
+	<script src="/resources/assets/js/main.js"></script>
+	
+	
+	
 	<!-- 사용자 위치 받아오기 -->
 	<script type="text/javascript">
 		function onGeoOk(position) {

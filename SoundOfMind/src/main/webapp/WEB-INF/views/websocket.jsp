@@ -8,6 +8,12 @@
 <title>마음의 소리</title>
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 <link rel="stylesheet" href="/resources/assets/css/websocket.css" />
+
+<style type="text/css">
+#header {
+    border-bottom: solid 0px !important;
+}
+</style>
 </head>
 <body>
 
@@ -42,19 +48,18 @@
 
 				</header>
 				<div class="page-content page-container" id="page-content">
-					<div class="card-header" style="background-color: #6495ED;">
-						<h4 class="card-title">
-							<strong> 百聞不如一見 </strong>
-						</h4>
+					<div class="card-header" style="background-color: #6495ED;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;padding-right: 15px;">
+							<img src="/resources/assets/img/hundred1.png"
+								style="width: 150px;">
 						<br>
 						<!-- disconnection 버튼 -->
 						<input class="btn btn-xs btn-secondary" data-abc="true"
-							style="background-color: white; border-radius: 3px;"
+							style="background-color: white;border-radius: 3px;padding-left: 12px;padding-right: 12px;"
 							onclick="disconnectButton_onclick()" id="disconnectButton"
 							value="연결종료" type="button">
 					</div>
 					<textarea name="demo-name" id="chatBoxArea" readonly="readonly"
-						style="width: 100%; height: 450px; margin-bottom: 20px; resize: none;"></textarea>
+						style="width: 100%;height: 450px;margin-bottom: 5px;resize: none;"></textarea>
 
 					<div class="publisher bt-1 border-light"
 						style="background-color: #6495ED; border-radius: 3px;">

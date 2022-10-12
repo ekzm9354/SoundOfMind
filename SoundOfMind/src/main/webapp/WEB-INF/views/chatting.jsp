@@ -95,7 +95,9 @@
 															onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
 													</div>
 												</div>
-												<div class="toggle" onclick="toggle()">토글형태</div>
+												<img src="/resources/assets/img/uparrow.png"
+													onclick="toggle()" style="width: 25px; float: right;">
+												<!-- 원래 코드 <div class="toggle" onclick="toggle()">토글형태</div> -->
 											</div>
 										</div>
 									</c:forEach>
