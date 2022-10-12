@@ -13,10 +13,9 @@
 	</update>
 	
 	<select id="profile_save" parameterType="String" resultType="String">
-	select PROFILE from MEMBER_INFO where id=#{id}
+		select PROFILE from MEMBER_INFO where id=#{id}
 	</select>
 	
-	
-	
+
 	
 </mapper>

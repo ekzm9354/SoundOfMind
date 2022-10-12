@@ -56,18 +56,12 @@
 					<section id="banner">
 						<div class="content">
 							<header>
-								<h1 style="text-align:center;">프로필</h1>
+								<h1 class="style-3" style="text-align:center;">프로필</h1>
 
 							</header>
 							<div class="uploadResult">
 								<img src='/display?fileName=${profile_s}' class='profileImg'>
 							</div>
-						<!-- 	<div class="uploadDiv">
-								<input class="upload-name" value="첨부파일" placeholder="첨부파일">
-								<label for="file">파일찾기</label>
-								<input type="file" name="uploadFile" multiple id="file">
-								<label id="uploadBtn">프로필 등록</label>
-							</div> -->
 							
 							<label class="uploadDiv">
 								프로필 변경
@@ -76,6 +70,7 @@
 							</label>
 								<p class="userId">${user.id}님 </p>							
 
+							<hr>
 							<table class="type03">
 								<tr>
 									<th scope="row">아이디</th>
@@ -88,21 +83,40 @@
 							</table>
 							<table class="type03">
 								<tr>
-									<th scope="row">번호</th>
+									<td scope="row">번호</td>
 									<td>날짜</td>
 									<td>내용</td>
 									<td>감정</td>
 								</tr>
 								<c:forEach var="emotion" items="${emotion}">
 									<tr>
-										<th scope="row">${emotion.rownum}</th>
+										<td scope="row">${emotion.rownum}</td>
 										<td>${emotion.date}</td>
 										<td>${emotion.text}</td>
 										<td>${emotion.emotions}</td>
 									</tr>
 								</c:forEach>
 							</table>
-							<button class="deletebtn" type="button" onclick="deletemem()">탈퇴하기</button>
+							<button class="deletebtn" type="button" >탈퇴하기</button>
+						
+					<%-- 	<p>내가 쓴 게시글 보기</p>
+						<table>
+						<tr>
+						<td>제목</td>
+						<td>날짜</td>
+						<td>조회수</td>
+						<td>아이디</td>
+						</tr>
+						<c:forEach >
+						<tr>
+						<td>${}</td>
+						<td>${}</td>
+						<td>${}</td>
+						<td>${}</td>
+						</tr>
+						</c:forEach>
+						</table> --%>
+						
 						</div>
 
 					</section>
@@ -128,7 +142,7 @@
 								</ul></li>
 							<li><a href="mypage.do">프로필</a></li>
 							<li><a href="sendFeedback.do">의견 보내기</a></li>
-							<li><a href="socket">Web Socket</a></li>
+							<li><a href="socket">그룹 채팅</a></li>
 						</ul>
 					</nav>
 
@@ -142,9 +156,9 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/mypage.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script>
 	/* 이미지 출력 */
 	function showUploadImage(uploadResultArr) {
 		console.log("showUploadImage");
@@ -216,13 +230,15 @@
 			error: function(result) {
 				alert("이미지 파일이 아닙니다.")
 			}
-		});/*ajax 끝부분*/
+		});//ajax 끝부분
 
-	});/*on.change 끝부분 */
-
-	/*파일 확장자제한, 파일 사이즈 제한*/
+	});//on.change 끝부분
+	</script>
+	
+<script>
+	//파일 확장자제한, 파일 사이즈 제한
 	var regex = new RegExp("(.*?)\.(jpg|png)$");
-	var maxSize = 5242880; /*5MB*/
+	var maxSize = 5242880; //5MB
 
 	function fileCheck(fileName, fileSize) {
 		if (fileSize >= maxSize) {
@@ -236,23 +252,32 @@
 		return true;
 	}
 
-
-
-	</script>
+</script>
 	
-<script>
-/* 회원탈퇴  */
 
-function deletemem() {
 
-	if (!confirm("정말로 탈퇴하시겠습니까?")) {
-		return "mypage.do";
-	} else {
-		alert("탈퇴 되었습니다.");
-		location.replace("delete.do?id=${user.id}")
-		return "delete.do";
-	}
-}
+<script type="text/javascript">
+	$(".deletebtn").click(function(){
+		
+	swal({
+		title:'회원 탈퇴',
+		text:'정말로 탈퇴하시겠습니까?',
+		icon:'warning',
+		buttons:["취소","탈퇴"],
+		dangerMode: "탈퇴",
+		
+	}).then(result=>{
+		if(result){
+			swal('탈퇴 되었습니다.',{icon:'success'});
+			location.replace('delete.do?id=${user.id}')
+			return 'delete.do';
+		}else{
+			return 'mypage.do';
+		}
+		
+	})
+	})
+
 </script>
 	
 

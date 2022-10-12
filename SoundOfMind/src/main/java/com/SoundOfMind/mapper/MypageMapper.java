@@ -3,6 +3,7 @@ package com.SoundOfMind.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoProperties.Storage;
 
 import com.SoundOfMind.domain.Emotion;
 import com.SoundOfMind.domain.Member;
@@ -15,4 +16,5 @@ public interface MypageMapper {
 	
 	public int profile_update(String profile, String id);
 	
+
 }
