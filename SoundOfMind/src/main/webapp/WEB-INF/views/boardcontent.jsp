@@ -140,8 +140,9 @@
 								    <button class="dropbtn"><img src="/resources/assets/img/down-arrow1.png"
 										style="width: 25px;"></button>
 								    <div class="dropdown-content">
+								      <a href="#">분석하기</a>
 								      <a href="#">삭제하기</a>
-								      <a href="#">신고하기</a>
+								      <!-- <a href="#">신고하기</a> -->
 								    </div>
 								  </span>
 						</div>
@@ -203,10 +204,7 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-
-				<!-- Footer. -->
-				<footer id="footer">
-				</footer>
+				
 			</div>
 		</div>
 	</div>
