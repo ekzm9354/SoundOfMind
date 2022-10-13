@@ -65,7 +65,7 @@
 #search {
 	width: 35vh;
 	position: absolute;
-	right: 5%;
+	right: 6%;
 }
 </style>
 
@@ -112,11 +112,13 @@
 				<img src="/resources/assets/img/write2.png"
 					onclick="boardWrite(`${user}`,`${Kakao}`,`${Naver}`)"
 					style="width: 40px; lef: 30%; display: block; margin-top: 10px; margin-left: 720px;">
+				<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
+					style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;">
 
 
 				<!-- Table -->
 				<div class="table-wrapper"
-					style="margin-right: 20px; margin-top: 80px;">
+					style="margin-right: 20px;margin-top: 35px;">
 					<table>
 						<thead>
 							<tr>
@@ -145,7 +147,7 @@
 
 				<!-- 조회수 높은 10개의 게시글 출력 -->
 				<div class="box"
-					style="margin-top: 80px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
+					style="margin-top: 35px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
 					<h5>인기 게시글</h5>
 					<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
 						<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}.

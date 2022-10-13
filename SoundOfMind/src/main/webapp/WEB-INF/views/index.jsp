@@ -89,38 +89,23 @@
 								id="Mic" style="position: absolute; width: 80%; top: 200px;">
 
 						</div>
-
-						<!-- <div class='music'
-							style="padding-top: 200px; padding-bottom: 200px;">
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-						</div> -->
-						<!-- <button onclick="speaker()">마이크</button> -->
 					</div>
 
 
 					<div class="content">
 
 						<textarea name="inputSTT"
-							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
-							id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분"></textarea>
+							style="text-align: center; padding: 60px 0; height: 160px; margin-bottom: 20px; resize: none;"
+							id="speech" placeholder="음성을 입력해주세요"></textarea>
 						<textarea
-							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
-							id="emotion" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" readonly="readonly"></textarea>
+							style="text-align: center; padding: 60px 0; height: 160px; margin-bottom: 20px; resize: none;"
+							id="emotion" placeholder="당신의 감정은?" readonly="readonly"></textarea>
  
 						<button>
 							<a href="#" style="font-size: 115%;">수정하기</a>
 						</button>
 						<button>
-							<a href="#" style="font-size: 115%;">감정분석하기</a>
+							<a href="#" style="font-size: 115%;">감정분석</a>
 						</button>
 					</div>
 

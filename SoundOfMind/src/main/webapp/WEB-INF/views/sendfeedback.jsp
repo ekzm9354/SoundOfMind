@@ -56,21 +56,21 @@
 				<!-- sendfeedback -->
 				<div style="margin-top: 40px;">
 					<div class="box"
-						style="width: 100%; margin: 0 auto; height: 582px;">
+						style="width: 100%; margin: 0 auto; height: 625px;">
 						<textarea name="demo-name" id="demo-name" class="email"
 							placeholder="이메일을 입력하세요" autofocus
-							style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							style="width: 50%; height: 60px; margin-bottom: 20px; resize: none;"></textarea>
 						<textarea name="demo-name" id="demo-name" class="title" maxlength="50"
 							placeholder="제목을 입력하세요" autofocus
-							style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							style="width: 100%; height: 60px; margin-bottom: 20px; resize: none;"></textarea>
 						<textarea name="demo-name" id="demo-name" class="text" maxlength="1000"
 							placeholder="내용을 입력하세요" autofocus
 							style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
 						
 						<!-- 동의버튼 -->
-						<div class="6u 12u$(small)">
-							<input type="checkbox" id="demo-copy" name="demo-copy">
+						<input type="checkbox" id="demo-copy" name="demo-copy">
 							<label for="demo-copy">개인정보 수집 동의</label>
+						<div class="6u 12u$(small)">
 								<!-- 업로드버튼 -->
 								<ul class="actions small">
 									<li><button class="button small" onclick="SendFeedback()">의견

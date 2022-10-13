@@ -64,6 +64,10 @@
 						<div class="box" style="width: 100%; margin: 0 auto; height: 582px;">
 							<textarea name="demo-name" id="title" placeholder="제목을 입력하세요" maxlength="50" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
 							<textarea name="demo-name" id="content" placeholder="내용을 입력하세요" maxlength="3000" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
+						<div class="box" style="width: 100%; margin: 0 auto; height: 625px;">
+							<textarea name="demo-name" id="demo-name" autofocus style="width: 50%; height: 60px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" maxlength="50" autofocus style="width: 100%; height: 60px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" maxlength="3000" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small" onclick="boardWrite()">등록</button></li>
