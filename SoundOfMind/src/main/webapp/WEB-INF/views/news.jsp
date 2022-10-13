@@ -63,7 +63,9 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h2>긍정뉴스<img class="imgsize" src="/resources/images/posi.png"></h2>
+							<h2>
+								긍정뉴스<img class="imgsize" src="/resources/images/posi.png">
+							</h2>
 
 							<ul class="board-list-title">
 								<li class="txt-14">번호</li>
@@ -97,7 +99,9 @@
 
 							<hr>
 
-							<h2>부정뉴스<img class="imgsize" src="/resources/images/nega.png"></h2>
+							<h2>
+								부정뉴스<img class="imgsize" src="/resources/images/nega.png">
+							</h2>
 							<ul class="board-list-title">
 								<li class="txt-14">번호</li>
 								<li class="txt-14">날짜</li>
@@ -128,7 +132,9 @@
 
 							<hr>
 
-							<h2>중립 뉴스<img class="imgsize" src="/resources/images/soso.png"></h2>
+							<h2>
+								중립 뉴스<img class="imgsize" src="/resources/images/soso.png">
+							</h2>
 							<ul class="board-list-title">
 								<li class="txt-14">번호</li>
 								<li class="txt-14">날짜</li>
@@ -176,7 +182,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>

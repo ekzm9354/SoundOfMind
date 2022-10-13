@@ -109,16 +109,21 @@
 					</form>
 				</div>
 
-				<img src="/resources/assets/img/write2.png"
-					onclick="boardWrite(`${user}`,`${Kakao}`,`${Naver}`)"
-					style="width: 40px; lef: 30%; display: block; margin-top: 10px; margin-left: 720px;">
-				<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
-					style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;">
+				<c:choose>
+					<c:when test="${user==null && Kakao == null && Naver == null}">
+						<a href="login.do"><img src="/resources/assets/img/write2.png"
+							style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;"></a>
+					</c:when>
+					<c:otherwise>
+						<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
+							style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;">
+					</c:otherwise>
+				</c:choose>
 
 
 				<!-- Table -->
 				<div class="table-wrapper"
-					style="margin-right: 20px;margin-top: 35px;">
+					style="margin-right: 20px; margin-top: 35px;">
 					<table>
 						<thead>
 							<tr>
@@ -212,7 +217,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -255,23 +267,30 @@
 		function ToMessage(to_id) {
 			var from_id = $('#messegeId').val()
 			var chat = $('#demo-name').val()
-			$.ajax({
-				url : 'ToMessage.do',
-				data : {
-					to_id : to_id,
-					from_id : from_id,
-					chat : chat
-				},
-				type : "GET",
-				success : function() {
-					console.log('success')
-					$('#demo-name').val('')
-					$('#messegeId').val('')
-				},
-				error : function() {
-					console.log('fail')
-				}
-			})
+			if (to_id == '') {
+				alert('로그인이 필요합니다')
+				location.href = "http://localhost:8085/login.do"
+			} else {
+				$.ajax({
+					url : 'ToMessage.do',
+					data : {
+						to_id : to_id,
+						from_id : from_id,
+						chat : chat
+					},
+					type : "GET",
+					success : function() {
+						console.log('success')
+						$('#demo-name').val('')
+						$('#messegeId').val('')
+						location.reload()
+					},
+					error : function() {
+						console.log('fail')
+					}
+				})
+			}
+
 		}
 	</script>
 	<script type="text/javascript">

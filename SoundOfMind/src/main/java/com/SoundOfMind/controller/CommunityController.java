@@ -85,8 +85,9 @@ public class CommunityController {
 		System.out.println(content);
 		Member member = (Member)session.getAttribute("user");
 		String id = member.getId();
+		System.out.println(id);
 		Smapper.boardWrite(title, content, id);
-		return "community.do";
+		return "redirect:/community.do";
 	}
 
 //	뉴스

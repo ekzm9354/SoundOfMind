@@ -131,9 +131,12 @@ pageContext.setAttribute("replaceChar", "\n");
 						varStatus="status">
 						<div class="row">
 							<ul class="4u 12u$(medium)">
-								<li style="list-style: none; width:1160px;"><p style="width:150px; text-align: left; display:inline-block;">${boardComent.id}</p>
-									<p class="${status.index}" style="width:760px; text-align:left; display:inline-block;">${boardComent.coments}</p>
-									<p style="width:150px; text-align:right; display:inline-block; font-size: 13px;">${boardComent.date}</p></li>
+								<li style="list-style: none; width: 1160px;"><p
+										style="width: 150px; text-align: left; display: inline-block;">${boardComent.id}</p>
+									<p class="${status.index}"
+										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
+									<p
+										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p></li>
 							</ul>
 							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
@@ -205,7 +208,14 @@ pageContext.setAttribute("replaceChar", "\n");
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
