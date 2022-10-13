@@ -62,12 +62,11 @@
 				<!-- write -->
 					<div style="margin-top: 40px;">	
 						<div class="box" style="width: 100%; margin: 0 auto; height: 582px;">
-							<textarea name="demo-name" id="demo-name" placeholder="아이디를 입력하세요" autofocus style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" maxlength="50" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" maxlength="3000" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="title" placeholder="제목을 입력하세요" maxlength="50" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+							<textarea name="demo-name" id="content" placeholder="내용을 입력하세요" maxlength="3000" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
-								<li><button class="button small">등록</button></li>
+								<li><button class="button small" onclick="boardWrite()">등록</button></li>
 							</ul>
 						</div>
 					</div>
@@ -111,25 +110,17 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
-	<script type="text/javascript">
-		function speaker() {
-			$.ajax({
-				url : "http://127.0.0.1:5000/stt",
-				data : {
-					num : 1
-				},
-				success : function(text) {
-					console.log(text)
-					$('input[name=inputSTT]').attr('value', text)
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
-		}
-	</script>
 	
-	<!-- 글쓰기 -->
+	<script type="text/javascript">
+	function boardWrite(){
+		var title = $('#title').val()
+		var content = $('#content').val()
+		console.log(title)
+		console.log(content)
+		location.href="http://localhost:8085/BoardWrite.do?title="+title+"&content="+content
+		alert('작성되었습니다')
+	}
+	</script>
 	
 
 </body>

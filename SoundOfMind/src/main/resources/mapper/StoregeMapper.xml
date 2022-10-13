@@ -27,6 +27,12 @@
 	<select id="clickBest"
 		resultType="com.SoundOfMind.domain.Storege">
 		SELECT @rownum:=@rownum+1 as rownum, S.*
-		FROM (SELECT * FROM STOREGE WHERE (@rownum :=0)=0 ORDER BY CLICK DESC ) S
+		FROM (SELECT * FROM
+		STOREGE WHERE (@rownum :=0)=0 ORDER BY CLICK DESC ) S
 	</select>
+	<insert id="boardWrite" parameterType="String">
+		INSERT INTO
+		STOREGE(DATE,TITLE,CONTENT,ID)
+		VALUES(now(),#{title},#{content},#{id})
+	</insert>
 </mapper>

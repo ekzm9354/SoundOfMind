@@ -109,7 +109,8 @@
 					</form>
 				</div>
 
-				<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
+				<img src="/resources/assets/img/write2.png"
+					onclick="boardWrite(`${user}`,`${Kakao}`,`${Naver}`)"
 					style="width: 40px; lef: 30%; display: block; margin-top: 10px; margin-left: 720px;">
 
 

@@ -73,10 +73,20 @@ public class CommunityController {
 		return "boardcontent";
 	}
 
-//	글쓰기
+//	글쓰기페이지로
 	@GetMapping("/boardWrite.do")
 	public String boardwrite() {
 		return "boardwrite";
+	}
+//	글쓰기
+	@GetMapping("/BoardWrite.do")
+	public String boardwrite(String title,String content,HttpSession session) {
+		System.out.println(title);
+		System.out.println(content);
+		Member member = (Member)session.getAttribute("user");
+		String id = member.getId();
+		Smapper.boardWrite(title, content, id);
+		return "community.do";
 	}
 
 //	뉴스
@@ -98,4 +108,5 @@ public class CommunityController {
 	public String Map() {
 		return "map";
 	}
+//	
 }
