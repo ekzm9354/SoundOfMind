@@ -66,12 +66,21 @@
 							<label class="uploadDiv">
 								프로필 변경
 								<input type="file" name="uploadBtn" multiple style="display:none;">
-
 							</label>
 								<p class="userId">${user.id}님 </p>							
 
-							<hr>
-							<table class="type03">
+							<hr class="hr1"> <!-- 구분선  -->
+							
+						
+						<div class="mypagebox">
+						<button class="btm_image" id="membtn"><img class ="mypageicon" src="/resources/images/user.png">회원정보 보기</button>
+						<button class="btm_image" id="myboard"><img class ="mypageicon" src="/resources/images/board.png">내 게시글 보기</button>
+						<button class="btm_image" id="myemotion"><img class ="mypageicon" src="/resources/images/emo.png">나의 감정 보기</button>
+						<button class="deletebtn" type="button"><img class ="mypageicon" src="/resources/images/deleteme.png">회원탈퇴 하기</button>
+						</div>
+							<!--회원정보 나타나는 칸  -->
+							<div id="meminfo">
+							<table class="type03" id="memtable">
 								<tr>
 									<th scope="row">아이디</th>
 									<td>${user.id}</td>
@@ -81,6 +90,9 @@
 									<td>${user.name}</td>
 								</tr>
 							</table>
+							</div>
+							<!--감정 나타나는 칸  -->
+							<div id="mememotion">
 							<table class="type03">
 								<tr>
 									<td scope="row">번호</td>
@@ -97,7 +109,9 @@
 									</tr>
 								</c:forEach>
 							</table>
-
+							</div>
+							<!--내가 쓴 게시글 목록 보는 칸-->
+							<div id="memboard">
 							<table class="type03">
 							<tr>
 								<th scope="row">번호</th>
@@ -116,8 +130,8 @@
 								</tr>
 							</c:forEach>
 							</table>
+							</div>
 							
-							<button class="deletebtn" type="button" >탈퇴하기</button>
 						</div>
 
 					</section>
@@ -146,6 +160,7 @@
 							<li><a href="socket">그룹 채팅</a></li>
 						</ul>
 					</nav>
+				
 
 				</div>
 			</div>

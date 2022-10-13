@@ -1,19 +1,57 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
-hr{
-	border-top : 4px double #bbb ;
-	text-align : center;
+/* 화면에 안보이게 하기  */
+#meminfo,#mememotion,#memboard{
+	display:none;
+	}
+
+
+.btm_image:hover,.deletebtn:hover{
+	background: #96BBD4;
+	color:#fff;
 }
-hr:after{
-	content:'\002665';
-	display:inline-block;
-	position: relative;
-	top:-15px;
-	padding: 0 10px;
-	background: #f0f0f0;
-	color: #bbb;
-	font-size: 18px;
+
+ .btm_image,.deletebtn{
+ 	display: inline-block;
+ 	width: 22vh;
+    border-radius:1vh;
+    text-align: center;
+    background:#AAD4F0;
+	color:#fff;
+	border:none;
+	font-size:1.4em;
+	height: 5vh;
+	padding-top: 8px;
+	margin: 0.5vh;
+ }
+ 
+.mypageicon{
+	width:3vh; 
+	height: 3vh;
+	vertical-align: middle;
+} 
+
+.mypagebox{
+	text-align: center;	
+	flex-wrap: wrap;
+	margin-bottom: 4vh;
+}
+
+.hr1 {
+  border: 0;
+  border-top: 4px double #8c8c8c;
+  text-align: center;
+}
+
+.hr1:after {
+	content: '\2665';
+    display: inline-block;
+    position: absolute;
+    margin: -15px 0px;
+    background: #fff;
+    color: #8c8c8c;
+    font-size: 18px;
 }
 
 .uploadResult{
@@ -49,9 +87,6 @@ hr:after{
 	color:black;
 }
 
-.deletebtn{
-	float:right;
-}
 
 
 	table.type03 {
@@ -169,6 +204,21 @@ body {
   -ms-overflow-style: scrollbar; }
 
 @media screen and (max-width: 480px) {
+
+ .btm_image{
+ 	width: 15vh;
+    border-radius:1vh;
+    text-align: center;
+    background:#AAD4F0;
+	color:#fff;
+	border:none;
+	font-size:1em;
+	height: 5vh;
+	padding-top: 8px;
+    margin : 1vh;
+ }
+ 
+	
   html, body {
     min-width: 320px; } }
 
@@ -212,7 +262,6 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
   color: #6495ED;
   text-decoration: none; }
   a:hover {
@@ -1460,26 +1509,16 @@ ul.pagination {
       padding-right: 0; } }
 
 
-
+/*버튼 css부분  */
 /* Button */
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
+/* 
 button,
 .button {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   background-color: transparent;
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #6495ED;
-  color: #6495ED /* !important */;
+  color: #6495ED ;
   cursor: pointer;
   display: inline-block;
   font-family: 'NanumSquare'!important;
@@ -1492,76 +1531,21 @@ button,
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  white-space: nowrap; }
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover,
-  button:hover,
-  .button:hover {
-    background-color: rgba(245, 106, 106, 0.05); }
-  input[type="submit"]:active,
-  input[type="reset"]:active,
-  input[type="button"]:active,
-  button:active,
-  .button:active {
-    background-color: rgba(245, 106, 106, 0.15); }
-  input[type="submit"].icon:before,
-  input[type="reset"].icon:before,
-  input[type="button"].icon:before,
-  button.icon:before,
-  .button.icon:before {
-    margin-right: 0.5em; }
-  input[type="submit"].fit,
-  input[type="reset"].fit,
-  input[type="button"].fit,
-  button.fit,
-  .button.fit {
-    width: 100%; }
-  input[type="submit"].small,
-  input[type="reset"].small,
-  input[type="button"].small,
-  button.small,
-  .button.small {
-    font-size: 0.6em; }
-  input[type="submit"].large,
-  input[type="reset"].large,
-  input[type="button"].large,
-  button.large,
-  .button.large {
-    font-size: 1em;
-    height: 3.65em;
-    line-height: 3.65em; }
-  input[type="submit"].primary,
-  input[type="reset"].primary,
-  input[type="button"].primary,
-  button.primary,
-  .button.primary {
-    background-color: #f56a6a;
-    box-shadow: none;
-    color: #ffffff !important; }
-    input[type="submit"].primary:hover,
-    input[type="reset"].primary:hover,
-    input[type="button"].primary:hover,
-    button.primary:hover,
-    .button.primary:hover {
-      background-color: #f67878; }
-    input[type="submit"].primary:active,
-    input[type="reset"].primary:active,
-    input[type="button"].primary:active,
-    button.primary:active,
-    .button.primary:active {
-      background-color: #f45c5c; }
-  input[type="submit"].disabled, input[type="submit"]:disabled,
-  input[type="reset"].disabled,
-  input[type="reset"]:disabled,
-  input[type="button"].disabled,
-  input[type="button"]:disabled,
-  button.disabled,
-  button:disabled,
-  .button.disabled,
-  .button:disabled {
-    pointer-events: none;
-    opacity: 0.25; }
+  white-space: nowrap; 
+  }
+ 
+  button:hover,.button:hover {
+    background-color: rgba(245, 106, 106, 0.05); 
+  }
+  button:active,.button:active {
+    background-color: rgba(245, 106, 106, 0.15); 
+  }
+
+  button.icon:before, .button.icon:before {
+    margin-right: 0.5em; 
+  }
+  
+  */
 
 /* Mini Posts */
 .mini-posts article {
@@ -1704,7 +1688,11 @@ button,
           width: 4em; } }
   @media screen and (max-width: 480px) {
     .features article .icon:before {
-      font-size: 1.25rem; } }
+      font-size: 1.25rem; }
+      
+
+      
+       }
 
 /* Posts */
 .posts {
@@ -1799,6 +1787,7 @@ button,
         .posts article:nth-last-child(3) {
           margin-bottom: 4.5em; } }
   @media screen and (max-width: 480px) {
+  
     .posts {
       margin: 0 0 2em 0;
       width: 100%; }

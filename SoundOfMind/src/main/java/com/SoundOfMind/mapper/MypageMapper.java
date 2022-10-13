@@ -17,7 +17,6 @@ public interface MypageMapper {
 	
 	public int profile_update(String profile, String id);
 	
-
 	public List<Storege> mycomushow(String id);
 	
 

@@ -1557,7 +1557,11 @@ button,
           width: 4em; } }
   @media screen and (max-width: 480px) {
     .features article .icon:before {
-      font-size: 1.25rem; } }
+      font-size: 1.25rem; }
+     .title-row2.txt-16{
+   		 padding : 8%;
+ 		 }
+       }
 
 /* Posts */
 .posts {

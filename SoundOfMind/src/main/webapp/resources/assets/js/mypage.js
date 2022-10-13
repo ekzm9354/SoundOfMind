@@ -1,5 +1,30 @@
-
-
+/*회원정보보기 클릭하면 회원정보 나오는 js*/
+$('#membtn').click(function(){
+	if($("#meminfo").css("display")=="none"){
+		$('#meminfo').show();	
+	}else{
+		$('#meminfo').hide();
+	}
+	
+});
+/*나의감정보기 클릭하면 감정 나오는 js*/
+$('#myemotion').click(function(){
+	if($("#mememotion").css("display")=="none"){
+		$('#mememotion').show();	
+	}else{
+		$('#mememotion').hide();
+	}
+	
+});
+/*내게시글보기 클릭하면 내가쓴 게시글 나오는 js*/
+$('#myboard').click(function(){
+	if($("#memboard").css("display")=="none"){
+		$('#memboard').show();	
+	}else{
+		$('#memboard').hide();
+	}
+	
+});
 
 (function($) {
 
