@@ -33,8 +33,7 @@
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -60,17 +59,21 @@
 
 
 				<!-- write -->
-					<div style="margin-top: 40px;">	
-						<div class="box" style="width: 100%; margin: 0 auto; height: 582px;">
-							<textarea name="demo-name" id="demo-name" placeholder="아이디를 입력하세요" autofocus style="width: 50%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="제목을 입력하세요" maxlength="50" autofocus style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요" maxlength="3000" autofocus style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
-							<!-- 업로드버튼 -->
-							<ul class="actions small">
-								<li><button class="button small">등록</button></li>
-							</ul>
-						</div>
+				<div style="margin-top: 40px;">
+					<div class="box"
+						style="width: 100%; margin: 0 auto; height: 582px;">
+						<textarea name="demo-name" id="title" placeholder="제목을 입력하세요"
+							maxlength="50" autofocus
+							style="width: 100%; height: 52px; margin-bottom: 20px; resize: none;"></textarea>
+						<textarea name="demo-name" id="content" placeholder="내용을 입력하세요"
+							maxlength="3000" autofocus
+							style="width: 100%; height: 352px; margin-bottom: 20px; resize: none;"></textarea>
+						<!-- 업로드버튼 -->
+						<ul class="actions small">
+							<li><button class="button small" onclick="boardWrite()">등록</button></li>
+						</ul>
 					</div>
+				</div>
 				<!-- write 끝 -->
 
 
@@ -92,7 +95,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -101,14 +111,6 @@
 					</ul>
 				</nav>
 
-				<!-- Footer. -->
-				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
-				</footer>
 			</div>
 		</div>
 	</div>
@@ -119,26 +121,21 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+
 	<script type="text/javascript">
-		function speaker() {
-			$.ajax({
-				url : "http://127.0.0.1:5000/stt",
-				data : {
-					num : 1
-				},
-				success : function(text) {
-					console.log(text)
-					$('input[name=inputSTT]').attr('value', text)
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
+		function boardWrite() {
+			var title = $('#title').val()
+			var content = $('#content').val()
+			if (title == '' || content == '') {
+				alert('미입력된 항목이 있습니다')
+			} else {
+				location.href = "http://localhost:8085/BoardWrite.do?title="
+						+ title + "&content=" + content
+				alert('작성되었습니다')
+			}
 		}
 	</script>
-	
-	<!-- 글쓰기 -->
-	
+
 
 </body>
 </html>

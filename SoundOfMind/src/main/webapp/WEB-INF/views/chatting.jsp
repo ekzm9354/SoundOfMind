@@ -19,6 +19,12 @@
 <link rel="stylesheet" href="/resources/assets/css/loading.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
+<style type="text/css">
+img {
+	width:40px;
+}
+</style>
+
 </head>
 <body class="is-preload">
 	<script type="module"
@@ -63,7 +69,7 @@
 				</table>
 				<!-- </div> 추가 금지 -->
 				<div class="container">
-					<h3 class=" text-center who">메세지</h3>
+					<h3 class=" text-center who" style="margin-top: 20px;">메세지</h3>
 					<div class="messaging">
 						<div class="inbox_msg">
 							<div class="inbox_people">

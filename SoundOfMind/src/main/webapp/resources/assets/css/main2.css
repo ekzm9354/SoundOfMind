@@ -1181,6 +1181,7 @@ input[type="radio"] + label:before {
   .box > :last-child > :last-child > :last-child {
     margin-bottom: 0; 
     float: right;
+    font-family: 'NanumSquare';
     }
   .box.alt {
     border: 0;
@@ -1501,7 +1502,7 @@ button,
   color: #6495ED !important;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare';
   font-size: 0.8em;
   font-weight: 700;
   height: 3.5em;
@@ -1541,7 +1542,7 @@ button,
   input[type="button"].small,
   button.small,
   .button.small {
-    font-size: 0.6em; }
+    font-size: 0.8em; }
   input[type="submit"].large,
   input[type="reset"].large,
   input[type="button"].large,

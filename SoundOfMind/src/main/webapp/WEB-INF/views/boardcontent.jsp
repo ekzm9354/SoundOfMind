@@ -7,6 +7,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%
+pageContext.setAttribute("replaceChar", "\n");
+%>
 <!DOCTYPE HTML>
 
 <html>
@@ -94,14 +98,18 @@
 				<!-- 제목, 아이디, 등록일시, 조회수 -->
 
 
-				<hr class="major" style="margin-top: 30px; margin-bottom: 5px;" />
+				<hr class="major"
+					style="margin-top: 30px; margin-bottom: 5px; border-bottom: solid 2px;" />
 
 				<!-- Content -->
 				<section style="padding-top: 0px;">
 					<header class="main" id="content">
-						<h5>${storege.title}</h5>
-						<p style="margin-bottom: 5px;">${storege.id}${storege.date}
-							${storege.click}</p>
+						<h3>${storege.title}</h3>
+						<p style="margin-bottom: 5px;">
+							<span style="margin-right: 15px;"> ${storege.id} </span> <span>
+								${storege.date} </span> <span style="float: right;">
+								${storege.click} </span>
+						</p>
 					</header>
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
 
@@ -114,32 +122,53 @@
 					<header class="main" id="content">
 						<h5 style="margin-bottom: 10px;">전체 댓글</h5>
 					</header>
-					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
+					<hr class="major"
+						style="margin-top: 5px; margin-bottom: 30px; border-bottom: solid 2px;" />
 
 
 					<!-- Break 댓글 조회 -->
-					<c:forEach var="boardComent" items="${boardComent}">
+					<c:forEach var="boardComent" items="${boardComent}"
+						varStatus="status">
 						<div class="row">
-							<div class="4u 12u$(medium)">
-								<p>${boardComent.id}</p>
-							</div>
-							<div class="4u 12u$(medium)">
-								<p>${boardComent.coments}</p>
-							</div>
-							<div class="4u$ 12u$(medium)">
-								<p>${boardComent.date}</p>
-							</div>
+							<ul class="4u 12u$(medium)">
+								<li style="list-style: none; width: 1160px;"><p
+										style="width: 150px; text-align: left; display: inline-block;">${boardComent.id}</p>
+									<p class="${status.index}"
+										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
+									<p
+										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p></li>
+							</ul>
+							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
+								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
+							<span class="4u$ 12u$(medium)"> ${boardComent.date} </span> --%>
+
+							<!-- 드롭다운-->
+							<!-- <img src="/resources/assets/img/down-arrow1.png"
+										style="width: 25px;"> -->
+							<span class="dropdown">
+								<button class="dropbtn">
+									<img src="/resources/assets/img/down-arrow1.png"
+										style="width: 25px;">
+								</button>
+								<div class="dropdown-content">
+									<span onclick="comentEmotion(`${status.index}`)">분석하기</span><br>
+									<span>삭제하기</span>
+									<!-- <a href="#">신고하기</a> -->
+								</div>
+							</span>
 						</div>
+						<hr class="major" style="margin-top: 15px; margin-bottom: 15px;" />
 					</c:forEach>
 
 
 
 
-					<hr class="major" style="margin-top: 35px; margin-bottom: 20px;" />
+					<hr class="major"
+						style="margin-top: 35px; margin-bottom: 20px; border-bottom: solid 2px;" />
 
 					<!-- 댓글작성하기 -->
 					<!-- Box -->
-					<h5>WRITE</h5>
+					<h5>댓글 쓰기</h5>
 					<div class="row uniform">
 						<div class="box"
 							style="width: 100%; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 15px;">
@@ -148,7 +177,7 @@
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"
-										onclick="coment(`${storege.s_index}`)">Upload</button></li>
+										onclick="coment(${storege.s_index})">Upload</button></li>
 							</ul>
 						</div>
 					</div>
@@ -179,7 +208,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -188,14 +224,6 @@
 					</ul>
 				</nav>
 
-				<!-- Footer. -->
-				<footer id="footer">
-					<p class="copyright">
-						&copy; Untitled. All rights reserved. Demo Images: <a
-							href="https://unsplash.com">Unsplash</a>. Design: <a
-							href="https://html5up.net">HTML5 UP</a>.
-					</p>
-				</footer>
 			</div>
 		</div>
 	</div>
@@ -237,9 +265,29 @@
 			})
 		}
 	</script>
+	<script type="text/javascript">
+	function comentEmotion(index){
+		console.log(index)
+		var coment = $('.'+index).text()
+		console.log(coment)
+		$.ajax({
+			url:"http://6228-35-227-116-237.ngrok.io/",
+			data:{
+				coment:coment
+			},
+			type:"GET",
+			success:function(res){
+				console.log(res)
+				
+			},
+			error:function(e){
+				console.log(e)
+			}
+		})
+	}
+	</script>
 
 
-	<!-- bootstrap js -->
 
 </body>
 </html>

@@ -1,10 +1,14 @@
 package com.SoundOfMind.controller;
 
+import java.io.IOException;
+import java.net.http.HttpResponse;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,11 +78,13 @@ public class ComunityRestController {
 		int cnt = cmapper.coment(id, storege_id, coments);
 		return cnt;
 	}
+
 	@RequestMapping("/ToMessage.do")
-	public @ResponseBody void toMessage(String to_id,String from_id,String chat) {
+	public @ResponseBody void toMessage(String to_id, String from_id, String chat) {
 		System.out.println(to_id);
 		System.out.println(from_id);
 		System.out.println(chat);
 		Cmapper.ToMessage(to_id, from_id, chat);
 	}
+
 }

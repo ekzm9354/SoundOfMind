@@ -12,18 +12,17 @@
 <link rel="stylesheet" href="/resources/assets/css/main.css" />
 
 </head>
-<body class="is-preload" >
+<body class="is-preload">
 
 
-<!-- Wrapper -->
+	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -45,12 +44,13 @@
 					</ul>
 
 				</header>
-				
-				
+
+
 				<!-- 지도 -->
-					<!-- <h1 class="Map">지도</h1> -->
-						<div id="map" style="margin-top: 50px; width: 500px; height: 400px; display: block;margin-left: auto;margin-right: auto;"></div>
-				
+				<!-- <h1 class="Map">지도</h1> -->
+				<div id="map"
+					style="margin-top: 50px; width: 500px; height: 400px; display: block; margin-left: auto; margin-right: auto;"></div>
+
 
 			</div>
 		</div>
@@ -67,7 +67,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -75,29 +82,22 @@
 						<li><a href="socket">그룹 채팅</a></li>
 					</ul>
 				</nav>
-				<!-- Footer. -->
-			<!-- 	<footer id="footer">
-					<p class="copyright">
-						청각장애인을 위한 커뮤니티 with <a href="index.do">백문불여일견</a>
-					</p>
-				</footer>
- -->
-				
+
 			</div>
 		</div>
 	</div>
 
-	
-<!-- main Scripts -->
+
+	<!-- main Scripts -->
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
 	<script src="/resources/assets/js/breakpoints.min.js"></script>
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
-	
-	
-	
+
+
+
 	<!-- 사용자 위치 받아오기 -->
 	<script type="text/javascript">
 		function onGeoOk(position) {

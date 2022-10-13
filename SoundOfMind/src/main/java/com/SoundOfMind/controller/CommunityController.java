@@ -36,7 +36,9 @@ public class CommunityController {
 	@GetMapping("/community.do")
 	public String community(Model model) {
 		List<Storege> comushow = Smapper.comushow();
+		int size = comushow.size();
 		model.addAttribute("comushow", comushow);
+		model.addAttribute("size", size);
 
 		List<Storege> clickBest = Smapper.clickBest();
 		model.addAttribute("clickBest", clickBest);
@@ -71,10 +73,21 @@ public class CommunityController {
 		return "boardcontent";
 	}
 
-//	글쓰기
+//	글쓰기페이지로
 	@GetMapping("/boardWrite.do")
 	public String boardwrite() {
 		return "boardwrite";
+	}
+//	글쓰기
+	@GetMapping("/BoardWrite.do")
+	public String boardwrite(String title,String content,HttpSession session) {
+		System.out.println(title);
+		System.out.println(content);
+		Member member = (Member)session.getAttribute("user");
+		String id = member.getId();
+		System.out.println(id);
+		Smapper.boardWrite(title, content, id);
+		return "redirect:/community.do";
 	}
 
 //	뉴스
@@ -96,4 +109,5 @@ public class CommunityController {
 	public String Map() {
 		return "map";
 	}
+//	
 }

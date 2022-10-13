@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="/resources/assets/css/mypage.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	
+
 <!-- 폰트 -->
 <link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
 	rel="stylesheet">
-	
+
 </head>
 <body class="is-preload">
 	<c:if test="${user==null}">
@@ -29,26 +29,25 @@
 				<div class="inner">
 					<!-- Header -->
 					<header id="header">
-						<a href="index.do" class="logo"><strong>마음의</strong> 소리
-						</a>
+						<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 						<ul class="icons">
 							<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:if>
+							<c:if test="${user!=null && Social == null}"> 
 						${user.name}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
+								<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
+							</c:if>
+							<c:if test="${user==null && Kakao != kakao}">
 							${id}님
 							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
+							</c:if>
+							<c:if test="${user==null && Naver != naver}">
 							${Naveremail}님
 							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+							</c:if>
 						</ul>
 					</header>
 
@@ -66,8 +65,11 @@
 							<label class="uploadDiv">
 								프로필 변경
 								<input type="file" name="uploadBtn" multiple style="display:none;">
+							<label class="uploadDiv"> 프로필 변경 <input type="file"
+								name="uploadBtn" multiple style="display: none;">
+
 							</label>
-								<p class="userId">${user.id}님 </p>							
+							<p class="userId">${user.id}님</p>
 
 							<hr class="hr1"> <!-- 구분선  -->
 							
@@ -80,7 +82,7 @@
 						</div>
 							<!--회원정보 나타나는 칸  -->
 							<div id="meminfo">
-							<table class="type03" id="memtable">
+							<table class="type03" >
 								<tr>
 									<th scope="row">아이디</th>
 									<td>${user.id}</td>
@@ -113,22 +115,22 @@
 							<!--내가 쓴 게시글 목록 보는 칸-->
 							<div id="memboard">
 							<table class="type03">
-							<tr>
-								<th scope="row">번호</th>
-								<td>제목</td>
-								<td>날짜</td>
-								<td>조회수</td>
-								<td>아이디</td>
-							</tr>
-							<c:forEach var="storege" items="${storege}">
 								<tr>
-									<th scope="row">${storege.rownum}</th>
-									<td>${storege.title}</td>
-									<td>${storege.date}</td>
-									<td>${storege.click}</td>
-									<td>${storege.id}</td>
+									<th scope="row">번호</th>
+									<td>제목</td>
+									<td>날짜</td>
+									<td>조회수</td>
+									<td>아이디</td>
 								</tr>
-							</c:forEach>
+								<c:forEach var="storege" items="${storege}">
+									<tr>
+										<th scope="row">${storege.rownum}</th>
+										<td>${storege.title}</td>
+										<td>${storege.date}</td>
+										<td>${storege.click}</td>
+										<td>${storege.id}</td>
+									</tr>
+								</c:forEach>
 							</table>
 							</div>
 							
@@ -152,7 +154,14 @@
 								<ul>
 									<li><a href="community.do">게시판</a></li>
 									<li><a href="news.do">뉴스</a></li>
-									<li><a href="chatting.do">채팅</a></li>
+									<c:choose>
+										<c:when test="${user==null && Kakao == null && Naver == null}">
+											<li><a href="login.do">채팅</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="chatting.do">채팅</a></li>
+										</c:otherwise>
+									</c:choose>
 									<li><a href="map.do">가까운 복지관 찾기</a></li>
 								</ul></li>
 							<li><a href="mypage.do">프로필</a></li>
@@ -172,7 +181,7 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/mypage.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 	/* 이미지 출력 */
@@ -270,8 +279,6 @@
 
 </script>
 	
-
-
 <script type="text/javascript">
 	$(".deletebtn").click(function(){
 		

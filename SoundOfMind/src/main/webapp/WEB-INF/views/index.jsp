@@ -42,7 +42,7 @@
 							<li><a href="join.do"><span class="label">회원가입</span></a></li>
 						</c:if>
 						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
+						${user.id}님 
 						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
 							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
 						</c:if>
@@ -89,38 +89,23 @@
 								id="Mic" style="position: absolute; width: 80%; top: 200px;">
 
 						</div>
-
-						<!-- <div class='music'
-							style="padding-top: 200px; padding-bottom: 200px;">
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-							<div class='bar'></div>
-						</div> -->
-						<!-- <button onclick="speaker()">마이크</button> -->
 					</div>
 
 
 					<div class="content">
 
 						<textarea name="inputSTT"
-							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
-							id="speech" placeholder="여기에 상대방이 한 말이 보여지는 부분"></textarea>
+							style="text-align: center; padding: 60px 0; height: 160px; margin-bottom: 20px; resize: none;"
+							id="speech" placeholder="음성을 입력해주세요"></textarea>
 						<textarea
-							style="text-align: center; padding: 60px 0; height: 150px; margin-bottom: 20px; resize: none;"
-							id="emotion" placeholder="여기에 상대방의 말을 분석한 감정이 나오는 부분" readonly="readonly"></textarea>
- 
+							style="text-align: center; padding: 60px 0; height: 160px; margin-bottom: 20px; resize: none;"
+							id="emotion" placeholder="당신의 감정은?" readonly="readonly"></textarea>
+
 						<button>
 							<a href="#" style="font-size: 115%;">수정하기</a>
 						</button>
 						<button>
-							<a href="#" style="font-size: 115%;">감정분석하기</a>
+							<a href="#" style="font-size: 115%;">감정분석</a>
 						</button>
 					</div>
 
@@ -141,7 +126,14 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<li><a href="chatting.do">채팅</a></li>
+								<c:choose>
+									<c:when test="${user==null && Kakao == null && Naver == null}">
+										<li><a href="login.do">채팅</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a href="chatting.do">채팅</a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -160,8 +152,8 @@
 			</div>
 		</div>
 	</div>
-	
-	
+
+
 	<!-- Scripts -->
 	<script src="/resources/assets/js/jquery.min.js"></script>
 	<script src="/resources/assets/js/browser.min.js"></script>
