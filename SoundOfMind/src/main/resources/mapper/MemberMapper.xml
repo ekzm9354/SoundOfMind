@@ -3,7 +3,8 @@
 <mapper namespace="com.SoundOfMind.mapper.MemberMapper">
 
 	<insert id="join" parameterType="com.SoundOfMind.domain.Member">
-		insert into MEMBER_INFO(NAME,ID,PW)
+		insert into
+		MEMBER_INFO(NAME,ID,PW)
 		values(#{name},#{id},#{pw})
 	</insert>
 
@@ -19,12 +20,14 @@
 
 	<!--아이디 중복체크 -->
 	<select id="idCheck" parameterType="String" resultType="int">
-		select count(id) from MEMBER_INFO where id=#{id}
+		select
+		count(id) from MEMBER_INFO where id=#{id}
 	</select>
 
 	<!-- Social Join -->
 	<insert id="SocialJoin" parameterType="String">
-		INSERT INTO MEMBER_INFO(ROOT,NAME,ID,PW) VALUES (#{root},#{id},#{id},#{id})
+		INSERT INTO
+		MEMBER_INFO(ROOT,NAME,ID,PW) VALUES (#{root},#{id},#{id},#{id})
 	</insert>
 
 	<!-- Social Join Check -->
