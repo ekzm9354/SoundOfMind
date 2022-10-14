@@ -5,6 +5,20 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+.swal-button{
+	background-color: #6495ED;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0px 25px;
+    margin: 0;
+    cursor: pointer;
+    font-family: 'NanumSquare';
+}
+
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1508,7 +1522,7 @@ button,
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #6495ED;
-  color: #6495ED !important;
+  color: #6495ED ;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto Slab", serif;

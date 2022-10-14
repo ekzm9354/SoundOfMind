@@ -244,6 +244,7 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
 		function board(s_index, click) {
@@ -269,8 +270,13 @@
 			var from_id = $('#messegeId').val()
 			var chat = $('#demo-name').val()
 			if(to_id == '') {
-				alert('로그인이 필요합니다')
+				swal({
+					button: "로그인",
+					title:'로그인이 필요합니다.',
+					icon:'warning'
+				}).then(result=>{
 				location.href = "http://localhost:8085/login.do"
+				})
 			} else {
 				$.ajax({
 					url : 'ToMessage.do',
@@ -281,10 +287,16 @@
 					},
 					type : "GET",
 					success : function() {
+						swal({
+							  icon: 'success',                  
+							  title: '전송 완료',    
+							  text: '메세지가 전송되었습니다.', 
+							}).then(result=>{
 						console.log('success')
 						$('#demo-name').val('')
 						$('#messegeId').val('')
 						location.reload()
+							})
 					},
 					error : function() {
 						console.log('fail')

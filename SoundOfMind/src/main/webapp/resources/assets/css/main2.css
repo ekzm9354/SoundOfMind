@@ -1499,7 +1499,7 @@ button,
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #6495ED;
-  color: #6495ED !important;
+  color: #6495ED ;
   cursor: pointer;
   display: inline-block;
   font-family: 'NanumSquare';

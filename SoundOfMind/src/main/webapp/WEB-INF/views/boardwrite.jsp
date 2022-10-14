@@ -133,11 +133,15 @@
 					 '',
 					 'warning')
 			} else {
+						swal({
+							  icon: 'success',                  
+							  title: '작성 완료',    
+							  text: '게시글이 등록되었습니다.', 
+							  button: '확인'
+							}).then(result=>{
 				location.href = "http://localhost:8085/BoardWrite.do?title="
 						+ title + "&content=" + content
-				swal('작성되었습니다.',
-					 '',
-					 'success')
+							})
 			}
 		}
 	</script>

@@ -158,13 +158,10 @@
 				type : "POST",
 				success : function() {
 					swal({
-						  title: '전송되었습니다.',
-						  showClass: {
-						    popup: 'animate__animated animate__fadeInDown'
-						  },
-						  hideClass: {
-						    popup: 'animate__animated animate__fadeOutUp'
-						  }
+						  icon: 'success',                  
+						  title: '작성 완료',    
+						  text: '소중한 의견 감사합니다.', 
+						  button: '확인'
 						})
 					$('.email').val('')
 					$('.title').val('')
