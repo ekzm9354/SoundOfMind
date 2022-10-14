@@ -62,8 +62,7 @@
 								<img src='/display?fileName=${profile_s}' class='profileImg'>
 							</div>
 							
-							<label class="uploadDiv">
-								프로필 변경
+						
 								<input type="file" name="uploadBtn" multiple style="display:none;">
 							<label class="uploadDiv"> 프로필 변경 <input type="file"
 								name="uploadBtn" multiple style="display: none;">
