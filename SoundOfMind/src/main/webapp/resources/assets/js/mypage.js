@@ -1,121 +1,30 @@
-/* 회원탈퇴  */
-function deletemem() {
-	swal({
-		title:"회원 탈퇴",
-		text:"정말로 탈퇴하시겠습니까?",
-		icon:"warning",
-		showCancleButton:true,
-		confirmButtonColor:"#3085d6",
-		cancelButtonColor:"#d33",
-		confirmButtonText:"탈퇴",
-		cancleButtonText:"취소"
-	}).then((result) => {
-		if(result.value){
-			return "mypage.do";
-		}else{
-			location.replace("delete.do?id=${user.id}")
-			return "delete.do";
-		}
-	})
-}
-
-
-/* 이미지 출력 */
-function showUploadImage(uploadResultArr) {
-	console.log("showUploadImage");
-	/* 전달받은 데이터 검증 */
-	if (!uploadResultArr || uploadResultArr.length == 0) {
-		return
+/*회원정보보기 클릭하면 회원정보 나오는 js*/
+$('#membtn').click(function(){
+	if($("#meminfo").css("display")=="none"){
+		$('#meminfo').show();	
+	}else{
+		$('#meminfo').hide();
 	}
-
-	/* var uploadResult = $("#uploadResult"); */
-
-	var obj = uploadResultArr[0];
-
-	var fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_"
-		+ obj.uuid + "_" + obj.fileName;
-	$.ajax({
-		url: "profilePath",
-		type: "post",
-		data: {
-			profile: fileCallPath,
-			id: `${user.id}`,
-		},
-		success: function(res) {
-			console.log("주소보내기" + res);
-			$('.profileImg').remove()
-			$('.uploadResult').append("<div id='result_card'></div>")
-			$('.uploadResult').last().append(
-				"<img src='/display?fileName=" + res
-				+ "'class='profileImg'>")
-		},
-		error: function(e) {
-			console.log(e);
-		}
-
-	});
-
-
-
-
-}
-
-
-
-/*var cloneOjb=$(".uploadDiv").clone();
-이미지 업로드*/
-
-$("input[type='file']").on("change", function(e) {
-
-
-	var formData = new FormData();
-	var inputFile = $("input[name='uploadBtn']");
-	var fileList = inputFile[0].files;
-	var fileObj = fileList[0];
-
-
-	formData.append("uploadFile", fileObj);
-
-	$.ajax({
-		url: '/uploadAjaxAction',
-		processData: false,
-		contentType: false,
-		data: formData,
-		type: "POST",
-		dataType: 'json',
-		success: function(result) {
-			console.log('ajax' + result);
-			showUploadImage(result);
-
-		},
-		error: function(result) {
-			alert("이미지 파일이 아닙니다.")
-		}
-	});/*ajax 끝부분*/
-
-});/*on.change 끝부분 */
-
-/*파일 확장자제한, 파일 사이즈 제한*/
-var regex = new RegExp("(.*?)\.(jpg|png)$");
-var maxSize = 5242880; /*5MB*/
-
-function fileCheck(fileName, fileSize) {
-	if (fileSize >= maxSize) {
-		alert("파일 사이즈 초과");
-		return false;
+	
+});
+/*나의감정보기 클릭하면 감정 나오는 js*/
+$('#myemotion').click(function(){
+	if($("#mememotion").css("display")=="none"){
+		$('#mememotion').show();	
+	}else{
+		$('#mememotion').hide();
 	}
-	if (!regex.test(fileName)) {
-		alert("허용되지 않는 확장자");
-		return false;
+	
+});
+/*내게시글보기 클릭하면 내가쓴 게시글 나오는 js*/
+$('#myboard').click(function(){
+	if($("#memboard").css("display")=="none"){
+		$('#memboard').show();	
+	}else{
+		$('#memboard').hide();
 	}
-	return true;
-}
-
-
-
-/* 여기까지 내가 추가 한 코드 */
-
-
+	
+});
 
 (function($) {
 

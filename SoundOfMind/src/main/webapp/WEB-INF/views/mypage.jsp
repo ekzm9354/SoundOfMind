@@ -55,26 +55,34 @@
 					<section id="banner">
 						<div class="content">
 							<header>
-								<h1 style="text-align: center;">프로필</h1>
+								<h1 class="style-3" style="text-align:center;">프로필</h1>
 
 							</header>
 							<div class="uploadResult">
 								<img src='/display?fileName=${profile_s}' class='profileImg'>
 							</div>
-							<!-- 	<div class="uploadDiv">
-								<input class="upload-name" value="첨부파일" placeholder="첨부파일">
-								<label for="file">파일찾기</label>
-								<input type="file" name="uploadFile" multiple id="file">
-								<label id="uploadBtn">프로필 등록</label>
-							</div> -->
-
+							
+							<label class="uploadDiv">
+								프로필 변경
+								<input type="file" name="uploadBtn" multiple style="display:none;">
 							<label class="uploadDiv"> 프로필 변경 <input type="file"
 								name="uploadBtn" multiple style="display: none;">
 
 							</label>
 							<p class="userId">${user.id}님</p>
 
-							<table class="type03">
+							<hr class="hr1"> <!-- 구분선  -->
+							
+						
+						<div class="mypagebox">
+						<button class="btm_image" id="membtn"><img class ="mypageicon" src="/resources/images/user.png">회원정보 보기</button>
+						<button class="btm_image" id="myboard"><img class ="mypageicon" src="/resources/images/board.png">내 게시글 보기</button>
+						<button class="btm_image" id="myemotion"><img class ="mypageicon" src="/resources/images/emo.png">나의 감정 보기</button>
+						<button class="deletebtn" type="button"><img class ="mypageicon" src="/resources/images/deleteme.png">회원탈퇴 하기</button>
+						</div>
+							<!--회원정보 나타나는 칸  -->
+							<div id="meminfo">
+							<table class="type03" >
 								<tr>
 									<th scope="row">아이디</th>
 									<td>${user.id}</td>
@@ -84,22 +92,28 @@
 									<td>${user.name}</td>
 								</tr>
 							</table>
+							</div>
+							<!--감정 나타나는 칸  -->
+							<div id="mememotion">
 							<table class="type03">
 								<tr>
-									<th scope="row">번호</th>
+									<td scope="row">번호</td>
 									<td>날짜</td>
 									<td>내용</td>
 									<td>감정</td>
 								</tr>
 								<c:forEach var="emotion" items="${emotion}">
 									<tr>
-										<th scope="row">${emotion.rownum}</th>
+										<td scope="row">${emotion.rownum}</td>
 										<td>${emotion.date}</td>
 										<td>${emotion.text}</td>
 										<td>${emotion.emotions}</td>
 									</tr>
 								</c:forEach>
 							</table>
+							</div>
+							<!--내가 쓴 게시글 목록 보는 칸-->
+							<div id="memboard">
 							<table class="type03">
 								<tr>
 									<th scope="row">번호</th>
@@ -118,7 +132,8 @@
 									</tr>
 								</c:forEach>
 							</table>
-							<button class="deletebtn" type="button" onclick="deletemem()">탈퇴하기</button>
+							</div>
+							
 						</div>
 
 					</section>
@@ -151,9 +166,10 @@
 								</ul></li>
 							<li><a href="mypage.do">프로필</a></li>
 							<li><a href="sendFeedback.do">의견 보내기</a></li>
-							<li><a href="socket">Web Socket</a></li>
+							<li><a href="socket">그룹 채팅</a></li>
 						</ul>
 					</nav>
+				
 
 				</div>
 			</div>
@@ -167,9 +183,126 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script>
+	/* 이미지 출력 */
+	function showUploadImage(uploadResultArr) {
+		console.log("showUploadImage");
+		/* 전달받은 데이터 검증 */
+		if (!uploadResultArr || uploadResultArr.length == 0) {
+			return
+		}
+
+		/* var uploadResult = $("#uploadResult"); */
+
+		var obj = uploadResultArr[0];
+
+		var fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_"
+			+ obj.uuid + "_" + obj.fileName;
+		$.ajax({
+			url: "profilePath",
+			type: "post",
+			data: {
+				profile: fileCallPath,
+				id: `${user.id}`,
+			},
+			success: function(res) {
+				console.log("주소보내기" + res);
+				$('.profileImg').remove()
+				$('.uploadResult').append("<div id='result_card'></div>")
+				$('.uploadResult').last().append(
+					"<img src='/display?fileName=" + res
+					+ "'class='profileImg'>")
+			},
+			error: function(e) {
+				console.log(e);
+			}
+
+		});
 
 
 
+
+	}
+
+</script>
+<script>
+	/*var cloneOjb=$(".uploadDiv").clone();
+	이미지 업로드*/
+
+	$("input[type='file']").on("change", function(e) {
+
+
+		var formData = new FormData();
+		var inputFile = $("input[name='uploadBtn']");
+		var fileList = inputFile[0].files;
+		var fileObj = fileList[0];
+
+
+		formData.append("uploadFile", fileObj);
+
+		$.ajax({
+			url: '/uploadAjaxAction',
+			processData: false,
+			contentType: false,
+			data: formData,
+			type: "POST",
+			dataType: 'json',
+			success: function(result) {
+				console.log('ajax' + result);
+				showUploadImage(result);
+
+			},
+			error: function(result) {
+				alert("이미지 파일이 아닙니다.")
+			}
+		});//ajax 끝부분
+
+	});//on.change 끝부분
+	</script>
+	
+<script>
+	//파일 확장자제한, 파일 사이즈 제한
+	var regex = new RegExp("(.*?)\.(jpg|png)$");
+	var maxSize = 5242880; //5MB
+
+	function fileCheck(fileName, fileSize) {
+		if (fileSize >= maxSize) {
+			alert("파일 사이즈 초과");
+			return false;
+		}
+		if (!regex.test(fileName)) {
+			alert("허용되지 않는 확장자");
+			return false;
+		}
+		return true;
+	}
+
+</script>
+	
+<script type="text/javascript">
+	$(".deletebtn").click(function(){
+		
+	swal({
+		title:'회원 탈퇴',
+		text:'정말로 탈퇴하시겠습니까?',
+		icon:'warning',
+		buttons:["취소","탈퇴"],
+		dangerMode: "탈퇴",
+		
+	}).then(result=>{
+		if(result){
+			swal('탈퇴 되었습니다.',{icon:'success'});
+			location.replace('delete.do?id=${user.id}')
+			return 'delete.do';
+		}else{
+			return 'mypage.do';
+		}
+		
+	})
+	})
+
+</script>
+	
 
 
 </body>

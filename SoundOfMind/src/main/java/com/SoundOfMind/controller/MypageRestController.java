@@ -161,36 +161,7 @@ public class MypageRestController {
 		return result;
 	}
 
-	@PostMapping("deleteFile")
-	@ResponseBody
-	public ResponseEntity<String> deleteFile(String fileName) {
-		Log.info("deleteFile--------" + fileName);
-		File file = null;
-		try {
-			/* 썸네일 파일 삭제 */
-			file = new File("c:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
-
-			file.delete();
-
-			/* 원본 파일 삭제 */
-			String originFileName = file.getAbsolutePath().replaceFirst("s_", "");
-
-			Log.info("originFileName : " + originFileName);
-
-			file = new File(originFileName);
-
-			file.delete();
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			return new ResponseEntity<String>("fail", HttpStatus.NOT_IMPLEMENTED);
-
-		} // catch
-		return new ResponseEntity<String>("success", HttpStatus.OK);
-	}
-
+	
 	@RequestMapping("/profilePath")
 	public @ResponseBody String profile_up(String profile, String id) {
 		System.out.println(profile);

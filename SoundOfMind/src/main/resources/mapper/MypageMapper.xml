@@ -14,10 +14,10 @@
 		MEMBER_INFO set PROFILE = #{profile} where id=#{id}
 	</update>
 
-	<select id="profile_save" parameterType="String"
-		resultType="String">
+	<select id="profile_save" parameterType="String" resultType="String">
 		select PROFILE from MEMBER_INFO where id=#{id}
 	</select>
+	
 
 	<select id="mycomushow" parameterType="String"
 		resultType="com.SoundOfMind.domain.Storege">
