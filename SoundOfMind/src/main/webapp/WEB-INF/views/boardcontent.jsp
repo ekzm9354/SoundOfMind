@@ -260,7 +260,10 @@ pageContext.setAttribute("replaceChar", "\n");
 				})
 			}else{
 				if(coments==''){
-					alert('내용을 입력해주세요')
+					swal({
+						  icon: 'warning',                  
+						  title: '내용을 입력해주세요'
+						})
 				}else{
 			$.ajax({
 				url : "coment.do",
@@ -277,7 +280,6 @@ pageContext.setAttribute("replaceChar", "\n");
 						 text: '', 
 						 button: '확인'
 					}).then(result=>{
-						
 					console.log(res)
 					window.location.reload();
 					})
