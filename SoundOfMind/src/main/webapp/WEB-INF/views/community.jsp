@@ -115,7 +115,7 @@
 				<c:choose>
 					<c:when test="${user==null && Kakao == null && Naver == null}">
 						<a href="login.do"><img src="/resources/assets/img/write2.png"
-							style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;"></a>
+							style="width: 40px; display: block; margin-top: 13px; margin-left: 65%;"></a>
 					</c:when>
 					<c:otherwise>
 						<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
