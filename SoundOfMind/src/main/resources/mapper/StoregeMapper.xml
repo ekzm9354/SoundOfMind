@@ -35,4 +35,12 @@
 		STOREGE(DATE,TITLE,CONTENT,ID)
 		VALUES(now(),#{title},#{content},#{id})
 	</insert>
+	<select id="search" parameterType="String"
+		resultType="com.SoundOfMind.domain.Storege">
+		SELECT @rownum:=@rownum+1 as rownum, S.*
+		FROM (SELECT
+		TITLE,DATE,CLICK,ID FROM STOREGE WHERE (@rownum:=0)=0 AND
+		TITLE LIKE
+		'%${search}%' ORDER BY DATE DESC) S
+	</select>
 </mapper>
