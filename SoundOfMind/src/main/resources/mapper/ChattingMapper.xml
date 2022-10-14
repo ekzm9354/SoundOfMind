@@ -8,8 +8,7 @@
 		FROM CHATTING
 		WHERE FROM_ID = #{from_id} AND TO_ID =
 		#{to_id} OR FROM_ID = #{to_id} AND TO_ID=#{from_id}
-		ORDER BY DATE
-		DESC;
+		ORDER BY DATE ASC;
 	</select>
 	<select id="chatlist" parameterType="String"
 		resultType="com.SoundOfMind.domain.Chatting">
