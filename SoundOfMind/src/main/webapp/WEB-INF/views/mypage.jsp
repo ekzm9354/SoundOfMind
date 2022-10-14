@@ -55,84 +55,96 @@
 					<section id="banner">
 						<div class="content">
 							<header>
-								<h1 class="style-3" style="text-align:center;">프로필</h1>
+								<h1 class="style-3" style="text-align: center;">프로필</h1>
 
 							</header>
 							<div class="uploadResult">
 								<img src='/display?fileName=${profile_s}' class='profileImg'>
 							</div>
-							
-						
-							<label class="uploadDiv"> 
-							프로필 변경 
-							<input type="file" name="uploadBtn" multiple style="display: none;">
+
+
+							<label class="uploadDiv"> 프로필 변경 <input type="file"
+								name="uploadBtn" multiple style="display: none;">
 							</label>
 							<p class="userId">${user.id}님</p>
 
-							<hr class="hr1"> <!-- 구분선  -->
-							
-						
-						<div class="mypagebox">
-						<button class="btm_image" id="membtn"><img class ="mypageicon" src="/resources/images/user.png">회원정보 보기</button>
-						<button class="btm_image" id="myboard"><img class ="mypageicon" src="/resources/images/board.png">내 게시글 보기</button>
-						<button class="btm_image" id="myemotion"><img class ="mypageicon" src="/resources/images/emo.png">나의 감정 보기</button>
-						<button class="deletebtn" type="button"><img class ="mypageicon" src="/resources/images/deleteme.png">회원탈퇴 하기</button>
-						</div>
+							<hr class="hr1">
+							<!-- 구분선  -->
+
+
+							<div class="mypagebox">
+								<button class="btm_image" id="membtn">
+									<img class="mypageicon" src="/resources/images/user.png">회원정보
+									보기
+								</button>
+								<button class="btm_image" id="myboard">
+									<img class="mypageicon" src="/resources/images/board.png">내
+									게시글 보기
+								</button>
+								<button class="btm_image" id="myemotion">
+									<img class="mypageicon" src="/resources/images/emo.png">나의
+									감정 보기
+								</button>
+								<button class="deletebtn" type="button">
+									<img class="mypageicon" src="/resources/images/deleteme.png">회원탈퇴
+									하기
+								</button>
+							</div>
 							<!--회원정보 나타나는 칸  -->
 							<div id="meminfo">
-							<table class="type03" >
-								<tr>
-									<th scope="row">아이디</th>
-									<td>${user.id}</td>
-								</tr>
-								<tr>
-									<th scope="row">이름</th>
-									<td>${user.name}</td>
-								</tr>
-							</table>
+								<table class="type03">
+									<tr>
+										<th scope="row">아이디</th>
+										<td>${user.id}</td>
+									</tr>
+									<tr>
+										<th scope="row">이름</th>
+										<td>${user.name}</td>
+									</tr>
+								</table>
 							</div>
 							<!--감정 나타나는 칸  -->
 							<div id="mememotion">
-							<table class="type03">
-								<tr>
-									<td scope="row">번호</td>
-									<td>날짜</td>
-									<td>내용</td>
-									<td>감정</td>
-								</tr>
-								<c:forEach var="emotion" items="${emotion}">
+								<table class="type03">
 									<tr>
-										<td scope="row">${emotion.rownum}</td>
-										<td>${emotion.date}</td>
-										<td>${emotion.text}</td>
-										<td>${emotion.emotions}</td>
+										<td scope="row">번호</td>
+										<td>날짜</td>
+										<td>내용</td>
+										<td>감정</td>
 									</tr>
-								</c:forEach>
-							
-							</table>
+									<c:forEach var="emotion" items="${emotion}">
+										<tr>
+											<td scope="row">${emotion.rownum}</td>
+											<td>${emotion.date}</td>
+											<td>${emotion.text}</td>
+											<td>${emotion.emotions}</td>
+										</tr>
+									</c:forEach>
+
+								</table>
 							</div>
 							<!--내가 쓴 게시글 목록 보는 칸-->
 							<div id="memboard">
-							<table class="type03">
-								<tr>
-									<th scope="row">번호</th>
-									<td>제목</td>
-									<td>날짜</td>
-									<td>조회수</td>
-									<td>아이디</td>
-								</tr>
-								<c:forEach var="storege" items="${storege}">
+								<table class="type03">
 									<tr>
-										<th scope="row">${storege.rownum}</th>
-										<td>${storege.title}</td>
-										<td>${storege.date}</td>
-										<td>${storege.click}</td>
-										<td>${storege.id}</td>
+										<th scope="row">번호</th>
+										<td>제목</td>
+										<td>날짜</td>
+										<td>조회수</td>
+										<td>아이디</td>
 									</tr>
-								</c:forEach>
-							</table>
+									<c:forEach var="storege" items="${storege}">
+										<tr>
+											<th scope="row">${storege.rownum}</th>
+											<td>${storege.title}</td>
+											<td>${storege.date}</td>
+											<td>${storege.click}</td>
+											<td>${storege.id}</td>
+										</tr>
+									</c:forEach>
+								</table>
 							</div>
-							
+
 						</div>
 
 					</section>
@@ -168,7 +180,7 @@
 							<li><a href="socket">그룹 채팅</a></li>
 						</ul>
 					</nav>
-				
+
 
 				</div>
 			</div>
@@ -180,9 +192,9 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/mypage.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script>
+	<script>
 	/* 이미지 출력 */
 	function showUploadImage(uploadResultArr) {
 		console.log("showUploadImage");
@@ -224,7 +236,7 @@
 	}
 
 </script>
-<script>
+	<script>
 	/*var cloneOjb=$(".uploadDiv").clone();
 	이미지 업로드*/
 
@@ -258,8 +270,8 @@
 
 	});//on.change 끝부분
 	</script>
-	
-<script>
+
+	<script>
 	//파일 확장자제한, 파일 사이즈 제한
 	var regex = new RegExp("(.*?)\.(jpg|png)$");
 	var maxSize = 5242880; //5MB
@@ -277,10 +289,10 @@
 	}
 
 </script>
-	
 
 
-<script type="text/javascript">
+
+	<script type="text/javascript">
 	$(".deletebtn").click(function(){
 		
 	swal({
@@ -303,7 +315,7 @@
 	})
 
 </script>
-	
+
 
 
 </body>

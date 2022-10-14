@@ -21,6 +21,7 @@ import com.SoundOfMind.domain.Member;
 import com.SoundOfMind.domain.Storege;
 import com.SoundOfMind.mapper.ChattingMapper;
 import com.SoundOfMind.mapper.ComentMapper;
+import com.SoundOfMind.mapper.MemberMapper;
 import com.SoundOfMind.mapper.StoregeMapper;
 
 @Controller
@@ -32,6 +33,8 @@ public class ComunityRestController {
 	private ComentMapper cmapper;
 	@Autowired
 	private StoregeMapper Smapper;
+	@Autowired
+	private MemberMapper mapper;
 
 //	 대화 불러오기
 	@GetMapping("/ShowChat.do")
@@ -87,7 +90,10 @@ public class ComunityRestController {
 		System.out.println(to_id);
 		System.out.println(from_id);
 		System.out.println(chat);
-		Cmapper.ToMessage(to_id, from_id, chat);
+		int idCheck = mapper.idCheck(from_id);
+		if (idCheck > 0) {
+			Cmapper.ToMessage(to_id, from_id, chat);
+		}
 	}
 
 //	게시판검색

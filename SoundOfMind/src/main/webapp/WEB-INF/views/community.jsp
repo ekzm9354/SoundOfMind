@@ -291,17 +291,20 @@
 						chat : chat
 					},
 					type : "GET",
-					success : function() {
+					success : function(res) {
+						if(res==''){
+							alert('없는 아이디입니다')
+						}else{
 						swal({
 							  icon: 'success',                  
 							  title: '전송 완료',    
 							  text: '메세지가 전송되었습니다.', 
 							}).then(result=>{
-						console.log('success')
 						$('#demo-name').val('')
 						$('#messegeId').val('')
 						location.reload()
 							})
+						}
 					},
 					error : function() {
 						console.log('fail')
