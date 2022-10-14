@@ -109,6 +109,7 @@
 										<td>${emotion.emotions}</td>
 									</tr>
 								</c:forEach>
+							
 							</table>
 							</div>
 							<!--내가 쓴 게시글 목록 보는 칸-->
