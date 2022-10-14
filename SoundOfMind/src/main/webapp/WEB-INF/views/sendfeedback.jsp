@@ -124,6 +124,7 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		function speaker() {
 			$.ajax({
@@ -142,29 +143,47 @@
 		}
 	</script>
 	<script type="text/javascript">
+	$('.demo-copy').click(function(){
+		var check = $('input[name==demo-copy]').attr('value',1)
+		console.log(check)
+	})
+	</script>
+	<script type="text/javascript">
 		function SendFeedback() {
 			var email = $('.email').val()
 			var title = $('.title').val()
 			var text = $('.text').val()
 
-			$.ajax({
-				url : "feedback.do",
-				data : {
-					email : email,
-					title : title,
-					text : text
-				},
-				type : "POST",
-				success : function() {
-					alert('전송되었습니다')
-					$('.email').val('')
-					$('.title').val('')
-					$('.text').val('')
-				},
-				error : function(e) {
-					console.log(e)
-				}
-			})
+			if (email == '' || title == '' || text == '') {
+				alert('미입력된 항목이 있습니다')
+			} else {
+				$.ajax({
+					url : "feedback.do",
+					data : {
+						email : email,
+						title : title,
+						text : text
+					},
+					type : "POST",
+					success : function() {
+						swal({
+							title : '전송되었습니다.',
+							showClass : {
+								popup : 'animate__animated animate__fadeInDown'
+							},
+							hideClass : {
+								popup : 'animate__animated animate__fadeOutUp'
+							}
+						})
+						$('.email').val('')
+						$('.title').val('')
+						$('.text').val('')
+					},
+					error : function(e) {
+						console.log(e)
+					}
+				})
+			}
 		}
 	</script>
 

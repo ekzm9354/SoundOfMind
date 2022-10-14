@@ -136,7 +136,10 @@ pageContext.setAttribute("replaceChar", "\n");
 									<p class="${status.index}"
 										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
 									<p
-										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p></li>
+										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p>
+									<p
+										style="width: 30px; text-align: right; display: inline-block; font-size: 13px;" id="${status.index}"></p>
+								</li>
 							</ul>
 							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
@@ -246,6 +249,9 @@ pageContext.setAttribute("replaceChar", "\n");
 			console.log(coments)
 			var id = `${user.id}`
 			console.log(id)
+			if(id==''){
+				alert('로그인이 필요합니다')
+			}else{
 			$.ajax({
 				url : "coment.do",
 				type : "POST",
@@ -263,6 +269,7 @@ pageContext.setAttribute("replaceChar", "\n");
 					console.log(e)
 				}
 			})
+			}
 		}
 	</script>
 	<script type="text/javascript">
@@ -271,13 +278,18 @@ pageContext.setAttribute("replaceChar", "\n");
 		var coment = $('.'+index).text()
 		console.log(coment)
 		$.ajax({
-			url:"http://6228-35-227-116-237.ngrok.io/",
+			url:"http://dcfa-34-66-106-62.ngrok.io/",
 			data:{
-				coment:coment
+				'coment':coment
 			},
+			headers:{
+				"ngrok-skip-browser-warning":"12345",
+			},
+			dataType:'text',
 			type:"GET",
 			success:function(res){
 				console.log(res)
+				$('#'+index).append(res)
 				
 			},
 			error:function(e){

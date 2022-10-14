@@ -272,7 +272,7 @@
 		function ToMessage(to_id) {
 			var from_id = $('#messegeId').val()
 			var chat = $('#demo-name').val()
-			if (to_id == '') {
+			if(to_id == '') {
 				alert('로그인이 필요합니다')
 				location.href = "http://localhost:8085/login.do"
 			} else {
