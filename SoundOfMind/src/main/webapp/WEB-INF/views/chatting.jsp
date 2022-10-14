@@ -21,7 +21,7 @@
 
 <style type="text/css">
 img {
-	width:40px;
+	width: 40px;
 }
 </style>
 
@@ -38,8 +38,7 @@ img {
 			<div class="inner">
 				<!-- Header -->
 				<header id="header">
-					<a href="index.do" class="logo"><strong>마음의</strong> 소리
-					</a>
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
 						<c:if test="${user==null && Kakao == null && Naver == null}">
 							<li><a href="login.do"><span class="label">로그인</span></a></li>
@@ -61,8 +60,8 @@ img {
 					</ul>
 
 				</header>
-				
-				
+
+
 				<table class="test">
 					<tr class="rowMain">
 					</tr>
@@ -87,7 +86,8 @@ img {
 									</div>
 								</div>
 								<div class="inbox_chat">
-									<c:forEach var="chatlist" items="${chatlist}">
+									<c:forEach var="chatlist" items="${chatlist}"
+										varStatus="status">
 										<div class="chat_list">
 											<div class="chat_people">
 												<div class="chat_img">
@@ -96,7 +96,8 @@ img {
 												</div>
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
 													<h5 class="whoChat">${chatlist.to_id}</h5>
-													<div style="display: none" class="deleteDiv">
+													<div style="display: none"
+														class="deleteDiv ${status.index}">
 														<h5 class="delete"
 															onclick="deleteChat(`${chatlist.to_id}`)">나가기</h5>
 													</div>
@@ -113,165 +114,163 @@ img {
 								<div class="msg_history"></div>
 								<div class="type_msg">
 									<div class="input_msg_write">
-										<input type="text" class="write_msg"
-											placeholder="메세지를 입력하세요" />
-										<ion-icon name="chatbox-ellipses-outline" size="large" class="msg_send_btn" onclick="ChatSend()"></ion-icon>
+										<input type="text" class="write_msg" placeholder="메세지를 입력하세요" />
+										<ion-icon name="chatbox-ellipses-outline" size="large"
+											class="msg_send_btn" onclick="ChatSend()"></ion-icon>
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
-				</div>	
-					
-					
-			</div>		
+				</div>
+
+
+			</div>
 		</div>
-	</div>			
-					
-					
-<script type="text/javascript">
-	function deleteChat(to_id) {
-		console.log(to_id)
-		$.ajax({
-			url : "deleteChat.do",
-			type : "GET",
-			data : {
-				to_id : to_id,
-			},
-			success : function(cnt) {
-				console.log(cnt)
-				if (cnt > 0) {
-					window.location.reload();
+	</div>
+
+
+	<script type="text/javascript">
+		function deleteChat(to_id) {
+			console.log(to_id)
+			$.ajax({
+				url : "deleteChat.do",
+				type : "GET",
+				data : {
+					to_id : to_id,
+				},
+				success : function(cnt) {
+					console.log(cnt)
+					if (cnt > 0) {
+						window.location.reload();
+					}
+				},
+				error : function(e) {
+					console.log(e)
 				}
-			},
-			error : function(e) {
-				console.log(e)
-			}
-		})
-	}
-</script>
-<script type="text/javascript">
-	function toggle() {
-		$('.deleteDiv').slideToggle()
-	}
-</script>
-<script type="text/javascript">
-	$('.whoChat').click(function() {
-		var whochat = $(this).text()
-		$.ajax({
-			url : "whoChat.do",
-			data : {
-				whochat : whochat
-			},
-			success : function(who) {
-				console.log(who)
-				$('.who').html(who)
-			},
-			error : function(e) {
-				console.log(e)
-			}
-		})
+			})
+		}
+	</script>
+	<script type="text/javascript">
+		function toggle(){
+			$('.'+${status.index}).slideToggle()
+		}
+	</script>
+	<script type="text/javascript">
+		$('.whoChat').click(function() {
+			var whochat = $(this).text()
+			$.ajax({
+				url : "whoChat.do",
+				data : {
+					whochat : whochat
+				},
+				success : function(who) {
+					console.log(who)
+					$('.who').html(who)
+				},
+				error : function(e) {
+					console.log(e)
+				}
+			})
 
-	})
-</script>
-<script type="text/javascript">
-	function ShowChat(to_id) {
-		$
-				.ajax({
-					url : "ShowChat.do",
-					type : "GET",
-					dataType : "json",
-					data : {
-						to_id : to_id
-					},
-					success : function(res) {
-						$('.incoming_msg').remove()
-						$('.outgoing_msg').remove()
-						for (var i = 0; i < res.length; i++) {
-							if (res[i].to_id == to_id) {
-								$('.msg_history')
-										.prepend(
-												"<div class='incoming_msg'><div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
-														+ res[i].chat
-														+ "</p><span class='time_date'>"
-														+ res[i].date
-														+ "</span></div></div></div>")
+		})
+	</script>
+	<script type="text/javascript">
+		function ShowChat(to_id) {
+			$
+					.ajax({
+						url : "ShowChat.do",
+						type : "GET",
+						dataType : "json",
+						data : {
+							to_id : to_id
+						},
+						success : function(res) {
+							$('.incoming_msg').remove()
+							$('.outgoing_msg').remove()
+							for (var i = 0; i < res.length; i++) {
+								if (res[i].to_id == to_id) {
+									$('.msg_history')
+											.prepend(
+													"<div class='incoming_msg'><div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
+															+ res[i].chat
+															+ "</p><span class='time_date'>"
+															+ res[i].date
+															+ "</span></div></div></div>")
 
-							} else {
-								$('.incoming_msg')
-										.last()
-										.append(
-												"<div class='outgoing_msg'><div class='sent_msg'><p>"
-														+ res[i].chat
-														+ "</p><span class='time_date'>"
-														+ res[i].date
-														+ "</span></div></div>")
+								} else {
+									$('.incoming_msg')
+											.last()
+											.append(
+													"<div class='outgoing_msg'><div class='sent_msg'><p>"
+															+ res[i].chat
+															+ "</p><span class='time_date'>"
+															+ res[i].date
+															+ "</span></div></div>")
+								}
 							}
+
+						},
+						error : function(e) {
+							console.log(e)
 						}
+					})
+		}
+	</script>
 
-					},
-					error : function(e) {
-						console.log(e)
-					}
-				})
-	}
-</script>
+	<script type="text/javascript">
+		function ChatSend() {
+			var chat = $('.write_msg').val()
+			var to_id = `${user.id}`
+			var from_id = $('.who').text()
+			console.log('from_id', from_id)
 
-<script type="text/javascript">
-	function ChatSend() {
-		var chat = $('.write_msg').val()
-		var to_id = `${user.id}`
-		var from_id = $('.who').text()
-		console.log('from_id', from_id)
+			$
+					.ajax({
+						url : "ChatSend.do",
+						type : "POST",
+						data : {
+							to_id : to_id,
+							from_id : from_id,
+							chat : chat
+						},
+						success : function(res) {
+							if (res > 0) {
+								console.log('성공하였습니다')
+								$
+										.ajax({
+											url : "ResentChat.do",
+											type : "GET",
+											data : {
+												from_id : from_id,
+											},
+											dataType : "json",
+											success : function(resent) {
+												console.log('1')
+												$('.incoming_msg')
+														.last()
+														.append(
+																"<div class='outgoing_msg'><div class='sent_msg'><p>"
+																		+ resent[0].chat
+																		+ "</p><span class='time_date'>"
+																		+ resent[0].date
+																		+ "</span></div></div>")
+																		$('.write_msg').val('')
 
-		$
-				.ajax({
-					url : "ChatSend.do",
-					type : "POST",
-					data : {
-						to_id : to_id,
-						from_id : from_id,
-						chat : chat
-					},
-					success : function(res) {
-						if (res > 0) {
-							console.log('성공하였습니다')
-							$
-									.ajax({
-										url : "ResentChat.do",
-										type : "GET",
-										data : {
-											from_id : from_id,
-										},
-										dataType : "json",
-										success : function(
-												resent) {
-											console
-													.log('1')
-											$(
-													'.incoming_msg')
-													.last()
-													.append(
-															"<div class='outgoing_msg'><div class='sent_msg'><p>"
-																	+ resent[0].chat
-																	+ "</p><span class='time_date'>"
-																	+ resent[0].date
-																	+ "</span></div></div>")
+											},
+											error : function(e) {
+												console.log(e)
+											}
 
-										},
-										error : function(e) {
-											console.log(e)
-										}
-
-									})
+										})
+							}
+						},
+						error : function(e) {
+							console.log(e)
 						}
-					},
-					error : function(e) {
-						console.log(e)
-					}
-				})
-	}
-</script>
+					})
+		}
+	</script>
 </body>
 </html>
