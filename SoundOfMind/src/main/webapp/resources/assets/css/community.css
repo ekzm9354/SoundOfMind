@@ -18,6 +18,9 @@
     font-family: 'NanumSquare';
 }
 
+td{
+	cursor:pointer;
+}
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -1481,10 +1484,11 @@ table {
     padding: 0.75em 0.75em; }
   table th {
     color: #3d4449;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 600;
-    padding: 0 0.75em 0.75em 0.75em;
-    text-align: center; }
+    padding: 0.75em 0.75em 0.75em 0.75em;
+    text-align: center;
+    }
   table thead {
     border-bottom: solid 2px rgba(210, 215, 217, 0.75); }
   table tfoot {

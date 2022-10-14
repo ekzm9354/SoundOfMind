@@ -136,7 +136,10 @@ pageContext.setAttribute("replaceChar", "\n");
 									<p class="${status.index}"
 										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
 									<p
-										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p></li>
+										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p>
+									<p
+										style="width: 30px; text-align: right; display: inline-block; font-size: 13px;" id="${status.index}"></p>
+								</li>
 							</ul>
 							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
@@ -234,6 +237,8 @@ pageContext.setAttribute("replaceChar", "\n");
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		
 	<script type="text/javascript">
 		function board(s_index) {
 			location.href = "board.do?s_index=" + s_index
@@ -247,7 +252,12 @@ pageContext.setAttribute("replaceChar", "\n");
 			var id = `${user.id}`
 			console.log(id)
 			if(id==''){
-				alert('로그인이 필요합니다')
+				swal({
+					icon: 'warning',                  
+					 title: '로그인이 필요합니다.',    
+					 text: '', 
+					 button: '확인'
+				})
 			}else{
 			$.ajax({
 				url : "coment.do",
@@ -258,8 +268,16 @@ pageContext.setAttribute("replaceChar", "\n");
 					id : id
 				},
 				success : function(res) {
+					swal({
+						icon: 'success',                  
+						 title: '댓글 작성이 완료되었습니다.',    
+						 text: '', 
+						 button: '확인'
+					}).then(result=>{
+						
 					console.log(res)
 					window.location.reload();
+					})
 
 				},
 				error : function(e) {
@@ -275,13 +293,18 @@ pageContext.setAttribute("replaceChar", "\n");
 		var coment = $('.'+index).text()
 		console.log(coment)
 		$.ajax({
-			url:"http://6228-35-227-116-237.ngrok.io/",
+			url:"http://dcfa-34-66-106-62.ngrok.io/",
 			data:{
-				coment:coment
+				'coment':coment
 			},
+			headers:{
+				"ngrok-skip-browser-warning":"12345",
+			},
+			dataType:'text',
 			type:"GET",
 			success:function(res){
 				console.log(res)
+				$('#'+index).append(res)
 				
 			},
 			error:function(e){
