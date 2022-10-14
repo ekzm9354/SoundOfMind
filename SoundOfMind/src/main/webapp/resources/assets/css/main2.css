@@ -1139,7 +1139,7 @@ input[type="radio"] {
       width: 2.0625em; }
   input[type="checkbox"]:checked + label:before,
   input[type="radio"]:checked + label:before {
-    background: #3d4449;
+    background: #6495ED;
     border-color: #3d4449;
     color: #ffffff;
     content: '\f00c'; }
@@ -1499,7 +1499,7 @@ button,
   border-radius: 0.375em;
   border: 0;
   box-shadow: inset 0 0 0 2px #6495ED;
-  color: #6495ED !important;
+  color: #6495ED ;
   cursor: pointer;
   display: inline-block;
   font-family: 'NanumSquare';

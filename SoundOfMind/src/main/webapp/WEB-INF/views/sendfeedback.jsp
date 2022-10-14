@@ -143,6 +143,12 @@
 		}
 	</script>
 	<script type="text/javascript">
+		$('.demo-copy').click(function() {
+			var check = $('input[name==demo-copy]').attr('value', 1)
+			console.log(check)
+		})
+	</script>
+	<script type="text/javascript">
 		function SendFeedback() {
 			var email = $('.email').val()
 			var title = $('.title').val()
@@ -150,38 +156,45 @@
 			var check = $('#demo-copy').is(':checked')
 			if (check == true) {
 				if (email == '' || title == '' || text == '') {
-					alert('미입력된 항목이 있습니다')
+					swal({
+						icon : 'warning',
+						title : '미입력된 항목이 있습니다.',
+						text : '이메일,제목,내용을 입력해주세요.',
+						button : '확인'
+					})
 				} else {
-					$
-							.ajax({
-								url : "feedback.do",
-								data : {
-									email : email,
-									title : title,
-									text : text
-								},
-								type : "POST",
-								success : function() {
-									swal({
-										title : '전송되었습니다.',
-										showClass : {
-											popup : 'animate__animated animate__fadeInDown'
-										},
-										hideClass : {
-											popup : 'animate__animated animate__fadeOutUp'
-										}
-									})
-									$('.email').val('')
-									$('.title').val('')
-									$('.text').val('')
-								},
-								error : function(e) {
-									console.log(e)
-								}
+					$.ajax({
+						url : "feedback.do",
+						data : {
+							email : email,
+							title : title,
+							text : text
+						},
+						type : "POST",
+						success : function() {
+							swal({
+								icon : 'success',
+								title : '작성 완료',
+								text : '소중한 의견 감사합니다.',
+								button : '확인'
 							})
+							$('.email').val('')
+							$('.title').val('')
+							$('.text').val('')
+						},
+						error : function(e) {
+							console.log(e)
+						}
+					})
 				}
-			}else{
-				alert('개인정보 수집에 동의해주세요')
+			} else {
+				swal({
+					icon : 'warning',
+					title : '',
+					text : '개인정보 수집에 동의해주세요.',
+					button : '확인'
+				})
+
 			}
 		}
 	</script>
