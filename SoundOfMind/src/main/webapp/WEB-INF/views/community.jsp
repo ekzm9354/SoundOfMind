@@ -103,10 +103,11 @@
 				<!-- 상단 메뉴  & 검색 -->
 				<!-- 검색 -->
 				<div id="search" class="alt">
-					<form action="#">
-						<input type="text" name="query" id="query" placeholder="검색"
-							style="margin-top: 15px;" />
-					</form>
+					<input type="text" name="query" id="query" placeholder="검색"
+						style="margin-top: 15px;"> <span
+						onclick="CoummunitySearch()"> <ion-icon
+							name="search-circle-outline"></ion-icon>
+					</span>
 				</div>
 
 				<c:choose>
@@ -125,7 +126,7 @@
 				<div class="table-wrapper"
 					style="margin-right: 20px; margin-top: 35px;">
 					<table>
-						<thead>
+						<thead class="tohead">
 							<tr>
 								<th>번호</th>
 								<th>제목</th>
@@ -134,7 +135,7 @@
 								<th>조회수</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="tobody">
 							<c:forEach var="comushow" items="${comushow}">
 								<tr>
 									<td>${comushow.rownum}</td>
@@ -296,6 +297,33 @@
 	<script type="text/javascript">
 		function boardWrite() {
 			location.href = "http://localhost:8085/boardWrite.do"
+		}
+
+		function CoummunitySearch() {
+			var search = $('#query').val()
+			console.log(search)
+			$.ajax({
+				url : "search.do",
+				data : {
+					search : search
+				},
+				type : "GET",
+				dataType : "json",
+				success : function(res) {
+					console.log(res)
+
+					$('.tobody').html('')
+					for (var i = 0; i < res.length; i++) {
+						$('.tobody').append('<tr></tr>')
+						$('.tobody tr').last().append('<td>'+res[i].rownum+'</td>'+"<td onclick=board("+res[i].s_index+','+res[i].click+")>"+res[i].title+"</td>"
+								+"<td class=userid>"+res[i].id+"</td>"+"<td>"+res[i].date+"</td>"+"<td>"+res[i].click+"</td>")
+					}
+						$('#query').val('')
+				},
+				error : function(e) {
+					console.log(e)
+				}
+			})
 		}
 	</script>
 

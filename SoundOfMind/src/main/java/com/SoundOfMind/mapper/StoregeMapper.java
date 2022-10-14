@@ -16,9 +16,11 @@ public interface StoregeMapper {
 	public List<Coment> boardComent(int storege_id);
 
 	public int click(int click, int s_index);
-	
+
 	public List<Storege> clickBest();
-	
-	public int boardWrite(String title,String content, String id);
-	
+
+	public int boardWrite(String title, String content, String id);
+
+	public List<Storege> search(String search);
+
 }
