@@ -96,7 +96,7 @@
   line-height: 1.5;
   border-top: 1px solid #ccc;
   border-left: 3px solid #6495ED;
-  margin : 20px 10px;
+  /* margin : 20px 10px; */
   width: 100%;
 }
 table.type03 th {
@@ -220,6 +220,25 @@ body {
     font-family: 'NanumSquare';
  }
  
+.profileImg {
+    border-radius: 70%;
+    width: 10vh;
+    height: 10vh;
+    max-width:25%;
+ 	max-height:20%;
+}
+.uploadDiv {
+    margin: 2.4vh auto;
+    padding: 8px;
+    border-radius: 4px;
+    max-width: 120px;
+    text-align: center;
+    display: block;
+    background-color: #B2CCFF;
+    color: white;
+    box-shadow: 0 2px 6px rgb(146 146 146 / 80%);
+    cursor: pointer;
+}
 	
   html, body {
     min-width: 320px; } }
