@@ -103,7 +103,8 @@ img {
 													</div>
 												</div>
 												<img src="/resources/assets/img/uparrow.png"
-													onclick="toggle()" style="width: 25px; float: right;">
+													onclick="toggle(`${status.index}`)"
+													style="width: 25px; float: right;">
 												<!-- 원래 코드 <div class="toggle" onclick="toggle()">토글형태</div> -->
 											</div>
 										</div>
@@ -153,8 +154,9 @@ img {
 		}
 	</script>
 	<script type="text/javascript">
-		function toggle(){
-			$('.'+${status.index}).slideToggle()
+		function toggle(index) {
+			console.log(index)
+			$('.' + index).slideToggle()
 		}
 	</script>
 	<script type="text/javascript">
@@ -256,7 +258,7 @@ img {
 																		+ "</p><span class='time_date'>"
 																		+ resent[0].date
 																		+ "</span></div></div>")
-																		$('.write_msg').val('')
+												$('.write_msg').val('')
 
 											},
 											error : function(e) {
