@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+@media screen and (max-width: 480px){
+.monster {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 22vh;
+    height: 30vh;
+    border-top-left-radius: 30vh;
+    border-top-right-radius: 30vh;
+    border-bottom-left-radius: 10vh;
+    border-bottom-right-radius: 10vh;
+    background-color: #6495ED;
+}
+#Mic{
+	position: absolute;
+    width: 58%;
+    top: 18vh;
+}
+}
+
+
 /* Variables */
 /* Reset */
 *, *::after, *::before {
@@ -31,8 +52,8 @@
   display: flex;
   justify-content: center;
   position: relative;
-  width: 259px;
-  height: 353px;
+  width: 30vh;
+  height: 40vh;
   border-top-left-radius: 40vh;
   border-top-right-radius: 40vh;
   border-bottom-left-radius:20vh;

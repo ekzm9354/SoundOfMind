@@ -284,7 +284,10 @@
 				})
 			} else {
 				if(chat==''){
-					alert('내용을 입력하세요')
+					swal({
+						  icon: 'warning',                  
+						  title: '내용을 입력해주세요',    
+						})
 				}else{
 				$.ajax({
 					url : 'ToMessage.do',
@@ -296,7 +299,11 @@
 					type : "GET",
 					success : function(res) {
 						if(res==''){
-							alert('없는 아이디입니다')
+							swal({
+								  icon: 'warning',                  
+								  title: '없는 사용자입니다.',    
+								  text: '', 
+								})
 						}else{
 						swal({
 							  icon: 'success',                  
