@@ -124,6 +124,7 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		function speaker() {
 			$.ajax({
@@ -156,7 +157,15 @@
 				},
 				type : "POST",
 				success : function() {
-					alert('전송되었습니다')
+					swal({
+						  title: '전송되었습니다.',
+						  showClass: {
+						    popup: 'animate__animated animate__fadeInDown'
+						  },
+						  hideClass: {
+						    popup: 'animate__animated animate__fadeOutUp'
+						  }
+						})
 					$('.email').val('')
 					$('.title').val('')
 					$('.text').val('')

@@ -121,17 +121,23 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
 
 	<script type="text/javascript">
 		function boardWrite() {
 			var title = $('#title').val()
 			var content = $('#content').val()
 			if (title == '' || content == '') {
-				alert('미입력된 항목이 있습니다')
+				swal('미입력된 항목이 있습니다.',
+					 '',
+					 'warning')
 			} else {
 				location.href = "http://localhost:8085/BoardWrite.do?title="
 						+ title + "&content=" + content
-				alert('작성되었습니다')
+				swal('작성되었습니다.',
+					 '',
+					 'success')
 			}
 		}
 	</script>
