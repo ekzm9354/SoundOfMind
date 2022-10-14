@@ -24,8 +24,6 @@
 <link href="https://webfontworld.github.io/NanumSquare/NanumSquare.css"
 	rel="stylesheet">
 
-
-
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
