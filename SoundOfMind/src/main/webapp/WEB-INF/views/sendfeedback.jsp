@@ -151,7 +151,7 @@
 			$.ajax({
 				url : "feedback.do",
 				data : {
-					email : email,
+					email : email,s
 					title : title,
 					text : text
 				},

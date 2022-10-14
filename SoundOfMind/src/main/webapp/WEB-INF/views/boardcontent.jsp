@@ -246,6 +246,9 @@ pageContext.setAttribute("replaceChar", "\n");
 			console.log(coments)
 			var id = `${user.id}`
 			console.log(id)
+			if(id==''){
+				alert('로그인이 필요합니다')
+			}else{
 			$.ajax({
 				url : "coment.do",
 				type : "POST",
@@ -263,6 +266,7 @@ pageContext.setAttribute("replaceChar", "\n");
 					console.log(e)
 				}
 			})
+			}
 		}
 	</script>
 	<script type="text/javascript">
