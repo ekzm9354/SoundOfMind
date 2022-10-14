@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.SoundOfMind.domain.Chatting;
 import com.SoundOfMind.domain.Coment;
 import com.SoundOfMind.domain.Member;
+import com.SoundOfMind.domain.Storege;
 import com.SoundOfMind.mapper.ChattingMapper;
 import com.SoundOfMind.mapper.ComentMapper;
 import com.SoundOfMind.mapper.StoregeMapper;
@@ -29,6 +30,8 @@ public class ComunityRestController {
 	private ChattingMapper Cmapper;
 	@Autowired
 	private ComentMapper cmapper;
+	@Autowired
+	private StoregeMapper Smapper;
 
 //	 대화 불러오기
 	@GetMapping("/ShowChat.do")
@@ -85,6 +88,14 @@ public class ComunityRestController {
 		System.out.println(from_id);
 		System.out.println(chat);
 		Cmapper.ToMessage(to_id, from_id, chat);
+	}
+
+//	게시판검색
+	@RequestMapping("/search.do")
+	public @ResponseBody List<Storege> search(String search) {
+		System.out.println(search);
+		List<Storege> list = Smapper.search(search);
+		return list;
 	}
 
 }
