@@ -63,10 +63,9 @@
 							</div>
 							
 						
-								<input type="file" name="uploadBtn" multiple style="display:none;">
-							<label class="uploadDiv"> 프로필 변경 <input type="file"
-								name="uploadBtn" multiple style="display: none;">
-
+							<label class="uploadDiv"> 
+							프로필 변경 
+							<input type="file" name="uploadBtn" multiple style="display: none;">
 							</label>
 							<p class="userId">${user.id}님</p>
 
@@ -181,7 +180,7 @@
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/mypage.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
 	/* 이미지 출력 */
@@ -279,6 +278,8 @@
 
 </script>
 	
+
+
 <script type="text/javascript">
 	$(".deletebtn").click(function(){
 		
