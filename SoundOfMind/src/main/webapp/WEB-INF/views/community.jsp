@@ -19,6 +19,8 @@
 <!-- animated -->
 <link rel="stylesheet" href="/resources/assets/css/community2.css" />
 
+<!-- js연결 -->
+<script src="/resources/assets/js/community.js"></script>
 
 <style type="text/css">
 #header {
@@ -123,9 +125,19 @@
 
 
 				<!-- Table -->
+
 				<div class="table-wrapper"
 					style="margin-right: 20px; margin-top: 35px;">
-					<table>
+					<div class="panel">
+						<div class="body">
+							<div class="input-group">
+
+								<input type="hidden" id="searchBox" placeholder="Filtrar...">
+							</div>
+						</div>
+					</div>
+					<table class="myTable table hover">
+
 						<thead class="tohead">
 							<tr>
 								<th>번호</th>
@@ -136,13 +148,14 @@
 							</tr>
 						</thead>
 						<tbody class="tobody">
-							<c:forEach var="comushow" items="${comushow}">
+							<c:forEach var="comushow" items="${comushow}" varStatus="status">
 								<tr>
-									<td>${comushow.rownum}</td>
+									<td style="text-align: center;">${comushow.rownum}</td>
 									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
-									<td class="userid">${comushow.id}</td>
-									<td>${comushow.date}</td>
-									<td>${comushow.click}</td>
+									<td style="text-align: center;" class="${status.index}"
+										onclick="userid(`${status.index}`)">${comushow.id}</td>
+									<td style="text-align: center;">${comushow.date}</td>
+									<td style="text-align: center;">${comushow.click}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -188,7 +201,7 @@
 
 
 				<!-- 페이지 넘김 -->
-				<ul class="pagination">
+				<!-- <ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
 					<li><a href="#" class="page active">1</a></li>
 					<li><a href="#" class="page">2</a></li>
@@ -199,7 +212,7 @@
 					<li><a href="#" class="page">10</a></li>
 					<li><a href="#" class="button">Next</a></li>
 				</ul>
-
+ -->
 
 
 			</div>
@@ -244,25 +257,16 @@
 	<script src="/resources/assets/js/jquery.dropotron.min.js"></script>
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
-
 	<script type="text/javascript">
 		function board(s_index, click) {
 			location.href = "board.do?s_index=" + s_index + "&click=" + click
 		}
 	</script>
 	<script type="text/javascript">
-		if (window.performance.navigation.type == 2) {
-			location.reload();
-		}
-		if (window.performance.getEntriesByType("navigation")[0].type == "back_forward") {
-			location.reload();
-		}
-	</script>
-	<script type="text/javascript">
-		$('.userid').click(function() {
-			var userid = $(this).text()
+		function userid(index) {
+			var userid = $('.' + index).html()
 			$('input[name=messegeId]').attr('value', userid)
-		})
+		}
 	</script>
 	<script type="text/javascript">
 		function ToMessage(to_id) {
@@ -291,14 +295,12 @@
 					}
 				})
 			}
-
 		}
 	</script>
 	<script type="text/javascript">
 		function boardWrite() {
 			location.href = "http://localhost:8085/boardWrite.do"
 		}
-
 		function CoummunitySearch() {
 			var search = $('#query').val()
 			console.log(search)
@@ -311,14 +313,20 @@
 				dataType : "json",
 				success : function(res) {
 					console.log(res)
-
 					$('.tobody').html('')
 					for (var i = 0; i < res.length; i++) {
 						$('.tobody').append('<tr></tr>')
-						$('.tobody tr').last().append('<td>'+res[i].rownum+'</td>'+"<td onclick=board("+res[i].s_index+','+res[i].click+")>"+res[i].title+"</td>"
-								+"<td class=userid>"+res[i].id+"</td>"+"<td>"+res[i].date+"</td>"+"<td>"+res[i].click+"</td>")
+						$('.tobody tr').last().append(
+								'<td>' + res[i].rownum + '</td>'
+										+ "<td onclick=board(" + res[i].s_index
+										+ ',' + res[i].click + ")>"
+										+ res[i].title + "</td>"
+										+ "<td class=userid>" + res[i].id
+										+ "</td>" + "<td>" + res[i].date
+										+ "</td>" + "<td>" + res[i].click
+										+ "</td>")
 					}
-						$('#query').val('')
+					$('#query').val('')
 				},
 				error : function(e) {
 					console.log(e)
@@ -332,6 +340,32 @@
 	<!-- icon -->
 	<script type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+	<!-- 페이지네이션 -->
+	<script type="text/javascript">
+		let options = {
+			numberPerPage : 10, //Cantidad de datos por pagina
+			goBar : true, //Barra donde puedes digitar el numero de la pagina al que quiere ir
+			pageCounter : true, //Contador de paginas, en cual estas, de cuantas paginas
+		};
+
+		let filterOptions = {
+			el : '#searchBox' //Caja de texto para filtrar, puede ser una clase o un ID
+		};
+
+		paginate.init('.myTable', options, filterOptions);
+	</script>
+
+	<!-- 
+	<script type="text/javascript">
+	if (window.performance.navigation.type == 2) {
+		location.reload();
+	}
+	if (window.performance.getEntriesByType("navigation")[0].type == "back_forward") {
+		location.reload();
+	} 
+	</script>
+	 -->
 
 </body>
 </html>
