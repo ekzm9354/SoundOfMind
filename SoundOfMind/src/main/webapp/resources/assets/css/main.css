@@ -1,6 +1,34 @@
 @import url(fontawesome-all.min.css);
 @import url('https://webfontworld.github.io/NanumSquare/NanumSquare.css');
 
+
+@media screen and (max-width:480px){
+	#main > .inner > section:first-of-type {
+    border-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.monster {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 22vh;
+    height: 30vh;
+    border-top-left-radius: 30vh;
+    border-top-right-radius: 30vh;
+    border-bottom-left-radius: 10vh;
+    border-bottom-right-radius: 10vh;
+    background-color: #6495ED;
+}
+
+#Mic{
+	position: absolute;
+    width: 58%;
+    top: 18vh;
+}
+}
+
 *{
 	font-family: 'NanumSquare';
 }

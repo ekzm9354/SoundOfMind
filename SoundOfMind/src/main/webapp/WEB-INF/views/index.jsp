@@ -84,7 +84,7 @@
 
 							<!-- mic -->
 							<img src="/resources/assets/img/mic3.png" onclick="speaker()"
-								id="Mic" style="position: absolute; width: 80%; top: 200px;">
+								id="Mic" style="position: absolute; width: 80%; top: 18vh;">
 
 						</div>
 					</div>
