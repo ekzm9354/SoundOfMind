@@ -283,6 +283,9 @@
 				location.href = "http://localhost:8085/login.do"
 				})
 			} else {
+				if(chat==''){
+					alert('내용을 입력하세요')
+				}else{
 				$.ajax({
 					url : 'ToMessage.do',
 					data : {
@@ -310,6 +313,7 @@
 						console.log('fail')
 					}
 				})
+				}
 			}
 		}
 	</script>

@@ -138,8 +138,8 @@ pageContext.setAttribute("replaceChar", "\n");
 									<p
 										style="width: 150px; text-align: right; display: inline-block; font-size: 13px;">${boardComent.date}</p>
 									<p
-										style="width: 30px; text-align: right; display: inline-block; font-size: 13px;" id="${status.index}"></p>
-								</li>
+										style="width: 30px; text-align: right; display: inline-block; font-size: 13px;"
+										id="${status.index}"></p></li>
 							</ul>
 							<%-- <span class="4u 12u$(medium)"> ${boardComent.id} </span> <span
 								class="4u 12u$(medium) ${status.index}">${boardComent.coments}</span>
@@ -238,7 +238,7 @@ pageContext.setAttribute("replaceChar", "\n");
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-		
+
 	<script type="text/javascript">
 		function board(s_index) {
 			location.href = "board.do?s_index=" + s_index
@@ -259,6 +259,9 @@ pageContext.setAttribute("replaceChar", "\n");
 					 button: '확인'
 				})
 			}else{
+				if(coments==''){
+					alert('내용을 입력해주세요')
+				}else{
 			$.ajax({
 				url : "coment.do",
 				type : "POST",
@@ -284,6 +287,7 @@ pageContext.setAttribute("replaceChar", "\n");
 					console.log(e)
 				}
 			})
+				}
 			}
 		}
 	</script>
