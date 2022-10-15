@@ -1,5 +1,9 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+
+
+
+
 /*
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
@@ -182,7 +186,8 @@ h5 {
   font-size: 1em; }
 
 h6 {
-  font-size: 0.9em; }
+  font-size: 0.9em; 
+  text-align: left;}
 
 @media screen and (max-width: 1680px) {
   h1 {
@@ -1459,7 +1464,7 @@ ul.pagination {
       padding-left: 0.75em; }
   @media screen and (max-width: 480px) {
     ul.pagination li:nth-child(n+2):nth-last-child(n+2) {
-      display: none; }
+      /* display: none; */ }
     ul.pagination li:first-child {
       padding-right: 0; } }
 
