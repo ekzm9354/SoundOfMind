@@ -191,19 +191,23 @@ img {
 						success : function(res) {
 							$('.incoming_msg').remove()
 							$('.outgoing_msg').remove()
+							console.log(res)
+							$('.msg_history').prepend(
+									'<div class=incoming_msg></div>')
 							for (var i = 0; i < res.length; i++) {
 								if (res[i].to_id == to_id) {
-									$('.msg_history')
-											.prepend(
-													"<div class='incoming_msg'><div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
+									$('.incoming_msg')
+									.last()
+											.append(
+													"<div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
 															+ res[i].chat
 															+ "</p><span class='time_date'>"
 															+ res[i].date
-															+ "</span></div></div></div>")
+															+ "</span></div></div>")
 
 								} else {
 									$('.incoming_msg')
-											.last()
+									.last()
 											.append(
 													"<div class='outgoing_msg'><div class='sent_msg'><p>"
 															+ res[i].chat
