@@ -4,6 +4,8 @@
 /* 화면에 안보이게 하기  */
 #meminfo,#mememotion,#memboard{
 	display:none;
+    overflow-x: auto;
+    white-space: nowrap;
 	}
 
 
@@ -112,10 +114,12 @@ table.type03 th {
 table.type03 td {
   width: 400px;
   padding: 10px;
+  white-space: nowrap;
   vertical-align: top;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
+
 #result_card img{
 	max-width: 100%;
     height: auto;

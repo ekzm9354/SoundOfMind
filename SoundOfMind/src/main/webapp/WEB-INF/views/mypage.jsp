@@ -104,14 +104,38 @@
 									</tr>
 								</table>
 							</div>
+
+							<!--내가 쓴 게시글 목록 보는 칸-->
+							<div id="memboard">
+								<table class="type03">
+									<tr>
+										<th scope="row">번호</th>
+										<th>날짜</th>
+										<th>조회수</th>
+										<th>제목</th>
+										<th>아이디</th>
+										<th>글삭제</th>
+									</tr>
+									<c:forEach var="storege" items="${storege}">
+										<tr>
+											<td scope="row">${storege.rownum}</td>
+											<td>${storege.date}</td>
+											<td>${storege.click}</td>
+											<td>${storege.title}</td>
+											<td>${storege.id}</td>
+											<td><button>삭제</button></td>
+										</tr>
+									</c:forEach>
+								</table>
+							</div>
 							<!--감정 나타나는 칸  -->
 							<div id="mememotion">
 								<table class="type03">
-									<tr>
-										<td scope="row">번호</td>
-										<td>날짜</td>
-										<td>내용</td>
-										<td>감정</td>
+									<tr class="tablebottom">
+										<th scope="row">번호</th>
+										<th>날짜</th>
+										<th>내용</th>
+										<th>감정</th>
 									</tr>
 									<c:forEach var="emotion" items="${emotion}">
 										<tr>
@@ -124,28 +148,6 @@
 
 								</table>
 							</div>
-							<!--내가 쓴 게시글 목록 보는 칸-->
-							<div id="memboard">
-								<table class="type03">
-									<tr>
-										<th scope="row">번호</th>
-										<td>제목</td>
-										<td>날짜</td>
-										<td>조회수</td>
-										<td>아이디</td>
-									</tr>
-									<c:forEach var="storege" items="${storege}">
-										<tr>
-											<th scope="row">${storege.rownum}</th>
-											<td>${storege.title}</td>
-											<td>${storege.date}</td>
-											<td>${storege.click}</td>
-											<td>${storege.id}</td>
-										</tr>
-									</c:forEach>
-								</table>
-							</div>
-
 						</div>
 
 					</section>

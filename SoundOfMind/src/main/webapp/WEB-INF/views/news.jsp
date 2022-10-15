@@ -51,17 +51,6 @@
 				</header>
 
 
-				<!-- 상단 메뉴  & 검색 -->
-				<!-- 검색 -->
-				<div id="search" class="alt">
-					<form action="#">
-						<input type="text" name="query" id="query" placeholder="검색"
-							style="margin-top: 15px;" />
-					</form>
-				</div>
-
-
-
 				<section id="banner">
 					<div class="content">
 						<header>
