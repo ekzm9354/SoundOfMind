@@ -63,7 +63,7 @@
 					<div class="box"
 						style="width: 100%; margin: 0 auto; height: 550px;">
 						<textarea name="demo-name" id="title" placeholder="제목을 입력하세요"
-							maxlength="50" autofocus
+							maxlength="25" autofocus
 							style="width: 100%; height: 60px; margin-bottom: 20px; resize: none;"></textarea>
 						<textarea name="demo-name" id="content" placeholder="내용을 입력하세요"
 							maxlength="3000" autofocus

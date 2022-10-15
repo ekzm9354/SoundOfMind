@@ -19,9 +19,6 @@
 <!-- animated -->
 <link rel="stylesheet" href="/resources/assets/css/community2.css" />
 
-<!-- js연결 -->
-<script src="/resources/assets/js/community.js"></script>
-
 <style type="text/css">
 #header {
 	display: -moz-flex;
@@ -65,32 +62,19 @@
 }
 
 #search {
-	width: 35vh;
+	width: 33vh;
 	position: absolute;
-	right: 6%;
+	right: 7%;
 }
 </style>
 
-<!-- 페이지네이션 -->
+<!-- 틀 -->
 <style type="text/css">
-#id1, #id2, #id3, #id4, #id5, #id6, #id7, #id8 {
-box-shadow: inherit;
-    padding-left: 15px;
-    padding-right: 15px;
+#con1{
+width:70%;
 }
-#buttons{
-text-align: center;
-}
-</style>
-
-<!-- search -->
-<style type="text/css">
-#search .ic{
-position: absolute;
-  top: 50%;
-  margin-left: 17px;
-  margin-top: 17px;
-  z-index: 1;
+#con2{
+width:30%;
 }
 </style>
 
@@ -131,8 +115,7 @@ position: absolute;
 					<input type="text" name="query" id="query" placeholder="검색"
 						style="margin-top: 15px;"> 
 						<span class="ic" onclick="CoummunitySearch()"> 
-							<!-- <img src="/resources/assets/img/search.png"> -->
-							<ion-icon name="search-circle-outline"></ion-icon>
+							<img src="/resources/assets/img/search.png" style="width: 7%;">
 						</span>
 				</div>
 
@@ -149,81 +132,72 @@ position: absolute;
 
 
 				<!-- Table -->
+				<section id="banner" style="padding-top: 0px; margin-top: 10px;">
+					<div class="content" id="con1" style="padding-top: 0px;padding-left: 0px;padding-right: 0px;">
+						<table>
 
-				<div class="table-wrapper"
-					style="margin-right: 20px; margin-top: 35px;">
-					<div class="panel">
-						<div class="body">
-							<div class="input-group">
-
-								<input type="hidden" id="searchBox" placeholder="Filtrar...">
-							</div>
-						</div>
-					</div>
-					<table>
-
-						<thead class="tohead">
-							<tr>
-								<th>번호</th>
-								<th>제목</th>
-								<th>글쓴이</th>
-								<th>작성일</th>
-								<th>조회수</th>
-							</tr>
-						</thead>
-						<tbody class="tobody">
-							<c:forEach var="comushow" items="${comushow}" varStatus="status">
+							<thead class="tohead">
 								<tr>
-									<td style="text-align: center;">${comushow.rownum}</td>
-									<td onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
-									<td style="text-align: center;" class="${status.index}"
-										onclick="userid(`${status.index}`)">${comushow.id}</td>
-									<td style="text-align: center;">${comushow.date}</td>
-									<td style="text-align: center;">${comushow.click}</td>
+									<th>번호</th>
+									<th>제목</th>
+									<th>글쓴이</th>
+									<th>작성일</th>
+									<th>조회수</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-
-
-
-				<!-- 조회수 높은 10개의 게시글 출력 -->
-				<div class="box"
-					style="margin-top: 35px; width: 25%; float: right; margin-right: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 10px;">
-					<h5>인기 게시글</h5>
-					<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
-						<span onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}.
-							${clickBest.title}</span>
-						<br />
-					</c:forEach>
-				</div>
-
-
-				<div class="box"
-					style="margin-top: 10px; width: 25%; float: right; margin-right: 10px;">
-					<h5>간편 메세지</h5>
-					<h6>받는 이</h6>
-					<p>
-						<input type="text" name="messegeId" id="messegeId">
-					</p>
-					<div class="row uniform">
-						<h6 style="padding-left: 22px;">메세지</h6>
-						<div class="box" style="width: 980px; margin-left: 22px;">
-							<textarea name="demo-name" id="demo-name" placeholder="내용을 입력하세요"
-								style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
-							<!-- 업로드버튼 -->
-							<ul class="actions small">
-								<li><button class="button small"
-										onclick="ToMessage(`${user.id}`)">보내기</button></li>
-							</ul>
-						</div>
+							</thead>
+							<tbody class="tobody">
+								<c:forEach var="comushow" items="${comushow}" varStatus="status">
+									<tr>
+										<td style="text-align: center;">${comushow.rownum}</td>
+										<td style="text-align: left;"
+											onclick="board(`${comushow.s_index}`,`${comushow.click}`)">${comushow.title}</td>
+										<td style="text-align: center;" class="${status.index}"
+											onclick="userid(`${status.index}`)">${comushow.id}</td>
+										<td style="text-align: center;">${comushow.date}</td>
+										<td style="text-align: center;">${comushow.click}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 
-				</div>
+					<div class="content" id="con2">
+						<!-- 조회수 높은 10개의 게시글 출력 -->
+						<div class="box"
+							style="text-align:left; width: 346px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+							<h5 style="text-align:center;">인기 게시글</h5>
+							<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
+								<span
+									onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}.
+									${clickBest.title}</span>
+								<br />
+							</c:forEach>
+						</div>
 
 
+						<div class="box" style="width: 346px;">
+							<h5>간편 메세지</h5>
+							<h6>받는 이</h6>
+							<p>
+								<input type="text" name="messegeId" id="messegeId">
+							</p>
+							<div class="row uniform">
+								<h6 style="padding-left: 22px;">메세지</h6>
+								<div class="box" style="width: 980px; margin-left: 22px;">
+									<textarea name="demo-name" id="demo-name"
+										placeholder="내용을 입력하세요"
+										style="width: 100%; height: 202px; margin-bottom: 20px; resize: none;"></textarea>
+									<!-- 업로드버튼 -->
+									<ul class="actions small">
+										<li><button class="button small"
+												onclick="ToMessage(`${user.id}`)">보내기</button></li>
+									</ul>
+								</div>
+							</div>
 
+						</div>
+					</div>
+				</section>
 				<!-- 페이지 넘김 -->
 				<!-- <ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
@@ -392,22 +366,8 @@ position: absolute;
 	<script type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
-	<!-- 페이지네이션 -->
-	<script type="text/javascript">
-		let options = {
-			numberPerPage : 10, //Cantidad de datos por pagina
-			goBar : true, //Barra donde puedes digitar el numero de la pagina al que quiere ir
-			pageCounter : true, //Contador de paginas, en cual estas, de cuantas paginas
-		};
 
-		let filterOptions = {
-			el : '#searchBox' //Caja de texto para filtrar, puede ser una clase o un ID
-		};
-
-		paginate.init('.myTable', options, filterOptions);
-	</script>
-
-	<!-- 조회수
+	<!-- 조회수 -->
 	<script type="text/javascript">
 	if (window.performance.navigation.type == 2) {
 		location.reload();
@@ -416,7 +376,7 @@ position: absolute;
 		location.reload();
 	} 
 	</script>
-	 -->
+	 
 
 </body>
 </html>

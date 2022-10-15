@@ -2155,10 +2155,10 @@ button,
     -webkit-flex-shrink: 1;
     -ms-flex-shrink: 1;
     flex-shrink: 1;
-    width: 50%;
-    border: 1px solid;
+   /*  width: 50%; */
+   /*  border: 1px solid; */
     border-radius: 2%;
-    padding: 3%;
+    padding: 2%;
     margin: 1%;
     text-align: center;
      }
@@ -2196,14 +2196,14 @@ button,
       #banner h1 br {
         display: none; }
       #banner .content {
-        -moz-flex-grow: 0;
-        -webkit-flex-grow: 0;
-        -ms-flex-grow: 0;
-        flex-grow: 0;
-        -moz-flex-shrink: 0;
-        -webkit-flex-shrink: 0;
-        -ms-flex-shrink: 0;
-        flex-shrink: 0;
+        -moz-flex-grow: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-grow: 1;
+        flex-grow: 1;
+        -moz-flex-shrink: 1;
+        -webkit-flex-shrink: 1;
+        -ms-flex-shrink: 1;
+        flex-shrink: 1;
         width: 100%; }
       #banner .image {
         -moz-flex-grow: 0;
