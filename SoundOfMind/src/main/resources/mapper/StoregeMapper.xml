@@ -5,7 +5,7 @@
 		resultType="com.SoundOfMind.domain.Storege">
 		SELECT @rownum:=@rownum+1 as rownum, S.*
 		FROM (SELECT * FROM
-		STOREGE WHERE (@rownum :=${page})=${page} ORDER BY CLICK DESC )
+		STOREGE WHERE (@rownum :=${page})=${page} ORDER BY DATE DESC )
 		S
 		LIMIT
 		10 OFFSET ${page};
@@ -16,7 +16,7 @@
 		SELECT @rownum:=@rownum+1 as rownum, S.*
 		FROM (SELECT * FROM
 		STOREGE WHERE
-		(@rownum :=0)=0 ORDER BY CLICK DESC )
+		(@rownum :=0)=0 ORDER BY DATE DESC )
 		S
 	</select>
 	<select id="board" parameterType="int"
