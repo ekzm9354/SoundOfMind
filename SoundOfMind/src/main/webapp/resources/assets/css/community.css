@@ -1529,13 +1529,13 @@ button,
   color: #6495ED ;
   cursor: pointer;
   display: inline-block;
-  font-family: "Roboto Slab", serif;
+  font-family: 'NanumSquare';
   font-size: 0.8em;
   font-weight: 700;
   height: 3.5em;
   letter-spacing: 0.075em;
   line-height: 3.5em;
-  padding: 0 2.25em;
+  /* padding: 0 2.25em; */
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;

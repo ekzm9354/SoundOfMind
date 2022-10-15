@@ -1,4 +1,4 @@
-// 페이지 네이션 JS 아래로 내려가면 안먹음 
+// 페이지 네이션 JS
 (function(window) {
 
 
@@ -183,7 +183,7 @@
 			let buttonNumberOfPage = "<input type='button' value='" + currentPage + ' - ' + numberOfPage + "' disabled>";
 
 			for (let $i = 1; $i <= numberOfPage; $i++) {
-				if (numberOfPage > 10) {
+				if (numberOfPage > 3) {
 					buttons += paginationMoreThatTenPage($i, numberOfPage);
 				} else {
 					buttons += "<input type='button' id='id" + $i + "'value='" + $i + "' onclick='paginate.sort(" + $i + ")'>";

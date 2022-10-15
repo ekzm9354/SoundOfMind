@@ -71,6 +71,29 @@
 }
 </style>
 
+<!-- 페이지네이션 -->
+<style type="text/css">
+#id1, #id2, #id3, #id4, #id5, #id6, #id7, #id8 {
+box-shadow: inherit;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#buttons{
+text-align: center;
+}
+</style>
+
+<!-- search -->
+<style type="text/css">
+#search .ic{
+position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+}
+</style>
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -106,10 +129,11 @@
 				<!-- 검색 -->
 				<div id="search" class="alt">
 					<input type="text" name="query" id="query" placeholder="검색"
-						style="margin-top: 15px;"> <span
-						onclick="CoummunitySearch()"> <ion-icon
-							name="search-circle-outline"></ion-icon>
-					</span>
+						style="margin-top: 15px;"> 
+						<span class="ic" onclick="CoummunitySearch()"> 
+							<!-- <img src="/resources/assets/img/search.png"> -->
+							<ion-icon name="search-circle-outline"></ion-icon>
+						</span>
 				</div>
 
 				<c:choose>
@@ -136,7 +160,7 @@
 							</div>
 						</div>
 					</div>
-					<table class="myTable table hover">
+					<table>
 
 						<thead class="tohead">
 							<tr>
@@ -383,7 +407,7 @@
 		paginate.init('.myTable', options, filterOptions);
 	</script>
 
-	<!-- 
+	<!-- 조회수
 	<script type="text/javascript">
 	if (window.performance.navigation.type == 2) {
 		location.reload();
