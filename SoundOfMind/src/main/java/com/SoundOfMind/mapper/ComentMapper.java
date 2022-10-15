@@ -5,6 +5,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ComentMapper {
 	public int coment(String id, int storege_id, String coments);
-	
-	public int delcomenet(String id);
+
+	public int ComentDelete(int c_index);
 }

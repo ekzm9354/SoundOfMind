@@ -68,23 +68,24 @@ pageContext.setAttribute("replaceChar", "\n");
 				<header id="header">
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>
@@ -163,7 +164,8 @@ pageContext.setAttribute("replaceChar", "\n");
 										<c:otherwise>
 											<span onclick="comentEmotion(`${status.index}`)">분석하기</span>
 											<br>
-											<span class="deleteComent${status.index}"></span>
+											<span class="deleteComent${status.index}"
+												onclick="ComentDelete(`${boardComent.c_index}`)"></span>
 										</c:otherwise>
 									</c:choose>
 									<!-- <a href="#">신고하기</a> -->
@@ -222,14 +224,7 @@ pageContext.setAttribute("replaceChar", "\n");
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<c:choose>
-									<c:when test="${user==null && Kakao == null && Naver == null}">
-										<li><a href="login.do">채팅</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="chatting.do">채팅</a></li>
-									</c:otherwise>
-								</c:choose>
+								<li><a href="chatting.do">채팅</a></li>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -313,7 +308,7 @@ pageContext.setAttribute("replaceChar", "\n");
 		var coment = $('.'+index).text()
 		console.log(coment)
 		$.ajax({
-			url:"http://dcfa-34-66-106-62.ngrok.io/",
+			url:"http://b439-34-135-93-236.ngrok.io/",
 			data:{
 				'coment':coment
 			},
@@ -357,9 +352,35 @@ pageContext.setAttribute("replaceChar", "\n");
 		if(comentArr[i]==userid){
 	<!-- 해당 아이디의 태그값에 삭제하기 삽입-->
 			$('.deleteComent'+i).html('삭제하기')
+			
 		}
-	}
+	  }
 	}  
+	
+	<!-- 댓글 지우기 -->
+	function ComentDelete(index){
+		console.log(index)
+		$.ajax({
+			url:"ComentDelete.do",
+			data:{
+				c_index:index
+			},
+			type:"GET",
+			success:function(res){
+				if(res>0){
+				alert('삭제되었습니다')
+				location.reload()
+				}else{
+					alert('관리자에게 문의하세요')
+				}
+			},
+			error:function(e){
+				alert('관리자에게 문의하세요')
+				console.log(e)
+			}
+		})
+	}
+	
 	</script>
 
 

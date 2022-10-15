@@ -35,23 +35,24 @@
 				<header id="header">
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.id}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>

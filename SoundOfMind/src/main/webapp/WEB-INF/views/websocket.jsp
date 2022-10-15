@@ -11,7 +11,7 @@
 
 <style type="text/css">
 #header {
-    border-bottom: solid 0px !important;
+	border-bottom: solid 0px !important;
 }
 </style>
 </head>
@@ -27,39 +27,40 @@
 					<a href="index.do" class="logo"><strong>Sound</strong> of Mind
 					</a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>
 				<div class="page-content page-container" id="page-content">
-					<div class="card-header" style="background-color: #6495ED;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;padding-right: 15px;">
-							<img src="/resources/assets/img/hundred1.png"
-								style="width: 150px;">
-						<br>
+					<div class="card-header"
+						style="background-color: #6495ED; padding-top: 5px; padding-left: 5px; padding-bottom: 5px; padding-right: 15px;">
+						<img src="/resources/assets/img/hundred1.png"
+							style="width: 150px;"> <br>
 						<!-- disconnection 버튼 -->
 						<input class="btn btn-xs btn-secondary" data-abc="true"
-							style="background-color: white;border-radius: 3px;padding-left: 12px;padding-right: 12px;"
+							style="background-color: white; border-radius: 3px; padding-left: 12px; padding-right: 12px;"
 							onclick="disconnectButton_onclick()" id="disconnectButton"
 							value="연결종료" type="button">
 					</div>
 					<textarea name="demo-name" id="chatBoxArea" readonly="readonly"
-						style="width: 100%;height: 450px;margin-bottom: 5px;resize: none;"></textarea>
+						style="width: 100%; height: 450px; margin-bottom: 5px; resize: none;"></textarea>
 
 					<div class="publisher bt-1 border-light"
 						style="background-color: #6495ED; border-radius: 3px;">

@@ -27,6 +27,8 @@ img {
 
 </head>
 <body class="is-preload">
+	<c:if test="${user==null && Kakao == null && Naver == null}">
+		<jsp:forward page="login.jsp"></jsp:forward></c:if>
 	<script type="module"
 		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule
@@ -40,23 +42,24 @@ img {
 				<header id="header">
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>
@@ -125,8 +128,6 @@ img {
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>
@@ -197,7 +198,7 @@ img {
 							for (var i = 0; i < res.length; i++) {
 								if (res[i].to_id == to_id) {
 									$('.incoming_msg')
-									.last()
+											.last()
 											.append(
 													"<div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
 															+ res[i].chat
@@ -207,7 +208,7 @@ img {
 
 								} else {
 									$('.incoming_msg')
-									.last()
+											.last()
 											.append(
 													"<div class='outgoing_msg'><div class='sent_msg'><p>"
 															+ res[i].chat

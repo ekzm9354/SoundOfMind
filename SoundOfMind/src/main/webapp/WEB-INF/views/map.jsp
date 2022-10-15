@@ -24,23 +24,24 @@
 				<header id="header">
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>
@@ -67,14 +68,7 @@
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<c:choose>
-									<c:when test="${user==null && Kakao == null && Naver == null}">
-										<li><a href="login.do">채팅</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="chatting.do">채팅</a></li>
-									</c:otherwise>
-								</c:choose>
+								<li><a href="chatting.do">채팅</a></li>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -124,7 +118,7 @@
 		console.log('lng:' + lng)
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center : new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
+			center : new kakao.maps.LatLng(35.1107911, 126.8773435), //지도의 중심좌표.
 			level : 3
 		//지도의 레벨(확대, 축소 정도)
 		};
@@ -132,7 +126,7 @@
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
 		var iwContent = '<div style="padding:5px;">사용자위치</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-		iwPosition = new kakao.maps.LatLng(lat, lng), //인포윈도우 표시 위치입니다
+		iwPosition = new kakao.maps.LatLng(35.1107911, 126.8773435), //인포윈도우 표시 위치입니다
 		iwRemoveable = false; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 		var infowindow = new kakao.maps.InfoWindow({
 			map : map, // 인포윈도우가 표시될 지도
@@ -149,7 +143,7 @@
 			useMapBounds : false,
 			page : 1,
 			radius : 2000,
-			location : new kakao.maps.LatLng(lat, lng),
+			location : new kakao.maps.LatLng(35.1107911, 126.8773435),
 		});
 
 		// 키워드 검색 완료 시 호출되는 콜백함수 입니다

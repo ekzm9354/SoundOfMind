@@ -85,14 +85,25 @@ public class ComunityRestController {
 		return cnt;
 	}
 
+//	댓글삭제
+	@GetMapping("/ComentDelete.do")
+	public @ResponseBody int ComentDelete(int c_index) {
+		System.out.println(c_index);
+		int cnt = cmapper.ComentDelete(c_index);
+		return cnt;
+	}
+
 	@RequestMapping("/ToMessage.do")
-	public @ResponseBody void toMessage(String to_id, String from_id, String chat) {
+	public @ResponseBody int toMessage(String to_id, String from_id, String chat) {
 		System.out.println(to_id);
 		System.out.println(from_id);
 		System.out.println(chat);
 		int idCheck = mapper.idCheck(from_id);
 		if (idCheck > 0) {
-			Cmapper.ToMessage(to_id, from_id, chat);
+			int cnt = Cmapper.ToMessage(to_id, from_id, chat);
+			return cnt;
+		} else {
+			return idCheck;
 		}
 	}
 

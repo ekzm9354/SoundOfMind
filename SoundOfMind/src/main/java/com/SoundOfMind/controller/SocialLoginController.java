@@ -68,9 +68,9 @@ public class SocialLoginController {
 
 //	카카오 사용자 정보 받아오기
 	@GetMapping("/kakao.do")
-	public String kakao(String id, String Social, Model model) {
-		model.addAttribute("id", id);
-		model.addAttribute("Kakao", Social);
+	public String kakao(String id, String Social, HttpSession session) {
+		session.setAttribute("id", id);
+		session.setAttribute("Kakao", Social);
 		String num = mapper.SocialJoinCheck(id);
 		System.out.println(num);
 		if (num == null) {

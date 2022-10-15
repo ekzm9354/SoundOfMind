@@ -19,7 +19,7 @@
 
 </head>
 <body class="is-preload">
-	<c:if test="${user==null}">
+	<c:if test="${user==null && Kakao == null && Naver == null}">
 		<jsp:forward page="login.jsp"></jsp:forward></c:if>
 	<c:if test="${user!=null}">
 		<!-- Wrapper -->
@@ -31,23 +31,24 @@
 					<header id="header">
 						<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 						<ul class="icons">
-							<c:if test="${user==null && Kakao == null && Naver == null}">
-								<li><a href="login.do"><span class="label">로그인</span></a></li>
-								<li><a href="join.do"><span class="label">회원가입</span></a></li>
-							</c:if>
-							<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-								<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-							</c:if>
-							<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							</c:if>
-							<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							</c:if>
+							<c:choose>
+								<c:when test="${user==null && Kakao == null && Naver == null}">
+									<li><a href="login.do"><span class="label">로그인</span></a></li>
+									<li><a href="join.do"><span class="label">회원가입</span></a></li>
+								</c:when>
+								<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+								</c:when>
+								<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+								</c:when>
+								<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+								</c:when>
+							</c:choose>
 						</ul>
 					</header>
 
@@ -165,14 +166,7 @@
 								<ul>
 									<li><a href="community.do">게시판</a></li>
 									<li><a href="news.do">뉴스</a></li>
-									<c:choose>
-										<c:when test="${user==null && Kakao == null && Naver == null}">
-											<li><a href="login.do">채팅</a></li>
-										</c:when>
-										<c:otherwise>
-											<li><a href="chatting.do">채팅</a></li>
-										</c:otherwise>
-									</c:choose>
+									<li><a href="chatting.do">채팅</a></li>
 									<li><a href="map.do">가까운 복지관 찾기</a></li>
 								</ul></li>
 							<li><a href="mypage.do">프로필</a></li>

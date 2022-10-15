@@ -70,11 +70,12 @@
 
 <!-- 틀 -->
 <style type="text/css">
-#con1{
-width:70%;
+#con1 {
+	width: 70%;
 }
-#con2{
-width:30%;
+
+#con2 {
+	width: 30%;
 }
 </style>
 
@@ -89,23 +90,24 @@ width:30%;
 				<header id="header">
 					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
 					<ul class="icons">
-						<c:if test="${user==null && Kakao == null && Naver == null}">
-							<li><a href="login.do"><span class="label">로그인</span></a></li>
-							<li><a href="join.do"><span class="label">회원가입</span></a></li>
-						</c:if>
-						<c:if test="${user!=null && Social == null}"> 
-						${user.name}님 
-						<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-							<%-- <li><a href="delete.do?id=${user.id}" ><span class="label">회원탈퇴</span></a></li> --%>
-						</c:if>
-						<c:if test="${user==null && Kakao != kakao}">
-							${id}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
-						<c:if test="${user==null && Naver != naver}">
-							${Naveremail}님
-							<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
-						</c:if>
+						<c:choose>
+							<c:when test="${user==null && Kakao == null && Naver == null}">
+								<li><a href="login.do"><span class="label">로그인</span></a></li>
+								<li><a href="join.do"><span class="label">회원가입</span></a></li>
+							</c:when>
+							<c:when test="${user!=null && Social == null && Kakao == null}">
+							${user.id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver != null && Kakao == null}">
+							${Naveremail}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+							<c:when test="${user==null && Naver == null && Kakao != null}">
+							${id}님 
+								<li><a href="logout.do"><span class="label">로그아웃</span></a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 
 				</header>
@@ -113,10 +115,10 @@ width:30%;
 				<!-- 검색 -->
 				<div id="search" class="alt">
 					<input type="text" name="query" id="query" placeholder="검색"
-						style="margin-top: 15px;"> 
-						<span class="ic" onclick="CoummunitySearch()"> 
-							<img src="/resources/assets/img/search.png" style="width: 7%;">
-						</span>
+						style="margin-top: 15px;"> <span class="ic"
+						onclick="CoummunitySearch()"> <img
+						src="/resources/assets/img/search.png" style="width: 7%;">
+					</span>
 				</div>
 
 				<c:choose>
@@ -133,7 +135,8 @@ width:30%;
 
 				<!-- Table -->
 				<section id="banner" style="padding-top: 0px; margin-top: 10px;">
-					<div class="content" id="con1" style="padding-top: 0px;padding-left: 0px;padding-right: 0px;">
+					<div class="content" id="con1"
+						style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
 						<table>
 
 							<thead class="tohead">
@@ -164,8 +167,8 @@ width:30%;
 					<div class="content" id="con2">
 						<!-- 조회수 높은 10개의 게시글 출력 -->
 						<div class="box"
-							style="text-align:left; width: 346px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-							<h5 style="text-align:center;">인기 게시글</h5>
+							style="text-align: left; width: 346px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+							<h5 style="text-align: center;">인기 게시글</h5>
 							<c:forEach var="clickBest" items="${clickBest}" begin="0" end="9">
 								<span
 									onclick="board(`${clickBest.s_index}`,`${clickBest.click}`)">${clickBest.rownum}.
@@ -229,14 +232,7 @@ width:30%;
 							<ul>
 								<li><a href="community.do">게시판</a></li>
 								<li><a href="news.do">뉴스</a></li>
-								<c:choose>
-									<c:when test="${user==null && Kakao == null && Naver == null}">
-										<li><a href="login.do">채팅</a></li>
-									</c:when>
-									<c:otherwise>
-										<li><a href="chatting.do">채팅</a></li>
-									</c:otherwise>
-								</c:choose>
+								<li><a href="chatting.do">채팅</a></li>
 								<li><a href="map.do">가까운 복지관 찾기</a></li>
 							</ul></li>
 						<li><a href="mypage.do">프로필</a></li>
@@ -376,7 +372,7 @@ width:30%;
 		location.reload();
 	} 
 	</script>
-	 
+
 
 </body>
 </html>
