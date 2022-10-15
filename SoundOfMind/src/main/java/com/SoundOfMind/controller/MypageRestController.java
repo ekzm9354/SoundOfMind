@@ -37,6 +37,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.SoundOfMind.domain.Member;
 import com.SoundOfMind.domain.UploadFile;
 import com.SoundOfMind.mapper.MypageMapper;
+import com.SoundOfMind.mapper.StoregeMapper;
 
 import lombok.extern.log4j.Log4j;
 import net.coobird.thumbnailator.Thumbnailator;
@@ -45,7 +46,7 @@ import net.coobird.thumbnailator.Thumbnailator;
 public class MypageRestController {
 	@Autowired
 	private MypageMapper mapper;
-
+	
 	@GetMapping("/mypage")
 	public void uploadForm() {
 		Log.info("mypage : upload form");
@@ -169,6 +170,13 @@ public class MypageRestController {
 		int num = mapper.profile_update(profile, id);
 		String profile_s = mapper.profile_save(id);
 		return profile_s;
+	}
+//	내가 쓴 게시글 삭제
+	@GetMapping("/DeleteStorege.do")
+	public @ResponseBody int DeleteStorege(int s_index) {
+		System.out.println(s_index);
+		int cnt = mapper.DeleteStorege(s_index);
+		return cnt;
 	}
 
 }
