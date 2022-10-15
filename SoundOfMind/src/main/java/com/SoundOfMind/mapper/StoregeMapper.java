@@ -9,7 +9,7 @@ import com.SoundOfMind.domain.Storege;
 
 @Mapper
 public interface StoregeMapper {
-	public List<Storege> comushow();
+	public List<Storege> comushow(int page);
 
 	public Storege board(int s_index);
 
@@ -23,4 +23,5 @@ public interface StoregeMapper {
 
 	public List<Storege> search(String search);
 
+	public List<Storege> comushowSize();
 }

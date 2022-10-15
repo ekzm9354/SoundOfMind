@@ -114,5 +114,14 @@ public class ComunityRestController {
 		List<Storege> list = Smapper.search(search);
 		return list;
 	}
+	
+//	페이지네이션 OFFSET
+	@RequestMapping("/Page.do")
+	public @ResponseBody List<Storege> Page(int page) {
+		page = (page*10);
+		List<Storege> storege = Smapper.comushow(page);
+		System.out.println(storege);
+		return storege;
+	}
 
 }

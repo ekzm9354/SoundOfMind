@@ -35,8 +35,11 @@ public class CommunityController {
 // 게시판 보여주기
 	@GetMapping("/community.do")
 	public String community(Model model) {
-		List<Storege> comushow = Smapper.comushow();
-		int size = comushow.size();
+		int page = 0;
+		List<Storege> comushow = Smapper.comushow(page);
+		List<Storege> comusize = Smapper.comushowSize();
+		int size = comusize.size()/10;
+		System.out.println(size);
 		model.addAttribute("comushow", comushow);
 		model.addAttribute("size", size);
 

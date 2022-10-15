@@ -202,18 +202,15 @@
 					</div>
 				</section>
 				<!-- 페이지 넘김 -->
-				<!-- <ul class="pagination">
+
+				<ul class="pagination">
 					<li><span class="button disabled">Prev</span></li>
-					<li><a href="#" class="page active">1</a></li>
-					<li><a href="#" class="page">2</a></li>
-					<li><a href="#" class="page">3</a></li>
-					<li><span>&hellip;</span></li>
-					<li><a href="#" class="page">8</a></li>
-					<li><a href="#" class="page">9</a></li>
-					<li><a href="#" class="page">10</a></li>
-					<li><a href="#" class="button">Next</a></li>
+					<c:forEach var="size" begin="0" end="${size}"
+						varStatus="sizestatus">
+						<li onclick="Page(`${size}`)">${size+1}</li>
+					</c:forEach>
+					<li>Next</li>
 				</ul>
- -->
 
 
 			</div>
@@ -371,6 +368,31 @@
 	if (window.performance.getEntriesByType("navigation")[0].type == "back_forward") {
 		location.reload();
 	} 
+	</script>
+
+	<!-- 페이지 OFFSET -->
+	<script type="text/javascript">
+	function Page(page){
+		console.log(page)
+		$.ajax({
+			url:"Page.do",
+			data:{
+				page:page
+			},
+			type:"GET",
+			dateType:"json",
+			success:function(res){
+				console.log(res)
+				$('.tobody').html('')
+				for(var i=0; i<res.length;i++){
+					$('.tobody').last().append('<tr><td style=text-align:center>'+res[i].rownum+'</td><td style=text-align:left onclick=board('+res[i].s_index+','+res[i].click+')>'+res[i].title+'</td>'+'<td style=text-align:center class='+i+'onclick=userid('+i+')>'+res[i].id+'</td><td style=text-align:center>'+res[i].date+'</td><td style=text-align:center>'+res[i].click+'</td></tr>')
+				}
+			},
+			error:function(e){
+				console.log(e)
+			}
+		})//
+	}
 	</script>
 
 

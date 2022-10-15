@@ -205,4 +205,9 @@ FROM CHATTING
 WHERE FROM_ID = '김수지' AND TO_ID ='김수민' OR FROM_ID ='김수민' AND TO_ID='김수지'
 ORDER BY DATE DESC;
 
-
+## 커뮤니티 페이지 제한
+SELECT @rownum:=@rownum+1 as rownum, S.*
+FROM (SELECT * FROM STOREGE WHERE (@rownum :=10)=10 ORDER BY CLICK DESC ) S 
+LIMIT 10 OFFSET 10;
+			
+				
