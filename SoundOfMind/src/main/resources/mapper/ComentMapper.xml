@@ -8,4 +8,8 @@
 		VALUES
 		(#{id},#{storege_id},#{coments},now())
 	</insert>
+	
+	<delete id="delcomenet" parameterType="com.SoundOfMind.domain.Coment">
+	delete from COMENT where id=#{id}
+	</delete>
 </mapper>

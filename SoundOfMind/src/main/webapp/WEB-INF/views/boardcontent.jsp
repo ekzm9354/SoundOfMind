@@ -127,12 +127,14 @@ pageContext.setAttribute("replaceChar", "\n");
 
 
 					<!-- Break 댓글 조회 -->
+
 					<c:forEach var="boardComent" items="${boardComent}"
 						varStatus="status">
 						<div class="row">
 							<ul class="4u 12u$(medium)">
 								<li style="list-style: none; width: 1160px;"><p
-										style="width: 150px; text-align: left; display: inline-block;">${boardComent.id}</p>
+										style="width: 150px; text-align: left; display: inline-block;"
+										id="comentids">${boardComent.id}</p>
 									<p class="${status.index}"
 										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
 									<p
@@ -154,14 +156,23 @@ pageContext.setAttribute("replaceChar", "\n");
 										style="width: 25px;">
 								</button>
 								<div class="dropdown-content">
-									<span onclick="comentEmotion(`${status.index}`)">분석하기</span><br>
-									<span>삭제하기</span>
+									<c:choose>
+										<c:when test="${user==null && Kakao == null && Naver == null}">
+											<span onclick="comentEmotion(`${status.index}`)">분석하기</span>
+										</c:when>
+										<c:otherwise>
+											<span onclick="comentEmotion(`${status.index}`)">분석하기</span>
+											<br>
+											<span>삭제하기</span>
+										</c:otherwise>
+									</c:choose>
 									<!-- <a href="#">신고하기</a> -->
 								</div>
 							</span>
 						</div>
 						<hr class="major" style="margin-top: 15px; margin-bottom: 15px;" />
 					</c:forEach>
+
 
 
 
@@ -238,6 +249,9 @@ pageContext.setAttribute("replaceChar", "\n");
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
 
 	<script type="text/javascript">
 		function board(s_index) {
@@ -319,7 +333,12 @@ pageContext.setAttribute("replaceChar", "\n");
 		})
 	}
 	</script>
-
+	<script type="text/javascript">
+	window.onload = function comentId(){ 
+	var comentId = $('#comentids').html()		
+	console.log(comentId)
+	}  
+	</script>
 
 
 </body>
