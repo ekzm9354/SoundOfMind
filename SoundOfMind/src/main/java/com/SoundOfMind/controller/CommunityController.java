@@ -69,7 +69,10 @@ public class CommunityController {
 
 		int storege_id = s_index;
 		List<Coment> boardComent = Smapper.boardComent(storege_id);
+		int size = boardComent.size();
 		model.addAttribute("boardComent", boardComent);
+		model.addAttribute("size", size);
+		
 		return "boardcontent";
 	}
 

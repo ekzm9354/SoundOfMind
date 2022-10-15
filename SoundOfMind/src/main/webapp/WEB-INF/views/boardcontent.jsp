@@ -127,12 +127,14 @@ pageContext.setAttribute("replaceChar", "\n");
 
 
 					<!-- Break 댓글 조회 -->
+
 					<c:forEach var="boardComent" items="${boardComent}"
 						varStatus="status">
 						<div class="row">
 							<ul class="4u 12u$(medium)">
-								<li style="list-style: none; width: 1160px;"><p
-										style="width: 150px; text-align: left; display: inline-block;">${boardComent.id}</p>
+								<li style="list-style: none; width: 1160px;" id="comentids"><p
+										style="width: 150px; text-align: left; display: inline-block;"
+										class="USERID${status.index}">${boardComent.id}</p>
 									<p class="${status.index}"
 										style="width: 760px; text-align: left; display: inline-block;">${boardComent.coments}</p>
 									<p
@@ -154,14 +156,23 @@ pageContext.setAttribute("replaceChar", "\n");
 										style="width: 25px;">
 								</button>
 								<div class="dropdown-content">
-									<span onclick="comentEmotion(`${status.index}`)">분석하기</span><br>
-									<span>삭제하기</span>
+									<c:choose>
+										<c:when test="${user==null && Kakao == null && Naver == null}">
+											<span onclick="comentEmotion(`${status.index}`)">분석하기</span>
+										</c:when>
+										<c:otherwise>
+											<span onclick="comentEmotion(`${status.index}`)">분석하기</span>
+											<br>
+											<span class="deleteComent${status.index}"></span>
+										</c:otherwise>
+									</c:choose>
 									<!-- <a href="#">신고하기</a> -->
 								</div>
 							</span>
 						</div>
 						<hr class="major" style="margin-top: 15px; margin-bottom: 15px;" />
 					</c:forEach>
+
 
 
 
@@ -238,6 +249,9 @@ pageContext.setAttribute("replaceChar", "\n");
 	<script src="/resources/assets/js/util.js"></script>
 	<script src="/resources/assets/js/main.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
 
 	<script type="text/javascript">
 		function board(s_index) {
@@ -319,7 +333,34 @@ pageContext.setAttribute("replaceChar", "\n");
 		})
 	}
 	</script>
-
+	<script type="text/javascript">
+	<!--페이지가 로드되면 해당 함수를 실행한다-->
+	window.onload = function comentId(){
+	<!-- 콘텐츠 페이지의 전체 댓글 개수-->
+	var size = `${size}`
+	<!-- 로그인한 유저의 정보-->
+	var userid = `${user.id}`
+	<!-- 댓글에 있는 유저 아이디를 저장하기 위한 배열 선언-->
+	var comentArr = new Array()
+	<!-- 반목문 실행-->
+	for(var i=0; i<size;i++){
+	<!-- Status.index로 댓글에 있는 유저아이디 클래스 구분한 아이디 값 추출-->
+	var comentId = $('p.USERID'+i).text()
+	<!-- 배열 마지막열에 해당 값 추가-->
+	comentArr.push(comentId)	
+	}
+	<!-- 반복문종료 -->
+	
+	<!-- 반복문실행 -->
+	for(var i=0; i<comentArr.length;i++){
+	<!-- 유저 아이디와 배열에 있는 아이디 같다면 조건물 실행-->
+		if(comentArr[i]==userid){
+	<!-- 해당 아이디의 태그값에 삭제하기 삽입-->
+			$('.deleteComent'+i).html('삭제하기')
+		}
+	}
+	}  
+	</script>
 
 
 </body>
