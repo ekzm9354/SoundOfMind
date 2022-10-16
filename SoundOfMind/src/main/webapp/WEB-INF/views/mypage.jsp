@@ -123,7 +123,7 @@
 											<td>${storege.click}</td>
 											<td>${storege.title}</td>
 											<td>${storege.id}</td>
-											<td><button>삭제</button></td>
+											<td><button onclick="DeleteStorege(${storege.s_index})">삭제</button></td>
 										</tr>
 									</c:forEach>
 								</table>
@@ -309,6 +309,28 @@
 		
 	})
 	})
+	
+	function DeleteStorege(s_index){
+		console.log(s_index)
+		$.ajax({
+			url:"DeleteStorege.do",
+			data:{
+				s_index:s_index
+			},
+			type:"GET",
+			success:function(res){
+				if(res>0){
+				alert('삭제되었습니다.')
+				location.reload()
+				}
+				
+			},
+			error:function(e){
+				alert('관리자에게 문의하세요.')
+			},
+		})
+
+	}
 
 </script>
 

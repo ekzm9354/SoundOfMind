@@ -79,6 +79,27 @@
 }
 </style>
 
+<!-- searchimg -->
+<style type="text/css">
+#searchimg{
+	/* transform: scaleX(-1); */
+    /* color: #6495ED; */
+    content: '\f002';
+    cursor: default;
+    display: block;
+    font-size: 1em;
+    height: 2em;
+    line-height: 2em;
+    /* opacity: 0.325; */
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 2em;
+}
+}
+</style>
+
 </head>
 <body class="is-preload">
 	<!-- Wrapper -->
@@ -115,20 +136,18 @@
 				<!-- 검색 -->
 				<div id="search" class="alt">
 					<input type="text" name="query" id="query" placeholder="검색"
-						style="margin-top: 15px;"> <span class="ic"
-						onclick="CoummunitySearch()"> <img
-						src="/resources/assets/img/search.png" style="width: 7%;">
-					</span>
+						style="margin-top: 15px;"> 
+					<img id="searchimg" src="/resources/assets/img/search.png" onclick="CoummunitySearch()" style="width: 7%;margin-top: 20px;margin-right: 8px;">
 				</div>
 
 				<c:choose>
 					<c:when test="${user==null && Kakao == null && Naver == null}">
 						<a href="login.do"><img src="/resources/assets/img/write2.png"
-							style="width: 40px; display: block; margin-top: 13px; margin-left: 65%;"></a>
+							style="width: 40px; display: block; margin-top: 13px; margin-left: 2%; padding-top: 9px;"></a>
 					</c:when>
 					<c:otherwise>
 						<img src="/resources/assets/img/write2.png" onclick="boardWrite()"
-							style="width: 40px; display: block; margin-top: 13px; margin-left: 0%;">
+							style="width: 40px; display: block; margin-top: 13px; margin-left: 2%; padding-top: 9px;">
 					</c:otherwise>
 				</c:choose>
 
@@ -162,6 +181,21 @@
 								</c:forEach>
 							</tbody>
 						</table>
+						
+						<!-- 페이지 넘김 -->
+						<ul class="pagination">
+							<!-- <li><span class="button disabled">Prev</span></li> -->
+							<c:forEach var="size" begin="0" end="${size}"
+								varStatus="sizestatus">
+								<li style="border-color: #6495ED!important; border: solid 2px; border-radius: 5px; padding-left: 5px; padding-right: 5px;"
+									onclick="Page(`${size}`)">${size+1}</li>
+							</c:forEach>
+							<!-- <li>Next</li> -->
+						</ul>
+
+
+
+
 					</div>
 
 					<div class="content" id="con2">
@@ -201,16 +235,9 @@
 						</div>
 					</div>
 				</section>
-				<!-- 페이지 넘김 -->
+				
 
-				<ul class="pagination">
-					<li><span class="button disabled">Prev</span></li>
-					<c:forEach var="size" begin="0" end="${size}"
-						varStatus="sizestatus">
-						<li onclick="Page(`${size}`)">${size+1}</li>
-					</c:forEach>
-					<li>Next</li>
-				</ul>
+				
 
 
 			</div>
