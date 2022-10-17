@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+textarea::placeholder{
+	color:black!important;
+	font-family: 'NanumSquare'!important;
+}
+input::placeholder{
+	color:black!important;
+	font-family: 'NanumSquare'!important;
+}
+
 .card-bordered {
 	border: 1px solid #ebebeb;
 }

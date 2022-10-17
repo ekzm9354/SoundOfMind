@@ -70,7 +70,7 @@
 
 						<!-- 동의버튼 -->
 						<input type="checkbox" id="demo-copy" name="demo-copy"> <label
-							for="demo-copy">개인정보 수집 동의</label>
+							for="demo-copy" style="color: black;">개인정보 수집 동의</label>
 						<div class="6u 12u$(small)">
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
