@@ -2,6 +2,8 @@
 	font-family: 'NanumSquare';	
 }
 
+
+
 .container {
 	max-width: 1170px;
 	margin: auto;
@@ -31,7 +33,6 @@ img {
 
 .recent_heading {
 	float: left;
-	width: 40%;
 }
 
 .srch_bar {
@@ -43,7 +44,8 @@ img {
 .headind_srch {
 	padding: 10px 29px 10px 20px;
 	overflow: hidden;
-	border-bottom: 1px solid #c4c4c4;
+	
+	border-bottom: 1.5px solid #6495ED;
 }
 
 .recent_heading h4 {
@@ -378,6 +380,7 @@ body, input, select, textarea {
 		font-size: 10pt;
 	}
 }
+
 
 @media screen and (max-width: 360px) {
 	body, input, select, textarea {
@@ -3091,11 +3094,38 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 @media screen and (max-width: 736px) {
+	.outgoing_msg {
+    overflow: hidden;
+    padding: 5px;
+	}
+	.time_date {
+	font-size: 11px;
+	}
+	.mesgs {
+    float: left;
+    padding: 30px 10px 0 10px;
+    width: 60%;
+	}	
+	.chat_img {
+    float: left;
+    width: 20%;
+}
+	.chat_ib {
+    float: left;
+    padding: 0 0 0 5px;
+    width: 80%;
+}
+	h3{
+	font-size: 1.25em;
+	}
+	.input_msg_write input{
+	font-size: smaller;
+	}
 	#header {
 		padding-top: 6.5em;
 	}
 	#header .logo {
-		font-size: 1.25em;
+		font-size: 2.25em;
 		margin: 0;
 	}
 	#header .icons {
