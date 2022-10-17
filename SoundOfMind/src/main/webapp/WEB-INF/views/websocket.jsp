@@ -66,7 +66,8 @@
 						style="background-color: #6495ED; border-radius: 3px;">
 						<!-- 메세지 입력하는 곳 -->
 						<input class="publisher-input" type="text" id="inputMsgBox"
-							placeholder="메세지를 입력하세요." onkeypress="inputMsgBox_onkeypress()">
+							style="color: black;" placeholder="메세지를 입력하세요."
+							onkeypress="inputMsgBox_onkeypress()">
 
 						<!-- 전송버튼 -->
 						<a class="publisher-btn text-info" data-abc="true"> <img

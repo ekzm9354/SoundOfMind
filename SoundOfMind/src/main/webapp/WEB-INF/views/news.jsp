@@ -58,7 +58,7 @@
 								긍정뉴스<img class="imgsize" src="/resources/images/posi.png">
 							</h2>
 
-							<ul class="board-list-title">
+							<ul class="board-list-title" style="color: black;">
 								<li class="txt-14">번호</li>
 								<li class="txt-14">날짜</li>
 								<li class="board-title-con txt-14">제목</li>
@@ -68,13 +68,11 @@
 								<c:forEach var="news1" items="${news1}">
 									<li class="newsdata">
 										<ul class="board-list-inner">
-											<li class="board-num"><span class="tag-square red">${news1.rownum}</span>
-											</li>
+											<li class="board-num"><span class="tag-square red" style="color: black;">${news1.rownum}</span></li>
 											<li><span class="tag">${news1.date}</span></li>
 											<li class="board-title-con txt-l"><a
 												style="text-decoration-line: none; color: inherit;"
-												href="${news1.url}"> <span class="title-row2 txt-16"><span
-														class="icon-lock"></span>${news1.title}</span>
+												href="${news1.url}"> <span class="title-row2 txt-16"><span class="icon-lock" style="color: black;"></span>${news1.title}</span>
 											</a></li>
 										</ul>
 

@@ -115,8 +115,8 @@ pageContext.setAttribute("replaceChar", "\n");
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
 
 					<!-- Blockquote 내용 칸 -->
-					<blockquote style="margin-bottom: 50px;color: black;">${storege.content}
-					</blockquote>
+					<p style="margin-bottom: 50px;color: black;">${storege.content}
+					</p>
 
 
 					<!-- 전체 댓글 -->
@@ -193,7 +193,7 @@ pageContext.setAttribute("replaceChar", "\n");
 							<!-- 업로드버튼 -->
 							<ul class="actions small">
 								<li><button class="button small"
-										onclick="coment(${storege.s_index})">Upload</button></li>
+										onclick="coment(${storege.s_index})">댓글 달기</button></li>
 							</ul>
 						</div>
 					</div>

@@ -94,8 +94,7 @@ img {
 										<div class="chat_list">
 											<div class="chat_people">
 												<div class="chat_img">
-													<img src="https://ptetutorials.com/images/user-profile.png"
-														alt="sunil">
+													<img src="/resources/assets/img/user1.png">
 												</div>
 												<div class="chat_ib" onclick="ShowChat(`${chatlist.to_id}`)">
 													<h5 class="whoChat">${chatlist.to_id}</h5>
@@ -200,7 +199,7 @@ img {
 									$('.incoming_msg')
 											.last()
 											.append(
-													"<div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='https://ptetutorials.com/images/user-profile.png' alt='sunil'><p>"
+													"<div class='received_msg'><div class='received_withd_msg'><img class='imcoming_msg_img' src='/resources/assets/img/user1.png'><p>"
 															+ res[i].chat
 															+ "</p><span class='time_date'>"
 															+ res[i].date
