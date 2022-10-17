@@ -320,13 +320,14 @@
 			type:"GET",
 			success:function(res){
 				if(res>0){
-				alert('삭제되었습니다.')
-				location.reload()
+					swal('글이 삭제되었습니다.','','success').then(result=>{
+						location.reload()
+					});
 				}
 				
 			},
 			error:function(e){
-				alert('관리자에게 문의하세요.')
+				swal('관리자에게 문의하세요!','','warning')
 			},
 		})
 
