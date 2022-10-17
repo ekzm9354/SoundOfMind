@@ -169,7 +169,8 @@
 				},
 				success : function(res) {
 					<!-- Flaks에서 딕셔너리 형태로 리턴 -->
-					$('#speech').append(res.text)
+					console.log(res)
+					$('#speech').append(res)
 					$('#emotion').append(res.emotion)
 					<!-- emotion 값을 확인-->
 					var emotion = $('#emotion').val()
