@@ -33,8 +33,10 @@
 </head>
 <body class="is-preload">
 
-	<!-- Wrapper -->
+<!-- Wrapper -->
+<div id="wrapper">
 	<!-- Main -->
+	<div id="main">
 	<div class="inner">
 		<!-- Header -->
 		<header id="header">
@@ -72,9 +74,9 @@
 
 	<!-- 버튼 끝 -->
 
+	</div>
 
-
-
+</div>
 
 
 
