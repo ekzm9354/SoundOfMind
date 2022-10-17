@@ -167,37 +167,63 @@
 				data : {
 					num : 1
 				},
+				dataType:"json",
 				success : function(res) {
 					<!-- Flaks에서 딕셔너리 형태로 리턴 -->
 					console.log(res)
-					$('#speech').append(res)
+					/* console.log(res.voiceParam)
+					console.log(res.textParam)
+					var voiceParam = res.voiceParam
+					var textParam = res.textParam */
+					
+					$.ajax({
+						url:"http://92a3-34-66-26-253.ngrok.io/ngrok",
+						data:JSON.stringify(res),
+						type:"POST",
+						contentType: "application/json",
+						dataType:"text",
+						success:function(res){
+							console.log(res)
+							$('#speech').html('')
+							$('#emotion').html('')
+							var result = res.split(",")
+							$('#speech').append(result[0])
+							$('#emotion').append(result[1])
+							var emotion = $('#emotion').val()
+							
+							$('#Mic').remove()
+							if(emotion==='중립'){
+								<!-- Mic 삭제 후 div monster </div> 태그 다음 마이크 재생성 -->
+								$('.main').append('<img src=/resources/assets/img/emotion/micsoso.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}else if(emotion==='분노'){
+									$('.main').append('<img src=/resources/assets/img/emotion/micangry.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}
+								else if(emotion==='슬픔'){
+									$('.main').append('<img src=/resources/assets/img/emotion/micsad.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}
+								else if(emotion==='불안'){
+									$('.main').append('<img src=/resources/assets/img/emotion/micscared.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}
+								else if(emotion==='상처'){
+									$('.main').append('<img src=/resources/assets/img/emotion/miching.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}
+								else if(emotion==='기쁨'){
+									$('.main').append('<img src=/resources/assets/img/emotion/michappy.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								}
+								else if(emotion==='당황'){
+									$('.main').append('<img src=/resources/assets/img/emotion/micdisgusting.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
+								} 
+						},
+						error:function(e){
+							console.log(e)
+						}
+					})
+					/* $('#speech').append(res)
 					$('#emotion').append(res.emotion)
 					<!-- emotion 값을 확인-->
-					var emotion = $('#emotion').val()
+					var emotion = $('#emotion').val() */
 					<!-- emotion이 중립인 경우-->
-					if(emotion==='중립'){
-					<!-- Mic 삭제 후 -->
-						$('#Mic').remove()
-					<!-- Mic 삭제 후 div monster </div> 태그 다음 마이크 재생성 -->
-						$('.main').append('<img src=/resources/assets/img/emotion/micsoso.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}else if(emotion==='분노'){
-						$('.main').append('<img src=/resources/assets/img/emotion/micangry.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
-					else if(emotion==='슬픔'){
-						$('.main').append('<img src=/resources/assets/img/emotion/micsad.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
-					else if(emotion==='불안'){
-						$('.main').append('<img src=/resources/assets/img/emotion/micscared.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
-					else if(emotion==='상처'){
-						$('.main').append('<img src=/resources/assets/img/emotion/miching.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
-					else if(emotion==='기쁨'){
-						$('.main').append('<img src=/resources/assets/img/emotion/michappy.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
-					else if(emotion==='당황'){
-						$('.main').append('<img src=/resources/assets/img/emotion/micdisgusting.png onclick=speaker() id= Mic style="position: absolute; width: 80%; top: 200px;">')
-					}
+					
 				},
 				error : function(e) {
 					console.log(e)
