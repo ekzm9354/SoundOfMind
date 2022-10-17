@@ -57,7 +57,7 @@
 
 				</header>
 
-				<div class=fontSize>
+				<div class=fontSize style="color: black;">
 					<span onclick="fontsizedown()" style="font-size: 0.5em;">가</span> <span
 						onclick="fontsizeup1()" style="font-size: 1em;">가</span> <span
 						onclick="fontsizeup2()" style="font-size: 1.5em;">가</span> <span

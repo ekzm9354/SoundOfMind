@@ -58,6 +58,10 @@
 	
 }
 
+textarea::placeholder{
+	color:black!important;
+	font-family: 'NanumSquare'!important;
+}
 
 
 /*폰트 사이즈 */
@@ -1091,7 +1095,7 @@ textarea {
   background: #ffffff;
   border-radius: 0.375em;
   border: none;
-  border: solid 1px rgba(210, 215, 217, 0.75);
+  border: solid 1px #7f888f;
   color: inherit;
   display: block;
   outline: 0;

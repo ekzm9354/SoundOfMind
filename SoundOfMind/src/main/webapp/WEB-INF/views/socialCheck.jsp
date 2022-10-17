@@ -30,53 +30,57 @@
 <!-- 버튼 -->
 <link rel="stylesheet" href="/resources/assets/css/social.css" />
 
+<!-- animate -->
+<script src="/resources/assets/js/social.js"></script>
+
 </head>
 <body class="is-preload">
 
-<!-- Wrapper -->
-<div id="wrapper">
-	<!-- Main -->
-	<div id="main">
-	<div class="inner">
-		<!-- Header -->
-		<header id="header">
-			<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
-		</header>
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Header -->
+				<header id="header">
+					<a href="index.do" class="logo"><strong>마음의</strong> 소리 </a>
+				</header>
 
+
+			</div>
+			<!-- 버튼 -->
+			<c:if test="${Social=='kakao'}">
+				<div class="container">
+					<div id="cursor">
+						<div class="cursor__inner"></div>
+					</div>
+					<a href="#" class="button" cursor-class="overlay"
+						style="background-color: #CCE5FF; margin-top: 110px; font-family: 'NanumSquare' !important; font-size: 1em;">
+						<span class="button-text" id="hov">계속 진행하시겠습니까?</span> <span
+						class="button-text foreground-text"
+						onclick="searchUser(`${AccessToken}`,`${Social}`)">네</span>
+					</a>
+				</div>
+			</c:if>
+			<c:if test="${Social=='naver'}">
+				<div class="container">
+					<div id="cursor">
+						<div class="cursor__inner"></div>
+					</div>
+					<a href="#" class="button" cursor-class="overlay"
+						style="background-color: #CCE5FF; margin-top: 110px; font-family: 'NanumSquare' !important; font-size: 1em;">
+						<span class="button-text">계속 진행하시겠습니까?</span> <span
+						class="button-text foreground-text">네</span>
+					</a>
+
+				</div>
+			</c:if>
+
+			<!-- 버튼 끝 -->
+
+		</div>
 
 	</div>
-	<!-- 버튼 -->
-
-	<c:if test="${Social=='kakao'}">
-		<div class="container">
-			<div id="cursor">
-				<div class="cursor__inner"></div>
-			</div>
-			<a href="#" class="button" cursor-class="overlay"> <span
-				class="button-text">Login Continue</span> <span
-				class="button-text foreground-text"
-				onclick="searchUser(`${AccessToken}`,`${Social}`)">Click</span>
-			</a>
-		</div>
-	</c:if>
-	<c:if test="${Social=='naver'}">
-		<div class="container">
-			<div id="cursor">
-				<div class="cursor__inner"></div>
-			</div>
-			<a href="#" class="button" cursor-class="overlay"> <span
-				class="button-text">Login Continue</span> <span
-				class="button-text foreground-text">Click</span>
-			</a>
-
-		</div>
-	</c:if>
-
-	<!-- 버튼 끝 -->
-
-	</div>
-
-</div>
 
 
 
@@ -111,7 +115,6 @@ function searchUser(AccessToken,Social){
 	}
 	
 </script>
-
 
 	<!-- 버튼 js -->
 	<script type="text/javascript">
@@ -156,7 +159,6 @@ cursorModifiers.forEach((cursorModifier) => {
   })
 })
 </script>
-
 
 
 
