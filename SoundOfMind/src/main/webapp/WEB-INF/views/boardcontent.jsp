@@ -106,7 +106,7 @@ pageContext.setAttribute("replaceChar", "\n");
 				<section style="padding-top: 0px;">
 					<header class="main" id="content">
 						<h3>${storege.title}</h3>
-						<p style="margin-bottom: 5px;">
+						<p style="margin-bottom: 5px;color: black;font-size: 17px;">
 							<span style="margin-right: 15px;"> ${storege.id} </span> <span>
 								${storege.date} </span> <span style="float: right;">
 								${storege.click} </span>
@@ -115,7 +115,7 @@ pageContext.setAttribute("replaceChar", "\n");
 					<hr class="major" style="margin-top: 5px; margin-bottom: 30px;" />
 
 					<!-- Blockquote 내용 칸 -->
-					<blockquote style="margin-bottom: 50px;">${storege.content}
+					<blockquote style="margin-bottom: 50px;color: black;">${storege.content}
 					</blockquote>
 
 
@@ -133,7 +133,7 @@ pageContext.setAttribute("replaceChar", "\n");
 						varStatus="status">
 						<div class="row">
 							<ul class="4u 12u$(medium)">
-								<li style="list-style: none; width: 1160px;" id="comentids"><p
+								<li style="list-style: none;width: 1160px;color: black;" id="comentids"><p
 										style="width: 150px; text-align: left; display: inline-block;"
 										class="USERID${status.index}">${boardComent.id}</p>
 									<p class="${status.index}"
@@ -368,14 +368,19 @@ pageContext.setAttribute("replaceChar", "\n");
 			type:"GET",
 			success:function(res){
 				if(res>0){
-				alert('삭제되었습니다')
-				location.reload()
+					swal({
+						  icon: 'success',                  
+						  title: '댓글이 삭제되었습니다.'
+						}).then(result=>{
+							location.reload()
+						})
+				
 				}else{
-					alert('관리자에게 문의하세요')
+					swal('관리자에게 문의하세요.','','warning')
 				}
 			},
 			error:function(e){
-				alert('관리자에게 문의하세요')
+				swal('관리자에게 문의하세요.','','warning')
 				console.log(e)
 			}
 		})
