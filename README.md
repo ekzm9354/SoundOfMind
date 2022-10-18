@@ -1,5 +1,5 @@
 ## SoundOfMind(마음의소리) 팀명 : 백문불여일견(百聞不如一見)
-
+<div align=center><img src=https://user-images.githubusercontent.com/106305465/196345132-c194cb35-9167-412c-b9d9-5a16aacc3a5c.png></h1></div>
 
 # 1. 프로젝트 개요
 **주제 : 음성 인식을 활용한 대화자 감정분석 기반 청각장애인 커뮤니티 서비스**
@@ -7,7 +7,7 @@
 - 사용자의 의견을 올리고 댓글로 이야기를 나누는 자유게시판과 감정별로 뉴스를 조회할 수 있는 기능 제공
 - 글쓴이를 클릭하면 메시지 보내기가 가능하며 이후 자유롭게 1:1 채팅 가능
 # 2. 주요기능
-![기능내용](https://user-images.githubusercontent.com/106305465/196311178-47c3aae7-b3dd-418d-9316-201417756224.jpg) 
+![image](https://user-images.githubusercontent.com/106305465/196345516-219711c6-3497-472c-b006-07cdd93cd06a.png)
 # 3. 개발환경
  구분|내용
 ---|---|
