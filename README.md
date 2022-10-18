@@ -34,9 +34,21 @@
 ![채팅뉴스피드백](https://user-images.githubusercontent.com/106305465/196311108-bb6df9bd-3345-4477-9643-42f081ace858.jpg)
 #### 프로필/복지관/그룹채팅
 ![프로필복지관그룹채팅](https://user-images.githubusercontent.com/106305465/196311129-55402dac-d4f6-4ed7-a400-bddcb1ea2c76.png)
-# 9. 팀원 단위 업무분장
+# 9. 모델개발 트러블 슈팅
+#### 첫번째 시안
+![image](https://user-images.githubusercontent.com/106305465/196341225-853b70aa-3c82-4270-84cb-e1a5f6cd74d7.png)
+- 어조와 관련된 데이터는 CNN 모델을 사용했고,
+내용과 관련된 데이터는 KoBERT 모델을 사용했습니다.
+하지만 KoBERT 모델이 파이토치 기반으로 구성되어 CNN 모델과 결합할 방법을 찾지 못해 다른 방법을 찾게 되었습니다.
+#### 두번째 시안
+![image](https://user-images.githubusercontent.com/106305465/196341584-00fbed1e-f3e6-41bf-96c3-076855f6e960.png)
+- 어조와 관련된 데이터는 첫 번째 방법과 동일하게 CNN 모델을
+내용과 관련된 데이터는 BERT 모델을 사용했습니다.
+KoBERT 모델과 다르게 BERT 모델은 CNN 모델과 결합해 하나의 통합모델 구현에 성공했으나, BERT 모델의 정확도가 낮게 나오는 다른 문제가 발생했습니다.
+이를 극복하기 위해 텍스트 토큰화 과정 등 전체적으로 검증하는 여러 시도를 했으나 해결방안을 찾지 못해 통합모델에서 유의미한 결과를 얻어낼 수 없었습니다.
+# 10. 팀원 단위 업무분장
 ![팀원소개](https://user-images.githubusercontent.com/106305465/196311138-91930393-9d67-4622-adfc-53db9816cbf8.jpg)
 
-# 10. 트러블 슈팅
+
 # 11. 시연영상
 # 12. 참고문헌
