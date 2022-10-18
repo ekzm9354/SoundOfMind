@@ -35,6 +35,7 @@
 # 5. 서비스 아키텍처
 ![img](https://github.com/2022-SMHRD-KDT-BIgData-14/SoundOfMind/blob/main/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png)
 # 6. 모델 구현
+![img](https://github.com/2022-SMHRD-KDT-BIgData-14/SoundOfMind/blob/main/%EB%AA%A8%EB%8D%B8%EC%8B%9C%EC%95%88.png)
 # 6. S/W 동작화면
 
 # 7. WEB 페이지
