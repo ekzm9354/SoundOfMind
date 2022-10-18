@@ -31,6 +31,7 @@
 
 
 # 4. 유스케이스
+![img](https://github.com/2022-SMHRD-KDT-BIgData-14/SoundOfMind/blob/main/%EC%9C%A0%EC%8A%A4%EC%BC%80%EC%9D%B4%EC%8A%A4.png)
 # 5. 흐름도
 # 6. S/W 동작화면
 
