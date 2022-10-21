@@ -49,7 +49,8 @@ KoBERT 모델과 다르게 BERT 모델은 CNN 모델과 결합해 하나의 통�
 # 10. 팀원 단위 업무분장
 ![팀원소개](https://user-images.githubusercontent.com/106305465/196311138-91930393-9d67-4622-adfc-53db9816cbf8.jpg)
 
-
 # 11. 시연영상
-https://www.youtube.com/watch?v=jgd0M3Bvd8c
+[![image ALT TEXT HERE](https://user-images.githubusercontent.com/106305465/197095706-a6b22c73-e335-4305-bef0-595720d15dfe.png)](https://www.youtube.com/watch?v=jgd0M3Bvd8c)
 # 12. 참고문헌
+![image](https://user-images.githubusercontent.com/106305465/197095972-455fee0c-3fd8-49de-a827-1257ab54bbf7.png)
+
