@@ -51,4 +51,5 @@ KoBERT 모델과 다르게 BERT 모델은 CNN 모델과 결합해 하나의 통�
 
 
 # 11. 시연영상
+https://www.youtube.com/watch?v=jgd0M3Bvd8c
 # 12. 참고문헌
